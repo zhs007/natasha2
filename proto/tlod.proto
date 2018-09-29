@@ -1,0 +1,24 @@
+syntax = "proto3";
+import "base.proto";
+package natasha.tlod;
+
+message BGInfo {
+    int32 reelsIndex = 1;
+    natasha.base.SymbolBlock3X5 arr = 2;
+    int32 turnNums = 3;
+    int32 downNums = 4;
+    int32 curBet = 5;
+    int32 turnWin = 6;
+}
+
+message FGInfo {
+    int32 reelsIndex = 1;
+    natasha.base.SymbolBlock3X5 arr = 2;
+    int32 turnNums = 3;
+    int32 downNums = 4;
+    int32 curBet = 5;
+    int32 turnWin = 6;
+    int32 totalWin = 7;
+    int32 lastNums = 8;
+    int32 curNums = 9;
+}
