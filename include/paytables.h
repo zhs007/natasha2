@@ -9,9 +9,9 @@
 namespace natasha {
 
 template <int Width, typename SymbolType, typename MappingType,
-          typename ValueType>
+          typename MoneyType>
 class Paytables {
-  typedef StaticArray<Width, ValueType> StaticArrayTypeT;
+  typedef StaticArray<Width, MoneyType> StaticArrayTypeT;
   typedef std::map<SymbolType, StaticArrayTypeT> Map;
   typedef std::pair<SymbolType, StaticArrayTypeT> Pair;
   typedef Mapping<MappingType, int> MappingT;
@@ -20,7 +20,7 @@ class Paytables {
   Paytables() {}
 
  public:
-  void setSymbolPayout(SymbolType symbol, int index, ValueType payout) {
+  void setSymbolPayout(SymbolType symbol, int index, MoneyType payout) {
     if (!m_map.has(symbol)) {
       Pair p;
       m_map.insert(p);
@@ -29,7 +29,7 @@ class Paytables {
     m_map[symbol].set(index, payout);
   }
 
-  ValueType getSymbolPayout(SymbolType symbol, int index) {
+  MoneyType getSymbolPayout(SymbolType symbol, int index) {
     assset(m_map.has(symbol));
 
     return m_map[symbol].get(index);
@@ -37,7 +37,7 @@ class Paytables {
 
   void setMapping(MappingType src, int index) { m_mapping.set(src, index); }
 
-  ValueType getSymbolPayoutWithMapping(SymbolType symbol, MappingType mapping) {
+  MoneyType getSymbolPayoutWithMapping(SymbolType symbol, MappingType mapping) {
     assset(m_map.has(symbol));
 
     return m_map[symbol].get(m_mapping.get(mapping));

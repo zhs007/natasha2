@@ -17,6 +17,19 @@ class Mapping {
   std::map<SrcValueType, DestValueType> m_map;
 };
 
+template <typename PositionType>
+struct Position2D {
+  PositionType x, y;
+
+  Position2D(PositionType x_, PositionType y_) {
+    this->x = x_;
+    this->y = y_;
+  }
+};
+
+typedef struct {
+} NullType;
+
 }  // namespace natasha
 
 #endif  // __NATASHA_UTILS_H__
