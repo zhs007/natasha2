@@ -1,10 +1,10 @@
-#ifndef __NATASA_UTILS_H__
-#define __NATASA_UTILS_H__
+#ifndef __NATASHA_UTILS_H__
+#define __NATASHA_UTILS_H__
 
 #include <assert.h>
 #include <map>
 
-namespace natasa {
+namespace natasha {
 
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
@@ -17,6 +17,6 @@ class Mapping {
   std::map<SrcValueType, DestValueType> m_map;
 };
 
-}  // namespace natasa
+}  // namespace natasha
 
-#endif  // __NATASA_UTILS_H__
+#endif  // __NATASHA_UTILS_H__

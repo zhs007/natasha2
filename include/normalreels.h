@@ -1,14 +1,16 @@
-#ifndef __NATASA_NORMALREELS_H__
-#define __NATASA_NORMALREELS_H__
+#ifndef __NATASHA_NORMALREELS_H__
+#define __NATASHA_NORMALREELS_H__
 
 #include <assert.h>
 #include <map>
 #include "reels.h"
 
-namespace natasa {
+namespace natasha {
 
 template <typename SymbolType>
 class NormalReels : public BaseReels<SymbolType> {
+    public:
+    typedef BaseReels<SymbolType> BaseReelsT;
  public:
   NormalReels() {}
 
@@ -16,6 +18,6 @@ class NormalReels : public BaseReels<SymbolType> {
  protected:
 };
 
-}  // namespace natasa
+}  // namespace natasha
 
-#endif  // __NATASA_NORMALREELS_H__
+#endif  // __NATASHA_NORMALREELS_H__

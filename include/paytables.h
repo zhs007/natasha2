@@ -1,18 +1,20 @@
-#ifndef __NATASA_PAYTABLES_H__
-#define __NATASA_PAYTABLES_H__
+#ifndef __NATASHA_PAYTABLES_H__
+#define __NATASHA_PAYTABLES_H__
 
 #include <assert.h>
 #include <map>
 #include "array.h"
 #include "utils.h"
 
-namespace natasa {
+namespace natasha {
 
 template <int Width, typename SymbolType, typename MappingType,
           typename ValueType>
 class Paytables {
-  typedef StaticArray<Width, ValueType> StaticArrayType;
-  typedef std::pair<SymbolType, StaticArrayType> Pair;
+  typedef StaticArray<Width, ValueType> StaticArrayTypeT;
+  typedef std::map<SymbolType, StaticArrayTypeT> Map;
+  typedef std::pair<SymbolType, StaticArrayTypeT> Pair;
+  typedef Mapping<MappingType, int> MappingT;
 
  public:
   Paytables() {}
@@ -42,10 +44,10 @@ class Paytables {
   }
 
  protected:
-  Mapping<MappingType, int> m_mapping;
-  std::map<SymbolType, StaticArrayType> m_map;
+  MappingT m_mapping;
+  Map m_map;
 };
 
-}  // namespace natasa
+}  // namespace natasha
 
-#endif  // __NATASA_PAYTABLES_H__
+#endif  // __NATASHA_PAYTABLES_H__

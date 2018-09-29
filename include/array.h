@@ -1,9 +1,9 @@
-#ifndef __NATASA_ARRAY_H__
-#define __NATASA_ARRAY_H__
+#ifndef __NATASHA_ARRAY_H__
+#define __NATASHA_ARRAY_H__
 
 #include <assert.h>
 
-namespace natasa {
+namespace natasha {
 
 template <int Width, int Height, typename ValueType>
 class Array2D {
@@ -65,6 +65,6 @@ class StaticArray {
   ValueType m_arr[Length];
 };
 
-}  // namespace natasa
+}  // namespace natasha
 
-#endif  // __NATASA_ARRAY_H__
+#endif  // __NATASHA_ARRAY_H__

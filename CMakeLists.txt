@@ -13,7 +13,7 @@ add_subdirectory(src)
 
 add_executable(maintest ./test/test.cpp)
 
-target_link_libraries(maintest libnatasa2)
+target_link_libraries(maintest libnatasha2)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

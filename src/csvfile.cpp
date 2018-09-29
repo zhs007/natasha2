@@ -2,7 +2,7 @@
 #include <fstream>
 #include <streambuf>
 
-namespace natasa {
+namespace natasha {
 
 bool isWrap(std::string& str, int index, int& off) {
   if (str[index] == '\n') {
@@ -118,4 +118,4 @@ const char* CSVFile::get(int y, const char* str) const {
   return (*m_lst[y])[str].c_str();
 }
 
-}  // namespace natasa
+}  // namespace natasha

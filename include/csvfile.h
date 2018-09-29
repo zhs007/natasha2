@@ -1,12 +1,12 @@
-#ifndef __NATASA_CSVFILE_H__
-#define __NATASA_CSVFILE_H__
+#ifndef __NATASHA_CSVFILE_H__
+#define __NATASHA_CSVFILE_H__
 
 #include <assert.h>
 #include <map>
 #include <string>
 #include <vector>
 
-namespace natasa {
+namespace natasha {
 
 class CSVFile {
  public:
@@ -31,6 +31,6 @@ class CSVFile {
   List m_lst;
 };
 
-}  // namespace natasa
+}  // namespace natasha
 
-#endif  // __NATASA_CSVFILE_H__
+#endif  // __NATASHA_CSVFILE_H__
