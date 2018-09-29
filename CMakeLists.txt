@@ -10,10 +10,12 @@ include_directories(./include)
 # aux_source_directory(./test DIR_ROOT_SRCS)
 
 add_subdirectory(src)
+add_subdirectory(games)
 
 add_executable(maintest ./test/test.cpp)
 
 target_link_libraries(maintest libnatasha2)
+target_link_libraries(maintest libgames)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
