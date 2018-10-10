@@ -1,12 +1,12 @@
 syntax = "proto3";
-package natasha.base;
+package natashabasepb;
 
 message SymbolLine {
     repeated int32 xdat = 1;
 }
 
 message SymbolBlock {
-    repeated SymbolBlock ydat = 1;
+    repeated SymbolLine ydat = 1;
 }
 
 message SymbolBlock3X5 {

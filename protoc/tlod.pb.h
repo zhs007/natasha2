@@ -52,28 +52,25 @@ inline void InitDefaults() {
   InitDefaultsFGInfo();
 }
 }  // namespace protobuf_tlod_2eproto
-namespace natasha {
-namespace tlod {
+namespace natashatlodpb {
 class BGInfo;
 class BGInfoDefaultTypeInternal;
 extern BGInfoDefaultTypeInternal _BGInfo_default_instance_;
 class FGInfo;
 class FGInfoDefaultTypeInternal;
 extern FGInfoDefaultTypeInternal _FGInfo_default_instance_;
-}  // namespace tlod
-}  // namespace natasha
+}  // namespace natashatlodpb
 namespace google {
 namespace protobuf {
-template<> ::natasha::tlod::BGInfo* Arena::Create< ::natasha::tlod::BGInfo>(Arena*);
-template<> ::natasha::tlod::FGInfo* Arena::Create< ::natasha::tlod::FGInfo>(Arena*);
+template<> ::natashatlodpb::BGInfo* Arena::Create< ::natashatlodpb::BGInfo>(Arena*);
+template<> ::natashatlodpb::FGInfo* Arena::Create< ::natashatlodpb::FGInfo>(Arena*);
 }  // namespace protobuf
 }  // namespace google
-namespace natasha {
-namespace tlod {
+namespace natashatlodpb {
 
 // ===================================================================
 
-class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natasha.tlod.BGInfo) */ {
+class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashatlodpb.BGInfo) */ {
  public:
   BGInfo();
   virtual ~BGInfo();
@@ -159,14 +156,14 @@ class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // accessors -------------------------------------------------------
 
-  // .natasha.base.SymbolBlock3X5 arr = 2;
+  // .natashabasepb.SymbolBlock3X5 arr = 2;
   bool has_arr() const;
   void clear_arr();
   static const int kArrFieldNumber = 2;
-  const ::natasha::base::SymbolBlock3X5& arr() const;
-  ::natasha::base::SymbolBlock3X5* release_arr();
-  ::natasha::base::SymbolBlock3X5* mutable_arr();
-  void set_allocated_arr(::natasha::base::SymbolBlock3X5* arr);
+  const ::natashabasepb::SymbolBlock3X5& arr() const;
+  ::natashabasepb::SymbolBlock3X5* release_arr();
+  ::natashabasepb::SymbolBlock3X5* mutable_arr();
+  void set_allocated_arr(::natashabasepb::SymbolBlock3X5* arr);
 
   // int32 reelsIndex = 1;
   void clear_reelsindex();
@@ -198,11 +195,11 @@ class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::google::protobuf::int32 turnwin() const;
   void set_turnwin(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:natasha.tlod.BGInfo)
+  // @@protoc_insertion_point(class_scope:natashatlodpb.BGInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::natasha::base::SymbolBlock3X5* arr_;
+  ::natashabasepb::SymbolBlock3X5* arr_;
   ::google::protobuf::int32 reelsindex_;
   ::google::protobuf::int32 turnnums_;
   ::google::protobuf::int32 downnums_;
@@ -214,7 +211,7 @@ class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 };
 // -------------------------------------------------------------------
 
-class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natasha.tlod.FGInfo) */ {
+class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashatlodpb.FGInfo) */ {
  public:
   FGInfo();
   virtual ~FGInfo();
@@ -300,14 +297,14 @@ class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // accessors -------------------------------------------------------
 
-  // .natasha.base.SymbolBlock3X5 arr = 2;
+  // .natashabasepb.SymbolBlock3X5 arr = 2;
   bool has_arr() const;
   void clear_arr();
   static const int kArrFieldNumber = 2;
-  const ::natasha::base::SymbolBlock3X5& arr() const;
-  ::natasha::base::SymbolBlock3X5* release_arr();
-  ::natasha::base::SymbolBlock3X5* mutable_arr();
-  void set_allocated_arr(::natasha::base::SymbolBlock3X5* arr);
+  const ::natashabasepb::SymbolBlock3X5& arr() const;
+  ::natashabasepb::SymbolBlock3X5* release_arr();
+  ::natashabasepb::SymbolBlock3X5* mutable_arr();
+  void set_allocated_arr(::natashabasepb::SymbolBlock3X5* arr);
 
   // int32 reelsIndex = 1;
   void clear_reelsindex();
@@ -357,11 +354,11 @@ class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::google::protobuf::int32 curnums() const;
   void set_curnums(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:natasha.tlod.FGInfo)
+  // @@protoc_insertion_point(class_scope:natashatlodpb.FGInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::natasha::base::SymbolBlock3X5* arr_;
+  ::natashabasepb::SymbolBlock3X5* arr_;
   ::google::protobuf::int32 reelsindex_;
   ::google::protobuf::int32 turnnums_;
   ::google::protobuf::int32 downnums_;
@@ -390,42 +387,42 @@ inline void BGInfo::clear_reelsindex() {
   reelsindex_ = 0;
 }
 inline ::google::protobuf::int32 BGInfo::reelsindex() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.BGInfo.reelsIndex)
+  // @@protoc_insertion_point(field_get:natashatlodpb.BGInfo.reelsIndex)
   return reelsindex_;
 }
 inline void BGInfo::set_reelsindex(::google::protobuf::int32 value) {
   
   reelsindex_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.BGInfo.reelsIndex)
+  // @@protoc_insertion_point(field_set:natashatlodpb.BGInfo.reelsIndex)
 }
 
-// .natasha.base.SymbolBlock3X5 arr = 2;
+// .natashabasepb.SymbolBlock3X5 arr = 2;
 inline bool BGInfo::has_arr() const {
   return this != internal_default_instance() && arr_ != NULL;
 }
-inline const ::natasha::base::SymbolBlock3X5& BGInfo::arr() const {
-  const ::natasha::base::SymbolBlock3X5* p = arr_;
-  // @@protoc_insertion_point(field_get:natasha.tlod.BGInfo.arr)
-  return p != NULL ? *p : *reinterpret_cast<const ::natasha::base::SymbolBlock3X5*>(
-      &::natasha::base::_SymbolBlock3X5_default_instance_);
+inline const ::natashabasepb::SymbolBlock3X5& BGInfo::arr() const {
+  const ::natashabasepb::SymbolBlock3X5* p = arr_;
+  // @@protoc_insertion_point(field_get:natashatlodpb.BGInfo.arr)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashabasepb::SymbolBlock3X5*>(
+      &::natashabasepb::_SymbolBlock3X5_default_instance_);
 }
-inline ::natasha::base::SymbolBlock3X5* BGInfo::release_arr() {
-  // @@protoc_insertion_point(field_release:natasha.tlod.BGInfo.arr)
+inline ::natashabasepb::SymbolBlock3X5* BGInfo::release_arr() {
+  // @@protoc_insertion_point(field_release:natashatlodpb.BGInfo.arr)
   
-  ::natasha::base::SymbolBlock3X5* temp = arr_;
+  ::natashabasepb::SymbolBlock3X5* temp = arr_;
   arr_ = NULL;
   return temp;
 }
-inline ::natasha::base::SymbolBlock3X5* BGInfo::mutable_arr() {
+inline ::natashabasepb::SymbolBlock3X5* BGInfo::mutable_arr() {
   
   if (arr_ == NULL) {
-    arr_ = ::google::protobuf::Arena::Create< ::natasha::base::SymbolBlock3X5 >(
+    arr_ = ::google::protobuf::Arena::Create< ::natashabasepb::SymbolBlock3X5 >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natasha.tlod.BGInfo.arr)
+  // @@protoc_insertion_point(field_mutable:natashatlodpb.BGInfo.arr)
   return arr_;
 }
-inline void BGInfo::set_allocated_arr(::natasha::base::SymbolBlock3X5* arr) {
+inline void BGInfo::set_allocated_arr(::natashabasepb::SymbolBlock3X5* arr) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete reinterpret_cast< ::google::protobuf::MessageLite*>(arr_);
@@ -441,7 +438,7 @@ inline void BGInfo::set_allocated_arr(::natasha::base::SymbolBlock3X5* arr) {
     
   }
   arr_ = arr;
-  // @@protoc_insertion_point(field_set_allocated:natasha.tlod.BGInfo.arr)
+  // @@protoc_insertion_point(field_set_allocated:natashatlodpb.BGInfo.arr)
 }
 
 // int32 turnNums = 3;
@@ -449,13 +446,13 @@ inline void BGInfo::clear_turnnums() {
   turnnums_ = 0;
 }
 inline ::google::protobuf::int32 BGInfo::turnnums() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.BGInfo.turnNums)
+  // @@protoc_insertion_point(field_get:natashatlodpb.BGInfo.turnNums)
   return turnnums_;
 }
 inline void BGInfo::set_turnnums(::google::protobuf::int32 value) {
   
   turnnums_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.BGInfo.turnNums)
+  // @@protoc_insertion_point(field_set:natashatlodpb.BGInfo.turnNums)
 }
 
 // int32 downNums = 4;
@@ -463,13 +460,13 @@ inline void BGInfo::clear_downnums() {
   downnums_ = 0;
 }
 inline ::google::protobuf::int32 BGInfo::downnums() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.BGInfo.downNums)
+  // @@protoc_insertion_point(field_get:natashatlodpb.BGInfo.downNums)
   return downnums_;
 }
 inline void BGInfo::set_downnums(::google::protobuf::int32 value) {
   
   downnums_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.BGInfo.downNums)
+  // @@protoc_insertion_point(field_set:natashatlodpb.BGInfo.downNums)
 }
 
 // int32 curBet = 5;
@@ -477,13 +474,13 @@ inline void BGInfo::clear_curbet() {
   curbet_ = 0;
 }
 inline ::google::protobuf::int32 BGInfo::curbet() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.BGInfo.curBet)
+  // @@protoc_insertion_point(field_get:natashatlodpb.BGInfo.curBet)
   return curbet_;
 }
 inline void BGInfo::set_curbet(::google::protobuf::int32 value) {
   
   curbet_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.BGInfo.curBet)
+  // @@protoc_insertion_point(field_set:natashatlodpb.BGInfo.curBet)
 }
 
 // int32 turnWin = 6;
@@ -491,13 +488,13 @@ inline void BGInfo::clear_turnwin() {
   turnwin_ = 0;
 }
 inline ::google::protobuf::int32 BGInfo::turnwin() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.BGInfo.turnWin)
+  // @@protoc_insertion_point(field_get:natashatlodpb.BGInfo.turnWin)
   return turnwin_;
 }
 inline void BGInfo::set_turnwin(::google::protobuf::int32 value) {
   
   turnwin_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.BGInfo.turnWin)
+  // @@protoc_insertion_point(field_set:natashatlodpb.BGInfo.turnWin)
 }
 
 // -------------------------------------------------------------------
@@ -509,42 +506,42 @@ inline void FGInfo::clear_reelsindex() {
   reelsindex_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::reelsindex() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.reelsIndex)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.reelsIndex)
   return reelsindex_;
 }
 inline void FGInfo::set_reelsindex(::google::protobuf::int32 value) {
   
   reelsindex_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.reelsIndex)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.reelsIndex)
 }
 
-// .natasha.base.SymbolBlock3X5 arr = 2;
+// .natashabasepb.SymbolBlock3X5 arr = 2;
 inline bool FGInfo::has_arr() const {
   return this != internal_default_instance() && arr_ != NULL;
 }
-inline const ::natasha::base::SymbolBlock3X5& FGInfo::arr() const {
-  const ::natasha::base::SymbolBlock3X5* p = arr_;
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.arr)
-  return p != NULL ? *p : *reinterpret_cast<const ::natasha::base::SymbolBlock3X5*>(
-      &::natasha::base::_SymbolBlock3X5_default_instance_);
+inline const ::natashabasepb::SymbolBlock3X5& FGInfo::arr() const {
+  const ::natashabasepb::SymbolBlock3X5* p = arr_;
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.arr)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashabasepb::SymbolBlock3X5*>(
+      &::natashabasepb::_SymbolBlock3X5_default_instance_);
 }
-inline ::natasha::base::SymbolBlock3X5* FGInfo::release_arr() {
-  // @@protoc_insertion_point(field_release:natasha.tlod.FGInfo.arr)
+inline ::natashabasepb::SymbolBlock3X5* FGInfo::release_arr() {
+  // @@protoc_insertion_point(field_release:natashatlodpb.FGInfo.arr)
   
-  ::natasha::base::SymbolBlock3X5* temp = arr_;
+  ::natashabasepb::SymbolBlock3X5* temp = arr_;
   arr_ = NULL;
   return temp;
 }
-inline ::natasha::base::SymbolBlock3X5* FGInfo::mutable_arr() {
+inline ::natashabasepb::SymbolBlock3X5* FGInfo::mutable_arr() {
   
   if (arr_ == NULL) {
-    arr_ = ::google::protobuf::Arena::Create< ::natasha::base::SymbolBlock3X5 >(
+    arr_ = ::google::protobuf::Arena::Create< ::natashabasepb::SymbolBlock3X5 >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natasha.tlod.FGInfo.arr)
+  // @@protoc_insertion_point(field_mutable:natashatlodpb.FGInfo.arr)
   return arr_;
 }
-inline void FGInfo::set_allocated_arr(::natasha::base::SymbolBlock3X5* arr) {
+inline void FGInfo::set_allocated_arr(::natashabasepb::SymbolBlock3X5* arr) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete reinterpret_cast< ::google::protobuf::MessageLite*>(arr_);
@@ -560,7 +557,7 @@ inline void FGInfo::set_allocated_arr(::natasha::base::SymbolBlock3X5* arr) {
     
   }
   arr_ = arr;
-  // @@protoc_insertion_point(field_set_allocated:natasha.tlod.FGInfo.arr)
+  // @@protoc_insertion_point(field_set_allocated:natashatlodpb.FGInfo.arr)
 }
 
 // int32 turnNums = 3;
@@ -568,13 +565,13 @@ inline void FGInfo::clear_turnnums() {
   turnnums_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::turnnums() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.turnNums)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.turnNums)
   return turnnums_;
 }
 inline void FGInfo::set_turnnums(::google::protobuf::int32 value) {
   
   turnnums_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.turnNums)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.turnNums)
 }
 
 // int32 downNums = 4;
@@ -582,13 +579,13 @@ inline void FGInfo::clear_downnums() {
   downnums_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::downnums() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.downNums)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.downNums)
   return downnums_;
 }
 inline void FGInfo::set_downnums(::google::protobuf::int32 value) {
   
   downnums_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.downNums)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.downNums)
 }
 
 // int32 curBet = 5;
@@ -596,13 +593,13 @@ inline void FGInfo::clear_curbet() {
   curbet_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::curbet() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.curBet)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.curBet)
   return curbet_;
 }
 inline void FGInfo::set_curbet(::google::protobuf::int32 value) {
   
   curbet_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.curBet)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.curBet)
 }
 
 // int32 turnWin = 6;
@@ -610,13 +607,13 @@ inline void FGInfo::clear_turnwin() {
   turnwin_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::turnwin() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.turnWin)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.turnWin)
   return turnwin_;
 }
 inline void FGInfo::set_turnwin(::google::protobuf::int32 value) {
   
   turnwin_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.turnWin)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.turnWin)
 }
 
 // int32 totalWin = 7;
@@ -624,13 +621,13 @@ inline void FGInfo::clear_totalwin() {
   totalwin_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::totalwin() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.totalWin)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.totalWin)
   return totalwin_;
 }
 inline void FGInfo::set_totalwin(::google::protobuf::int32 value) {
   
   totalwin_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.totalWin)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.totalWin)
 }
 
 // int32 lastNums = 8;
@@ -638,13 +635,13 @@ inline void FGInfo::clear_lastnums() {
   lastnums_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::lastnums() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.lastNums)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.lastNums)
   return lastnums_;
 }
 inline void FGInfo::set_lastnums(::google::protobuf::int32 value) {
   
   lastnums_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.lastNums)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.lastNums)
 }
 
 // int32 curNums = 9;
@@ -652,13 +649,13 @@ inline void FGInfo::clear_curnums() {
   curnums_ = 0;
 }
 inline ::google::protobuf::int32 FGInfo::curnums() const {
-  // @@protoc_insertion_point(field_get:natasha.tlod.FGInfo.curNums)
+  // @@protoc_insertion_point(field_get:natashatlodpb.FGInfo.curNums)
   return curnums_;
 }
 inline void FGInfo::set_curnums(::google::protobuf::int32 value) {
   
   curnums_ = value;
-  // @@protoc_insertion_point(field_set:natasha.tlod.FGInfo.curNums)
+  // @@protoc_insertion_point(field_set:natashatlodpb.FGInfo.curNums)
 }
 
 #ifdef __GNUC__
@@ -669,8 +666,7 @@ inline void FGInfo::set_curnums(::google::protobuf::int32 value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace tlod
-}  // namespace natasha
+}  // namespace natashatlodpb
 
 // @@protoc_insertion_point(global_scope)
 

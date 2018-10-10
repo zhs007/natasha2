@@ -3,10 +3,10 @@
 
 #include <assert.h>
 #include <vector>
-#include "array.h"
-#include "gamecfg.h"
-#include "gamecode.h"
-#include "utils.h"
+#include "../include/array.h"
+#include "../include/gamecfg.h"
+#include "../include/gamecode.h"
+#include "../include/utils.h"
 
 namespace natasha {
 

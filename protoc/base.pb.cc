@@ -19,8 +19,7 @@
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
-namespace natasha {
-namespace base {
+namespace natashabasepb {
 class SymbolLineDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SymbolLine>
@@ -36,8 +35,7 @@ class SymbolBlock3X5DefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<SymbolBlock3X5>
       _instance;
 } _SymbolBlock3X5_default_instance_;
-}  // namespace base
-}  // namespace natasha
+}  // namespace natashabasepb
 namespace protobuf_base_2eproto {
 void InitDefaultsSymbolLineImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -48,11 +46,11 @@ void InitDefaultsSymbolLineImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::natasha::base::_SymbolLine_default_instance_;
-    new (ptr) ::natasha::base::SymbolLine();
+    void* ptr = &::natashabasepb::_SymbolLine_default_instance_;
+    new (ptr) ::natashabasepb::SymbolLine();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::natasha::base::SymbolLine::InitAsDefaultInstance();
+  ::natashabasepb::SymbolLine::InitAsDefaultInstance();
 }
 
 void InitDefaultsSymbolLine() {
@@ -68,12 +66,13 @@ void InitDefaultsSymbolBlockImpl() {
 #else
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsSymbolLine();
   {
-    void* ptr = &::natasha::base::_SymbolBlock_default_instance_;
-    new (ptr) ::natasha::base::SymbolBlock();
+    void* ptr = &::natashabasepb::_SymbolBlock_default_instance_;
+    new (ptr) ::natashabasepb::SymbolBlock();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::natasha::base::SymbolBlock::InitAsDefaultInstance();
+  ::natashabasepb::SymbolBlock::InitAsDefaultInstance();
 }
 
 void InitDefaultsSymbolBlock() {
@@ -90,11 +89,11 @@ void InitDefaultsSymbolBlock3X5Impl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::natasha::base::_SymbolBlock3X5_default_instance_;
-    new (ptr) ::natasha::base::SymbolBlock3X5();
+    void* ptr = &::natashabasepb::_SymbolBlock3X5_default_instance_;
+    new (ptr) ::natashabasepb::SymbolBlock3X5();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::natasha::base::SymbolBlock3X5::InitAsDefaultInstance();
+  ::natashabasepb::SymbolBlock3X5::InitAsDefaultInstance();
 }
 
 void InitDefaultsSymbolBlock3X5() {
@@ -106,48 +105,48 @@ void InitDefaultsSymbolBlock3X5() {
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolLine, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolLine, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolLine, xdat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolLine, xdat_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock, ydat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock, ydat_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat0_0_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat0_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat0_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat0_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat0_4_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat1_0_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat1_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat1_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat1_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat1_4_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat2_0_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat2_1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat2_2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat2_3_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natasha::base::SymbolBlock3X5, dat2_4_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat0_0_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat0_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat0_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat0_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat0_4_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat1_0_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat1_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat1_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat1_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat1_4_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat2_0_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat2_1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat2_2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat2_3_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashabasepb::SymbolBlock3X5, dat2_4_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::natasha::base::SymbolLine)},
-  { 6, -1, sizeof(::natasha::base::SymbolBlock)},
-  { 12, -1, sizeof(::natasha::base::SymbolBlock3X5)},
+  { 0, -1, sizeof(::natashabasepb::SymbolLine)},
+  { 6, -1, sizeof(::natashabasepb::SymbolBlock)},
+  { 12, -1, sizeof(::natashabasepb::SymbolBlock3X5)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::natasha::base::_SymbolLine_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::natasha::base::_SymbolBlock_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::natasha::base::_SymbolBlock3X5_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashabasepb::_SymbolLine_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashabasepb::_SymbolBlock_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashabasepb::_SymbolBlock3X5_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -172,19 +171,19 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\nbase.proto\022\014natasha.base\"\032\n\nSymbolLine"
-      "\022\014\n\004xdat\030\001 \003(\005\"6\n\013SymbolBlock\022\'\n\004ydat\030\001 "
-      "\003(\0132\031.natasha.base.SymbolBlock\"\200\002\n\016Symbo"
-      "lBlock3X5\022\016\n\006dat0_0\030\001 \001(\005\022\016\n\006dat0_1\030\002 \001("
-      "\005\022\016\n\006dat0_2\030\003 \001(\005\022\016\n\006dat0_3\030\004 \001(\005\022\016\n\006dat"
-      "0_4\030\005 \001(\005\022\016\n\006dat1_0\030\006 \001(\005\022\016\n\006dat1_1\030\007 \001("
-      "\005\022\016\n\006dat1_2\030\010 \001(\005\022\016\n\006dat1_3\030\t \001(\005\022\016\n\006dat"
-      "1_4\030\n \001(\005\022\016\n\006dat2_0\030\013 \001(\005\022\016\n\006dat2_1\030\014 \001("
-      "\005\022\016\n\006dat2_2\030\r \001(\005\022\016\n\006dat2_3\030\016 \001(\005\022\016\n\006dat"
-      "2_4\030\017 \001(\005b\006proto3"
+      "\n\nbase.proto\022\rnatashabasepb\"\032\n\nSymbolLin"
+      "e\022\014\n\004xdat\030\001 \003(\005\"6\n\013SymbolBlock\022\'\n\004ydat\030\001"
+      " \003(\0132\031.natashabasepb.SymbolLine\"\200\002\n\016Symb"
+      "olBlock3X5\022\016\n\006dat0_0\030\001 \001(\005\022\016\n\006dat0_1\030\002 \001"
+      "(\005\022\016\n\006dat0_2\030\003 \001(\005\022\016\n\006dat0_3\030\004 \001(\005\022\016\n\006da"
+      "t0_4\030\005 \001(\005\022\016\n\006dat1_0\030\006 \001(\005\022\016\n\006dat1_1\030\007 \001"
+      "(\005\022\016\n\006dat1_2\030\010 \001(\005\022\016\n\006dat1_3\030\t \001(\005\022\016\n\006da"
+      "t1_4\030\n \001(\005\022\016\n\006dat2_0\030\013 \001(\005\022\016\n\006dat2_1\030\014 \001"
+      "(\005\022\016\n\006dat2_2\030\r \001(\005\022\016\n\006dat2_3\030\016 \001(\005\022\016\n\006da"
+      "t2_4\030\017 \001(\005b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 377);
+      descriptor, 378);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
 }
@@ -200,8 +199,7 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_base_2eproto
-namespace natasha {
-namespace base {
+namespace natashabasepb {
 
 // ===================================================================
 
@@ -217,7 +215,7 @@ SymbolLine::SymbolLine()
     ::protobuf_base_2eproto::InitDefaultsSymbolLine();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(constructor:natashabasepb.SymbolLine)
 }
 SymbolLine::SymbolLine(const SymbolLine& from)
   : ::google::protobuf::Message(),
@@ -225,7 +223,7 @@ SymbolLine::SymbolLine(const SymbolLine& from)
       xdat_(from.xdat_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(copy_constructor:natashabasepb.SymbolLine)
 }
 
 void SymbolLine::SharedCtor() {
@@ -233,7 +231,7 @@ void SymbolLine::SharedCtor() {
 }
 
 SymbolLine::~SymbolLine() {
-  // @@protoc_insertion_point(destructor:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(destructor:natashabasepb.SymbolLine)
   SharedDtor();
 }
 
@@ -257,7 +255,7 @@ const SymbolLine& SymbolLine::default_instance() {
 
 
 void SymbolLine::Clear() {
-// @@protoc_insertion_point(message_clear_start:natasha.base.SymbolLine)
+// @@protoc_insertion_point(message_clear_start:natashabasepb.SymbolLine)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -270,7 +268,7 @@ bool SymbolLine::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(parse_start:natashabasepb.SymbolLine)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -307,17 +305,17 @@ bool SymbolLine::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(parse_success:natashabasepb.SymbolLine)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(parse_failure:natashabasepb.SymbolLine)
   return false;
 #undef DO_
 }
 
 void SymbolLine::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(serialize_start:natashabasepb.SymbolLine)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -336,13 +334,13 @@ void SymbolLine::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(serialize_end:natashabasepb.SymbolLine)
 }
 
 ::google::protobuf::uint8* SymbolLine::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(serialize_to_array_start:natashabasepb.SymbolLine)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -363,12 +361,12 @@ void SymbolLine::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(serialize_to_array_end:natashabasepb.SymbolLine)
   return target;
 }
 
 size_t SymbolLine::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:natasha.base.SymbolLine)
+// @@protoc_insertion_point(message_byte_size_start:natashabasepb.SymbolLine)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -400,22 +398,22 @@ size_t SymbolLine::ByteSizeLong() const {
 }
 
 void SymbolLine::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:natasha.base.SymbolLine)
+// @@protoc_insertion_point(generalized_merge_from_start:natashabasepb.SymbolLine)
   GOOGLE_DCHECK_NE(&from, this);
   const SymbolLine* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SymbolLine>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashabasepb.SymbolLine)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:natasha.base.SymbolLine)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashabasepb.SymbolLine)
     MergeFrom(*source);
   }
 }
 
 void SymbolLine::MergeFrom(const SymbolLine& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:natasha.base.SymbolLine)
+// @@protoc_insertion_point(class_specific_merge_from_start:natashabasepb.SymbolLine)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -425,14 +423,14 @@ void SymbolLine::MergeFrom(const SymbolLine& from) {
 }
 
 void SymbolLine::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:natasha.base.SymbolLine)
+// @@protoc_insertion_point(generalized_copy_from_start:natashabasepb.SymbolLine)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SymbolLine::CopyFrom(const SymbolLine& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:natasha.base.SymbolLine)
+// @@protoc_insertion_point(class_specific_copy_from_start:natashabasepb.SymbolLine)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -473,7 +471,7 @@ SymbolBlock::SymbolBlock()
     ::protobuf_base_2eproto::InitDefaultsSymbolBlock();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(constructor:natashabasepb.SymbolBlock)
 }
 SymbolBlock::SymbolBlock(const SymbolBlock& from)
   : ::google::protobuf::Message(),
@@ -481,7 +479,7 @@ SymbolBlock::SymbolBlock(const SymbolBlock& from)
       ydat_(from.ydat_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(copy_constructor:natashabasepb.SymbolBlock)
 }
 
 void SymbolBlock::SharedCtor() {
@@ -489,7 +487,7 @@ void SymbolBlock::SharedCtor() {
 }
 
 SymbolBlock::~SymbolBlock() {
-  // @@protoc_insertion_point(destructor:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(destructor:natashabasepb.SymbolBlock)
   SharedDtor();
 }
 
@@ -513,7 +511,7 @@ const SymbolBlock& SymbolBlock::default_instance() {
 
 
 void SymbolBlock::Clear() {
-// @@protoc_insertion_point(message_clear_start:natasha.base.SymbolBlock)
+// @@protoc_insertion_point(message_clear_start:natashabasepb.SymbolBlock)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -526,13 +524,13 @@ bool SymbolBlock::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(parse_start:natashabasepb.SymbolBlock)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .natasha.base.SymbolBlock ydat = 1;
+      // repeated .natashabasepb.SymbolLine ydat = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
@@ -556,21 +554,21 @@ bool SymbolBlock::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(parse_success:natashabasepb.SymbolBlock)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(parse_failure:natashabasepb.SymbolBlock)
   return false;
 #undef DO_
 }
 
 void SymbolBlock::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(serialize_start:natashabasepb.SymbolBlock)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .natasha.base.SymbolBlock ydat = 1;
+  // repeated .natashabasepb.SymbolLine ydat = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->ydat_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -583,17 +581,17 @@ void SymbolBlock::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(serialize_end:natashabasepb.SymbolBlock)
 }
 
 ::google::protobuf::uint8* SymbolBlock::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(serialize_to_array_start:natashabasepb.SymbolBlock)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .natasha.base.SymbolBlock ydat = 1;
+  // repeated .natashabasepb.SymbolLine ydat = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->ydat_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -605,12 +603,12 @@ void SymbolBlock::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(serialize_to_array_end:natashabasepb.SymbolBlock)
   return target;
 }
 
 size_t SymbolBlock::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:natasha.base.SymbolBlock)
+// @@protoc_insertion_point(message_byte_size_start:natashabasepb.SymbolBlock)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -618,7 +616,7 @@ size_t SymbolBlock::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .natasha.base.SymbolBlock ydat = 1;
+  // repeated .natashabasepb.SymbolLine ydat = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->ydat_size());
     total_size += 1UL * count;
@@ -637,22 +635,22 @@ size_t SymbolBlock::ByteSizeLong() const {
 }
 
 void SymbolBlock::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:natasha.base.SymbolBlock)
+// @@protoc_insertion_point(generalized_merge_from_start:natashabasepb.SymbolBlock)
   GOOGLE_DCHECK_NE(&from, this);
   const SymbolBlock* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SymbolBlock>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashabasepb.SymbolBlock)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:natasha.base.SymbolBlock)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashabasepb.SymbolBlock)
     MergeFrom(*source);
   }
 }
 
 void SymbolBlock::MergeFrom(const SymbolBlock& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:natasha.base.SymbolBlock)
+// @@protoc_insertion_point(class_specific_merge_from_start:natashabasepb.SymbolBlock)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -662,14 +660,14 @@ void SymbolBlock::MergeFrom(const SymbolBlock& from) {
 }
 
 void SymbolBlock::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:natasha.base.SymbolBlock)
+// @@protoc_insertion_point(generalized_copy_from_start:natashabasepb.SymbolBlock)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SymbolBlock::CopyFrom(const SymbolBlock& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:natasha.base.SymbolBlock)
+// @@protoc_insertion_point(class_specific_copy_from_start:natashabasepb.SymbolBlock)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -724,7 +722,7 @@ SymbolBlock3X5::SymbolBlock3X5()
     ::protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(constructor:natashabasepb.SymbolBlock3X5)
 }
 SymbolBlock3X5::SymbolBlock3X5(const SymbolBlock3X5& from)
   : ::google::protobuf::Message(),
@@ -734,7 +732,7 @@ SymbolBlock3X5::SymbolBlock3X5(const SymbolBlock3X5& from)
   ::memcpy(&dat0_0_, &from.dat0_0_,
     static_cast<size_t>(reinterpret_cast<char*>(&dat2_4_) -
     reinterpret_cast<char*>(&dat0_0_)) + sizeof(dat2_4_));
-  // @@protoc_insertion_point(copy_constructor:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(copy_constructor:natashabasepb.SymbolBlock3X5)
 }
 
 void SymbolBlock3X5::SharedCtor() {
@@ -745,7 +743,7 @@ void SymbolBlock3X5::SharedCtor() {
 }
 
 SymbolBlock3X5::~SymbolBlock3X5() {
-  // @@protoc_insertion_point(destructor:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(destructor:natashabasepb.SymbolBlock3X5)
   SharedDtor();
 }
 
@@ -769,7 +767,7 @@ const SymbolBlock3X5& SymbolBlock3X5::default_instance() {
 
 
 void SymbolBlock3X5::Clear() {
-// @@protoc_insertion_point(message_clear_start:natasha.base.SymbolBlock3X5)
+// @@protoc_insertion_point(message_clear_start:natashabasepb.SymbolBlock3X5)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -784,7 +782,7 @@ bool SymbolBlock3X5::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(parse_start:natashabasepb.SymbolBlock3X5)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1012,17 +1010,17 @@ bool SymbolBlock3X5::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(parse_success:natashabasepb.SymbolBlock3X5)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(parse_failure:natashabasepb.SymbolBlock3X5)
   return false;
 #undef DO_
 }
 
 void SymbolBlock3X5::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(serialize_start:natashabasepb.SymbolBlock3X5)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1105,13 +1103,13 @@ void SymbolBlock3X5::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(serialize_end:natashabasepb.SymbolBlock3X5)
 }
 
 ::google::protobuf::uint8* SymbolBlock3X5::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(serialize_to_array_start:natashabasepb.SymbolBlock3X5)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1194,12 +1192,12 @@ void SymbolBlock3X5::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(serialize_to_array_end:natashabasepb.SymbolBlock3X5)
   return target;
 }
 
 size_t SymbolBlock3X5::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:natasha.base.SymbolBlock3X5)
+// @@protoc_insertion_point(message_byte_size_start:natashabasepb.SymbolBlock3X5)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1320,22 +1318,22 @@ size_t SymbolBlock3X5::ByteSizeLong() const {
 }
 
 void SymbolBlock3X5::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:natasha.base.SymbolBlock3X5)
+// @@protoc_insertion_point(generalized_merge_from_start:natashabasepb.SymbolBlock3X5)
   GOOGLE_DCHECK_NE(&from, this);
   const SymbolBlock3X5* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SymbolBlock3X5>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashabasepb.SymbolBlock3X5)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:natasha.base.SymbolBlock3X5)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashabasepb.SymbolBlock3X5)
     MergeFrom(*source);
   }
 }
 
 void SymbolBlock3X5::MergeFrom(const SymbolBlock3X5& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:natasha.base.SymbolBlock3X5)
+// @@protoc_insertion_point(class_specific_merge_from_start:natashabasepb.SymbolBlock3X5)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1389,14 +1387,14 @@ void SymbolBlock3X5::MergeFrom(const SymbolBlock3X5& from) {
 }
 
 void SymbolBlock3X5::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:natasha.base.SymbolBlock3X5)
+// @@protoc_insertion_point(generalized_copy_from_start:natashabasepb.SymbolBlock3X5)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SymbolBlock3X5::CopyFrom(const SymbolBlock3X5& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:natasha.base.SymbolBlock3X5)
+// @@protoc_insertion_point(class_specific_copy_from_start:natashabasepb.SymbolBlock3X5)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1438,18 +1436,17 @@ void SymbolBlock3X5::InternalSwap(SymbolBlock3X5* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace base
-}  // namespace natasha
+}  // namespace natashabasepb
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natasha::base::SymbolLine* Arena::Create< ::natasha::base::SymbolLine >(Arena* arena) {
-  return Arena::CreateInternal< ::natasha::base::SymbolLine >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashabasepb::SymbolLine* Arena::Create< ::natashabasepb::SymbolLine >(Arena* arena) {
+  return Arena::CreateInternal< ::natashabasepb::SymbolLine >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natasha::base::SymbolBlock* Arena::Create< ::natasha::base::SymbolBlock >(Arena* arena) {
-  return Arena::CreateInternal< ::natasha::base::SymbolBlock >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashabasepb::SymbolBlock* Arena::Create< ::natashabasepb::SymbolBlock >(Arena* arena) {
+  return Arena::CreateInternal< ::natashabasepb::SymbolBlock >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natasha::base::SymbolBlock3X5* Arena::Create< ::natasha::base::SymbolBlock3X5 >(Arena* arena) {
-  return Arena::CreateInternal< ::natasha::base::SymbolBlock3X5 >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashabasepb::SymbolBlock3X5* Arena::Create< ::natashabasepb::SymbolBlock3X5 >(Arena* arena) {
+  return Arena::CreateInternal< ::natashabasepb::SymbolBlock3X5 >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
