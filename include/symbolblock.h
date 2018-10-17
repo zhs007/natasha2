@@ -12,10 +12,11 @@ namespace natasha {
 template <typename SymbolType, int Width, int Height>
 class SymbolBlock {
  public:
-  typedef Array2D<Width, Height, SymbolType> Array2DT;
+  typedef Array2D<SymbolType, Width, Height> Array2DT;
   typedef StaticArray<Width, SymbolType> SymbolLineT;
   typedef Lines<Width, int> LinesT;
   typedef typename LinesT::LineInfoT LineInfoT;
+  typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
 
  public:
   SymbolBlock() {}
@@ -36,6 +37,8 @@ class SymbolBlock {
       sl.set(i, m_arr.get(i, li.get(i)));
     }
   }
+
+  void cloneWith(const SymbolBlockT& sb) { m_arr.cloneWith(sb.m_arr); }
 
  protected:
   Array2DT m_arr;

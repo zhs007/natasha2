@@ -9,12 +9,17 @@ namespace natasha {
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
  public:
+  typedef std::map<SrcValueType, DestValueType> MapT;
+
+ public:
   void set(SrcValueType src, DestValueType dest) { m_map[src] = dest; }
 
   DestValueType get(SrcValueType src) { return m_map[src]; }
 
+  void clear() { m_map.clear(); }
+
  protected:
-  std::map<SrcValueType, DestValueType> m_map;
+  MapT m_map;
 };
 
 template <typename PositionType>
@@ -29,6 +34,8 @@ struct Position2D {
 
 typedef struct {
 } NullType;
+
+typedef std::vector<std::string> FileNameList;
 
 }  // namespace natasha
 

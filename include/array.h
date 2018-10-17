@@ -5,8 +5,11 @@
 
 namespace natasha {
 
-template <int Width, int Height, typename ValueType>
+template <typename ValueType, int Width, int Height>
 class Array2D {
+ public:
+  typedef Array2D<ValueType, Width, Height> Array2DT;
+
  public:
   Array2D() { clear(0); }
 
@@ -31,6 +34,11 @@ class Array2D {
     assert(y >= 0 && y < Height);
 
     return m_arr[y][x];
+  }
+
+  void cloneWith(const Array2DT& arr) {
+    memcpy(&(m_arr[0][0]), &(arr.m_arr[0][0]),
+           sizeof(ValueType) * Width * Height);
   }
 
  protected:

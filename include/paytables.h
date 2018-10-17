@@ -13,6 +13,7 @@ template <int Width, typename SymbolType, typename MappingType,
 class Paytables {
   typedef StaticArray<Width, MoneyType> StaticArrayTypeT;
   typedef std::map<SymbolType, StaticArrayTypeT> Map;
+  typedef typename Map::iterator MapIter;
   typedef std::pair<SymbolType, StaticArrayTypeT> Pair;
   typedef Mapping<MappingType, int> MappingT;
 
@@ -21,7 +22,8 @@ class Paytables {
 
  public:
   void setSymbolPayout(SymbolType symbol, int index, MoneyType payout) {
-    if (!m_map.has(symbol)) {
+    MapIter it = m_map.find(symbol);
+    if (it == m_map.end()) {
       Pair p;
       m_map.insert(p);
     }
@@ -42,6 +44,13 @@ class Paytables {
 
     return m_map[symbol].get(m_mapping.get(mapping));
   }
+
+  void clear() {
+    m_mapping.clear();
+    m_map.clear();
+  }
+
+  bool isEmpty() const { return m_map.empty(); }
 
  protected:
   MappingT m_mapping;

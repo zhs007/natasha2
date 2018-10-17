@@ -30,6 +30,10 @@ class Lines {
 
   int getNums() const { return m_lst.size(); }
 
+  void clear() { m_lst.clear(); }
+
+  bool isEmpty() const { return m_lst.empty(); }
+
  protected:
   List m_lst;
 };

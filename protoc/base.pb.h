@@ -36,7 +36,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[3];
+  static const ::google::protobuf::internal::ParseTable schema[4];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -48,13 +48,19 @@ void InitDefaultsSymbolBlockImpl();
 void InitDefaultsSymbolBlock();
 void InitDefaultsSymbolBlock3X5Impl();
 void InitDefaultsSymbolBlock3X5();
+void InitDefaultsStaticCascadingRandomResultImpl();
+void InitDefaultsStaticCascadingRandomResult();
 inline void InitDefaults() {
   InitDefaultsSymbolLine();
   InitDefaultsSymbolBlock();
   InitDefaultsSymbolBlock3X5();
+  InitDefaultsStaticCascadingRandomResult();
 }
 }  // namespace protobuf_base_2eproto
-namespace natashabasepb {
+namespace natashapb {
+class StaticCascadingRandomResult;
+class StaticCascadingRandomResultDefaultTypeInternal;
+extern StaticCascadingRandomResultDefaultTypeInternal _StaticCascadingRandomResult_default_instance_;
 class SymbolBlock;
 class SymbolBlockDefaultTypeInternal;
 extern SymbolBlockDefaultTypeInternal _SymbolBlock_default_instance_;
@@ -64,19 +70,20 @@ extern SymbolBlock3X5DefaultTypeInternal _SymbolBlock3X5_default_instance_;
 class SymbolLine;
 class SymbolLineDefaultTypeInternal;
 extern SymbolLineDefaultTypeInternal _SymbolLine_default_instance_;
-}  // namespace natashabasepb
+}  // namespace natashapb
 namespace google {
 namespace protobuf {
-template<> ::natashabasepb::SymbolBlock* Arena::Create< ::natashabasepb::SymbolBlock>(Arena*);
-template<> ::natashabasepb::SymbolBlock3X5* Arena::Create< ::natashabasepb::SymbolBlock3X5>(Arena*);
-template<> ::natashabasepb::SymbolLine* Arena::Create< ::natashabasepb::SymbolLine>(Arena*);
+template<> ::natashapb::StaticCascadingRandomResult* Arena::Create< ::natashapb::StaticCascadingRandomResult>(Arena*);
+template<> ::natashapb::SymbolBlock* Arena::Create< ::natashapb::SymbolBlock>(Arena*);
+template<> ::natashapb::SymbolBlock3X5* Arena::Create< ::natashapb::SymbolBlock3X5>(Arena*);
+template<> ::natashapb::SymbolLine* Arena::Create< ::natashapb::SymbolLine>(Arena*);
 }  // namespace protobuf
 }  // namespace google
-namespace natashabasepb {
+namespace natashapb {
 
 // ===================================================================
 
-class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashabasepb.SymbolLine) */ {
+class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolLine) */ {
  public:
   SymbolLine();
   virtual ~SymbolLine();
@@ -174,7 +181,7 @@ class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_xdat();
 
-  // @@protoc_insertion_point(class_scope:natashabasepb.SymbolLine)
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolLine)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -186,7 +193,7 @@ class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_poin
 };
 // -------------------------------------------------------------------
 
-class SymbolBlock : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashabasepb.SymbolBlock) */ {
+class SymbolBlock : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolBlock) */ {
  public:
   SymbolBlock();
   virtual ~SymbolBlock();
@@ -272,30 +279,30 @@ class SymbolBlock : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // repeated .natashabasepb.SymbolLine ydat = 1;
+  // repeated .natashapb.SymbolLine ydat = 1;
   int ydat_size() const;
   void clear_ydat();
   static const int kYdatFieldNumber = 1;
-  ::natashabasepb::SymbolLine* mutable_ydat(int index);
-  ::google::protobuf::RepeatedPtrField< ::natashabasepb::SymbolLine >*
+  ::natashapb::SymbolLine* mutable_ydat(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >*
       mutable_ydat();
-  const ::natashabasepb::SymbolLine& ydat(int index) const;
-  ::natashabasepb::SymbolLine* add_ydat();
-  const ::google::protobuf::RepeatedPtrField< ::natashabasepb::SymbolLine >&
+  const ::natashapb::SymbolLine& ydat(int index) const;
+  ::natashapb::SymbolLine* add_ydat();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >&
       ydat() const;
 
-  // @@protoc_insertion_point(class_scope:natashabasepb.SymbolBlock)
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolBlock)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::natashabasepb::SymbolLine > ydat_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine > ydat_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsSymbolBlockImpl();
 };
 // -------------------------------------------------------------------
 
-class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashabasepb.SymbolBlock3X5) */ {
+class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolBlock3X5) */ {
  public:
   SymbolBlock3X5();
   virtual ~SymbolBlock3X5();
@@ -471,7 +478,7 @@ class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::int32 dat2_4() const;
   void set_dat2_4(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:natashabasepb.SymbolBlock3X5)
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolBlock3X5)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -494,6 +501,116 @@ class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsSymbolBlock3X5Impl();
 };
+// -------------------------------------------------------------------
+
+class StaticCascadingRandomResult : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingRandomResult) */ {
+ public:
+  StaticCascadingRandomResult();
+  virtual ~StaticCascadingRandomResult();
+
+  StaticCascadingRandomResult(const StaticCascadingRandomResult& from);
+
+  inline StaticCascadingRandomResult& operator=(const StaticCascadingRandomResult& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StaticCascadingRandomResult(StaticCascadingRandomResult&& from) noexcept
+    : StaticCascadingRandomResult() {
+    *this = ::std::move(from);
+  }
+
+  inline StaticCascadingRandomResult& operator=(StaticCascadingRandomResult&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StaticCascadingRandomResult& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StaticCascadingRandomResult* internal_default_instance() {
+    return reinterpret_cast<const StaticCascadingRandomResult*>(
+               &_StaticCascadingRandomResult_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(StaticCascadingRandomResult* other);
+  friend void swap(StaticCascadingRandomResult& a, StaticCascadingRandomResult& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StaticCascadingRandomResult* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingRandomResult>(NULL);
+  }
+
+  StaticCascadingRandomResult* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingRandomResult>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const StaticCascadingRandomResult& from);
+  void MergeFrom(const StaticCascadingRandomResult& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(StaticCascadingRandomResult* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 reelsIndex = 1;
+  void clear_reelsindex();
+  static const int kReelsIndexFieldNumber = 1;
+  ::google::protobuf::int32 reelsindex() const;
+  void set_reelsindex(::google::protobuf::int32 value);
+
+  // int32 downNums = 2;
+  void clear_downnums();
+  static const int kDownNumsFieldNumber = 2;
+  ::google::protobuf::int32 downnums() const;
+  void set_downnums(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.StaticCascadingRandomResult)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 reelsindex_;
+  ::google::protobuf::int32 downnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsStaticCascadingRandomResultImpl();
+};
 // ===================================================================
 
 
@@ -513,25 +630,25 @@ inline void SymbolLine::clear_xdat() {
   xdat_.Clear();
 }
 inline ::google::protobuf::int32 SymbolLine::xdat(int index) const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolLine.xdat)
   return xdat_.Get(index);
 }
 inline void SymbolLine::set_xdat(int index, ::google::protobuf::int32 value) {
   xdat_.Set(index, value);
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolLine.xdat)
 }
 inline void SymbolLine::add_xdat(::google::protobuf::int32 value) {
   xdat_.Add(value);
-  // @@protoc_insertion_point(field_add:natashabasepb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_add:natashapb.SymbolLine.xdat)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 SymbolLine::xdat() const {
-  // @@protoc_insertion_point(field_list:natashabasepb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_list:natashapb.SymbolLine.xdat)
   return xdat_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 SymbolLine::mutable_xdat() {
-  // @@protoc_insertion_point(field_mutable_list:natashabasepb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolLine.xdat)
   return &xdat_;
 }
 
@@ -539,33 +656,33 @@ SymbolLine::mutable_xdat() {
 
 // SymbolBlock
 
-// repeated .natashabasepb.SymbolLine ydat = 1;
+// repeated .natashapb.SymbolLine ydat = 1;
 inline int SymbolBlock::ydat_size() const {
   return ydat_.size();
 }
 inline void SymbolBlock::clear_ydat() {
   ydat_.Clear();
 }
-inline ::natashabasepb::SymbolLine* SymbolBlock::mutable_ydat(int index) {
-  // @@protoc_insertion_point(field_mutable:natashabasepb.SymbolBlock.ydat)
+inline ::natashapb::SymbolLine* SymbolBlock::mutable_ydat(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.SymbolBlock.ydat)
   return ydat_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::natashabasepb::SymbolLine >*
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >*
 SymbolBlock::mutable_ydat() {
-  // @@protoc_insertion_point(field_mutable_list:natashabasepb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolBlock.ydat)
   return &ydat_;
 }
-inline const ::natashabasepb::SymbolLine& SymbolBlock::ydat(int index) const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock.ydat)
+inline const ::natashapb::SymbolLine& SymbolBlock::ydat(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock.ydat)
   return ydat_.Get(index);
 }
-inline ::natashabasepb::SymbolLine* SymbolBlock::add_ydat() {
-  // @@protoc_insertion_point(field_add:natashabasepb.SymbolBlock.ydat)
+inline ::natashapb::SymbolLine* SymbolBlock::add_ydat() {
+  // @@protoc_insertion_point(field_add:natashapb.SymbolBlock.ydat)
   return ydat_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::natashabasepb::SymbolLine >&
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >&
 SymbolBlock::ydat() const {
-  // @@protoc_insertion_point(field_list:natashabasepb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_list:natashapb.SymbolBlock.ydat)
   return ydat_;
 }
 
@@ -578,13 +695,13 @@ inline void SymbolBlock3X5::clear_dat0_0() {
   dat0_0_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat0_0() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat0_0)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat0_0)
   return dat0_0_;
 }
 inline void SymbolBlock3X5::set_dat0_0(::google::protobuf::int32 value) {
   
   dat0_0_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat0_0)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat0_0)
 }
 
 // int32 dat0_1 = 2;
@@ -592,13 +709,13 @@ inline void SymbolBlock3X5::clear_dat0_1() {
   dat0_1_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat0_1() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat0_1)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat0_1)
   return dat0_1_;
 }
 inline void SymbolBlock3X5::set_dat0_1(::google::protobuf::int32 value) {
   
   dat0_1_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat0_1)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat0_1)
 }
 
 // int32 dat0_2 = 3;
@@ -606,13 +723,13 @@ inline void SymbolBlock3X5::clear_dat0_2() {
   dat0_2_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat0_2() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat0_2)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat0_2)
   return dat0_2_;
 }
 inline void SymbolBlock3X5::set_dat0_2(::google::protobuf::int32 value) {
   
   dat0_2_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat0_2)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat0_2)
 }
 
 // int32 dat0_3 = 4;
@@ -620,13 +737,13 @@ inline void SymbolBlock3X5::clear_dat0_3() {
   dat0_3_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat0_3() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat0_3)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat0_3)
   return dat0_3_;
 }
 inline void SymbolBlock3X5::set_dat0_3(::google::protobuf::int32 value) {
   
   dat0_3_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat0_3)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat0_3)
 }
 
 // int32 dat0_4 = 5;
@@ -634,13 +751,13 @@ inline void SymbolBlock3X5::clear_dat0_4() {
   dat0_4_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat0_4() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat0_4)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat0_4)
   return dat0_4_;
 }
 inline void SymbolBlock3X5::set_dat0_4(::google::protobuf::int32 value) {
   
   dat0_4_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat0_4)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat0_4)
 }
 
 // int32 dat1_0 = 6;
@@ -648,13 +765,13 @@ inline void SymbolBlock3X5::clear_dat1_0() {
   dat1_0_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat1_0() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat1_0)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat1_0)
   return dat1_0_;
 }
 inline void SymbolBlock3X5::set_dat1_0(::google::protobuf::int32 value) {
   
   dat1_0_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat1_0)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat1_0)
 }
 
 // int32 dat1_1 = 7;
@@ -662,13 +779,13 @@ inline void SymbolBlock3X5::clear_dat1_1() {
   dat1_1_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat1_1() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat1_1)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat1_1)
   return dat1_1_;
 }
 inline void SymbolBlock3X5::set_dat1_1(::google::protobuf::int32 value) {
   
   dat1_1_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat1_1)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat1_1)
 }
 
 // int32 dat1_2 = 8;
@@ -676,13 +793,13 @@ inline void SymbolBlock3X5::clear_dat1_2() {
   dat1_2_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat1_2() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat1_2)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat1_2)
   return dat1_2_;
 }
 inline void SymbolBlock3X5::set_dat1_2(::google::protobuf::int32 value) {
   
   dat1_2_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat1_2)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat1_2)
 }
 
 // int32 dat1_3 = 9;
@@ -690,13 +807,13 @@ inline void SymbolBlock3X5::clear_dat1_3() {
   dat1_3_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat1_3() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat1_3)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat1_3)
   return dat1_3_;
 }
 inline void SymbolBlock3X5::set_dat1_3(::google::protobuf::int32 value) {
   
   dat1_3_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat1_3)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat1_3)
 }
 
 // int32 dat1_4 = 10;
@@ -704,13 +821,13 @@ inline void SymbolBlock3X5::clear_dat1_4() {
   dat1_4_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat1_4() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat1_4)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat1_4)
   return dat1_4_;
 }
 inline void SymbolBlock3X5::set_dat1_4(::google::protobuf::int32 value) {
   
   dat1_4_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat1_4)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat1_4)
 }
 
 // int32 dat2_0 = 11;
@@ -718,13 +835,13 @@ inline void SymbolBlock3X5::clear_dat2_0() {
   dat2_0_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat2_0() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat2_0)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat2_0)
   return dat2_0_;
 }
 inline void SymbolBlock3X5::set_dat2_0(::google::protobuf::int32 value) {
   
   dat2_0_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat2_0)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat2_0)
 }
 
 // int32 dat2_1 = 12;
@@ -732,13 +849,13 @@ inline void SymbolBlock3X5::clear_dat2_1() {
   dat2_1_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat2_1() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat2_1)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat2_1)
   return dat2_1_;
 }
 inline void SymbolBlock3X5::set_dat2_1(::google::protobuf::int32 value) {
   
   dat2_1_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat2_1)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat2_1)
 }
 
 // int32 dat2_2 = 13;
@@ -746,13 +863,13 @@ inline void SymbolBlock3X5::clear_dat2_2() {
   dat2_2_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat2_2() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat2_2)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat2_2)
   return dat2_2_;
 }
 inline void SymbolBlock3X5::set_dat2_2(::google::protobuf::int32 value) {
   
   dat2_2_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat2_2)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat2_2)
 }
 
 // int32 dat2_3 = 14;
@@ -760,13 +877,13 @@ inline void SymbolBlock3X5::clear_dat2_3() {
   dat2_3_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat2_3() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat2_3)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat2_3)
   return dat2_3_;
 }
 inline void SymbolBlock3X5::set_dat2_3(::google::protobuf::int32 value) {
   
   dat2_3_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat2_3)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat2_3)
 }
 
 // int32 dat2_4 = 15;
@@ -774,13 +891,45 @@ inline void SymbolBlock3X5::clear_dat2_4() {
   dat2_4_ = 0;
 }
 inline ::google::protobuf::int32 SymbolBlock3X5::dat2_4() const {
-  // @@protoc_insertion_point(field_get:natashabasepb.SymbolBlock3X5.dat2_4)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock3X5.dat2_4)
   return dat2_4_;
 }
 inline void SymbolBlock3X5::set_dat2_4(::google::protobuf::int32 value) {
   
   dat2_4_ = value;
-  // @@protoc_insertion_point(field_set:natashabasepb.SymbolBlock3X5.dat2_4)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolBlock3X5.dat2_4)
+}
+
+// -------------------------------------------------------------------
+
+// StaticCascadingRandomResult
+
+// int32 reelsIndex = 1;
+inline void StaticCascadingRandomResult::clear_reelsindex() {
+  reelsindex_ = 0;
+}
+inline ::google::protobuf::int32 StaticCascadingRandomResult::reelsindex() const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingRandomResult.reelsIndex)
+  return reelsindex_;
+}
+inline void StaticCascadingRandomResult::set_reelsindex(::google::protobuf::int32 value) {
+  
+  reelsindex_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.StaticCascadingRandomResult.reelsIndex)
+}
+
+// int32 downNums = 2;
+inline void StaticCascadingRandomResult::clear_downnums() {
+  downnums_ = 0;
+}
+inline ::google::protobuf::int32 StaticCascadingRandomResult::downnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingRandomResult.downNums)
+  return downnums_;
+}
+inline void StaticCascadingRandomResult::set_downnums(::google::protobuf::int32 value) {
+  
+  downnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.StaticCascadingRandomResult.downNums)
 }
 
 #ifdef __GNUC__
@@ -790,10 +939,12 @@ inline void SymbolBlock3X5::set_dat2_4(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace natashabasepb
+}  // namespace natashapb
 
 // @@protoc_insertion_point(global_scope)
 

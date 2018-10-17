@@ -1,2 +1,2 @@
-protoc -I=./proto --cpp_out=./games ./proto/base.proto
-protoc -I=./proto --cpp_out=./games ./proto/tlod.proto
+protoc -I=./proto --cpp_out=./protoc ./proto/base.proto
+protoc -I=./proto --cpp_out=./protoc ./proto/tlod.proto

@@ -19,7 +19,7 @@
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
-namespace natashatlodpb {
+namespace tlodpb {
 class BGInfoDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<BGInfo>
@@ -30,7 +30,7 @@ class FGInfoDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<FGInfo>
       _instance;
 } _FGInfo_default_instance_;
-}  // namespace natashatlodpb
+}  // namespace tlodpb
 namespace protobuf_tlod_2eproto {
 void InitDefaultsBGInfoImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -42,11 +42,11 @@ void InitDefaultsBGInfoImpl() {
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
   {
-    void* ptr = &::natashatlodpb::_BGInfo_default_instance_;
-    new (ptr) ::natashatlodpb::BGInfo();
+    void* ptr = &::tlodpb::_BGInfo_default_instance_;
+    new (ptr) ::tlodpb::BGInfo();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::natashatlodpb::BGInfo::InitAsDefaultInstance();
+  ::tlodpb::BGInfo::InitAsDefaultInstance();
 }
 
 void InitDefaultsBGInfo() {
@@ -64,11 +64,11 @@ void InitDefaultsFGInfoImpl() {
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
   {
-    void* ptr = &::natashatlodpb::_FGInfo_default_instance_;
-    new (ptr) ::natashatlodpb::FGInfo();
+    void* ptr = &::tlodpb::_FGInfo_default_instance_;
+    new (ptr) ::tlodpb::FGInfo();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::natashatlodpb::FGInfo::InitAsDefaultInstance();
+  ::tlodpb::FGInfo::InitAsDefaultInstance();
 }
 
 void InitDefaultsFGInfo() {
@@ -80,39 +80,39 @@ void InitDefaultsFGInfo() {
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, reelsindex_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, arr_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, turnnums_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, downnums_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, curbet_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::BGInfo, turnwin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, reelsindex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, arr_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, turnnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, downnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, curbet_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, turnwin_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, reelsindex_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, arr_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, turnnums_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, downnums_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, curbet_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, turnwin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, totalwin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, lastnums_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashatlodpb::FGInfo, curnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, reelsindex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, arr_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, turnnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, downnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, curbet_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, turnwin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, totalwin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, lastnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, curnums_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::natashatlodpb::BGInfo)},
-  { 11, -1, sizeof(::natashatlodpb::FGInfo)},
+  { 0, -1, sizeof(::tlodpb::BGInfo)},
+  { 11, -1, sizeof(::tlodpb::FGInfo)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::natashatlodpb::_BGInfo_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::natashatlodpb::_FGInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::tlodpb::_BGInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::tlodpb::_FGInfo_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -137,19 +137,19 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\ntlod.proto\022\rnatashatlodpb\032\nbase.proto\""
-      "\215\001\n\006BGInfo\022\022\n\nreelsIndex\030\001 \001(\005\022*\n\003arr\030\002 "
-      "\001(\0132\035.natashabasepb.SymbolBlock3X5\022\020\n\010tu"
-      "rnNums\030\003 \001(\005\022\020\n\010downNums\030\004 \001(\005\022\016\n\006curBet"
-      "\030\005 \001(\005\022\017\n\007turnWin\030\006 \001(\005\"\302\001\n\006FGInfo\022\022\n\nre"
-      "elsIndex\030\001 \001(\005\022*\n\003arr\030\002 \001(\0132\035.natashabas"
-      "epb.SymbolBlock3X5\022\020\n\010turnNums\030\003 \001(\005\022\020\n\010"
-      "downNums\030\004 \001(\005\022\016\n\006curBet\030\005 \001(\005\022\017\n\007turnWi"
-      "n\030\006 \001(\005\022\020\n\010totalWin\030\007 \001(\005\022\020\n\010lastNums\030\010 "
-      "\001(\005\022\017\n\007curNums\030\t \001(\005b\006proto3"
+      "\n\ntlod.proto\022\006tlodpb\032\nbase.proto\"\211\001\n\006BGI"
+      "nfo\022\022\n\nreelsIndex\030\001 \001(\005\022&\n\003arr\030\002 \001(\0132\031.n"
+      "atashapb.SymbolBlock3X5\022\020\n\010turnNums\030\003 \001("
+      "\005\022\020\n\010downNums\030\004 \001(\005\022\016\n\006curBet\030\005 \001(\005\022\017\n\007t"
+      "urnWin\030\006 \001(\005\"\276\001\n\006FGInfo\022\022\n\nreelsIndex\030\001 "
+      "\001(\005\022&\n\003arr\030\002 \001(\0132\031.natashapb.SymbolBlock"
+      "3X5\022\020\n\010turnNums\030\003 \001(\005\022\020\n\010downNums\030\004 \001(\005\022"
+      "\016\n\006curBet\030\005 \001(\005\022\017\n\007turnWin\030\006 \001(\005\022\020\n\010tota"
+      "lWin\030\007 \001(\005\022\020\n\010lastNums\030\010 \001(\005\022\017\n\007curNums\030"
+      "\t \001(\005b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 388);
+      descriptor, 373);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "tlod.proto", &protobuf_RegisterTypes);
   ::protobuf_base_2eproto::AddDescriptors();
@@ -166,13 +166,13 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_tlod_2eproto
-namespace natashatlodpb {
+namespace tlodpb {
 
 // ===================================================================
 
 void BGInfo::InitAsDefaultInstance() {
-  ::natashatlodpb::_BGInfo_default_instance_._instance.get_mutable()->arr_ = const_cast< ::natashabasepb::SymbolBlock3X5*>(
-      ::natashabasepb::SymbolBlock3X5::internal_default_instance());
+  ::tlodpb::_BGInfo_default_instance_._instance.get_mutable()->arr_ = const_cast< ::natashapb::SymbolBlock3X5*>(
+      ::natashapb::SymbolBlock3X5::internal_default_instance());
 }
 void BGInfo::clear_arr() {
   if (GetArenaNoVirtual() == NULL && arr_ != NULL) {
@@ -195,7 +195,7 @@ BGInfo::BGInfo()
     ::protobuf_tlod_2eproto::InitDefaultsBGInfo();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(constructor:tlodpb.BGInfo)
 }
 BGInfo::BGInfo(const BGInfo& from)
   : ::google::protobuf::Message(),
@@ -203,14 +203,14 @@ BGInfo::BGInfo(const BGInfo& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_arr()) {
-    arr_ = new ::natashabasepb::SymbolBlock3X5(*from.arr_);
+    arr_ = new ::natashapb::SymbolBlock3X5(*from.arr_);
   } else {
     arr_ = NULL;
   }
   ::memcpy(&reelsindex_, &from.reelsindex_,
     static_cast<size_t>(reinterpret_cast<char*>(&turnwin_) -
     reinterpret_cast<char*>(&reelsindex_)) + sizeof(turnwin_));
-  // @@protoc_insertion_point(copy_constructor:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(copy_constructor:tlodpb.BGInfo)
 }
 
 void BGInfo::SharedCtor() {
@@ -221,7 +221,7 @@ void BGInfo::SharedCtor() {
 }
 
 BGInfo::~BGInfo() {
-  // @@protoc_insertion_point(destructor:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(destructor:tlodpb.BGInfo)
   SharedDtor();
 }
 
@@ -246,7 +246,7 @@ const BGInfo& BGInfo::default_instance() {
 
 
 void BGInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:natashatlodpb.BGInfo)
+// @@protoc_insertion_point(message_clear_start:tlodpb.BGInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -265,7 +265,7 @@ bool BGInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(parse_start:tlodpb.BGInfo)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -285,7 +285,7 @@ bool BGInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // .natashabasepb.SymbolBlock3X5 arr = 2;
+      // .natashapb.SymbolBlock3X5 arr = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
@@ -365,17 +365,17 @@ bool BGInfo::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(parse_success:tlodpb.BGInfo)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(parse_failure:tlodpb.BGInfo)
   return false;
 #undef DO_
 }
 
 void BGInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(serialize_start:tlodpb.BGInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -384,7 +384,7 @@ void BGInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->reelsindex(), output);
   }
 
-  // .natashabasepb.SymbolBlock3X5 arr = 2;
+  // .natashapb.SymbolBlock3X5 arr = 2;
   if (this->has_arr()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *arr_, output);
@@ -414,13 +414,13 @@ void BGInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(serialize_end:tlodpb.BGInfo)
 }
 
 ::google::protobuf::uint8* BGInfo::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(serialize_to_array_start:tlodpb.BGInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -429,7 +429,7 @@ void BGInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->reelsindex(), target);
   }
 
-  // .natashabasepb.SymbolBlock3X5 arr = 2;
+  // .natashapb.SymbolBlock3X5 arr = 2;
   if (this->has_arr()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -460,12 +460,12 @@ void BGInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(serialize_to_array_end:tlodpb.BGInfo)
   return target;
 }
 
 size_t BGInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:natashatlodpb.BGInfo)
+// @@protoc_insertion_point(message_byte_size_start:tlodpb.BGInfo)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -473,7 +473,7 @@ size_t BGInfo::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .natashabasepb.SymbolBlock3X5 arr = 2;
+  // .natashapb.SymbolBlock3X5 arr = 2;
   if (this->has_arr()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -523,29 +523,29 @@ size_t BGInfo::ByteSizeLong() const {
 }
 
 void BGInfo::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:natashatlodpb.BGInfo)
+// @@protoc_insertion_point(generalized_merge_from_start:tlodpb.BGInfo)
   GOOGLE_DCHECK_NE(&from, this);
   const BGInfo* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const BGInfo>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:tlodpb.BGInfo)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashatlodpb.BGInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:tlodpb.BGInfo)
     MergeFrom(*source);
   }
 }
 
 void BGInfo::MergeFrom(const BGInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:natashatlodpb.BGInfo)
+// @@protoc_insertion_point(class_specific_merge_from_start:tlodpb.BGInfo)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.has_arr()) {
-    mutable_arr()->::natashabasepb::SymbolBlock3X5::MergeFrom(from.arr());
+    mutable_arr()->::natashapb::SymbolBlock3X5::MergeFrom(from.arr());
   }
   if (from.reelsindex() != 0) {
     set_reelsindex(from.reelsindex());
@@ -565,14 +565,14 @@ void BGInfo::MergeFrom(const BGInfo& from) {
 }
 
 void BGInfo::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:natashatlodpb.BGInfo)
+// @@protoc_insertion_point(generalized_copy_from_start:tlodpb.BGInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void BGInfo::CopyFrom(const BGInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:natashatlodpb.BGInfo)
+// @@protoc_insertion_point(class_specific_copy_from_start:tlodpb.BGInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -607,8 +607,8 @@ void BGInfo::InternalSwap(BGInfo* other) {
 // ===================================================================
 
 void FGInfo::InitAsDefaultInstance() {
-  ::natashatlodpb::_FGInfo_default_instance_._instance.get_mutable()->arr_ = const_cast< ::natashabasepb::SymbolBlock3X5*>(
-      ::natashabasepb::SymbolBlock3X5::internal_default_instance());
+  ::tlodpb::_FGInfo_default_instance_._instance.get_mutable()->arr_ = const_cast< ::natashapb::SymbolBlock3X5*>(
+      ::natashapb::SymbolBlock3X5::internal_default_instance());
 }
 void FGInfo::clear_arr() {
   if (GetArenaNoVirtual() == NULL && arr_ != NULL) {
@@ -634,7 +634,7 @@ FGInfo::FGInfo()
     ::protobuf_tlod_2eproto::InitDefaultsFGInfo();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(constructor:tlodpb.FGInfo)
 }
 FGInfo::FGInfo(const FGInfo& from)
   : ::google::protobuf::Message(),
@@ -642,14 +642,14 @@ FGInfo::FGInfo(const FGInfo& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_arr()) {
-    arr_ = new ::natashabasepb::SymbolBlock3X5(*from.arr_);
+    arr_ = new ::natashapb::SymbolBlock3X5(*from.arr_);
   } else {
     arr_ = NULL;
   }
   ::memcpy(&reelsindex_, &from.reelsindex_,
     static_cast<size_t>(reinterpret_cast<char*>(&curnums_) -
     reinterpret_cast<char*>(&reelsindex_)) + sizeof(curnums_));
-  // @@protoc_insertion_point(copy_constructor:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(copy_constructor:tlodpb.FGInfo)
 }
 
 void FGInfo::SharedCtor() {
@@ -660,7 +660,7 @@ void FGInfo::SharedCtor() {
 }
 
 FGInfo::~FGInfo() {
-  // @@protoc_insertion_point(destructor:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(destructor:tlodpb.FGInfo)
   SharedDtor();
 }
 
@@ -685,7 +685,7 @@ const FGInfo& FGInfo::default_instance() {
 
 
 void FGInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:natashatlodpb.FGInfo)
+// @@protoc_insertion_point(message_clear_start:tlodpb.FGInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -704,7 +704,7 @@ bool FGInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(parse_start:tlodpb.FGInfo)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -724,7 +724,7 @@ bool FGInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // .natashabasepb.SymbolBlock3X5 arr = 2;
+      // .natashapb.SymbolBlock3X5 arr = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
@@ -846,17 +846,17 @@ bool FGInfo::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(parse_success:tlodpb.FGInfo)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(parse_failure:tlodpb.FGInfo)
   return false;
 #undef DO_
 }
 
 void FGInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(serialize_start:tlodpb.FGInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -865,7 +865,7 @@ void FGInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->reelsindex(), output);
   }
 
-  // .natashabasepb.SymbolBlock3X5 arr = 2;
+  // .natashapb.SymbolBlock3X5 arr = 2;
   if (this->has_arr()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *arr_, output);
@@ -910,13 +910,13 @@ void FGInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(serialize_end:tlodpb.FGInfo)
 }
 
 ::google::protobuf::uint8* FGInfo::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(serialize_to_array_start:tlodpb.FGInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -925,7 +925,7 @@ void FGInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->reelsindex(), target);
   }
 
-  // .natashabasepb.SymbolBlock3X5 arr = 2;
+  // .natashapb.SymbolBlock3X5 arr = 2;
   if (this->has_arr()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -971,12 +971,12 @@ void FGInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(serialize_to_array_end:tlodpb.FGInfo)
   return target;
 }
 
 size_t FGInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:natashatlodpb.FGInfo)
+// @@protoc_insertion_point(message_byte_size_start:tlodpb.FGInfo)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -984,7 +984,7 @@ size_t FGInfo::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .natashabasepb.SymbolBlock3X5 arr = 2;
+  // .natashapb.SymbolBlock3X5 arr = 2;
   if (this->has_arr()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -1055,29 +1055,29 @@ size_t FGInfo::ByteSizeLong() const {
 }
 
 void FGInfo::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:natashatlodpb.FGInfo)
+// @@protoc_insertion_point(generalized_merge_from_start:tlodpb.FGInfo)
   GOOGLE_DCHECK_NE(&from, this);
   const FGInfo* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const FGInfo>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:tlodpb.FGInfo)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashatlodpb.FGInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:tlodpb.FGInfo)
     MergeFrom(*source);
   }
 }
 
 void FGInfo::MergeFrom(const FGInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:natashatlodpb.FGInfo)
+// @@protoc_insertion_point(class_specific_merge_from_start:tlodpb.FGInfo)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.has_arr()) {
-    mutable_arr()->::natashabasepb::SymbolBlock3X5::MergeFrom(from.arr());
+    mutable_arr()->::natashapb::SymbolBlock3X5::MergeFrom(from.arr());
   }
   if (from.reelsindex() != 0) {
     set_reelsindex(from.reelsindex());
@@ -1106,14 +1106,14 @@ void FGInfo::MergeFrom(const FGInfo& from) {
 }
 
 void FGInfo::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:natashatlodpb.FGInfo)
+// @@protoc_insertion_point(generalized_copy_from_start:tlodpb.FGInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void FGInfo::CopyFrom(const FGInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:natashatlodpb.FGInfo)
+// @@protoc_insertion_point(class_specific_copy_from_start:tlodpb.FGInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1149,14 +1149,14 @@ void FGInfo::InternalSwap(FGInfo* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace natashatlodpb
+}  // namespace tlodpb
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashatlodpb::BGInfo* Arena::Create< ::natashatlodpb::BGInfo >(Arena* arena) {
-  return Arena::CreateInternal< ::natashatlodpb::BGInfo >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::tlodpb::BGInfo* Arena::Create< ::tlodpb::BGInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::tlodpb::BGInfo >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashatlodpb::FGInfo* Arena::Create< ::natashatlodpb::FGInfo >(Arena* arena) {
-  return Arena::CreateInternal< ::natashatlodpb::FGInfo >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::tlodpb::FGInfo* Arena::Create< ::tlodpb::FGInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::tlodpb::FGInfo >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

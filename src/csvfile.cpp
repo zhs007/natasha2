@@ -8,7 +8,7 @@ bool isWrap(std::string& str, int index, int& off) {
   if (str[index] == '\n') {
     off = 1;
     return true;
-  }  
+  }
   if (str[index] == '\r' && index + 1 < str.length() &&
       str[index + 1] == '\n') {
     off = 2;

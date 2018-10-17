@@ -1,10 +1,10 @@
 syntax = "proto3";
 import "base.proto";
-package natashatlodpb;
+package tlodpb;
 
 message BGInfo {
     int32 reelsIndex = 1;
-    natashabasepb.SymbolBlock3X5 arr = 2;
+    natashapb.SymbolBlock3X5 arr = 2;
     int32 turnNums = 3;
     int32 downNums = 4;
     int32 curBet = 5;
@@ -13,7 +13,7 @@ message BGInfo {
 
 message FGInfo {
     int32 reelsIndex = 1;
-    natashabasepb.SymbolBlock3X5 arr = 2;
+    natashapb.SymbolBlock3X5 arr = 2;
     int32 turnNums = 3;
     int32 downNums = 4;
     int32 curBet = 5;

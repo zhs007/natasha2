@@ -1,5 +1,5 @@
 syntax = "proto3";
-package natashabasepb;
+package natashapb;
 
 message SymbolLine {
     repeated int32 xdat = 1;
@@ -25,4 +25,9 @@ message SymbolBlock3X5 {
     int32 dat2_2 = 13;
     int32 dat2_3 = 14;
     int32 dat2_4 = 15;
+}
+
+message StaticCascadingRandomResult {
+    int32 reelsIndex = 1;
+    int32 downNums = 2;
 }
