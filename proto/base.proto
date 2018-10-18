@@ -1,12 +1,13 @@
 syntax = "proto3";
+import "google/protobuf/any.proto";
 package natashapb;
 
 message SymbolLine {
-    repeated int32 xdat = 1;
+    repeated int32 xDat = 1;
 }
 
 message SymbolBlock {
-    repeated SymbolLine ydat = 1;
+    repeated SymbolLine yDat = 1;
 }
 
 message SymbolBlock3X5 {
@@ -27,7 +28,45 @@ message SymbolBlock3X5 {
     int32 dat2_4 = 15;
 }
 
+message RandomResult {
+    google.protobuf.Any info = 1;
+}
+
 message StaticCascadingRandomResult {
     int32 reelsIndex = 1;
     int32 downNums = 2;
+}
+
+message Position2D {
+    int32 x = 1;
+    int32 y = 2;
+}
+
+enum GAMERESULTTYPE {
+    NULL = 0;
+    LINE_LEFT = 1;
+    LINE_RIGHT = 2;
+    SCATTER_LEFT = 3;
+    SCATTER_RIGHT = 4;
+    SCATTER_LEFT_CONSEQUENT = 5;
+    SCATTER_RIGHT_CONSEQUENT = 6;
+};
+
+message GameResultInfo {
+    GAMERESULTTYPE typeGameResult = 1;
+    repeated Position2D lstPos = 2;
+    int32 symbol = 3;
+    repeated int32 lstSymbol = 4;
+    int64 win = 5;
+    int64 realWin = 6;
+
+    google.protobuf.Any exDat = 7;
+}
+
+message GameResultChunk {
+    int64 win = 1;
+    int64 realWin = 2;
+    repeated GameResultInfo lstGRI = 3;
+
+    google.protobuf.Any exDat = 4;
 }

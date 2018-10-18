@@ -3,7 +3,7 @@
 
 namespace natasha {
 
-bool TLOD::onInit() {
+bool TLOD::init() {
   FileNameList lst;
 
   lst.push_back("./csv/game116e_payout95_0.csv");
@@ -29,6 +29,24 @@ bool TLOD::onInit() {
     return false;
   }
 
+  return true;
+}
+
+bool TLOD::randomReels(::natashapb::RandomResult* pRandomResult,
+                       BaseSymbolBlockInt* pSymbolBlock) {
+  assert(pRandomResult != NULL);
+  assert(pSymbolBlock != NULL);
+
+  SymbolBlock5X3* pSB = dynamic_cast<SymbolBlock5X3*>(pSymbolBlock);
+
+  m_reels.random(pRandomResult, *pSB);
+
+  return true;
+}
+
+bool TLOD::countResult(::natashapb::GameResultChunk* pGameResultChunk,
+                       ::natashapb::RandomResult* pRandomResult,
+                       BaseSymbolBlockT* pSymbolBlock) {
   return true;
 }
 

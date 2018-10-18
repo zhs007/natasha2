@@ -4,7 +4,7 @@
 int main() {
   natasha::TLOD tlod;
 
-  bool bInit = tlod.onInit();
+  bool bInit = tlod.init();
   if (!bInit) {
     printf("init fail!\n");
   }

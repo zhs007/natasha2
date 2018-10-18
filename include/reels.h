@@ -20,7 +20,7 @@ class BaseReels {
   virtual ~BaseReels() {}
 
  public:
-  virtual void random(::google::protobuf::Message* pRandomResult,
+  virtual void random(::natashapb::RandomResult* pRandomResult,
                       SymbolBlockT& symbolBlock) = 0;
 
   virtual void clear() = 0;

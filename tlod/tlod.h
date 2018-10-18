@@ -8,13 +8,20 @@
 
 namespace natasha {
 
-class TLOD : public GameLogic {
+class TLOD : public GameLogicInt {
  public:
   TLOD() {}
   virtual ~TLOD() {}
 
  public:
-  virtual bool onInit();
+  virtual bool init();
+
+  virtual bool randomReels(::natashapb::RandomResult* pRandomResult,
+                           BaseSymbolBlockInt* pSymbolBlock);
+
+  virtual bool countResult(::natashapb::GameResultChunk* pGameResultChunk,
+                           ::natashapb::RandomResult* pRandomResult,
+                           BaseSymbolBlockT* pSymbolBlock);
 
  protected:
   StaticCascadingReels5X3 m_reels;

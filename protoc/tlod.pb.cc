@@ -30,6 +30,16 @@ class FGInfoDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<FGInfo>
       _instance;
 } _FGInfo_default_instance_;
+class BGGameResultChunkExtDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<BGGameResultChunkExt>
+      _instance;
+} _BGGameResultChunkExt_default_instance_;
+class FGGameResultChunkExtDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<FGGameResultChunkExt>
+      _instance;
+} _FGGameResultChunkExt_default_instance_;
 }  // namespace tlodpb
 namespace protobuf_tlod_2eproto {
 void InitDefaultsBGInfoImpl() {
@@ -41,6 +51,7 @@ void InitDefaultsBGInfoImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
+  protobuf_base_2eproto::InitDefaultsStaticCascadingRandomResult();
   {
     void* ptr = &::tlodpb::_BGInfo_default_instance_;
     new (ptr) ::tlodpb::BGInfo();
@@ -63,6 +74,7 @@ void InitDefaultsFGInfoImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
+  protobuf_base_2eproto::InitDefaultsStaticCascadingRandomResult();
   {
     void* ptr = &::tlodpb::_FGInfo_default_instance_;
     new (ptr) ::tlodpb::FGInfo();
@@ -76,7 +88,49 @@ void InitDefaultsFGInfo() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFGInfoImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[2];
+void InitDefaultsBGGameResultChunkExtImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::tlodpb::_BGGameResultChunkExt_default_instance_;
+    new (ptr) ::tlodpb::BGGameResultChunkExt();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::tlodpb::BGGameResultChunkExt::InitAsDefaultInstance();
+}
+
+void InitDefaultsBGGameResultChunkExt() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsBGGameResultChunkExtImpl);
+}
+
+void InitDefaultsFGGameResultChunkExtImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::tlodpb::_FGGameResultChunkExt_default_instance_;
+    new (ptr) ::tlodpb::FGGameResultChunkExt();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::tlodpb::FGGameResultChunkExt::InitAsDefaultInstance();
+}
+
+void InitDefaultsFGGameResultChunkExt() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFGGameResultChunkExtImpl);
+}
+
+::google::protobuf::Metadata file_level_metadata[4];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -90,6 +144,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, downnums_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, curbet_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, turnwin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, randret_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, baseid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGInfo, parentid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -104,15 +161,36 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, totalwin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, lastnums_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, curnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, randret_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, baseid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGInfo, parentid_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGGameResultChunkExt, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGGameResultChunkExt, fgnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::BGGameResultChunkExt, downnums_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGGameResultChunkExt, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGGameResultChunkExt, fgnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::tlodpb::FGGameResultChunkExt, downnums_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::tlodpb::BGInfo)},
-  { 11, -1, sizeof(::tlodpb::FGInfo)},
+  { 14, -1, sizeof(::tlodpb::FGInfo)},
+  { 31, -1, sizeof(::tlodpb::BGGameResultChunkExt)},
+  { 38, -1, sizeof(::tlodpb::FGGameResultChunkExt)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::tlodpb::_BGInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::tlodpb::_FGInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::tlodpb::_BGGameResultChunkExt_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::tlodpb::_FGGameResultChunkExt_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -131,25 +209,32 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\ntlod.proto\022\006tlodpb\032\nbase.proto\"\211\001\n\006BGI"
+      "\n\ntlod.proto\022\006tlodpb\032\nbase.proto\"\344\001\n\006BGI"
       "nfo\022\022\n\nreelsIndex\030\001 \001(\005\022&\n\003arr\030\002 \001(\0132\031.n"
       "atashapb.SymbolBlock3X5\022\020\n\010turnNums\030\003 \001("
       "\005\022\020\n\010downNums\030\004 \001(\005\022\016\n\006curBet\030\005 \001(\005\022\017\n\007t"
-      "urnWin\030\006 \001(\005\"\276\001\n\006FGInfo\022\022\n\nreelsIndex\030\001 "
-      "\001(\005\022&\n\003arr\030\002 \001(\0132\031.natashapb.SymbolBlock"
-      "3X5\022\020\n\010turnNums\030\003 \001(\005\022\020\n\010downNums\030\004 \001(\005\022"
-      "\016\n\006curBet\030\005 \001(\005\022\017\n\007turnWin\030\006 \001(\005\022\020\n\010tota"
-      "lWin\030\007 \001(\005\022\020\n\010lastNums\030\010 \001(\005\022\017\n\007curNums\030"
-      "\t \001(\005b\006proto3"
+      "urnWin\030\006 \001(\005\0227\n\007randRet\030\007 \001(\0132&.natashap"
+      "b.StaticCascadingRandomResult\022\016\n\006baseID\030"
+      "\t \001(\003\022\020\n\010parentID\030\n \001(\003\"\231\002\n\006FGInfo\022\022\n\nre"
+      "elsIndex\030\001 \001(\005\022&\n\003arr\030\002 \001(\0132\031.natashapb."
+      "SymbolBlock3X5\022\020\n\010turnNums\030\003 \001(\005\022\020\n\010down"
+      "Nums\030\004 \001(\005\022\016\n\006curBet\030\005 \001(\005\022\017\n\007turnWin\030\006 "
+      "\001(\005\022\020\n\010totalWin\030\007 \001(\005\022\020\n\010lastNums\030\010 \001(\005\022"
+      "\017\n\007curNums\030\t \001(\005\0227\n\007randRet\030\n \001(\0132&.nata"
+      "shapb.StaticCascadingRandomResult\022\016\n\006bas"
+      "eID\030\013 \001(\003\022\020\n\010parentID\030\014 \001(\003\"8\n\024BGGameRes"
+      "ultChunkExt\022\016\n\006fgNums\030\001 \001(\005\022\020\n\010downNums\030"
+      "\002 \001(\005\"8\n\024FGGameResultChunkExt\022\016\n\006fgNums\030"
+      "\001 \001(\005\022\020\n\010downNums\030\002 \001(\005b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 373);
+      descriptor, 671);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "tlod.proto", &protobuf_RegisterTypes);
   ::protobuf_base_2eproto::AddDescriptors();
@@ -173,12 +258,20 @@ namespace tlodpb {
 void BGInfo::InitAsDefaultInstance() {
   ::tlodpb::_BGInfo_default_instance_._instance.get_mutable()->arr_ = const_cast< ::natashapb::SymbolBlock3X5*>(
       ::natashapb::SymbolBlock3X5::internal_default_instance());
+  ::tlodpb::_BGInfo_default_instance_._instance.get_mutable()->randret_ = const_cast< ::natashapb::StaticCascadingRandomResult*>(
+      ::natashapb::StaticCascadingRandomResult::internal_default_instance());
 }
 void BGInfo::clear_arr() {
   if (GetArenaNoVirtual() == NULL && arr_ != NULL) {
     delete arr_;
   }
   arr_ = NULL;
+}
+void BGInfo::clear_randret() {
+  if (GetArenaNoVirtual() == NULL && randret_ != NULL) {
+    delete randret_;
+  }
+  randret_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int BGInfo::kReelsIndexFieldNumber;
@@ -187,6 +280,9 @@ const int BGInfo::kTurnNumsFieldNumber;
 const int BGInfo::kDownNumsFieldNumber;
 const int BGInfo::kCurBetFieldNumber;
 const int BGInfo::kTurnWinFieldNumber;
+const int BGInfo::kRandRetFieldNumber;
+const int BGInfo::kBaseIDFieldNumber;
+const int BGInfo::kParentIDFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 BGInfo::BGInfo()
@@ -206,6 +302,11 @@ BGInfo::BGInfo(const BGInfo& from)
     arr_ = new ::natashapb::SymbolBlock3X5(*from.arr_);
   } else {
     arr_ = NULL;
+  }
+  if (from.has_randret()) {
+    randret_ = new ::natashapb::StaticCascadingRandomResult(*from.randret_);
+  } else {
+    randret_ = NULL;
   }
   ::memcpy(&reelsindex_, &from.reelsindex_,
     static_cast<size_t>(reinterpret_cast<char*>(&turnwin_) -
@@ -227,6 +328,7 @@ BGInfo::~BGInfo() {
 
 void BGInfo::SharedDtor() {
   if (this != internal_default_instance()) delete arr_;
+  if (this != internal_default_instance()) delete randret_;
 }
 
 void BGInfo::SetCachedSize(int size) const {
@@ -255,6 +357,10 @@ void BGInfo::Clear() {
     delete arr_;
   }
   arr_ = NULL;
+  if (GetArenaNoVirtual() == NULL && randret_ != NULL) {
+    delete randret_;
+  }
+  randret_ = NULL;
   ::memset(&reelsindex_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&turnwin_) -
       reinterpret_cast<char*>(&reelsindex_)) + sizeof(turnwin_));
@@ -353,6 +459,46 @@ bool BGInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // .natashapb.StaticCascadingRandomResult randRet = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_randret()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 baseID = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &baseid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 parentID = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &parentid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -410,6 +556,22 @@ void BGInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->turnwin(), output);
   }
 
+  // .natashapb.StaticCascadingRandomResult randRet = 7;
+  if (this->has_randret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, *randret_, output);
+  }
+
+  // int64 baseID = 9;
+  if (this->baseid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->baseid(), output);
+  }
+
+  // int64 parentID = 10;
+  if (this->parentid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->parentid(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -456,6 +618,23 @@ void BGInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->turnwin(), target);
   }
 
+  // .natashapb.StaticCascadingRandomResult randRet = 7;
+  if (this->has_randret()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        7, *randret_, deterministic, target);
+  }
+
+  // int64 baseID = 9;
+  if (this->baseid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->baseid(), target);
+  }
+
+  // int64 parentID = 10;
+  if (this->parentid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->parentid(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -478,6 +657,13 @@ size_t BGInfo::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *arr_);
+  }
+
+  // .natashapb.StaticCascadingRandomResult randRet = 7;
+  if (this->has_randret()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *randret_);
   }
 
   // int32 reelsIndex = 1;
@@ -506,6 +692,20 @@ size_t BGInfo::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->curbet());
+  }
+
+  // int64 baseID = 9;
+  if (this->baseid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->baseid());
+  }
+
+  // int64 parentID = 10;
+  if (this->parentid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->parentid());
   }
 
   // int32 turnWin = 6;
@@ -547,6 +747,9 @@ void BGInfo::MergeFrom(const BGInfo& from) {
   if (from.has_arr()) {
     mutable_arr()->::natashapb::SymbolBlock3X5::MergeFrom(from.arr());
   }
+  if (from.has_randret()) {
+    mutable_randret()->::natashapb::StaticCascadingRandomResult::MergeFrom(from.randret());
+  }
   if (from.reelsindex() != 0) {
     set_reelsindex(from.reelsindex());
   }
@@ -558,6 +761,12 @@ void BGInfo::MergeFrom(const BGInfo& from) {
   }
   if (from.curbet() != 0) {
     set_curbet(from.curbet());
+  }
+  if (from.baseid() != 0) {
+    set_baseid(from.baseid());
+  }
+  if (from.parentid() != 0) {
+    set_parentid(from.parentid());
   }
   if (from.turnwin() != 0) {
     set_turnwin(from.turnwin());
@@ -589,10 +798,13 @@ void BGInfo::Swap(BGInfo* other) {
 void BGInfo::InternalSwap(BGInfo* other) {
   using std::swap;
   swap(arr_, other->arr_);
+  swap(randret_, other->randret_);
   swap(reelsindex_, other->reelsindex_);
   swap(turnnums_, other->turnnums_);
   swap(downnums_, other->downnums_);
   swap(curbet_, other->curbet_);
+  swap(baseid_, other->baseid_);
+  swap(parentid_, other->parentid_);
   swap(turnwin_, other->turnwin_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -609,12 +821,20 @@ void BGInfo::InternalSwap(BGInfo* other) {
 void FGInfo::InitAsDefaultInstance() {
   ::tlodpb::_FGInfo_default_instance_._instance.get_mutable()->arr_ = const_cast< ::natashapb::SymbolBlock3X5*>(
       ::natashapb::SymbolBlock3X5::internal_default_instance());
+  ::tlodpb::_FGInfo_default_instance_._instance.get_mutable()->randret_ = const_cast< ::natashapb::StaticCascadingRandomResult*>(
+      ::natashapb::StaticCascadingRandomResult::internal_default_instance());
 }
 void FGInfo::clear_arr() {
   if (GetArenaNoVirtual() == NULL && arr_ != NULL) {
     delete arr_;
   }
   arr_ = NULL;
+}
+void FGInfo::clear_randret() {
+  if (GetArenaNoVirtual() == NULL && randret_ != NULL) {
+    delete randret_;
+  }
+  randret_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FGInfo::kReelsIndexFieldNumber;
@@ -626,6 +846,9 @@ const int FGInfo::kTurnWinFieldNumber;
 const int FGInfo::kTotalWinFieldNumber;
 const int FGInfo::kLastNumsFieldNumber;
 const int FGInfo::kCurNumsFieldNumber;
+const int FGInfo::kRandRetFieldNumber;
+const int FGInfo::kBaseIDFieldNumber;
+const int FGInfo::kParentIDFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FGInfo::FGInfo()
@@ -646,16 +869,21 @@ FGInfo::FGInfo(const FGInfo& from)
   } else {
     arr_ = NULL;
   }
+  if (from.has_randret()) {
+    randret_ = new ::natashapb::StaticCascadingRandomResult(*from.randret_);
+  } else {
+    randret_ = NULL;
+  }
   ::memcpy(&reelsindex_, &from.reelsindex_,
-    static_cast<size_t>(reinterpret_cast<char*>(&curnums_) -
-    reinterpret_cast<char*>(&reelsindex_)) + sizeof(curnums_));
+    static_cast<size_t>(reinterpret_cast<char*>(&parentid_) -
+    reinterpret_cast<char*>(&reelsindex_)) + sizeof(parentid_));
   // @@protoc_insertion_point(copy_constructor:tlodpb.FGInfo)
 }
 
 void FGInfo::SharedCtor() {
   ::memset(&arr_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&curnums_) -
-      reinterpret_cast<char*>(&arr_)) + sizeof(curnums_));
+      reinterpret_cast<char*>(&parentid_) -
+      reinterpret_cast<char*>(&arr_)) + sizeof(parentid_));
   _cached_size_ = 0;
 }
 
@@ -666,6 +894,7 @@ FGInfo::~FGInfo() {
 
 void FGInfo::SharedDtor() {
   if (this != internal_default_instance()) delete arr_;
+  if (this != internal_default_instance()) delete randret_;
 }
 
 void FGInfo::SetCachedSize(int size) const {
@@ -694,9 +923,13 @@ void FGInfo::Clear() {
     delete arr_;
   }
   arr_ = NULL;
+  if (GetArenaNoVirtual() == NULL && randret_ != NULL) {
+    delete randret_;
+  }
+  randret_ = NULL;
   ::memset(&reelsindex_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&curnums_) -
-      reinterpret_cast<char*>(&reelsindex_)) + sizeof(curnums_));
+      reinterpret_cast<char*>(&parentid_) -
+      reinterpret_cast<char*>(&reelsindex_)) + sizeof(parentid_));
   _internal_metadata_.Clear();
 }
 
@@ -834,6 +1067,46 @@ bool FGInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // .natashapb.StaticCascadingRandomResult randRet = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_randret()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 baseID = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &baseid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 parentID = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &parentid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -906,6 +1179,22 @@ void FGInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->curnums(), output);
   }
 
+  // .natashapb.StaticCascadingRandomResult randRet = 10;
+  if (this->has_randret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, *randret_, output);
+  }
+
+  // int64 baseID = 11;
+  if (this->baseid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->baseid(), output);
+  }
+
+  // int64 parentID = 12;
+  if (this->parentid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->parentid(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -967,6 +1256,23 @@ void FGInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->curnums(), target);
   }
 
+  // .natashapb.StaticCascadingRandomResult randRet = 10;
+  if (this->has_randret()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        10, *randret_, deterministic, target);
+  }
+
+  // int64 baseID = 11;
+  if (this->baseid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->baseid(), target);
+  }
+
+  // int64 parentID = 12;
+  if (this->parentid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->parentid(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -989,6 +1295,13 @@ size_t FGInfo::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *arr_);
+  }
+
+  // .natashapb.StaticCascadingRandomResult randRet = 10;
+  if (this->has_randret()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *randret_);
   }
 
   // int32 reelsIndex = 1;
@@ -1047,6 +1360,20 @@ size_t FGInfo::ByteSizeLong() const {
         this->curnums());
   }
 
+  // int64 baseID = 11;
+  if (this->baseid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->baseid());
+  }
+
+  // int64 parentID = 12;
+  if (this->parentid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->parentid());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -1079,6 +1406,9 @@ void FGInfo::MergeFrom(const FGInfo& from) {
   if (from.has_arr()) {
     mutable_arr()->::natashapb::SymbolBlock3X5::MergeFrom(from.arr());
   }
+  if (from.has_randret()) {
+    mutable_randret()->::natashapb::StaticCascadingRandomResult::MergeFrom(from.randret());
+  }
   if (from.reelsindex() != 0) {
     set_reelsindex(from.reelsindex());
   }
@@ -1102,6 +1432,12 @@ void FGInfo::MergeFrom(const FGInfo& from) {
   }
   if (from.curnums() != 0) {
     set_curnums(from.curnums());
+  }
+  if (from.baseid() != 0) {
+    set_baseid(from.baseid());
+  }
+  if (from.parentid() != 0) {
+    set_parentid(from.parentid());
   }
 }
 
@@ -1130,6 +1466,7 @@ void FGInfo::Swap(FGInfo* other) {
 void FGInfo::InternalSwap(FGInfo* other) {
   using std::swap;
   swap(arr_, other->arr_);
+  swap(randret_, other->randret_);
   swap(reelsindex_, other->reelsindex_);
   swap(turnnums_, other->turnnums_);
   swap(downnums_, other->downnums_);
@@ -1138,11 +1475,559 @@ void FGInfo::InternalSwap(FGInfo* other) {
   swap(totalwin_, other->totalwin_);
   swap(lastnums_, other->lastnums_);
   swap(curnums_, other->curnums_);
+  swap(baseid_, other->baseid_);
+  swap(parentid_, other->parentid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata FGInfo::GetMetadata() const {
+  protobuf_tlod_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_tlod_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void BGGameResultChunkExt::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int BGGameResultChunkExt::kFgNumsFieldNumber;
+const int BGGameResultChunkExt::kDownNumsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+BGGameResultChunkExt::BGGameResultChunkExt()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_tlod_2eproto::InitDefaultsBGGameResultChunkExt();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:tlodpb.BGGameResultChunkExt)
+}
+BGGameResultChunkExt::BGGameResultChunkExt(const BGGameResultChunkExt& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&fgnums_, &from.fgnums_,
+    static_cast<size_t>(reinterpret_cast<char*>(&downnums_) -
+    reinterpret_cast<char*>(&fgnums_)) + sizeof(downnums_));
+  // @@protoc_insertion_point(copy_constructor:tlodpb.BGGameResultChunkExt)
+}
+
+void BGGameResultChunkExt::SharedCtor() {
+  ::memset(&fgnums_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&downnums_) -
+      reinterpret_cast<char*>(&fgnums_)) + sizeof(downnums_));
+  _cached_size_ = 0;
+}
+
+BGGameResultChunkExt::~BGGameResultChunkExt() {
+  // @@protoc_insertion_point(destructor:tlodpb.BGGameResultChunkExt)
+  SharedDtor();
+}
+
+void BGGameResultChunkExt::SharedDtor() {
+}
+
+void BGGameResultChunkExt::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BGGameResultChunkExt::descriptor() {
+  ::protobuf_tlod_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_tlod_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const BGGameResultChunkExt& BGGameResultChunkExt::default_instance() {
+  ::protobuf_tlod_2eproto::InitDefaultsBGGameResultChunkExt();
+  return *internal_default_instance();
+}
+
+
+void BGGameResultChunkExt::Clear() {
+// @@protoc_insertion_point(message_clear_start:tlodpb.BGGameResultChunkExt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&fgnums_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&downnums_) -
+      reinterpret_cast<char*>(&fgnums_)) + sizeof(downnums_));
+  _internal_metadata_.Clear();
+}
+
+bool BGGameResultChunkExt::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:tlodpb.BGGameResultChunkExt)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 fgNums = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fgnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 downNums = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &downnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:tlodpb.BGGameResultChunkExt)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:tlodpb.BGGameResultChunkExt)
+  return false;
+#undef DO_
+}
+
+void BGGameResultChunkExt::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:tlodpb.BGGameResultChunkExt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 fgNums = 1;
+  if (this->fgnums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fgnums(), output);
+  }
+
+  // int32 downNums = 2;
+  if (this->downnums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->downnums(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:tlodpb.BGGameResultChunkExt)
+}
+
+::google::protobuf::uint8* BGGameResultChunkExt::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:tlodpb.BGGameResultChunkExt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 fgNums = 1;
+  if (this->fgnums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fgnums(), target);
+  }
+
+  // int32 downNums = 2;
+  if (this->downnums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->downnums(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:tlodpb.BGGameResultChunkExt)
+  return target;
+}
+
+size_t BGGameResultChunkExt::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:tlodpb.BGGameResultChunkExt)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // int32 fgNums = 1;
+  if (this->fgnums() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->fgnums());
+  }
+
+  // int32 downNums = 2;
+  if (this->downnums() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->downnums());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BGGameResultChunkExt::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:tlodpb.BGGameResultChunkExt)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BGGameResultChunkExt* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const BGGameResultChunkExt>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:tlodpb.BGGameResultChunkExt)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:tlodpb.BGGameResultChunkExt)
+    MergeFrom(*source);
+  }
+}
+
+void BGGameResultChunkExt::MergeFrom(const BGGameResultChunkExt& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:tlodpb.BGGameResultChunkExt)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.fgnums() != 0) {
+    set_fgnums(from.fgnums());
+  }
+  if (from.downnums() != 0) {
+    set_downnums(from.downnums());
+  }
+}
+
+void BGGameResultChunkExt::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:tlodpb.BGGameResultChunkExt)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BGGameResultChunkExt::CopyFrom(const BGGameResultChunkExt& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:tlodpb.BGGameResultChunkExt)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BGGameResultChunkExt::IsInitialized() const {
+  return true;
+}
+
+void BGGameResultChunkExt::Swap(BGGameResultChunkExt* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void BGGameResultChunkExt::InternalSwap(BGGameResultChunkExt* other) {
+  using std::swap;
+  swap(fgnums_, other->fgnums_);
+  swap(downnums_, other->downnums_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata BGGameResultChunkExt::GetMetadata() const {
+  protobuf_tlod_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_tlod_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void FGGameResultChunkExt::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int FGGameResultChunkExt::kFgNumsFieldNumber;
+const int FGGameResultChunkExt::kDownNumsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+FGGameResultChunkExt::FGGameResultChunkExt()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_tlod_2eproto::InitDefaultsFGGameResultChunkExt();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:tlodpb.FGGameResultChunkExt)
+}
+FGGameResultChunkExt::FGGameResultChunkExt(const FGGameResultChunkExt& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&fgnums_, &from.fgnums_,
+    static_cast<size_t>(reinterpret_cast<char*>(&downnums_) -
+    reinterpret_cast<char*>(&fgnums_)) + sizeof(downnums_));
+  // @@protoc_insertion_point(copy_constructor:tlodpb.FGGameResultChunkExt)
+}
+
+void FGGameResultChunkExt::SharedCtor() {
+  ::memset(&fgnums_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&downnums_) -
+      reinterpret_cast<char*>(&fgnums_)) + sizeof(downnums_));
+  _cached_size_ = 0;
+}
+
+FGGameResultChunkExt::~FGGameResultChunkExt() {
+  // @@protoc_insertion_point(destructor:tlodpb.FGGameResultChunkExt)
+  SharedDtor();
+}
+
+void FGGameResultChunkExt::SharedDtor() {
+}
+
+void FGGameResultChunkExt::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FGGameResultChunkExt::descriptor() {
+  ::protobuf_tlod_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_tlod_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const FGGameResultChunkExt& FGGameResultChunkExt::default_instance() {
+  ::protobuf_tlod_2eproto::InitDefaultsFGGameResultChunkExt();
+  return *internal_default_instance();
+}
+
+
+void FGGameResultChunkExt::Clear() {
+// @@protoc_insertion_point(message_clear_start:tlodpb.FGGameResultChunkExt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&fgnums_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&downnums_) -
+      reinterpret_cast<char*>(&fgnums_)) + sizeof(downnums_));
+  _internal_metadata_.Clear();
+}
+
+bool FGGameResultChunkExt::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:tlodpb.FGGameResultChunkExt)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 fgNums = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fgnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 downNums = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &downnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:tlodpb.FGGameResultChunkExt)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:tlodpb.FGGameResultChunkExt)
+  return false;
+#undef DO_
+}
+
+void FGGameResultChunkExt::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:tlodpb.FGGameResultChunkExt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 fgNums = 1;
+  if (this->fgnums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fgnums(), output);
+  }
+
+  // int32 downNums = 2;
+  if (this->downnums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->downnums(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:tlodpb.FGGameResultChunkExt)
+}
+
+::google::protobuf::uint8* FGGameResultChunkExt::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:tlodpb.FGGameResultChunkExt)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 fgNums = 1;
+  if (this->fgnums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fgnums(), target);
+  }
+
+  // int32 downNums = 2;
+  if (this->downnums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->downnums(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:tlodpb.FGGameResultChunkExt)
+  return target;
+}
+
+size_t FGGameResultChunkExt::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:tlodpb.FGGameResultChunkExt)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // int32 fgNums = 1;
+  if (this->fgnums() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->fgnums());
+  }
+
+  // int32 downNums = 2;
+  if (this->downnums() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->downnums());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FGGameResultChunkExt::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:tlodpb.FGGameResultChunkExt)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FGGameResultChunkExt* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const FGGameResultChunkExt>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:tlodpb.FGGameResultChunkExt)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:tlodpb.FGGameResultChunkExt)
+    MergeFrom(*source);
+  }
+}
+
+void FGGameResultChunkExt::MergeFrom(const FGGameResultChunkExt& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:tlodpb.FGGameResultChunkExt)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.fgnums() != 0) {
+    set_fgnums(from.fgnums());
+  }
+  if (from.downnums() != 0) {
+    set_downnums(from.downnums());
+  }
+}
+
+void FGGameResultChunkExt::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:tlodpb.FGGameResultChunkExt)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FGGameResultChunkExt::CopyFrom(const FGGameResultChunkExt& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:tlodpb.FGGameResultChunkExt)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FGGameResultChunkExt::IsInitialized() const {
+  return true;
+}
+
+void FGGameResultChunkExt::Swap(FGGameResultChunkExt* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void FGGameResultChunkExt::InternalSwap(FGGameResultChunkExt* other) {
+  using std::swap;
+  swap(fgnums_, other->fgnums_);
+  swap(downnums_, other->downnums_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata FGGameResultChunkExt::GetMetadata() const {
   protobuf_tlod_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_tlod_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1157,6 +2042,12 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::tlodpb::BGInfo* Arena::Create< :
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::tlodpb::FGInfo* Arena::Create< ::tlodpb::FGInfo >(Arena* arena) {
   return Arena::CreateInternal< ::tlodpb::FGInfo >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::tlodpb::BGGameResultChunkExt* Arena::Create< ::tlodpb::BGGameResultChunkExt >(Arena* arena) {
+  return Arena::CreateInternal< ::tlodpb::BGGameResultChunkExt >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::tlodpb::FGGameResultChunkExt* Arena::Create< ::tlodpb::FGGameResultChunkExt >(Arena* arena) {
+  return Arena::CreateInternal< ::tlodpb::FGGameResultChunkExt >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

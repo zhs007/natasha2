@@ -37,7 +37,7 @@ namespace protobuf_tlod_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[2];
+  static const ::google::protobuf::internal::ParseTable schema[4];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,22 +47,36 @@ void InitDefaultsBGInfoImpl();
 void InitDefaultsBGInfo();
 void InitDefaultsFGInfoImpl();
 void InitDefaultsFGInfo();
+void InitDefaultsBGGameResultChunkExtImpl();
+void InitDefaultsBGGameResultChunkExt();
+void InitDefaultsFGGameResultChunkExtImpl();
+void InitDefaultsFGGameResultChunkExt();
 inline void InitDefaults() {
   InitDefaultsBGInfo();
   InitDefaultsFGInfo();
+  InitDefaultsBGGameResultChunkExt();
+  InitDefaultsFGGameResultChunkExt();
 }
 }  // namespace protobuf_tlod_2eproto
 namespace tlodpb {
+class BGGameResultChunkExt;
+class BGGameResultChunkExtDefaultTypeInternal;
+extern BGGameResultChunkExtDefaultTypeInternal _BGGameResultChunkExt_default_instance_;
 class BGInfo;
 class BGInfoDefaultTypeInternal;
 extern BGInfoDefaultTypeInternal _BGInfo_default_instance_;
+class FGGameResultChunkExt;
+class FGGameResultChunkExtDefaultTypeInternal;
+extern FGGameResultChunkExtDefaultTypeInternal _FGGameResultChunkExt_default_instance_;
 class FGInfo;
 class FGInfoDefaultTypeInternal;
 extern FGInfoDefaultTypeInternal _FGInfo_default_instance_;
 }  // namespace tlodpb
 namespace google {
 namespace protobuf {
+template<> ::tlodpb::BGGameResultChunkExt* Arena::Create< ::tlodpb::BGGameResultChunkExt>(Arena*);
 template<> ::tlodpb::BGInfo* Arena::Create< ::tlodpb::BGInfo>(Arena*);
+template<> ::tlodpb::FGGameResultChunkExt* Arena::Create< ::tlodpb::FGGameResultChunkExt>(Arena*);
 template<> ::tlodpb::FGInfo* Arena::Create< ::tlodpb::FGInfo>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -165,6 +179,15 @@ class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::natashapb::SymbolBlock3X5* mutable_arr();
   void set_allocated_arr(::natashapb::SymbolBlock3X5* arr);
 
+  // .natashapb.StaticCascadingRandomResult randRet = 7;
+  bool has_randret() const;
+  void clear_randret();
+  static const int kRandRetFieldNumber = 7;
+  const ::natashapb::StaticCascadingRandomResult& randret() const;
+  ::natashapb::StaticCascadingRandomResult* release_randret();
+  ::natashapb::StaticCascadingRandomResult* mutable_randret();
+  void set_allocated_randret(::natashapb::StaticCascadingRandomResult* randret);
+
   // int32 reelsIndex = 1;
   void clear_reelsindex();
   static const int kReelsIndexFieldNumber = 1;
@@ -189,6 +212,18 @@ class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::google::protobuf::int32 curbet() const;
   void set_curbet(::google::protobuf::int32 value);
 
+  // int64 baseID = 9;
+  void clear_baseid();
+  static const int kBaseIDFieldNumber = 9;
+  ::google::protobuf::int64 baseid() const;
+  void set_baseid(::google::protobuf::int64 value);
+
+  // int64 parentID = 10;
+  void clear_parentid();
+  static const int kParentIDFieldNumber = 10;
+  ::google::protobuf::int64 parentid() const;
+  void set_parentid(::google::protobuf::int64 value);
+
   // int32 turnWin = 6;
   void clear_turnwin();
   static const int kTurnWinFieldNumber = 6;
@@ -200,10 +235,13 @@ class BGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::SymbolBlock3X5* arr_;
+  ::natashapb::StaticCascadingRandomResult* randret_;
   ::google::protobuf::int32 reelsindex_;
   ::google::protobuf::int32 turnnums_;
   ::google::protobuf::int32 downnums_;
   ::google::protobuf::int32 curbet_;
+  ::google::protobuf::int64 baseid_;
+  ::google::protobuf::int64 parentid_;
   ::google::protobuf::int32 turnwin_;
   mutable int _cached_size_;
   friend struct ::protobuf_tlod_2eproto::TableStruct;
@@ -306,6 +344,15 @@ class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::natashapb::SymbolBlock3X5* mutable_arr();
   void set_allocated_arr(::natashapb::SymbolBlock3X5* arr);
 
+  // .natashapb.StaticCascadingRandomResult randRet = 10;
+  bool has_randret() const;
+  void clear_randret();
+  static const int kRandRetFieldNumber = 10;
+  const ::natashapb::StaticCascadingRandomResult& randret() const;
+  ::natashapb::StaticCascadingRandomResult* release_randret();
+  ::natashapb::StaticCascadingRandomResult* mutable_randret();
+  void set_allocated_randret(::natashapb::StaticCascadingRandomResult* randret);
+
   // int32 reelsIndex = 1;
   void clear_reelsindex();
   static const int kReelsIndexFieldNumber = 1;
@@ -354,11 +401,24 @@ class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::google::protobuf::int32 curnums() const;
   void set_curnums(::google::protobuf::int32 value);
 
+  // int64 baseID = 11;
+  void clear_baseid();
+  static const int kBaseIDFieldNumber = 11;
+  ::google::protobuf::int64 baseid() const;
+  void set_baseid(::google::protobuf::int64 value);
+
+  // int64 parentID = 12;
+  void clear_parentid();
+  static const int kParentIDFieldNumber = 12;
+  ::google::protobuf::int64 parentid() const;
+  void set_parentid(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:tlodpb.FGInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::SymbolBlock3X5* arr_;
+  ::natashapb::StaticCascadingRandomResult* randret_;
   ::google::protobuf::int32 reelsindex_;
   ::google::protobuf::int32 turnnums_;
   ::google::protobuf::int32 downnums_;
@@ -367,9 +427,231 @@ class FGInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::google::protobuf::int32 totalwin_;
   ::google::protobuf::int32 lastnums_;
   ::google::protobuf::int32 curnums_;
+  ::google::protobuf::int64 baseid_;
+  ::google::protobuf::int64 parentid_;
   mutable int _cached_size_;
   friend struct ::protobuf_tlod_2eproto::TableStruct;
   friend void ::protobuf_tlod_2eproto::InitDefaultsFGInfoImpl();
+};
+// -------------------------------------------------------------------
+
+class BGGameResultChunkExt : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:tlodpb.BGGameResultChunkExt) */ {
+ public:
+  BGGameResultChunkExt();
+  virtual ~BGGameResultChunkExt();
+
+  BGGameResultChunkExt(const BGGameResultChunkExt& from);
+
+  inline BGGameResultChunkExt& operator=(const BGGameResultChunkExt& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BGGameResultChunkExt(BGGameResultChunkExt&& from) noexcept
+    : BGGameResultChunkExt() {
+    *this = ::std::move(from);
+  }
+
+  inline BGGameResultChunkExt& operator=(BGGameResultChunkExt&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BGGameResultChunkExt& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BGGameResultChunkExt* internal_default_instance() {
+    return reinterpret_cast<const BGGameResultChunkExt*>(
+               &_BGGameResultChunkExt_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(BGGameResultChunkExt* other);
+  friend void swap(BGGameResultChunkExt& a, BGGameResultChunkExt& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BGGameResultChunkExt* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<BGGameResultChunkExt>(NULL);
+  }
+
+  BGGameResultChunkExt* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<BGGameResultChunkExt>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const BGGameResultChunkExt& from);
+  void MergeFrom(const BGGameResultChunkExt& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(BGGameResultChunkExt* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 fgNums = 1;
+  void clear_fgnums();
+  static const int kFgNumsFieldNumber = 1;
+  ::google::protobuf::int32 fgnums() const;
+  void set_fgnums(::google::protobuf::int32 value);
+
+  // int32 downNums = 2;
+  void clear_downnums();
+  static const int kDownNumsFieldNumber = 2;
+  ::google::protobuf::int32 downnums() const;
+  void set_downnums(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:tlodpb.BGGameResultChunkExt)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 fgnums_;
+  ::google::protobuf::int32 downnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_tlod_2eproto::TableStruct;
+  friend void ::protobuf_tlod_2eproto::InitDefaultsBGGameResultChunkExtImpl();
+};
+// -------------------------------------------------------------------
+
+class FGGameResultChunkExt : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:tlodpb.FGGameResultChunkExt) */ {
+ public:
+  FGGameResultChunkExt();
+  virtual ~FGGameResultChunkExt();
+
+  FGGameResultChunkExt(const FGGameResultChunkExt& from);
+
+  inline FGGameResultChunkExt& operator=(const FGGameResultChunkExt& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  FGGameResultChunkExt(FGGameResultChunkExt&& from) noexcept
+    : FGGameResultChunkExt() {
+    *this = ::std::move(from);
+  }
+
+  inline FGGameResultChunkExt& operator=(FGGameResultChunkExt&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FGGameResultChunkExt& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const FGGameResultChunkExt* internal_default_instance() {
+    return reinterpret_cast<const FGGameResultChunkExt*>(
+               &_FGGameResultChunkExt_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(FGGameResultChunkExt* other);
+  friend void swap(FGGameResultChunkExt& a, FGGameResultChunkExt& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline FGGameResultChunkExt* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<FGGameResultChunkExt>(NULL);
+  }
+
+  FGGameResultChunkExt* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<FGGameResultChunkExt>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const FGGameResultChunkExt& from);
+  void MergeFrom(const FGGameResultChunkExt& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(FGGameResultChunkExt* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 fgNums = 1;
+  void clear_fgnums();
+  static const int kFgNumsFieldNumber = 1;
+  ::google::protobuf::int32 fgnums() const;
+  void set_fgnums(::google::protobuf::int32 value);
+
+  // int32 downNums = 2;
+  void clear_downnums();
+  static const int kDownNumsFieldNumber = 2;
+  ::google::protobuf::int32 downnums() const;
+  void set_downnums(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:tlodpb.FGGameResultChunkExt)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 fgnums_;
+  ::google::protobuf::int32 downnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_tlod_2eproto::TableStruct;
+  friend void ::protobuf_tlod_2eproto::InitDefaultsFGGameResultChunkExtImpl();
 };
 // ===================================================================
 
@@ -495,6 +777,79 @@ inline void BGInfo::set_turnwin(::google::protobuf::int32 value) {
   
   turnwin_ = value;
   // @@protoc_insertion_point(field_set:tlodpb.BGInfo.turnWin)
+}
+
+// .natashapb.StaticCascadingRandomResult randRet = 7;
+inline bool BGInfo::has_randret() const {
+  return this != internal_default_instance() && randret_ != NULL;
+}
+inline const ::natashapb::StaticCascadingRandomResult& BGInfo::randret() const {
+  const ::natashapb::StaticCascadingRandomResult* p = randret_;
+  // @@protoc_insertion_point(field_get:tlodpb.BGInfo.randRet)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::StaticCascadingRandomResult*>(
+      &::natashapb::_StaticCascadingRandomResult_default_instance_);
+}
+inline ::natashapb::StaticCascadingRandomResult* BGInfo::release_randret() {
+  // @@protoc_insertion_point(field_release:tlodpb.BGInfo.randRet)
+  
+  ::natashapb::StaticCascadingRandomResult* temp = randret_;
+  randret_ = NULL;
+  return temp;
+}
+inline ::natashapb::StaticCascadingRandomResult* BGInfo::mutable_randret() {
+  
+  if (randret_ == NULL) {
+    randret_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingRandomResult >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:tlodpb.BGInfo.randRet)
+  return randret_;
+}
+inline void BGInfo::set_allocated_randret(::natashapb::StaticCascadingRandomResult* randret) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(randret_);
+  }
+  if (randret) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      randret = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, randret, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  randret_ = randret;
+  // @@protoc_insertion_point(field_set_allocated:tlodpb.BGInfo.randRet)
+}
+
+// int64 baseID = 9;
+inline void BGInfo::clear_baseid() {
+  baseid_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 BGInfo::baseid() const {
+  // @@protoc_insertion_point(field_get:tlodpb.BGInfo.baseID)
+  return baseid_;
+}
+inline void BGInfo::set_baseid(::google::protobuf::int64 value) {
+  
+  baseid_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.BGInfo.baseID)
+}
+
+// int64 parentID = 10;
+inline void BGInfo::clear_parentid() {
+  parentid_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 BGInfo::parentid() const {
+  // @@protoc_insertion_point(field_get:tlodpb.BGInfo.parentID)
+  return parentid_;
+}
+inline void BGInfo::set_parentid(::google::protobuf::int64 value) {
+  
+  parentid_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.BGInfo.parentID)
 }
 
 // -------------------------------------------------------------------
@@ -658,9 +1013,150 @@ inline void FGInfo::set_curnums(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:tlodpb.FGInfo.curNums)
 }
 
+// .natashapb.StaticCascadingRandomResult randRet = 10;
+inline bool FGInfo::has_randret() const {
+  return this != internal_default_instance() && randret_ != NULL;
+}
+inline const ::natashapb::StaticCascadingRandomResult& FGInfo::randret() const {
+  const ::natashapb::StaticCascadingRandomResult* p = randret_;
+  // @@protoc_insertion_point(field_get:tlodpb.FGInfo.randRet)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::StaticCascadingRandomResult*>(
+      &::natashapb::_StaticCascadingRandomResult_default_instance_);
+}
+inline ::natashapb::StaticCascadingRandomResult* FGInfo::release_randret() {
+  // @@protoc_insertion_point(field_release:tlodpb.FGInfo.randRet)
+  
+  ::natashapb::StaticCascadingRandomResult* temp = randret_;
+  randret_ = NULL;
+  return temp;
+}
+inline ::natashapb::StaticCascadingRandomResult* FGInfo::mutable_randret() {
+  
+  if (randret_ == NULL) {
+    randret_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingRandomResult >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:tlodpb.FGInfo.randRet)
+  return randret_;
+}
+inline void FGInfo::set_allocated_randret(::natashapb::StaticCascadingRandomResult* randret) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(randret_);
+  }
+  if (randret) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      randret = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, randret, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  randret_ = randret;
+  // @@protoc_insertion_point(field_set_allocated:tlodpb.FGInfo.randRet)
+}
+
+// int64 baseID = 11;
+inline void FGInfo::clear_baseid() {
+  baseid_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 FGInfo::baseid() const {
+  // @@protoc_insertion_point(field_get:tlodpb.FGInfo.baseID)
+  return baseid_;
+}
+inline void FGInfo::set_baseid(::google::protobuf::int64 value) {
+  
+  baseid_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.FGInfo.baseID)
+}
+
+// int64 parentID = 12;
+inline void FGInfo::clear_parentid() {
+  parentid_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 FGInfo::parentid() const {
+  // @@protoc_insertion_point(field_get:tlodpb.FGInfo.parentID)
+  return parentid_;
+}
+inline void FGInfo::set_parentid(::google::protobuf::int64 value) {
+  
+  parentid_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.FGInfo.parentID)
+}
+
+// -------------------------------------------------------------------
+
+// BGGameResultChunkExt
+
+// int32 fgNums = 1;
+inline void BGGameResultChunkExt::clear_fgnums() {
+  fgnums_ = 0;
+}
+inline ::google::protobuf::int32 BGGameResultChunkExt::fgnums() const {
+  // @@protoc_insertion_point(field_get:tlodpb.BGGameResultChunkExt.fgNums)
+  return fgnums_;
+}
+inline void BGGameResultChunkExt::set_fgnums(::google::protobuf::int32 value) {
+  
+  fgnums_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.BGGameResultChunkExt.fgNums)
+}
+
+// int32 downNums = 2;
+inline void BGGameResultChunkExt::clear_downnums() {
+  downnums_ = 0;
+}
+inline ::google::protobuf::int32 BGGameResultChunkExt::downnums() const {
+  // @@protoc_insertion_point(field_get:tlodpb.BGGameResultChunkExt.downNums)
+  return downnums_;
+}
+inline void BGGameResultChunkExt::set_downnums(::google::protobuf::int32 value) {
+  
+  downnums_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.BGGameResultChunkExt.downNums)
+}
+
+// -------------------------------------------------------------------
+
+// FGGameResultChunkExt
+
+// int32 fgNums = 1;
+inline void FGGameResultChunkExt::clear_fgnums() {
+  fgnums_ = 0;
+}
+inline ::google::protobuf::int32 FGGameResultChunkExt::fgnums() const {
+  // @@protoc_insertion_point(field_get:tlodpb.FGGameResultChunkExt.fgNums)
+  return fgnums_;
+}
+inline void FGGameResultChunkExt::set_fgnums(::google::protobuf::int32 value) {
+  
+  fgnums_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.FGGameResultChunkExt.fgNums)
+}
+
+// int32 downNums = 2;
+inline void FGGameResultChunkExt::clear_downnums() {
+  downnums_ = 0;
+}
+inline ::google::protobuf::int32 FGGameResultChunkExt::downnums() const {
+  // @@protoc_insertion_point(field_get:tlodpb.FGGameResultChunkExt.downNums)
+  return downnums_;
+}
+inline void FGGameResultChunkExt::set_downnums(::google::protobuf::int32 value) {
+  
+  downnums_ = value;
+  // @@protoc_insertion_point(field_set:tlodpb.FGGameResultChunkExt.downNums)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

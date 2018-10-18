@@ -28,7 +28,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/any.pb.h>
 // @@protoc_insertion_point(includes)
 
 namespace protobuf_base_2eproto {
@@ -36,7 +38,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[4];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -48,16 +50,40 @@ void InitDefaultsSymbolBlockImpl();
 void InitDefaultsSymbolBlock();
 void InitDefaultsSymbolBlock3X5Impl();
 void InitDefaultsSymbolBlock3X5();
+void InitDefaultsRandomResultImpl();
+void InitDefaultsRandomResult();
 void InitDefaultsStaticCascadingRandomResultImpl();
 void InitDefaultsStaticCascadingRandomResult();
+void InitDefaultsPosition2DImpl();
+void InitDefaultsPosition2D();
+void InitDefaultsGameResultInfoImpl();
+void InitDefaultsGameResultInfo();
+void InitDefaultsGameResultChunkImpl();
+void InitDefaultsGameResultChunk();
 inline void InitDefaults() {
   InitDefaultsSymbolLine();
   InitDefaultsSymbolBlock();
   InitDefaultsSymbolBlock3X5();
+  InitDefaultsRandomResult();
   InitDefaultsStaticCascadingRandomResult();
+  InitDefaultsPosition2D();
+  InitDefaultsGameResultInfo();
+  InitDefaultsGameResultChunk();
 }
 }  // namespace protobuf_base_2eproto
 namespace natashapb {
+class GameResultChunk;
+class GameResultChunkDefaultTypeInternal;
+extern GameResultChunkDefaultTypeInternal _GameResultChunk_default_instance_;
+class GameResultInfo;
+class GameResultInfoDefaultTypeInternal;
+extern GameResultInfoDefaultTypeInternal _GameResultInfo_default_instance_;
+class Position2D;
+class Position2DDefaultTypeInternal;
+extern Position2DDefaultTypeInternal _Position2D_default_instance_;
+class RandomResult;
+class RandomResultDefaultTypeInternal;
+extern RandomResultDefaultTypeInternal _RandomResult_default_instance_;
 class StaticCascadingRandomResult;
 class StaticCascadingRandomResultDefaultTypeInternal;
 extern StaticCascadingRandomResultDefaultTypeInternal _StaticCascadingRandomResult_default_instance_;
@@ -73,6 +99,10 @@ extern SymbolLineDefaultTypeInternal _SymbolLine_default_instance_;
 }  // namespace natashapb
 namespace google {
 namespace protobuf {
+template<> ::natashapb::GameResultChunk* Arena::Create< ::natashapb::GameResultChunk>(Arena*);
+template<> ::natashapb::GameResultInfo* Arena::Create< ::natashapb::GameResultInfo>(Arena*);
+template<> ::natashapb::Position2D* Arena::Create< ::natashapb::Position2D>(Arena*);
+template<> ::natashapb::RandomResult* Arena::Create< ::natashapb::RandomResult>(Arena*);
 template<> ::natashapb::StaticCascadingRandomResult* Arena::Create< ::natashapb::StaticCascadingRandomResult>(Arena*);
 template<> ::natashapb::SymbolBlock* Arena::Create< ::natashapb::SymbolBlock>(Arena*);
 template<> ::natashapb::SymbolBlock3X5* Arena::Create< ::natashapb::SymbolBlock3X5>(Arena*);
@@ -81,6 +111,32 @@ template<> ::natashapb::SymbolLine* Arena::Create< ::natashapb::SymbolLine>(Aren
 }  // namespace google
 namespace natashapb {
 
+enum GAMERESULTTYPE {
+  NULL_ = 0,
+  LINE_LEFT = 1,
+  LINE_RIGHT = 2,
+  SCATTER_LEFT = 3,
+  SCATTER_RIGHT = 4,
+  SCATTER_LEFT_CONSEQUENT = 5,
+  SCATTER_RIGHT_CONSEQUENT = 6,
+  GAMERESULTTYPE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  GAMERESULTTYPE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool GAMERESULTTYPE_IsValid(int value);
+const GAMERESULTTYPE GAMERESULTTYPE_MIN = NULL_;
+const GAMERESULTTYPE GAMERESULTTYPE_MAX = SCATTER_RIGHT_CONSEQUENT;
+const int GAMERESULTTYPE_ARRAYSIZE = GAMERESULTTYPE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* GAMERESULTTYPE_descriptor();
+inline const ::std::string& GAMERESULTTYPE_Name(GAMERESULTTYPE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    GAMERESULTTYPE_descriptor(), value);
+}
+inline bool GAMERESULTTYPE_Parse(
+    const ::std::string& name, GAMERESULTTYPE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<GAMERESULTTYPE>(
+    GAMERESULTTYPE_descriptor(), name, value);
+}
 // ===================================================================
 
 class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolLine) */ {
@@ -169,10 +225,10 @@ class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 xdat = 1;
+  // repeated int32 xDat = 1;
   int xdat_size() const;
   void clear_xdat();
-  static const int kXdatFieldNumber = 1;
+  static const int kXDatFieldNumber = 1;
   ::google::protobuf::int32 xdat(int index) const;
   void set_xdat(int index, ::google::protobuf::int32 value);
   void add_xdat(::google::protobuf::int32 value);
@@ -279,10 +335,10 @@ class SymbolBlock : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // repeated .natashapb.SymbolLine ydat = 1;
+  // repeated .natashapb.SymbolLine yDat = 1;
   int ydat_size() const;
   void clear_ydat();
-  static const int kYdatFieldNumber = 1;
+  static const int kYDatFieldNumber = 1;
   ::natashapb::SymbolLine* mutable_ydat(int index);
   ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >*
       mutable_ydat();
@@ -503,6 +559,112 @@ class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_
 };
 // -------------------------------------------------------------------
 
+class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.RandomResult) */ {
+ public:
+  RandomResult();
+  virtual ~RandomResult();
+
+  RandomResult(const RandomResult& from);
+
+  inline RandomResult& operator=(const RandomResult& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RandomResult(RandomResult&& from) noexcept
+    : RandomResult() {
+    *this = ::std::move(from);
+  }
+
+  inline RandomResult& operator=(RandomResult&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RandomResult& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RandomResult* internal_default_instance() {
+    return reinterpret_cast<const RandomResult*>(
+               &_RandomResult_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(RandomResult* other);
+  friend void swap(RandomResult& a, RandomResult& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RandomResult* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<RandomResult>(NULL);
+  }
+
+  RandomResult* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<RandomResult>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const RandomResult& from);
+  void MergeFrom(const RandomResult& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(RandomResult* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .google.protobuf.Any info = 1;
+  bool has_info() const;
+  void clear_info();
+  static const int kInfoFieldNumber = 1;
+  const ::google::protobuf::Any& info() const;
+  ::google::protobuf::Any* release_info();
+  ::google::protobuf::Any* mutable_info();
+  void set_allocated_info(::google::protobuf::Any* info);
+
+  // @@protoc_insertion_point(class_scope:natashapb.RandomResult)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::Any* info_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsRandomResultImpl();
+};
+// -------------------------------------------------------------------
+
 class StaticCascadingRandomResult : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingRandomResult) */ {
  public:
   StaticCascadingRandomResult();
@@ -538,7 +700,7 @@ class StaticCascadingRandomResult : public ::google::protobuf::Message /* @@prot
                &_StaticCascadingRandomResult_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(StaticCascadingRandomResult* other);
   friend void swap(StaticCascadingRandomResult& a, StaticCascadingRandomResult& b) {
@@ -611,6 +773,410 @@ class StaticCascadingRandomResult : public ::google::protobuf::Message /* @@prot
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsStaticCascadingRandomResultImpl();
 };
+// -------------------------------------------------------------------
+
+class Position2D : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.Position2D) */ {
+ public:
+  Position2D();
+  virtual ~Position2D();
+
+  Position2D(const Position2D& from);
+
+  inline Position2D& operator=(const Position2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Position2D(Position2D&& from) noexcept
+    : Position2D() {
+    *this = ::std::move(from);
+  }
+
+  inline Position2D& operator=(Position2D&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Position2D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Position2D* internal_default_instance() {
+    return reinterpret_cast<const Position2D*>(
+               &_Position2D_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(Position2D* other);
+  friend void swap(Position2D& a, Position2D& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Position2D* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<Position2D>(NULL);
+  }
+
+  Position2D* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<Position2D>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Position2D& from);
+  void MergeFrom(const Position2D& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Position2D* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 x = 1;
+  void clear_x();
+  static const int kXFieldNumber = 1;
+  ::google::protobuf::int32 x() const;
+  void set_x(::google::protobuf::int32 value);
+
+  // int32 y = 2;
+  void clear_y();
+  static const int kYFieldNumber = 2;
+  ::google::protobuf::int32 y() const;
+  void set_y(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.Position2D)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 x_;
+  ::google::protobuf::int32 y_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsPosition2DImpl();
+};
+// -------------------------------------------------------------------
+
+class GameResultInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.GameResultInfo) */ {
+ public:
+  GameResultInfo();
+  virtual ~GameResultInfo();
+
+  GameResultInfo(const GameResultInfo& from);
+
+  inline GameResultInfo& operator=(const GameResultInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GameResultInfo(GameResultInfo&& from) noexcept
+    : GameResultInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline GameResultInfo& operator=(GameResultInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameResultInfo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GameResultInfo* internal_default_instance() {
+    return reinterpret_cast<const GameResultInfo*>(
+               &_GameResultInfo_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    6;
+
+  void Swap(GameResultInfo* other);
+  friend void swap(GameResultInfo& a, GameResultInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GameResultInfo* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameResultInfo>(NULL);
+  }
+
+  GameResultInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameResultInfo>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GameResultInfo& from);
+  void MergeFrom(const GameResultInfo& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GameResultInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.Position2D lstPos = 2;
+  int lstpos_size() const;
+  void clear_lstpos();
+  static const int kLstPosFieldNumber = 2;
+  ::natashapb::Position2D* mutable_lstpos(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::Position2D >*
+      mutable_lstpos();
+  const ::natashapb::Position2D& lstpos(int index) const;
+  ::natashapb::Position2D* add_lstpos();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::Position2D >&
+      lstpos() const;
+
+  // repeated int32 lstSymbol = 4;
+  int lstsymbol_size() const;
+  void clear_lstsymbol();
+  static const int kLstSymbolFieldNumber = 4;
+  ::google::protobuf::int32 lstsymbol(int index) const;
+  void set_lstsymbol(int index, ::google::protobuf::int32 value);
+  void add_lstsymbol(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      lstsymbol() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_lstsymbol();
+
+  // .google.protobuf.Any exDat = 7;
+  bool has_exdat() const;
+  void clear_exdat();
+  static const int kExDatFieldNumber = 7;
+  const ::google::protobuf::Any& exdat() const;
+  ::google::protobuf::Any* release_exdat();
+  ::google::protobuf::Any* mutable_exdat();
+  void set_allocated_exdat(::google::protobuf::Any* exdat);
+
+  // .natashapb.GAMERESULTTYPE typeGameResult = 1;
+  void clear_typegameresult();
+  static const int kTypeGameResultFieldNumber = 1;
+  ::natashapb::GAMERESULTTYPE typegameresult() const;
+  void set_typegameresult(::natashapb::GAMERESULTTYPE value);
+
+  // int32 symbol = 3;
+  void clear_symbol();
+  static const int kSymbolFieldNumber = 3;
+  ::google::protobuf::int32 symbol() const;
+  void set_symbol(::google::protobuf::int32 value);
+
+  // int64 win = 5;
+  void clear_win();
+  static const int kWinFieldNumber = 5;
+  ::google::protobuf::int64 win() const;
+  void set_win(::google::protobuf::int64 value);
+
+  // int64 realWin = 6;
+  void clear_realwin();
+  static const int kRealWinFieldNumber = 6;
+  ::google::protobuf::int64 realwin() const;
+  void set_realwin(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.GameResultInfo)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::Position2D > lstpos_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > lstsymbol_;
+  mutable int _lstsymbol_cached_byte_size_;
+  ::google::protobuf::Any* exdat_;
+  int typegameresult_;
+  ::google::protobuf::int32 symbol_;
+  ::google::protobuf::int64 win_;
+  ::google::protobuf::int64 realwin_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsGameResultInfoImpl();
+};
+// -------------------------------------------------------------------
+
+class GameResultChunk : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.GameResultChunk) */ {
+ public:
+  GameResultChunk();
+  virtual ~GameResultChunk();
+
+  GameResultChunk(const GameResultChunk& from);
+
+  inline GameResultChunk& operator=(const GameResultChunk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GameResultChunk(GameResultChunk&& from) noexcept
+    : GameResultChunk() {
+    *this = ::std::move(from);
+  }
+
+  inline GameResultChunk& operator=(GameResultChunk&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameResultChunk& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GameResultChunk* internal_default_instance() {
+    return reinterpret_cast<const GameResultChunk*>(
+               &_GameResultChunk_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    7;
+
+  void Swap(GameResultChunk* other);
+  friend void swap(GameResultChunk& a, GameResultChunk& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GameResultChunk* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameResultChunk>(NULL);
+  }
+
+  GameResultChunk* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameResultChunk>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GameResultChunk& from);
+  void MergeFrom(const GameResultChunk& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GameResultChunk* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.GameResultInfo lstGRI = 3;
+  int lstgri_size() const;
+  void clear_lstgri();
+  static const int kLstGRIFieldNumber = 3;
+  ::natashapb::GameResultInfo* mutable_lstgri(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo >*
+      mutable_lstgri();
+  const ::natashapb::GameResultInfo& lstgri(int index) const;
+  ::natashapb::GameResultInfo* add_lstgri();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo >&
+      lstgri() const;
+
+  // .google.protobuf.Any exDat = 4;
+  bool has_exdat() const;
+  void clear_exdat();
+  static const int kExDatFieldNumber = 4;
+  const ::google::protobuf::Any& exdat() const;
+  ::google::protobuf::Any* release_exdat();
+  ::google::protobuf::Any* mutable_exdat();
+  void set_allocated_exdat(::google::protobuf::Any* exdat);
+
+  // int64 win = 1;
+  void clear_win();
+  static const int kWinFieldNumber = 1;
+  ::google::protobuf::int64 win() const;
+  void set_win(::google::protobuf::int64 value);
+
+  // int64 realWin = 2;
+  void clear_realwin();
+  static const int kRealWinFieldNumber = 2;
+  ::google::protobuf::int64 realwin() const;
+  void set_realwin(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.GameResultChunk)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo > lstgri_;
+  ::google::protobuf::Any* exdat_;
+  ::google::protobuf::int64 win_;
+  ::google::protobuf::int64 realwin_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsGameResultChunkImpl();
+};
 // ===================================================================
 
 
@@ -622,7 +1188,7 @@ class StaticCascadingRandomResult : public ::google::protobuf::Message /* @@prot
 #endif  // __GNUC__
 // SymbolLine
 
-// repeated int32 xdat = 1;
+// repeated int32 xDat = 1;
 inline int SymbolLine::xdat_size() const {
   return xdat_.size();
 }
@@ -630,25 +1196,25 @@ inline void SymbolLine::clear_xdat() {
   xdat_.Clear();
 }
 inline ::google::protobuf::int32 SymbolLine::xdat(int index) const {
-  // @@protoc_insertion_point(field_get:natashapb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolLine.xDat)
   return xdat_.Get(index);
 }
 inline void SymbolLine::set_xdat(int index, ::google::protobuf::int32 value) {
   xdat_.Set(index, value);
-  // @@protoc_insertion_point(field_set:natashapb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_set:natashapb.SymbolLine.xDat)
 }
 inline void SymbolLine::add_xdat(::google::protobuf::int32 value) {
   xdat_.Add(value);
-  // @@protoc_insertion_point(field_add:natashapb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_add:natashapb.SymbolLine.xDat)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 SymbolLine::xdat() const {
-  // @@protoc_insertion_point(field_list:natashapb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_list:natashapb.SymbolLine.xDat)
   return xdat_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 SymbolLine::mutable_xdat() {
-  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolLine.xdat)
+  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolLine.xDat)
   return &xdat_;
 }
 
@@ -656,7 +1222,7 @@ SymbolLine::mutable_xdat() {
 
 // SymbolBlock
 
-// repeated .natashapb.SymbolLine ydat = 1;
+// repeated .natashapb.SymbolLine yDat = 1;
 inline int SymbolBlock::ydat_size() const {
   return ydat_.size();
 }
@@ -664,25 +1230,25 @@ inline void SymbolBlock::clear_ydat() {
   ydat_.Clear();
 }
 inline ::natashapb::SymbolLine* SymbolBlock::mutable_ydat(int index) {
-  // @@protoc_insertion_point(field_mutable:natashapb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_mutable:natashapb.SymbolBlock.yDat)
   return ydat_.Mutable(index);
 }
 inline ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >*
 SymbolBlock::mutable_ydat() {
-  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolBlock.yDat)
   return &ydat_;
 }
 inline const ::natashapb::SymbolLine& SymbolBlock::ydat(int index) const {
-  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock.yDat)
   return ydat_.Get(index);
 }
 inline ::natashapb::SymbolLine* SymbolBlock::add_ydat() {
-  // @@protoc_insertion_point(field_add:natashapb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_add:natashapb.SymbolBlock.yDat)
   return ydat_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >&
 SymbolBlock::ydat() const {
-  // @@protoc_insertion_point(field_list:natashapb.SymbolBlock.ydat)
+  // @@protoc_insertion_point(field_list:natashapb.SymbolBlock.yDat)
   return ydat_;
 }
 
@@ -902,6 +1468,55 @@ inline void SymbolBlock3X5::set_dat2_4(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// RandomResult
+
+// .google.protobuf.Any info = 1;
+inline bool RandomResult::has_info() const {
+  return this != internal_default_instance() && info_ != NULL;
+}
+inline const ::google::protobuf::Any& RandomResult::info() const {
+  const ::google::protobuf::Any* p = info_;
+  // @@protoc_insertion_point(field_get:natashapb.RandomResult.info)
+  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Any*>(
+      &::google::protobuf::_Any_default_instance_);
+}
+inline ::google::protobuf::Any* RandomResult::release_info() {
+  // @@protoc_insertion_point(field_release:natashapb.RandomResult.info)
+  
+  ::google::protobuf::Any* temp = info_;
+  info_ = NULL;
+  return temp;
+}
+inline ::google::protobuf::Any* RandomResult::mutable_info() {
+  
+  if (info_ == NULL) {
+    info_ = ::google::protobuf::Arena::Create< ::google::protobuf::Any >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.RandomResult.info)
+  return info_;
+}
+inline void RandomResult::set_allocated_info(::google::protobuf::Any* info) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(info_);
+  }
+  if (info) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      info = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  info_ = info;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.RandomResult.info)
+}
+
+// -------------------------------------------------------------------
+
 // StaticCascadingRandomResult
 
 // int32 reelsIndex = 1;
@@ -932,9 +1547,321 @@ inline void StaticCascadingRandomResult::set_downnums(::google::protobuf::int32 
   // @@protoc_insertion_point(field_set:natashapb.StaticCascadingRandomResult.downNums)
 }
 
+// -------------------------------------------------------------------
+
+// Position2D
+
+// int32 x = 1;
+inline void Position2D::clear_x() {
+  x_ = 0;
+}
+inline ::google::protobuf::int32 Position2D::x() const {
+  // @@protoc_insertion_point(field_get:natashapb.Position2D.x)
+  return x_;
+}
+inline void Position2D::set_x(::google::protobuf::int32 value) {
+  
+  x_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.Position2D.x)
+}
+
+// int32 y = 2;
+inline void Position2D::clear_y() {
+  y_ = 0;
+}
+inline ::google::protobuf::int32 Position2D::y() const {
+  // @@protoc_insertion_point(field_get:natashapb.Position2D.y)
+  return y_;
+}
+inline void Position2D::set_y(::google::protobuf::int32 value) {
+  
+  y_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.Position2D.y)
+}
+
+// -------------------------------------------------------------------
+
+// GameResultInfo
+
+// .natashapb.GAMERESULTTYPE typeGameResult = 1;
+inline void GameResultInfo::clear_typegameresult() {
+  typegameresult_ = 0;
+}
+inline ::natashapb::GAMERESULTTYPE GameResultInfo::typegameresult() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.typeGameResult)
+  return static_cast< ::natashapb::GAMERESULTTYPE >(typegameresult_);
+}
+inline void GameResultInfo::set_typegameresult(::natashapb::GAMERESULTTYPE value) {
+  
+  typegameresult_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.typeGameResult)
+}
+
+// repeated .natashapb.Position2D lstPos = 2;
+inline int GameResultInfo::lstpos_size() const {
+  return lstpos_.size();
+}
+inline void GameResultInfo::clear_lstpos() {
+  lstpos_.Clear();
+}
+inline ::natashapb::Position2D* GameResultInfo::mutable_lstpos(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.GameResultInfo.lstPos)
+  return lstpos_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::Position2D >*
+GameResultInfo::mutable_lstpos() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.GameResultInfo.lstPos)
+  return &lstpos_;
+}
+inline const ::natashapb::Position2D& GameResultInfo::lstpos(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.lstPos)
+  return lstpos_.Get(index);
+}
+inline ::natashapb::Position2D* GameResultInfo::add_lstpos() {
+  // @@protoc_insertion_point(field_add:natashapb.GameResultInfo.lstPos)
+  return lstpos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::Position2D >&
+GameResultInfo::lstpos() const {
+  // @@protoc_insertion_point(field_list:natashapb.GameResultInfo.lstPos)
+  return lstpos_;
+}
+
+// int32 symbol = 3;
+inline void GameResultInfo::clear_symbol() {
+  symbol_ = 0;
+}
+inline ::google::protobuf::int32 GameResultInfo::symbol() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.symbol)
+  return symbol_;
+}
+inline void GameResultInfo::set_symbol(::google::protobuf::int32 value) {
+  
+  symbol_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.symbol)
+}
+
+// repeated int32 lstSymbol = 4;
+inline int GameResultInfo::lstsymbol_size() const {
+  return lstsymbol_.size();
+}
+inline void GameResultInfo::clear_lstsymbol() {
+  lstsymbol_.Clear();
+}
+inline ::google::protobuf::int32 GameResultInfo::lstsymbol(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.lstSymbol)
+  return lstsymbol_.Get(index);
+}
+inline void GameResultInfo::set_lstsymbol(int index, ::google::protobuf::int32 value) {
+  lstsymbol_.Set(index, value);
+  // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.lstSymbol)
+}
+inline void GameResultInfo::add_lstsymbol(::google::protobuf::int32 value) {
+  lstsymbol_.Add(value);
+  // @@protoc_insertion_point(field_add:natashapb.GameResultInfo.lstSymbol)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+GameResultInfo::lstsymbol() const {
+  // @@protoc_insertion_point(field_list:natashapb.GameResultInfo.lstSymbol)
+  return lstsymbol_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+GameResultInfo::mutable_lstsymbol() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.GameResultInfo.lstSymbol)
+  return &lstsymbol_;
+}
+
+// int64 win = 5;
+inline void GameResultInfo::clear_win() {
+  win_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameResultInfo::win() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.win)
+  return win_;
+}
+inline void GameResultInfo::set_win(::google::protobuf::int64 value) {
+  
+  win_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.win)
+}
+
+// int64 realWin = 6;
+inline void GameResultInfo::clear_realwin() {
+  realwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameResultInfo::realwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.realWin)
+  return realwin_;
+}
+inline void GameResultInfo::set_realwin(::google::protobuf::int64 value) {
+  
+  realwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.realWin)
+}
+
+// .google.protobuf.Any exDat = 7;
+inline bool GameResultInfo::has_exdat() const {
+  return this != internal_default_instance() && exdat_ != NULL;
+}
+inline const ::google::protobuf::Any& GameResultInfo::exdat() const {
+  const ::google::protobuf::Any* p = exdat_;
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.exDat)
+  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Any*>(
+      &::google::protobuf::_Any_default_instance_);
+}
+inline ::google::protobuf::Any* GameResultInfo::release_exdat() {
+  // @@protoc_insertion_point(field_release:natashapb.GameResultInfo.exDat)
+  
+  ::google::protobuf::Any* temp = exdat_;
+  exdat_ = NULL;
+  return temp;
+}
+inline ::google::protobuf::Any* GameResultInfo::mutable_exdat() {
+  
+  if (exdat_ == NULL) {
+    exdat_ = ::google::protobuf::Arena::Create< ::google::protobuf::Any >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.GameResultInfo.exDat)
+  return exdat_;
+}
+inline void GameResultInfo::set_allocated_exdat(::google::protobuf::Any* exdat) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(exdat_);
+  }
+  if (exdat) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      exdat = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, exdat, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  exdat_ = exdat;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameResultInfo.exDat)
+}
+
+// -------------------------------------------------------------------
+
+// GameResultChunk
+
+// int64 win = 1;
+inline void GameResultChunk::clear_win() {
+  win_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameResultChunk::win() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultChunk.win)
+  return win_;
+}
+inline void GameResultChunk::set_win(::google::protobuf::int64 value) {
+  
+  win_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultChunk.win)
+}
+
+// int64 realWin = 2;
+inline void GameResultChunk::clear_realwin() {
+  realwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameResultChunk::realwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultChunk.realWin)
+  return realwin_;
+}
+inline void GameResultChunk::set_realwin(::google::protobuf::int64 value) {
+  
+  realwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultChunk.realWin)
+}
+
+// repeated .natashapb.GameResultInfo lstGRI = 3;
+inline int GameResultChunk::lstgri_size() const {
+  return lstgri_.size();
+}
+inline void GameResultChunk::clear_lstgri() {
+  lstgri_.Clear();
+}
+inline ::natashapb::GameResultInfo* GameResultChunk::mutable_lstgri(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.GameResultChunk.lstGRI)
+  return lstgri_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo >*
+GameResultChunk::mutable_lstgri() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.GameResultChunk.lstGRI)
+  return &lstgri_;
+}
+inline const ::natashapb::GameResultInfo& GameResultChunk::lstgri(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultChunk.lstGRI)
+  return lstgri_.Get(index);
+}
+inline ::natashapb::GameResultInfo* GameResultChunk::add_lstgri() {
+  // @@protoc_insertion_point(field_add:natashapb.GameResultChunk.lstGRI)
+  return lstgri_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo >&
+GameResultChunk::lstgri() const {
+  // @@protoc_insertion_point(field_list:natashapb.GameResultChunk.lstGRI)
+  return lstgri_;
+}
+
+// .google.protobuf.Any exDat = 4;
+inline bool GameResultChunk::has_exdat() const {
+  return this != internal_default_instance() && exdat_ != NULL;
+}
+inline const ::google::protobuf::Any& GameResultChunk::exdat() const {
+  const ::google::protobuf::Any* p = exdat_;
+  // @@protoc_insertion_point(field_get:natashapb.GameResultChunk.exDat)
+  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Any*>(
+      &::google::protobuf::_Any_default_instance_);
+}
+inline ::google::protobuf::Any* GameResultChunk::release_exdat() {
+  // @@protoc_insertion_point(field_release:natashapb.GameResultChunk.exDat)
+  
+  ::google::protobuf::Any* temp = exdat_;
+  exdat_ = NULL;
+  return temp;
+}
+inline ::google::protobuf::Any* GameResultChunk::mutable_exdat() {
+  
+  if (exdat_ == NULL) {
+    exdat_ = ::google::protobuf::Arena::Create< ::google::protobuf::Any >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.GameResultChunk.exDat)
+  return exdat_;
+}
+inline void GameResultChunk::set_allocated_exdat(::google::protobuf::Any* exdat) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(exdat_);
+  }
+  if (exdat) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      exdat = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, exdat, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  exdat_ = exdat;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameResultChunk.exDat)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -945,6 +1872,18 @@ inline void StaticCascadingRandomResult::set_downnums(::google::protobuf::int32 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace natashapb
+
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::natashapb::GAMERESULTTYPE> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::natashapb::GAMERESULTTYPE>() {
+  return ::natashapb::GAMERESULTTYPE_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

@@ -11,6 +11,7 @@
 #include "staticcascadingreels.h"
 #include "symbolblock.h"
 #include "util.h"
+#include "gamelogic.h"
 
 namespace natasha {
 

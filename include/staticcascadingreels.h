@@ -21,12 +21,15 @@ class StaticCascadingReels : public BaseReels<SymbolType, Width, Height> {
   virtual ~StaticCascadingReels() {}
 
  public:
-  virtual void random(::google::protobuf::Message* pRandomResult,
+  virtual void random(::natashapb::RandomResult* pRandomResult,
                       SymbolBlockT& symbolBlock) {
     assert(pRandomResult != NULL);
-    auto pSCRR = (::natashapb::StaticCascadingRandomResult*)pRandomResult;
-    auto ri = pSCRR->reelsindex();
-    auto dn = pSCRR->downnums();
+
+    ::natashapb::StaticCascadingRandomResult msg;
+    pRandomResult->info().UnpackTo(&msg);
+
+    auto ri = msg.reelsindex();
+    auto dn = msg.downnums();
 
     if (ri < 0) {
     } else {

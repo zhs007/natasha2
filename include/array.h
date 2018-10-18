@@ -29,7 +29,7 @@ class Array2D {
     m_arr[y][x] = symbol;
   }
 
-  ValueType get(int x, int y) {
+  ValueType get(int x, int y) const {
     assert(x >= 0 && x < Width);
     assert(y >= 0 && y < Height);
 
