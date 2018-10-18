@@ -11,4 +11,4 @@ Natasha will be certified by ``iTech``.
 
 Natasha include a lot of slots game algorithms, you can easily combine algorithms to get a new game, and you can easily add new algorithms.
 
-It will be used by millions of players.
+Natasha is a core engine of our slots game server v7.0, it will be used by millions of players.
