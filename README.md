@@ -10,3 +10,5 @@ Natasha can be easily packaged for ``nodejs``.
 Natasha will be certified by ``iTech``.
 
 Natasha include a lot of slots game algorithms, you can easily combine algorithms to get a new game, and you can easily add new algorithms.
+
+It will be used by millions of players.
