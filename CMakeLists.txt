@@ -18,6 +18,7 @@ add_executable(maintest ./test/test.cpp)
 target_link_libraries(maintest libnatasha2)
 target_link_libraries(maintest libprotoc)
 target_link_libraries(maintest libtlod)
+target_link_libraries(maintest libprotobuf.a)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
