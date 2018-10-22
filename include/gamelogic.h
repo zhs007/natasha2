@@ -6,34 +6,31 @@
 #include <vector>
 #include "../protoc/base.pb.h"
 #include "array.h"
+#include "gamemod.h"
 #include "symbolblock.h"
 #include "utils.h"
 
 namespace natasha {
 
-template <typename SymbolType>
 class GameLogic {
  public:
-  typedef BaseSymbolBlock<SymbolType> BaseSymbolBlockT;
+  typedef std::map< ::natashapb::GAMEMODTYPE, GameMod*> MapGameMod;
 
  public:
-  GameLogic() {}
-  virtual ~GameLogic() {}
+  GameLogic();
+  virtual ~GameLogic();
 
  public:
-  virtual bool init() = 0;
+  virtual bool init();
 
-  virtual bool randomReels(::natashapb::RandomResult* pRandomResult,
-                           BaseSymbolBlockT* pSymbolBlock) = 0;
+  virtual bool gameCtrl(const ::natashapb::UserGameLogicInfo* pUser);
 
-  virtual bool countResult(::natashapb::GameResultChunk* pGameResultChunk,
-                           ::natashapb::RandomResult* pRandomResult,
-                           BaseSymbolBlockT* pSymbolBlock) = 0;
+ public:
+  bool addGameMod(::natashapb::GAMEMODTYPE gmt, GameMod* pMod);
 
  protected:
+  MapGameMod m_mapGameMod;
 };
-
-typedef GameLogic<int> GameLogicInt;
 
 }  // namespace natasha
 

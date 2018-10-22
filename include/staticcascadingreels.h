@@ -25,7 +25,7 @@ class StaticCascadingReels : public BaseReels<SymbolType, Width, Height> {
                       SymbolBlockT& symbolBlock) {
     assert(pRandomResult != NULL);
 
-    ::natashapb::StaticCascadingRandomResult msg;
+    ::natashapb::StaticCascadingRandomResult3X5 msg;
     pRandomResult->info().UnpackTo(&msg);
 
     auto ri = msg.reelsindex();

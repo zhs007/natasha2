@@ -1,40 +1,8 @@
 syntax = "proto3";
-import "base.proto";
 package tlodpb;
 
-message BGInfo {
-    int32 reelsIndex = 1;
-    natashapb.SymbolBlock3X5 arr = 2;
-    int32 turnNums = 3;
-    int32 downNums = 4;
-    int32 curBet = 5;
-    int32 turnWin = 6;
-    natashapb.StaticCascadingRandomResult randRet = 7;
-    int64 baseID = 9;
-    int64 parentID = 10;
+message BGUserInfo {
 }
 
-message FGInfo {
-    int32 reelsIndex = 1;
-    natashapb.SymbolBlock3X5 arr = 2;
-    int32 turnNums = 3;
-    int32 downNums = 4;
-    int32 curBet = 5;
-    int32 turnWin = 6;
-    int32 totalWin = 7;
-    int32 lastNums = 8;
-    int32 curNums = 9;
-    natashapb.StaticCascadingRandomResult randRet = 10;
-    int64 baseID = 11;
-    int64 parentID = 12;    
-}
-
-message BGGameResultChunkExt {
-    int32 fgNums = 1;
-    int32 downNums = 2;
-}
-
-message FGGameResultChunkExt {
-    int32 fgNums = 1;
-    int32 downNums = 2;
+message FGUserInfo {
 }

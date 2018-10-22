@@ -2,14 +2,17 @@ syntax = "proto3";
 import "google/protobuf/any.proto";
 package natashapb;
 
+// SymbolLine -
 message SymbolLine {
     repeated int32 xDat = 1;
 }
 
+// SymbolBlock - 
 message SymbolBlock {
     repeated SymbolLine yDat = 1;
 }
 
+// SymbolBlock3X5 - SymbolBlock 3X5
 message SymbolBlock3X5 {
     int32 dat0_0 = 1;
     int32 dat0_1 = 2;
@@ -28,30 +31,41 @@ message SymbolBlock3X5 {
     int32 dat2_4 = 15;
 }
 
+// RandomResult - common random result
 message RandomResult {
-    google.protobuf.Any info = 1;
+    google.protobuf.Any info = 100;
 }
 
-message StaticCascadingRandomResult {
+// StaticCascadingRandomResult3X5 - static cascading random result for symbolblock 3X5
+message StaticCascadingRandomResult3X5 {
     int32 reelsIndex = 1;
     int32 downNums = 2;
+    SymbolBlock3X5 sb3x5 = 3;
 }
 
+// Position2D - position 2d
 message Position2D {
     int32 x = 1;
     int32 y = 2;
 }
 
+// GAMERESULTTYPE - game result type
 enum GAMERESULTTYPE {
-    NULL = 0;
+    // no win
+    NO_WIN = 0;
+    // line from left to right
     LINE_LEFT = 1;
+    // line from right to left
     LINE_RIGHT = 2;
+    // scatter from left to right
     SCATTER_LEFT = 3;
+    // scatter from right to left
     SCATTER_RIGHT = 4;
-    SCATTER_LEFT_CONSEQUENT = 5;
-    SCATTER_RIGHT_CONSEQUENT = 6;
 };
 
+// GameResultInfo - game result info
+//      GameResultInfo is just a line win or a scatter win
+//      exDat is used to handle different game extension properties 
 message GameResultInfo {
     GAMERESULTTYPE typeGameResult = 1;
     repeated Position2D lstPos = 2;
@@ -59,14 +73,100 @@ message GameResultInfo {
     repeated int32 lstSymbol = 4;
     int64 win = 5;
     int64 realWin = 6;
+    int64 mul = 7;
+    int64 prize = 8;
 
-    google.protobuf.Any exDat = 7;
+    google.protobuf.Any exDat = 1000;
 }
 
-message GameResultChunk {
+// SpinResult - spin result
+//      exDat is used to handle different game extension properties
+message SpinResult {
     int64 win = 1;
     int64 realWin = 2;
     repeated GameResultInfo lstGRI = 3;
+    int32 fgNums = 4;
+    bool inFG = 5;
+    bool inBonus = 6;
+    bool inJackpot = 7;
+    bool inCommonJackpot = 8;
+    bool inRespin = 9;
 
-    google.protobuf.Any exDat = 4;
+    google.protobuf.Any exDat = 1000;
+}
+
+enum GAMEMODTYPE {
+    // null mod type
+    NULL_MOD = 0;
+    // base game
+    BASE_GAME = 1;
+    // free game
+    FREE_GAME = 2;
+    // bonus
+    BONUS_GAME = 3;
+    // jackpot
+    JACKPOT_GAME = 4;    
+    // common jackpot
+    COMMON_JACKPOT_GAME = 5;
+    // free game 2
+    FREE_GAME2 = 6;    
+}
+
+// GameCtrlID - GameCtrlID is used to analyze the logical relationship of the current game's turn
+message GameCtrlID {
+    int64 ctrlID = 1;
+    int64 baseID = 2;
+    int64 parentID = 3;
+    GAMEMODTYPE gameMod = 4;
+}
+
+// BaseCascadingInfo - basic cascading game data
+message BaseCascadingInfo {
+    int32 curBet = 1;
+    int32 curLines = 2;
+    int32 curTimes = 3;
+    int32 turnNums = 4;
+    int64 turnWin = 5;    
+}
+
+// BaseFGInfo - basic free game data
+message BaseFreeInfo {
+    int64 totalWin = 1;
+    int32 lastNums = 2;
+    int32 curNums = 3; 
+}
+
+// RespinHistory - respin history
+message RespinHistory {
+    int64 realWin = 1;
+    int64 win = 2;
+    int32 mul = 3;
+    bool isSpecial = 4;
+}
+
+// RespinHistoryList - respin history list
+message RespinHistoryList {
+    repeated RespinHistory lst = 1;
+}
+
+// UserGameModInfo - user's game module info
+message UserGameModInfo {
+    RandomResult randomResult = 1;
+    SpinResult spinResult = 2;
+    GameCtrlID gameCtrlID = 3;
+    BaseCascadingInfo cascadingInfo = 4;
+    RespinHistoryList lstHistory = 5;
+    BaseFreeInfo freeInfo = 6;
+
+    google.protobuf.Any exDat = 1000;
+}
+
+// UserGameLogicInfo - user's game logic info
+message UserGameLogicInfo {
+    UserGameModInfo basegame = 1;
+    UserGameModInfo freegame = 2;
+    UserGameModInfo bonus = 3;
+    UserGameModInfo jackpot = 4;
+    UserGameModInfo commonjackpot = 5;
+    UserGameModInfo freegame2 = 6;
 }

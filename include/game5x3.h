@@ -6,12 +6,12 @@
 #include <string>
 #include <vector>
 #include "../protoc/base.pb.h"
+#include "gamelogic.h"
 #include "lines.h"
 #include "paytables.h"
 #include "staticcascadingreels.h"
 #include "symbolblock.h"
 #include "util.h"
-#include "gamelogic.h"
 
 namespace natasha {
 
@@ -31,8 +31,9 @@ void loadLines5X3(const char* fn, Lines5X3& lines);
 void loadStaticCascadingReels5X3(FileNameList& lstfn,
                                  StaticCascadingReels5X3& scr);
 
-inline void setSymbolBlock5X3(SymbolBlock5X3& dest,
-                              const natashapb::SymbolBlock3X5& sb3x5) {
+// pb::SymbolBlock3X5 -> SymbolBlock5X3
+inline void setSymbolBlock5X3FromProtoc(
+    SymbolBlock5X3& dest, const natashapb::SymbolBlock3X5& sb3x5) {
   dest.set(0, 0, sb3x5.dat0_0());
   dest.set(0, 1, sb3x5.dat0_1());
   dest.set(0, 2, sb3x5.dat0_2());
@@ -48,6 +49,26 @@ inline void setSymbolBlock5X3(SymbolBlock5X3& dest,
   dest.set(2, 2, sb3x5.dat2_2());
   dest.set(2, 3, sb3x5.dat2_3());
   dest.set(2, 4, sb3x5.dat2_4());
+}
+
+// SymbolBlock5X3 -> pb::SymbolBlock3X5
+inline void setSymbolBlock5X3ToProtoc(natashapb::SymbolBlock3X5& dest,
+                                      const SymbolBlock5X3& sb3x5) {
+  dest.set_dat0_0(sb3x5.get(0, 0));
+  dest.set_dat0_1(sb3x5.get(0, 1));
+  dest.set_dat0_2(sb3x5.get(0, 2));
+  dest.set_dat0_3(sb3x5.get(0, 3));
+  dest.set_dat0_4(sb3x5.get(0, 4));
+  dest.set_dat1_0(sb3x5.get(1, 0));
+  dest.set_dat1_1(sb3x5.get(1, 1));
+  dest.set_dat1_2(sb3x5.get(1, 2));
+  dest.set_dat1_3(sb3x5.get(1, 3));
+  dest.set_dat1_4(sb3x5.get(1, 4));
+  dest.set_dat2_0(sb3x5.get(2, 0));
+  dest.set_dat2_1(sb3x5.get(2, 1));
+  dest.set_dat2_2(sb3x5.get(2, 2));
+  dest.set_dat2_3(sb3x5.get(2, 3));
+  dest.set_dat2_4(sb3x5.get(2, 4));
 }
 
 }  // namespace natasha

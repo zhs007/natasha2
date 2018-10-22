@@ -29,24 +29,11 @@ bool TLOD::init() {
     return false;
   }
 
-  return true;
-}
+  addGameMod(::natashapb::BASE_GAME,
+             new TLODBaseGame(m_reels, m_paytables, m_lines));
+  addGameMod(::natashapb::FREE_GAME,
+             new TLODFreeGame(m_reels, m_paytables, m_lines));
 
-bool TLOD::randomReels(::natashapb::RandomResult* pRandomResult,
-                       BaseSymbolBlockInt* pSymbolBlock) {
-  assert(pRandomResult != NULL);
-  assert(pSymbolBlock != NULL);
-
-  SymbolBlock5X3* pSB = dynamic_cast<SymbolBlock5X3*>(pSymbolBlock);
-
-  m_reels.random(pRandomResult, *pSB);
-
-  return true;
-}
-
-bool TLOD::countResult(::natashapb::GameResultChunk* pGameResultChunk,
-                       ::natashapb::RandomResult* pRandomResult,
-                       BaseSymbolBlockT* pSymbolBlock) {
   return true;
 }
 

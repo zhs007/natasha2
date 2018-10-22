@@ -5,23 +5,18 @@
 #include <vector>
 #include "../include/game5x3.h"
 #include "../include/gamelogic.h"
+#include "basegame.h"
+#include "freegame.h"
 
 namespace natasha {
 
-class TLOD : public GameLogicInt {
+class TLOD : public GameLogic {
  public:
   TLOD() {}
   virtual ~TLOD() {}
 
  public:
   virtual bool init();
-
-  virtual bool randomReels(::natashapb::RandomResult* pRandomResult,
-                           BaseSymbolBlockInt* pSymbolBlock);
-
-  virtual bool countResult(::natashapb::GameResultChunk* pGameResultChunk,
-                           ::natashapb::RandomResult* pRandomResult,
-                           BaseSymbolBlockT* pSymbolBlock);
 
  protected:
   StaticCascadingReels5X3 m_reels;

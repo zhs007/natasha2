@@ -10,8 +10,11 @@
 
 namespace natasha {
 
-const uint8_t TLOD_SYMBOL_W = 0;
-const uint8_t TLOD_SYMBOL_S = 12;
+const int TLOD_WIDTH = 5;
+const int TLOD_HEIGHT = 3;
+
+const int TLOD_SYMBOL_W = 0;
+const int TLOD_SYMBOL_S = 12;
 
 template <typename SymbolType>
 struct GameCfg<SymbolType, GAMECODE_TLOD> {
@@ -28,6 +31,8 @@ struct GameCfg<SymbolType, GAMECODE_TLOD> {
   }
 
   static bool isScatter(SymbolType s) { return s == TLOD_SYMBOL_S; }
+
+  static int getMaxScstterNums(SymbolType s) { return TLOD_WIDTH; }
 };
 
 }  // namespace natasha

@@ -3,6 +3,7 @@
 
 #include <assert.h>
 #include <map>
+#include "../protoc/base.pb.h"
 
 namespace natasha {
 
@@ -36,6 +37,12 @@ typedef struct {
 } NullType;
 
 typedef std::vector<std::string> FileNameList;
+
+// clearGameResultInfo
+void clearGameResultInfo(::natashapb::GameResultInfo& gri);
+// clearSpinResult
+void clearSpinResult(::natashapb::SpinResult& sr);
+
 
 }  // namespace natasha
 

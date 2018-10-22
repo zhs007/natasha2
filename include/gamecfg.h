@@ -14,6 +14,8 @@ struct GameCfg {
   static bool isSameSymbol_OnLine(SymbolType s0, SymbolType s1);
 
   static bool isScatter(SymbolType s);
+
+  static int getMaxScstterNums(SymbolType s);
 };
 
 }  // namespace natasha
