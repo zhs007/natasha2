@@ -19,6 +19,7 @@ class GameMod {
  public:
   virtual bool init() = 0;
 
+  // reviewGameCtrl - check & fix gamectrl params from client
   virtual ::natashapb::CODE reviewGameCtrl(
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) = 0;

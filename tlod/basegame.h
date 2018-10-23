@@ -22,6 +22,7 @@ class TLODBaseGame : public SlotsGameMod {
  public:
   virtual bool init() { return true; }
 
+  // reviewGameCtrl - check & fix gamectrl params from client
   virtual ::natashapb::CODE reviewGameCtrl(
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
@@ -63,9 +64,17 @@ class TLODBaseGame : public SlotsGameMod {
                     const ::natashapb::GameCtrl* pGameCtrl,
                     const ::natashapb::RandomResult* pRandomResult,
                     const ::natashapb::UserGameModInfo* pUser) {
+    pSpinResult->Clear();
+
     ::natashapb::GameResultInfo gri;
     TLODCountScatter(gri, pRandomResult->retstaticcascading3x5().sb3x5(),
                      m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
+    if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
+      auto pCurGRI = pSpinResult->add_lstgri();
+      pCurGRI->CopyFrom(gri);
+      pSpinResult->set_win(pSpinResult->win() + gri.win());
+      pSpinResult->set_realwin(pSpinResult->realwin() + gri.realwin());
+    }
 
     TLODCountAllLine(*pSpinResult,
                      pRandomResult->retstaticcascading3x5().sb3x5(), m_lines,

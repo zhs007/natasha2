@@ -22,6 +22,7 @@ class TLODFreeGame : public SlotsGameMod {
  public:
   virtual bool init() { return true; }
 
+  // reviewGameCtrl - check & fix gamectrl params from client
   virtual ::natashapb::CODE reviewGameCtrl(
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {

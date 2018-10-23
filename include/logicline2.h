@@ -89,7 +89,10 @@ void countAllLine_Left(
                         GameCfgT>(gri, sl, i, lines.get(i), paytables, bet);
     if (iswin) {
       auto curgri = sr.add_lstgri();
-      *curgri = gri;
+      curgri->CopyFrom(gri);
+
+      sr.set_win(sr.win() + gri.win());
+      sr.set_realwin(sr.realwin() + gri.realwin());
     }
   }
 }
