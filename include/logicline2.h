@@ -16,8 +16,7 @@ namespace natasha {
 template <typename MoneyType, typename SymbolType, int Width, int Height,
           class SymbolBlockT, typename GameCfgT>
 bool _countLine_Left(
-    ::natashapb::GameResultInfo& gri,
-    const typename SymbolBlock<SymbolType, Width, Height>::SymbolLineT& sl,
+    ::natashapb::GameResultInfo& gri, const StaticArray<Width, SymbolType>& sl,
     int lineIndex, const typename Lines<Width, int>::LineInfoT& li,
     const Paytables<Width, SymbolType, int, MoneyType>& paytables,
     MoneyType bet) {
@@ -25,7 +24,7 @@ bool _countLine_Left(
   //   typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
   typedef Lines<Width, int> LinesT;
   typedef Paytables<Width, SymbolType, int, MoneyType> PaytablesT;
-  typedef typename SymbolBlockT::SymbolLineT SymbolLineT;
+  // typedef typename SymbolBlockT::SymbolLineT SymbolLineT;
 
   clearGameResultInfo(gri);
   // gri.Clear();
@@ -62,10 +61,9 @@ bool _countLine_Left(
 }
 
 template <typename MoneyType, typename SymbolType, int Width, int Height,
-          class SymbolBlockT, typename GameCfgT>
+          typename SymbolBlockT, typename GameCfgT>
 void countAllLine_Left(
-    ::natashapb::SpinResult& sr,
-    const SymbolBlock<SymbolType, Width, Height>& arr,
+    ::natashapb::SpinResult& sr, const SymbolBlockT& arr,
     const Lines<Width, int>& lines,
     const Paytables<Width, SymbolType, int, MoneyType>& paytables,
     MoneyType bet) {
@@ -74,18 +72,21 @@ void countAllLine_Left(
   //   typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
   typedef Lines<Width, int> LinesT;
   typedef Paytables<Width, SymbolType, int, MoneyType> PaytablesT;
-  typedef typename SymbolBlockT::SymbolLineT SymbolLineT;
+  typedef StaticArray<Width, SymbolType> SymbolLineT;
+  // typedef typename SymbolBlockT::SymbolLineT SymbolLineT;
   typedef GameResultInfo<MoneyType, SymbolType, int, NullType> GameResultInfoT;
 
   for (int i = 0; i < lines.getNums(); ++i) {
     SymbolLineT sl;
-    arr.buildSymbolLine(sl, lines, i);
+
+    buildSymbolLine<SymbolBlockT, Width, Height>(&arr, sl, lines, i);
+    // arr.buildSymbolLine(sl, lines, i);
 
     ::natashapb::GameResultInfo gri;
 
     bool iswin =
-        _countLine_Left<MoneyType, SymbolType, Width, Height, GameCfgT>(
-            gri, sl, i, paytables);
+        _countLine_Left<MoneyType, SymbolType, Width, Height, SymbolBlockT,
+                        GameCfgT>(gri, sl, i, lines.get(i), paytables, bet);
     if (iswin) {
       auto curgri = sr.add_lstgri();
       *curgri = gri;

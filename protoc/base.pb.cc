@@ -44,6 +44,7 @@ class RandomResultDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<RandomResult>
       _instance;
+  const ::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5_;
 } _RandomResult_default_instance_;
 class Position2DDefaultTypeInternal {
  public:
@@ -59,6 +60,7 @@ class SpinResultDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SpinResult>
       _instance;
+  const ::natashapb::SymbolBlock3X5* sb3x5_;
 } _SpinResult_default_instance_;
 class GameCtrlIDDefaultTypeInternal {
  public:
@@ -89,6 +91,7 @@ class UserGameModInfoDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<UserGameModInfo>
       _instance;
+  const ::natashapb::SymbolBlock3X5* sb3x5_;
 } _UserGameModInfo_default_instance_;
 class UserGameLogicInfoDefaultTypeInternal {
  public:
@@ -139,6 +142,13 @@ class GameCtrlDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<GameCtrl>
       _instance;
+  const ::natashapb::GameCtrlSpin* spin_;
+  const ::natashapb::GameCtrlSelectFree* selectfree_;
+  const ::natashapb::GameCtrlFreeSpin* freespin_;
+  const ::natashapb::GameCtrlBonus* bonus_;
+  const ::natashapb::GameCtrlJackpot* jackpot_;
+  const ::natashapb::GameCtrlCommonJackpot* commonjackpot_;
+  const ::natashapb::GameCtrlAwardSpin* awardspin_;
 } _GameCtrl_default_instance_;
 }  // namespace natashapb
 namespace protobuf_base_2eproto {
@@ -304,6 +314,7 @@ void InitDefaultsSpinResultImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsGameResultInfo();
+  protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
   protobuf_google_2fprotobuf_2fany_2eproto::InitDefaultsAny();
   {
     void* ptr = &::natashapb::_SpinResult_default_instance_;
@@ -438,6 +449,7 @@ void InitDefaultsUserGameModInfoImpl() {
   protobuf_base_2eproto::InitDefaultsBaseCascadingInfo();
   protobuf_base_2eproto::InitDefaultsRespinHistoryList();
   protobuf_base_2eproto::InitDefaultsBaseFreeInfo();
+  protobuf_base_2eproto::InitDefaultsSymbolBlock3X5();
   protobuf_google_2fprotobuf_2fany_2eproto::InitDefaultsAny();
   {
     void* ptr = &::natashapb::_UserGameModInfo_default_instance_;
@@ -719,10 +731,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RandomResult, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RandomResult, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RandomResult, retstaticcascading3x5_),
+  offsetof(::natashapb::RandomResultDefaultTypeInternal, retstaticcascading3x5_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RandomResult, info_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RandomResult, result_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Position2D, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -747,7 +760,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, win_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, realwin_),
@@ -758,7 +771,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, injackpot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, incommonjackpot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, inrespin_),
+  offsetof(::natashapb::SpinResultDefaultTypeInternal, sb3x5_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, exdat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SpinResult, symbolblock_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlID, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -804,7 +819,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, randomresult_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, spinresult_),
@@ -812,7 +827,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, cascadinginfo_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, lsthistory_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, freeinfo_),
+  offsetof(::natashapb::UserGameModInfoDefaultTypeInternal, sb3x5_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, exdat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameModInfo, symbolblock_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -832,6 +849,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlSpin, bet_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlSpin, lines_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlSpin, times_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlSpin, totalbet_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlSpin, realbet_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlSelectFree, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -846,6 +865,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlFreeSpin, bet_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlFreeSpin, lines_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlFreeSpin, times_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlFreeSpin, totalbet_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlBonus, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -872,6 +892,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlAwardSpin, bet_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlAwardSpin, lines_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlAwardSpin, times_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlAwardSpin, totalbet_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrlDebug, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -882,17 +903,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, spin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, selectfree_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, freespin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, bonus_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, jackpot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, commonjackpot_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, awardspin_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, spin_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, selectfree_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, freespin_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, bonus_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, jackpot_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, commonjackpot_),
+  offsetof(::natashapb::GameCtrlDefaultTypeInternal, awardspin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, debug_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, exdat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameCtrl, ctrl_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::natashapb::SymbolLine)},
@@ -900,25 +922,25 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 12, -1, sizeof(::natashapb::SymbolBlock3X5)},
   { 32, -1, sizeof(::natashapb::StaticCascadingRandomResult3X5)},
   { 40, -1, sizeof(::natashapb::RandomResult)},
-  { 47, -1, sizeof(::natashapb::Position2D)},
-  { 54, -1, sizeof(::natashapb::GameResultInfo)},
-  { 68, -1, sizeof(::natashapb::SpinResult)},
-  { 83, -1, sizeof(::natashapb::GameCtrlID)},
-  { 92, -1, sizeof(::natashapb::BaseCascadingInfo)},
-  { 102, -1, sizeof(::natashapb::BaseFreeInfo)},
-  { 110, -1, sizeof(::natashapb::RespinHistory)},
-  { 119, -1, sizeof(::natashapb::RespinHistoryList)},
-  { 125, -1, sizeof(::natashapb::UserGameModInfo)},
-  { 137, -1, sizeof(::natashapb::UserGameLogicInfo)},
-  { 148, -1, sizeof(::natashapb::GameCtrlSpin)},
-  { 156, -1, sizeof(::natashapb::GameCtrlSelectFree)},
-  { 162, -1, sizeof(::natashapb::GameCtrlFreeSpin)},
-  { 170, -1, sizeof(::natashapb::GameCtrlBonus)},
-  { 176, -1, sizeof(::natashapb::GameCtrlJackpot)},
-  { 182, -1, sizeof(::natashapb::GameCtrlCommonJackpot)},
-  { 188, -1, sizeof(::natashapb::GameCtrlAwardSpin)},
-  { 196, -1, sizeof(::natashapb::GameCtrlDebug)},
-  { 203, -1, sizeof(::natashapb::GameCtrl)},
+  { 48, -1, sizeof(::natashapb::Position2D)},
+  { 55, -1, sizeof(::natashapb::GameResultInfo)},
+  { 69, -1, sizeof(::natashapb::SpinResult)},
+  { 86, -1, sizeof(::natashapb::GameCtrlID)},
+  { 95, -1, sizeof(::natashapb::BaseCascadingInfo)},
+  { 105, -1, sizeof(::natashapb::BaseFreeInfo)},
+  { 113, -1, sizeof(::natashapb::RespinHistory)},
+  { 122, -1, sizeof(::natashapb::RespinHistoryList)},
+  { 128, -1, sizeof(::natashapb::UserGameModInfo)},
+  { 142, -1, sizeof(::natashapb::UserGameLogicInfo)},
+  { 153, -1, sizeof(::natashapb::GameCtrlSpin)},
+  { 163, -1, sizeof(::natashapb::GameCtrlSelectFree)},
+  { 169, -1, sizeof(::natashapb::GameCtrlFreeSpin)},
+  { 178, -1, sizeof(::natashapb::GameCtrlBonus)},
+  { 184, -1, sizeof(::natashapb::GameCtrlJackpot)},
+  { 190, -1, sizeof(::natashapb::GameCtrlCommonJackpot)},
+  { 196, -1, sizeof(::natashapb::GameCtrlAwardSpin)},
+  { 205, -1, sizeof(::natashapb::GameCtrlDebug)},
+  { 212, -1, sizeof(::natashapb::GameCtrl)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -982,79 +1004,85 @@ void AddDescriptorsImpl() {
       "\006dat2_3\030\016 \001(\005\022\016\n\006dat2_4\030\017 \001(\005\"p\n\036StaticC"
       "ascadingRandomResult3X5\022\022\n\nreelsIndex\030\001 "
       "\001(\005\022\020\n\010downNums\030\002 \001(\005\022(\n\005sb3x5\030\003 \001(\0132\031.n"
-      "atashapb.SymbolBlock3X5\"}\n\014RandomResult\022"
-      "H\n\025retStaticCascading3x5\030\001 \001(\0132).natasha"
-      "pb.StaticCascadingRandomResult3X5\022#\n\004inf"
-      "o\030\350\007 \001(\0132\024.google.protobuf.Any\"\"\n\nPositi"
-      "on2D\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\"\355\001\n\016GameResul"
-      "tInfo\0221\n\016typeGameResult\030\001 \001(\0162\031.natashap"
-      "b.GAMERESULTTYPE\022%\n\006lstPos\030\002 \003(\0132\025.natas"
-      "hapb.Position2D\022\016\n\006symbol\030\003 \001(\005\022\021\n\tlstSy"
-      "mbol\030\004 \003(\005\022\013\n\003win\030\005 \001(\003\022\017\n\007realWin\030\006 \001(\003"
-      "\022\013\n\003mul\030\007 \001(\003\022\r\n\005prize\030\010 \001(\003\022$\n\005exDat\030\350\007"
-      " \001(\0132\024.google.protobuf.Any\"\350\001\n\nSpinResul"
-      "t\022\013\n\003win\030\001 \001(\003\022\017\n\007realWin\030\002 \001(\003\022)\n\006lstGR"
-      "I\030\003 \003(\0132\031.natashapb.GameResultInfo\022\016\n\006fg"
-      "Nums\030\004 \001(\005\022\014\n\004inFG\030\005 \001(\010\022\017\n\007inBonus\030\006 \001("
-      "\010\022\021\n\tinJackpot\030\007 \001(\010\022\027\n\017inCommonJackpot\030"
-      "\010 \001(\010\022\020\n\010inRespin\030\t \001(\010\022$\n\005exDat\030\350\007 \001(\0132"
-      "\024.google.protobuf.Any\"g\n\nGameCtrlID\022\016\n\006c"
-      "trlID\030\001 \001(\003\022\016\n\006baseID\030\002 \001(\003\022\020\n\010parentID\030"
-      "\003 \001(\003\022\'\n\007gameMod\030\004 \001(\0162\026.natashapb.GAMEM"
-      "ODTYPE\"j\n\021BaseCascadingInfo\022\016\n\006curBet\030\001 "
-      "\001(\005\022\020\n\010curLines\030\002 \001(\005\022\020\n\010curTimes\030\003 \001(\005\022"
-      "\020\n\010turnNums\030\004 \001(\005\022\017\n\007turnWin\030\005 \001(\003\"C\n\014Ba"
-      "seFreeInfo\022\020\n\010totalWin\030\001 \001(\003\022\020\n\010lastNums"
-      "\030\002 \001(\005\022\017\n\007curNums\030\003 \001(\005\"M\n\rRespinHistory"
-      "\022\017\n\007realWin\030\001 \001(\003\022\013\n\003win\030\002 \001(\003\022\013\n\003mul\030\003 "
-      "\001(\005\022\021\n\tisSpecial\030\004 \001(\010\":\n\021RespinHistoryL"
-      "ist\022%\n\003lst\030\001 \003(\0132\030.natashapb.RespinHisto"
-      "ry\"\316\002\n\017UserGameModInfo\022-\n\014randomResult\030\001"
-      " \001(\0132\027.natashapb.RandomResult\022)\n\nspinRes"
-      "ult\030\002 \001(\0132\025.natashapb.SpinResult\022)\n\ngame"
-      "CtrlID\030\003 \001(\0132\025.natashapb.GameCtrlID\0223\n\rc"
-      "ascadingInfo\030\004 \001(\0132\034.natashapb.BaseCasca"
-      "dingInfo\0220\n\nlstHistory\030\005 \001(\0132\034.natashapb"
-      ".RespinHistoryList\022)\n\010freeInfo\030\006 \001(\0132\027.n"
-      "atashapb.BaseFreeInfo\022$\n\005exDat\030\350\007 \001(\0132\024."
-      "google.protobuf.Any\"\251\002\n\021UserGameLogicInf"
-      "o\022,\n\010basegame\030\001 \001(\0132\032.natashapb.UserGame"
-      "ModInfo\022,\n\010freegame\030\002 \001(\0132\032.natashapb.Us"
-      "erGameModInfo\022)\n\005bonus\030\003 \001(\0132\032.natashapb"
-      ".UserGameModInfo\022+\n\007jackpot\030\004 \001(\0132\032.nata"
-      "shapb.UserGameModInfo\0221\n\rcommonjackpot\030\005"
-      " \001(\0132\032.natashapb.UserGameModInfo\022-\n\tfree"
-      "game2\030\006 \001(\0132\032.natashapb.UserGameModInfo\""
-      "9\n\014GameCtrlSpin\022\013\n\003bet\030\001 \001(\005\022\r\n\005lines\030\002 "
-      "\001(\005\022\r\n\005times\030\003 \001(\005\"\'\n\022GameCtrlSelectFree"
-      "\022\021\n\ttypeIndex\030\001 \001(\005\"=\n\020GameCtrlFreeSpin\022"
-      "\013\n\003bet\030\001 \001(\005\022\r\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001"
-      "(\005\"\"\n\rGameCtrlBonus\022\021\n\titemIndex\030\001 \001(\005\"$"
-      "\n\017GameCtrlJackpot\022\021\n\titemIndex\030\001 \001(\005\"*\n\025"
-      "GameCtrlCommonJackpot\022\021\n\titemIndex\030\001 \001(\005"
-      "\">\n\021GameCtrlAwardSpin\022\013\n\003bet\030\001 \001(\005\022\r\n\005li"
-      "nes\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\"6\n\rGameCtrlDebu"
-      "g\022\022\n\ndebugState\030\001 \001(\005\022\021\n\tlstRandom\030\002 \003(\003"
-      "\"\242\003\n\010GameCtrl\022%\n\004spin\030\001 \001(\0132\027.natashapb."
-      "GameCtrlSpin\0221\n\nselectFree\030\002 \001(\0132\035.natas"
-      "hapb.GameCtrlSelectFree\022-\n\010freeSpin\030\003 \001("
-      "\0132\033.natashapb.GameCtrlFreeSpin\022\'\n\005bonus\030"
-      "\004 \001(\0132\030.natashapb.GameCtrlBonus\022+\n\007jackp"
-      "ot\030\005 \001(\0132\032.natashapb.GameCtrlJackpot\0227\n\r"
-      "commonJackpot\030\006 \001(\0132 .natashapb.GameCtrl"
-      "CommonJackpot\022/\n\tawardSpin\030\007 \001(\0132\034.natas"
-      "hapb.GameCtrlAwardSpin\022\'\n\005debug\030d \001(\0132\030."
-      "natashapb.GameCtrlDebug\022$\n\005exDat\030\350\007 \001(\0132"
-      "\024.google.protobuf.Any*`\n\016GAMERESULTTYPE\022"
-      "\n\n\006NO_WIN\020\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RIGHT"
-      "\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021\n\rSCATTER_RIGHT\020\004*"
-      "\204\001\n\013GAMEMODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GA"
-      "ME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014J"
-      "ACKPOT_GAME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020\005\022\016"
-      "\n\nFREE_GAME2\020\006b\006proto3"
+      "atashapb.SymbolBlock3X5\"\211\001\n\014RandomResult"
+      "\022J\n\025retStaticCascading3x5\030\001 \001(\0132).natash"
+      "apb.StaticCascadingRandomResult3X5H\000\022#\n\004"
+      "info\030\350\007 \001(\0132\024.google.protobuf.AnyB\010\n\006res"
+      "ult\"\"\n\nPosition2D\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\""
+      "\355\001\n\016GameResultInfo\0221\n\016typeGameResult\030\001 \001"
+      "(\0162\031.natashapb.GAMERESULTTYPE\022%\n\006lstPos\030"
+      "\002 \003(\0132\025.natashapb.Position2D\022\016\n\006symbol\030\003"
+      " \001(\005\022\021\n\tlstSymbol\030\004 \003(\005\022\013\n\003win\030\005 \001(\003\022\017\n\007"
+      "realWin\030\006 \001(\003\022\013\n\003mul\030\007 \001(\003\022\r\n\005prize\030\010 \001("
+      "\003\022$\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.Any\""
+      "\243\002\n\nSpinResult\022\013\n\003win\030\001 \001(\003\022\017\n\007realWin\030\002"
+      " \001(\003\022)\n\006lstGRI\030\003 \003(\0132\031.natashapb.GameRes"
+      "ultInfo\022\016\n\006fgNums\030\004 \001(\005\022\014\n\004inFG\030\005 \001(\010\022\017\n"
+      "\007inBonus\030\006 \001(\010\022\021\n\tinJackpot\030\007 \001(\010\022\027\n\017inC"
+      "ommonJackpot\030\010 \001(\010\022\020\n\010inRespin\030\t \001(\010\022*\n\005"
+      "sb3x5\030d \001(\0132\031.natashapb.SymbolBlock3X5H\000"
+      "\022$\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.AnyB\r"
+      "\n\013symbolblock\"g\n\nGameCtrlID\022\016\n\006ctrlID\030\001 "
+      "\001(\003\022\016\n\006baseID\030\002 \001(\003\022\020\n\010parentID\030\003 \001(\003\022\'\n"
+      "\007gameMod\030\004 \001(\0162\026.natashapb.GAMEMODTYPE\"j"
+      "\n\021BaseCascadingInfo\022\016\n\006curBet\030\001 \001(\003\022\020\n\010c"
+      "urLines\030\002 \001(\005\022\020\n\010curTimes\030\003 \001(\005\022\020\n\010turnN"
+      "ums\030\004 \001(\005\022\017\n\007turnWin\030\005 \001(\003\"C\n\014BaseFreeIn"
+      "fo\022\020\n\010totalWin\030\001 \001(\003\022\020\n\010lastNums\030\002 \001(\005\022\017"
+      "\n\007curNums\030\003 \001(\005\"M\n\rRespinHistory\022\017\n\007real"
+      "Win\030\001 \001(\003\022\013\n\003win\030\002 \001(\003\022\013\n\003mul\030\003 \001(\003\022\021\n\ti"
+      "sSpecial\030\004 \001(\010\":\n\021RespinHistoryList\022%\n\003l"
+      "st\030\001 \003(\0132\030.natashapb.RespinHistory\"\211\003\n\017U"
+      "serGameModInfo\022-\n\014randomResult\030\001 \001(\0132\027.n"
+      "atashapb.RandomResult\022)\n\nspinResult\030\002 \001("
+      "\0132\025.natashapb.SpinResult\022)\n\ngameCtrlID\030\003"
+      " \001(\0132\025.natashapb.GameCtrlID\0223\n\rcascading"
+      "Info\030\004 \001(\0132\034.natashapb.BaseCascadingInfo"
+      "\0220\n\nlstHistory\030\005 \001(\0132\034.natashapb.RespinH"
+      "istoryList\022)\n\010freeInfo\030\006 \001(\0132\027.natashapb"
+      ".BaseFreeInfo\022*\n\005sb3x5\030d \001(\0132\031.natashapb"
+      ".SymbolBlock3X5H\000\022$\n\005exDat\030\350\007 \001(\0132\024.goog"
+      "le.protobuf.AnyB\r\n\013symbolblock\"\251\002\n\021UserG"
+      "ameLogicInfo\022,\n\010basegame\030\001 \001(\0132\032.natasha"
+      "pb.UserGameModInfo\022,\n\010freegame\030\002 \001(\0132\032.n"
+      "atashapb.UserGameModInfo\022)\n\005bonus\030\003 \001(\0132"
+      "\032.natashapb.UserGameModInfo\022+\n\007jackpot\030\004"
+      " \001(\0132\032.natashapb.UserGameModInfo\0221\n\rcomm"
+      "onjackpot\030\005 \001(\0132\032.natashapb.UserGameModI"
+      "nfo\022-\n\tfreegame2\030\006 \001(\0132\032.natashapb.UserG"
+      "ameModInfo\"\\\n\014GameCtrlSpin\022\013\n\003bet\030\001 \001(\003\022"
+      "\r\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n\010totalBe"
+      "t\030\004 \001(\003\022\017\n\007realBet\030\005 \001(\003\"\'\n\022GameCtrlSele"
+      "ctFree\022\021\n\ttypeIndex\030\001 \001(\005\"O\n\020GameCtrlFre"
+      "eSpin\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005tim"
+      "es\030\003 \001(\005\022\020\n\010totalBet\030\004 \001(\003\"\"\n\rGameCtrlBo"
+      "nus\022\021\n\titemIndex\030\001 \001(\005\"$\n\017GameCtrlJackpo"
+      "t\022\021\n\titemIndex\030\001 \001(\005\"*\n\025GameCtrlCommonJa"
+      "ckpot\022\021\n\titemIndex\030\001 \001(\005\"P\n\021GameCtrlAwar"
+      "dSpin\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005tim"
+      "es\030\003 \001(\005\022\020\n\010totalBet\030\004 \001(\003\"6\n\rGameCtrlDe"
+      "bug\022\022\n\ndebugState\030\001 \001(\005\022\021\n\tlstRandom\030\002 \003"
+      "(\003\"\270\003\n\010GameCtrl\022\'\n\004spin\030\001 \001(\0132\027.natashap"
+      "b.GameCtrlSpinH\000\0223\n\nselectFree\030\002 \001(\0132\035.n"
+      "atashapb.GameCtrlSelectFreeH\000\022/\n\010freeSpi"
+      "n\030\003 \001(\0132\033.natashapb.GameCtrlFreeSpinH\000\022)"
+      "\n\005bonus\030\004 \001(\0132\030.natashapb.GameCtrlBonusH"
+      "\000\022-\n\007jackpot\030\005 \001(\0132\032.natashapb.GameCtrlJ"
+      "ackpotH\000\0229\n\rcommonJackpot\030\006 \001(\0132 .natash"
+      "apb.GameCtrlCommonJackpotH\000\0221\n\tawardSpin"
+      "\030\007 \001(\0132\034.natashapb.GameCtrlAwardSpinH\000\022\'"
+      "\n\005debug\030d \001(\0132\030.natashapb.GameCtrlDebug\022"
+      "$\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.AnyB\006\n"
+      "\004ctrl*`\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tL"
+      "INE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LE"
+      "FT\020\003\022\021\n\rSCATTER_RIGHT\020\004*\204\001\n\013GAMEMODTYPE\022"
+      "\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAM"
+      "E\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n"
+      "\023COMMON_JACKPOT_GAME\020\005\022\016\n\nFREE_GAME2\020\006b\006"
+      "proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3262);
+      descriptor, 3486);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -2668,10 +2696,24 @@ void StaticCascadingRandomResult3X5::InternalSwap(StaticCascadingRandomResult3X5
 // ===================================================================
 
 void RandomResult::InitAsDefaultInstance() {
-  ::natashapb::_RandomResult_default_instance_._instance.get_mutable()->retstaticcascading3x5_ = const_cast< ::natashapb::StaticCascadingRandomResult3X5*>(
+  ::natashapb::_RandomResult_default_instance_.retstaticcascading3x5_ = const_cast< ::natashapb::StaticCascadingRandomResult3X5*>(
       ::natashapb::StaticCascadingRandomResult3X5::internal_default_instance());
   ::natashapb::_RandomResult_default_instance_._instance.get_mutable()->info_ = const_cast< ::google::protobuf::Any*>(
       ::google::protobuf::Any::internal_default_instance());
+}
+void RandomResult::set_allocated_retstaticcascading3x5(::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_result();
+  if (retstaticcascading3x5) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      retstaticcascading3x5 = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, retstaticcascading3x5, submessage_arena);
+    }
+    set_has_retstaticcascading3x5();
+    result_.retstaticcascading3x5_ = retstaticcascading3x5;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.RandomResult.retStaticCascading3x5)
 }
 void RandomResult::clear_info() {
   if (GetArenaNoVirtual() == NULL && info_ != NULL) {
@@ -2697,23 +2739,27 @@ RandomResult::RandomResult(const RandomResult& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_retstaticcascading3x5()) {
-    retstaticcascading3x5_ = new ::natashapb::StaticCascadingRandomResult3X5(*from.retstaticcascading3x5_);
-  } else {
-    retstaticcascading3x5_ = NULL;
-  }
   if (from.has_info()) {
     info_ = new ::google::protobuf::Any(*from.info_);
   } else {
     info_ = NULL;
   }
+  clear_has_result();
+  switch (from.result_case()) {
+    case kRetStaticCascading3X5: {
+      mutable_retstaticcascading3x5()->::natashapb::StaticCascadingRandomResult3X5::MergeFrom(from.retstaticcascading3x5());
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
   // @@protoc_insertion_point(copy_constructor:natashapb.RandomResult)
 }
 
 void RandomResult::SharedCtor() {
-  ::memset(&retstaticcascading3x5_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&info_) -
-      reinterpret_cast<char*>(&retstaticcascading3x5_)) + sizeof(info_));
+  info_ = NULL;
+  clear_has_result();
   _cached_size_ = 0;
 }
 
@@ -2723,8 +2769,10 @@ RandomResult::~RandomResult() {
 }
 
 void RandomResult::SharedDtor() {
-  if (this != internal_default_instance()) delete retstaticcascading3x5_;
   if (this != internal_default_instance()) delete info_;
+  if (has_result()) {
+    clear_result();
+  }
 }
 
 void RandomResult::SetCachedSize(int size) const {
@@ -2743,20 +2791,32 @@ const RandomResult& RandomResult::default_instance() {
 }
 
 
+void RandomResult::clear_result() {
+// @@protoc_insertion_point(one_of_clear_start:natashapb.RandomResult)
+  switch (result_case()) {
+    case kRetStaticCascading3X5: {
+      delete result_.retstaticcascading3x5_;
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = RESULT_NOT_SET;
+}
+
+
 void RandomResult::Clear() {
 // @@protoc_insertion_point(message_clear_start:natashapb.RandomResult)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == NULL && retstaticcascading3x5_ != NULL) {
-    delete retstaticcascading3x5_;
-  }
-  retstaticcascading3x5_ = NULL;
   if (GetArenaNoVirtual() == NULL && info_ != NULL) {
     delete info_;
   }
   info_ = NULL;
+  clear_result();
   _internal_metadata_.Clear();
 }
 
@@ -2821,9 +2881,9 @@ void RandomResult::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
-  if (this->has_retstaticcascading3x5()) {
+  if (has_retstaticcascading3x5()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *retstaticcascading3x5_, output);
+      1, *result_.retstaticcascading3x5_, output);
   }
 
   // .google.protobuf.Any info = 1000;
@@ -2847,10 +2907,10 @@ void RandomResult::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
-  if (this->has_retstaticcascading3x5()) {
+  if (has_retstaticcascading3x5()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, *retstaticcascading3x5_, deterministic, target);
+        1, *result_.retstaticcascading3x5_, deterministic, target);
   }
 
   // .google.protobuf.Any info = 1000;
@@ -2877,13 +2937,6 @@ size_t RandomResult::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
-  if (this->has_retstaticcascading3x5()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *retstaticcascading3x5_);
-  }
-
   // .google.protobuf.Any info = 1000;
   if (this->has_info()) {
     total_size += 2 +
@@ -2891,6 +2944,18 @@ size_t RandomResult::ByteSizeLong() const {
         *info_);
   }
 
+  switch (result_case()) {
+    // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
+    case kRetStaticCascading3X5: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *result_.retstaticcascading3x5_);
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
+  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -2920,11 +2985,17 @@ void RandomResult::MergeFrom(const RandomResult& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_retstaticcascading3x5()) {
-    mutable_retstaticcascading3x5()->::natashapb::StaticCascadingRandomResult3X5::MergeFrom(from.retstaticcascading3x5());
-  }
   if (from.has_info()) {
     mutable_info()->::google::protobuf::Any::MergeFrom(from.info());
+  }
+  switch (from.result_case()) {
+    case kRetStaticCascading3X5: {
+      mutable_retstaticcascading3x5()->::natashapb::StaticCascadingRandomResult3X5::MergeFrom(from.retstaticcascading3x5());
+      break;
+    }
+    case RESULT_NOT_SET: {
+      break;
+    }
   }
 }
 
@@ -2952,8 +3023,9 @@ void RandomResult::Swap(RandomResult* other) {
 }
 void RandomResult::InternalSwap(RandomResult* other) {
   using std::swap;
-  swap(retstaticcascading3x5_, other->retstaticcascading3x5_);
   swap(info_, other->info_);
+  swap(result_, other->result_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -3823,8 +3895,24 @@ void GameResultInfo::InternalSwap(GameResultInfo* other) {
 // ===================================================================
 
 void SpinResult::InitAsDefaultInstance() {
+  ::natashapb::_SpinResult_default_instance_.sb3x5_ = const_cast< ::natashapb::SymbolBlock3X5*>(
+      ::natashapb::SymbolBlock3X5::internal_default_instance());
   ::natashapb::_SpinResult_default_instance_._instance.get_mutable()->exdat_ = const_cast< ::google::protobuf::Any*>(
       ::google::protobuf::Any::internal_default_instance());
+}
+void SpinResult::set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_symbolblock();
+  if (sb3x5) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      sb3x5 = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, sb3x5, submessage_arena);
+    }
+    set_has_sb3x5();
+    symbolblock_.sb3x5_ = sb3x5;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.SpinResult.sb3x5)
 }
 void SpinResult::clear_exdat() {
   if (GetArenaNoVirtual() == NULL && exdat_ != NULL) {
@@ -3842,6 +3930,7 @@ const int SpinResult::kInBonusFieldNumber;
 const int SpinResult::kInJackpotFieldNumber;
 const int SpinResult::kInCommonJackpotFieldNumber;
 const int SpinResult::kInRespinFieldNumber;
+const int SpinResult::kSb3X5FieldNumber;
 const int SpinResult::kExDatFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -3867,6 +3956,16 @@ SpinResult::SpinResult(const SpinResult& from)
   ::memcpy(&win_, &from.win_,
     static_cast<size_t>(reinterpret_cast<char*>(&inrespin_) -
     reinterpret_cast<char*>(&win_)) + sizeof(inrespin_));
+  clear_has_symbolblock();
+  switch (from.symbolblock_case()) {
+    case kSb3X5: {
+      mutable_sb3x5()->::natashapb::SymbolBlock3X5::MergeFrom(from.sb3x5());
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
   // @@protoc_insertion_point(copy_constructor:natashapb.SpinResult)
 }
 
@@ -3874,6 +3973,7 @@ void SpinResult::SharedCtor() {
   ::memset(&exdat_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&inrespin_) -
       reinterpret_cast<char*>(&exdat_)) + sizeof(inrespin_));
+  clear_has_symbolblock();
   _cached_size_ = 0;
 }
 
@@ -3884,6 +3984,9 @@ SpinResult::~SpinResult() {
 
 void SpinResult::SharedDtor() {
   if (this != internal_default_instance()) delete exdat_;
+  if (has_symbolblock()) {
+    clear_symbolblock();
+  }
 }
 
 void SpinResult::SetCachedSize(int size) const {
@@ -3902,6 +4005,21 @@ const SpinResult& SpinResult::default_instance() {
 }
 
 
+void SpinResult::clear_symbolblock() {
+// @@protoc_insertion_point(one_of_clear_start:natashapb.SpinResult)
+  switch (symbolblock_case()) {
+    case kSb3X5: {
+      delete symbolblock_.sb3x5_;
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
+}
+
+
 void SpinResult::Clear() {
 // @@protoc_insertion_point(message_clear_start:natashapb.SpinResult)
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -3916,6 +4034,7 @@ void SpinResult::Clear() {
   ::memset(&win_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&inrespin_) -
       reinterpret_cast<char*>(&win_)) + sizeof(inrespin_));
+  clear_symbolblock();
   _internal_metadata_.Clear();
 }
 
@@ -4053,6 +4172,18 @@ bool SpinResult::MergePartialFromCodedStream(
         break;
       }
 
+      // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+      case 100: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 802 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_sb3x5()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       // .google.protobuf.Any exDat = 1000;
       case 1000: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
@@ -4140,6 +4271,12 @@ void SpinResult::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->inrespin(), output);
   }
 
+  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+  if (has_sb3x5()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      100, *symbolblock_.sb3x5_, output);
+  }
+
   // .google.protobuf.Any exDat = 1000;
   if (this->has_exdat()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -4206,6 +4343,13 @@ void SpinResult::SerializeWithCachedSizes(
   // bool inRespin = 9;
   if (this->inrespin() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->inrespin(), target);
+  }
+
+  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+  if (has_sb3x5()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        100, *symbolblock_.sb3x5_, deterministic, target);
   }
 
   // .google.protobuf.Any exDat = 1000;
@@ -4296,6 +4440,18 @@ size_t SpinResult::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
+  switch (symbolblock_case()) {
+    // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+    case kSb3X5: {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *symbolblock_.sb3x5_);
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -4353,6 +4509,15 @@ void SpinResult::MergeFrom(const SpinResult& from) {
   if (from.inrespin() != 0) {
     set_inrespin(from.inrespin());
   }
+  switch (from.symbolblock_case()) {
+    case kSb3X5: {
+      mutable_sb3x5()->::natashapb::SymbolBlock3X5::MergeFrom(from.sb3x5());
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
 }
 
 void SpinResult::CopyFrom(const ::google::protobuf::Message& from) {
@@ -4389,6 +4554,8 @@ void SpinResult::InternalSwap(SpinResult* other) {
   swap(injackpot_, other->injackpot_);
   swap(incommonjackpot_, other->incommonjackpot_);
   swap(inrespin_, other->inrespin_);
+  swap(symbolblock_, other->symbolblock_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -4772,15 +4939,15 @@ BaseCascadingInfo::BaseCascadingInfo(const BaseCascadingInfo& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&curbet_, &from.curbet_,
-    static_cast<size_t>(reinterpret_cast<char*>(&turnwin_) -
-    reinterpret_cast<char*>(&curbet_)) + sizeof(turnwin_));
+    static_cast<size_t>(reinterpret_cast<char*>(&turnnums_) -
+    reinterpret_cast<char*>(&curbet_)) + sizeof(turnnums_));
   // @@protoc_insertion_point(copy_constructor:natashapb.BaseCascadingInfo)
 }
 
 void BaseCascadingInfo::SharedCtor() {
   ::memset(&curbet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&turnwin_) -
-      reinterpret_cast<char*>(&curbet_)) + sizeof(turnwin_));
+      reinterpret_cast<char*>(&turnnums_) -
+      reinterpret_cast<char*>(&curbet_)) + sizeof(turnnums_));
   _cached_size_ = 0;
 }
 
@@ -4815,8 +4982,8 @@ void BaseCascadingInfo::Clear() {
   (void) cached_has_bits;
 
   ::memset(&curbet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&turnwin_) -
-      reinterpret_cast<char*>(&curbet_)) + sizeof(turnwin_));
+      reinterpret_cast<char*>(&turnnums_) -
+      reinterpret_cast<char*>(&curbet_)) + sizeof(turnnums_));
   _internal_metadata_.Clear();
 }
 
@@ -4830,13 +4997,13 @@ bool BaseCascadingInfo::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 curBet = 1;
+      // int64 curBet = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &curbet_)));
         } else {
           goto handle_unusual;
@@ -4926,9 +5093,9 @@ void BaseCascadingInfo::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 curBet = 1;
+  // int64 curBet = 1;
   if (this->curbet() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->curbet(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->curbet(), output);
   }
 
   // int32 curLines = 2;
@@ -4965,9 +5132,9 @@ void BaseCascadingInfo::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 curBet = 1;
+  // int64 curBet = 1;
   if (this->curbet() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->curbet(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->curbet(), target);
   }
 
   // int32 curLines = 2;
@@ -5007,10 +5174,10 @@ size_t BaseCascadingInfo::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 curBet = 1;
+  // int64 curBet = 1;
   if (this->curbet() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->curbet());
   }
 
@@ -5028,18 +5195,18 @@ size_t BaseCascadingInfo::ByteSizeLong() const {
         this->curtimes());
   }
 
-  // int32 turnNums = 4;
-  if (this->turnnums() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->turnnums());
-  }
-
   // int64 turnWin = 5;
   if (this->turnwin() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->turnwin());
+  }
+
+  // int32 turnNums = 4;
+  if (this->turnnums() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->turnnums());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -5080,11 +5247,11 @@ void BaseCascadingInfo::MergeFrom(const BaseCascadingInfo& from) {
   if (from.curtimes() != 0) {
     set_curtimes(from.curtimes());
   }
-  if (from.turnnums() != 0) {
-    set_turnnums(from.turnnums());
-  }
   if (from.turnwin() != 0) {
     set_turnwin(from.turnwin());
+  }
+  if (from.turnnums() != 0) {
+    set_turnnums(from.turnnums());
   }
 }
 
@@ -5115,8 +5282,8 @@ void BaseCascadingInfo::InternalSwap(BaseCascadingInfo* other) {
   swap(curbet_, other->curbet_);
   swap(curlines_, other->curlines_);
   swap(curtimes_, other->curtimes_);
-  swap(turnnums_, other->turnnums_);
   swap(turnwin_, other->turnwin_);
+  swap(turnnums_, other->turnnums_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -5547,13 +5714,13 @@ bool RespinHistory::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 mul = 3;
+      // int64 mul = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &mul_)));
         } else {
           goto handle_unusual;
@@ -5611,9 +5778,9 @@ void RespinHistory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->win(), output);
   }
 
-  // int32 mul = 3;
+  // int64 mul = 3;
   if (this->mul() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->mul(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->mul(), output);
   }
 
   // bool isSpecial = 4;
@@ -5645,9 +5812,9 @@ void RespinHistory::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->win(), target);
   }
 
-  // int32 mul = 3;
+  // int64 mul = 3;
   if (this->mul() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->mul(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->mul(), target);
   }
 
   // bool isSpecial = 4;
@@ -5686,10 +5853,10 @@ size_t RespinHistory::ByteSizeLong() const {
         this->win());
   }
 
-  // int32 mul = 3;
+  // int64 mul = 3;
   if (this->mul() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->mul());
   }
 
@@ -6031,8 +6198,24 @@ void UserGameModInfo::InitAsDefaultInstance() {
       ::natashapb::RespinHistoryList::internal_default_instance());
   ::natashapb::_UserGameModInfo_default_instance_._instance.get_mutable()->freeinfo_ = const_cast< ::natashapb::BaseFreeInfo*>(
       ::natashapb::BaseFreeInfo::internal_default_instance());
+  ::natashapb::_UserGameModInfo_default_instance_.sb3x5_ = const_cast< ::natashapb::SymbolBlock3X5*>(
+      ::natashapb::SymbolBlock3X5::internal_default_instance());
   ::natashapb::_UserGameModInfo_default_instance_._instance.get_mutable()->exdat_ = const_cast< ::google::protobuf::Any*>(
       ::google::protobuf::Any::internal_default_instance());
+}
+void UserGameModInfo::set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_symbolblock();
+  if (sb3x5) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      sb3x5 = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, sb3x5, submessage_arena);
+    }
+    set_has_sb3x5();
+    symbolblock_.sb3x5_ = sb3x5;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.sb3x5)
 }
 void UserGameModInfo::clear_exdat() {
   if (GetArenaNoVirtual() == NULL && exdat_ != NULL) {
@@ -6047,6 +6230,7 @@ const int UserGameModInfo::kGameCtrlIDFieldNumber;
 const int UserGameModInfo::kCascadingInfoFieldNumber;
 const int UserGameModInfo::kLstHistoryFieldNumber;
 const int UserGameModInfo::kFreeInfoFieldNumber;
+const int UserGameModInfo::kSb3X5FieldNumber;
 const int UserGameModInfo::kExDatFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6098,6 +6282,16 @@ UserGameModInfo::UserGameModInfo(const UserGameModInfo& from)
   } else {
     exdat_ = NULL;
   }
+  clear_has_symbolblock();
+  switch (from.symbolblock_case()) {
+    case kSb3X5: {
+      mutable_sb3x5()->::natashapb::SymbolBlock3X5::MergeFrom(from.sb3x5());
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
   // @@protoc_insertion_point(copy_constructor:natashapb.UserGameModInfo)
 }
 
@@ -6105,6 +6299,7 @@ void UserGameModInfo::SharedCtor() {
   ::memset(&randomresult_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&exdat_) -
       reinterpret_cast<char*>(&randomresult_)) + sizeof(exdat_));
+  clear_has_symbolblock();
   _cached_size_ = 0;
 }
 
@@ -6121,6 +6316,9 @@ void UserGameModInfo::SharedDtor() {
   if (this != internal_default_instance()) delete lsthistory_;
   if (this != internal_default_instance()) delete freeinfo_;
   if (this != internal_default_instance()) delete exdat_;
+  if (has_symbolblock()) {
+    clear_symbolblock();
+  }
 }
 
 void UserGameModInfo::SetCachedSize(int size) const {
@@ -6136,6 +6334,21 @@ const ::google::protobuf::Descriptor* UserGameModInfo::descriptor() {
 const UserGameModInfo& UserGameModInfo::default_instance() {
   ::protobuf_base_2eproto::InitDefaultsUserGameModInfo();
   return *internal_default_instance();
+}
+
+
+void UserGameModInfo::clear_symbolblock() {
+// @@protoc_insertion_point(one_of_clear_start:natashapb.UserGameModInfo)
+  switch (symbolblock_case()) {
+    case kSb3X5: {
+      delete symbolblock_.sb3x5_;
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
 }
 
 
@@ -6173,6 +6386,7 @@ void UserGameModInfo::Clear() {
     delete exdat_;
   }
   exdat_ = NULL;
+  clear_symbolblock();
   _internal_metadata_.Clear();
 }
 
@@ -6258,6 +6472,18 @@ bool UserGameModInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+      case 100: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 802 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_sb3x5()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       // .google.protobuf.Any exDat = 1000;
       case 1000: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
@@ -6332,6 +6558,12 @@ void UserGameModInfo::SerializeWithCachedSizes(
       6, *freeinfo_, output);
   }
 
+  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+  if (has_sb3x5()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      100, *symbolblock_.sb3x5_, output);
+  }
+
   // .google.protobuf.Any exDat = 1000;
   if (this->has_exdat()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -6392,6 +6624,13 @@ void UserGameModInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         6, *freeinfo_, deterministic, target);
+  }
+
+  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+  if (has_sb3x5()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        100, *symbolblock_.sb3x5_, deterministic, target);
   }
 
   // .google.protobuf.Any exDat = 1000;
@@ -6467,6 +6706,18 @@ size_t UserGameModInfo::ByteSizeLong() const {
         *exdat_);
   }
 
+  switch (symbolblock_case()) {
+    // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+    case kSb3X5: {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *symbolblock_.sb3x5_);
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -6517,6 +6768,15 @@ void UserGameModInfo::MergeFrom(const UserGameModInfo& from) {
   if (from.has_exdat()) {
     mutable_exdat()->::google::protobuf::Any::MergeFrom(from.exdat());
   }
+  switch (from.symbolblock_case()) {
+    case kSb3X5: {
+      mutable_sb3x5()->::natashapb::SymbolBlock3X5::MergeFrom(from.sb3x5());
+      break;
+    }
+    case SYMBOLBLOCK_NOT_SET: {
+      break;
+    }
+  }
 }
 
 void UserGameModInfo::CopyFrom(const ::google::protobuf::Message& from) {
@@ -6550,6 +6810,8 @@ void UserGameModInfo::InternalSwap(UserGameModInfo* other) {
   swap(lsthistory_, other->lsthistory_);
   swap(freeinfo_, other->freeinfo_);
   swap(exdat_, other->exdat_);
+  swap(symbolblock_, other->symbolblock_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -7057,6 +7319,8 @@ void GameCtrlSpin::InitAsDefaultInstance() {
 const int GameCtrlSpin::kBetFieldNumber;
 const int GameCtrlSpin::kLinesFieldNumber;
 const int GameCtrlSpin::kTimesFieldNumber;
+const int GameCtrlSpin::kTotalBetFieldNumber;
+const int GameCtrlSpin::kRealBetFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GameCtrlSpin::GameCtrlSpin()
@@ -7073,15 +7337,15 @@ GameCtrlSpin::GameCtrlSpin(const GameCtrlSpin& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&bet_, &from.bet_,
-    static_cast<size_t>(reinterpret_cast<char*>(&times_) -
-    reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+    static_cast<size_t>(reinterpret_cast<char*>(&realbet_) -
+    reinterpret_cast<char*>(&bet_)) + sizeof(realbet_));
   // @@protoc_insertion_point(copy_constructor:natashapb.GameCtrlSpin)
 }
 
 void GameCtrlSpin::SharedCtor() {
   ::memset(&bet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&times_) -
-      reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+      reinterpret_cast<char*>(&realbet_) -
+      reinterpret_cast<char*>(&bet_)) + sizeof(realbet_));
   _cached_size_ = 0;
 }
 
@@ -7116,8 +7380,8 @@ void GameCtrlSpin::Clear() {
   (void) cached_has_bits;
 
   ::memset(&bet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&times_) -
-      reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+      reinterpret_cast<char*>(&realbet_) -
+      reinterpret_cast<char*>(&bet_)) + sizeof(realbet_));
   _internal_metadata_.Clear();
 }
 
@@ -7131,13 +7395,13 @@ bool GameCtrlSpin::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 bet = 1;
+      // int64 bet = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &bet_)));
         } else {
           goto handle_unusual;
@@ -7173,6 +7437,34 @@ bool GameCtrlSpin::MergePartialFromCodedStream(
         break;
       }
 
+      // int64 totalBet = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &totalbet_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 realBet = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &realbet_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -7199,9 +7491,9 @@ void GameCtrlSpin::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->bet(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->bet(), output);
   }
 
   // int32 lines = 2;
@@ -7212,6 +7504,16 @@ void GameCtrlSpin::SerializeWithCachedSizes(
   // int32 times = 3;
   if (this->times() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->times(), output);
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->totalbet(), output);
+  }
+
+  // int64 realBet = 5;
+  if (this->realbet() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->realbet(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7228,9 +7530,9 @@ void GameCtrlSpin::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->bet(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->bet(), target);
   }
 
   // int32 lines = 2;
@@ -7241,6 +7543,16 @@ void GameCtrlSpin::SerializeWithCachedSizes(
   // int32 times = 3;
   if (this->times() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->times(), target);
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->totalbet(), target);
+  }
+
+  // int64 realBet = 5;
+  if (this->realbet() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->realbet(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7260,10 +7572,10 @@ size_t GameCtrlSpin::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->bet());
   }
 
@@ -7279,6 +7591,20 @@ size_t GameCtrlSpin::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->times());
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalbet());
+  }
+
+  // int64 realBet = 5;
+  if (this->realbet() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->realbet());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7319,6 +7645,12 @@ void GameCtrlSpin::MergeFrom(const GameCtrlSpin& from) {
   if (from.times() != 0) {
     set_times(from.times());
   }
+  if (from.totalbet() != 0) {
+    set_totalbet(from.totalbet());
+  }
+  if (from.realbet() != 0) {
+    set_realbet(from.realbet());
+  }
 }
 
 void GameCtrlSpin::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7348,6 +7680,8 @@ void GameCtrlSpin::InternalSwap(GameCtrlSpin* other) {
   swap(bet_, other->bet_);
   swap(lines_, other->lines_);
   swap(times_, other->times_);
+  swap(totalbet_, other->totalbet_);
+  swap(realbet_, other->realbet_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -7597,6 +7931,7 @@ void GameCtrlFreeSpin::InitAsDefaultInstance() {
 const int GameCtrlFreeSpin::kBetFieldNumber;
 const int GameCtrlFreeSpin::kLinesFieldNumber;
 const int GameCtrlFreeSpin::kTimesFieldNumber;
+const int GameCtrlFreeSpin::kTotalBetFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GameCtrlFreeSpin::GameCtrlFreeSpin()
@@ -7613,15 +7948,15 @@ GameCtrlFreeSpin::GameCtrlFreeSpin(const GameCtrlFreeSpin& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&bet_, &from.bet_,
-    static_cast<size_t>(reinterpret_cast<char*>(&times_) -
-    reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+    static_cast<size_t>(reinterpret_cast<char*>(&totalbet_) -
+    reinterpret_cast<char*>(&bet_)) + sizeof(totalbet_));
   // @@protoc_insertion_point(copy_constructor:natashapb.GameCtrlFreeSpin)
 }
 
 void GameCtrlFreeSpin::SharedCtor() {
   ::memset(&bet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&times_) -
-      reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+      reinterpret_cast<char*>(&totalbet_) -
+      reinterpret_cast<char*>(&bet_)) + sizeof(totalbet_));
   _cached_size_ = 0;
 }
 
@@ -7656,8 +7991,8 @@ void GameCtrlFreeSpin::Clear() {
   (void) cached_has_bits;
 
   ::memset(&bet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&times_) -
-      reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+      reinterpret_cast<char*>(&totalbet_) -
+      reinterpret_cast<char*>(&bet_)) + sizeof(totalbet_));
   _internal_metadata_.Clear();
 }
 
@@ -7671,13 +8006,13 @@ bool GameCtrlFreeSpin::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 bet = 1;
+      // int64 bet = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &bet_)));
         } else {
           goto handle_unusual;
@@ -7713,6 +8048,20 @@ bool GameCtrlFreeSpin::MergePartialFromCodedStream(
         break;
       }
 
+      // int64 totalBet = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &totalbet_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -7739,9 +8088,9 @@ void GameCtrlFreeSpin::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->bet(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->bet(), output);
   }
 
   // int32 lines = 2;
@@ -7752,6 +8101,11 @@ void GameCtrlFreeSpin::SerializeWithCachedSizes(
   // int32 times = 3;
   if (this->times() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->times(), output);
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->totalbet(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7768,9 +8122,9 @@ void GameCtrlFreeSpin::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->bet(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->bet(), target);
   }
 
   // int32 lines = 2;
@@ -7781,6 +8135,11 @@ void GameCtrlFreeSpin::SerializeWithCachedSizes(
   // int32 times = 3;
   if (this->times() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->times(), target);
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->totalbet(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7800,10 +8159,10 @@ size_t GameCtrlFreeSpin::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->bet());
   }
 
@@ -7819,6 +8178,13 @@ size_t GameCtrlFreeSpin::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->times());
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalbet());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7859,6 +8225,9 @@ void GameCtrlFreeSpin::MergeFrom(const GameCtrlFreeSpin& from) {
   if (from.times() != 0) {
     set_times(from.times());
   }
+  if (from.totalbet() != 0) {
+    set_totalbet(from.totalbet());
+  }
 }
 
 void GameCtrlFreeSpin::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7888,6 +8257,7 @@ void GameCtrlFreeSpin::InternalSwap(GameCtrlFreeSpin* other) {
   swap(bet_, other->bet_);
   swap(lines_, other->lines_);
   swap(times_, other->times_);
+  swap(totalbet_, other->totalbet_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -8599,6 +8969,7 @@ void GameCtrlAwardSpin::InitAsDefaultInstance() {
 const int GameCtrlAwardSpin::kBetFieldNumber;
 const int GameCtrlAwardSpin::kLinesFieldNumber;
 const int GameCtrlAwardSpin::kTimesFieldNumber;
+const int GameCtrlAwardSpin::kTotalBetFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GameCtrlAwardSpin::GameCtrlAwardSpin()
@@ -8615,15 +8986,15 @@ GameCtrlAwardSpin::GameCtrlAwardSpin(const GameCtrlAwardSpin& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&bet_, &from.bet_,
-    static_cast<size_t>(reinterpret_cast<char*>(&times_) -
-    reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+    static_cast<size_t>(reinterpret_cast<char*>(&totalbet_) -
+    reinterpret_cast<char*>(&bet_)) + sizeof(totalbet_));
   // @@protoc_insertion_point(copy_constructor:natashapb.GameCtrlAwardSpin)
 }
 
 void GameCtrlAwardSpin::SharedCtor() {
   ::memset(&bet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&times_) -
-      reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+      reinterpret_cast<char*>(&totalbet_) -
+      reinterpret_cast<char*>(&bet_)) + sizeof(totalbet_));
   _cached_size_ = 0;
 }
 
@@ -8658,8 +9029,8 @@ void GameCtrlAwardSpin::Clear() {
   (void) cached_has_bits;
 
   ::memset(&bet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&times_) -
-      reinterpret_cast<char*>(&bet_)) + sizeof(times_));
+      reinterpret_cast<char*>(&totalbet_) -
+      reinterpret_cast<char*>(&bet_)) + sizeof(totalbet_));
   _internal_metadata_.Clear();
 }
 
@@ -8673,13 +9044,13 @@ bool GameCtrlAwardSpin::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 bet = 1;
+      // int64 bet = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &bet_)));
         } else {
           goto handle_unusual;
@@ -8715,6 +9086,20 @@ bool GameCtrlAwardSpin::MergePartialFromCodedStream(
         break;
       }
 
+      // int64 totalBet = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &totalbet_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -8741,9 +9126,9 @@ void GameCtrlAwardSpin::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->bet(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->bet(), output);
   }
 
   // int32 lines = 2;
@@ -8754,6 +9139,11 @@ void GameCtrlAwardSpin::SerializeWithCachedSizes(
   // int32 times = 3;
   if (this->times() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->times(), output);
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->totalbet(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -8770,9 +9160,9 @@ void GameCtrlAwardSpin::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->bet(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->bet(), target);
   }
 
   // int32 lines = 2;
@@ -8783,6 +9173,11 @@ void GameCtrlAwardSpin::SerializeWithCachedSizes(
   // int32 times = 3;
   if (this->times() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->times(), target);
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->totalbet(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -8802,10 +9197,10 @@ size_t GameCtrlAwardSpin::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 bet = 1;
+  // int64 bet = 1;
   if (this->bet() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->bet());
   }
 
@@ -8821,6 +9216,13 @@ size_t GameCtrlAwardSpin::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->times());
+  }
+
+  // int64 totalBet = 4;
+  if (this->totalbet() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalbet());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -8861,6 +9263,9 @@ void GameCtrlAwardSpin::MergeFrom(const GameCtrlAwardSpin& from) {
   if (from.times() != 0) {
     set_times(from.times());
   }
+  if (from.totalbet() != 0) {
+    set_totalbet(from.totalbet());
+  }
 }
 
 void GameCtrlAwardSpin::CopyFrom(const ::google::protobuf::Message& from) {
@@ -8890,6 +9295,7 @@ void GameCtrlAwardSpin::InternalSwap(GameCtrlAwardSpin* other) {
   swap(bet_, other->bet_);
   swap(lines_, other->lines_);
   swap(times_, other->times_);
+  swap(totalbet_, other->totalbet_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -9198,24 +9604,122 @@ void GameCtrlDebug::InternalSwap(GameCtrlDebug* other) {
 // ===================================================================
 
 void GameCtrl::InitAsDefaultInstance() {
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->spin_ = const_cast< ::natashapb::GameCtrlSpin*>(
+  ::natashapb::_GameCtrl_default_instance_.spin_ = const_cast< ::natashapb::GameCtrlSpin*>(
       ::natashapb::GameCtrlSpin::internal_default_instance());
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->selectfree_ = const_cast< ::natashapb::GameCtrlSelectFree*>(
+  ::natashapb::_GameCtrl_default_instance_.selectfree_ = const_cast< ::natashapb::GameCtrlSelectFree*>(
       ::natashapb::GameCtrlSelectFree::internal_default_instance());
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->freespin_ = const_cast< ::natashapb::GameCtrlFreeSpin*>(
+  ::natashapb::_GameCtrl_default_instance_.freespin_ = const_cast< ::natashapb::GameCtrlFreeSpin*>(
       ::natashapb::GameCtrlFreeSpin::internal_default_instance());
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->bonus_ = const_cast< ::natashapb::GameCtrlBonus*>(
+  ::natashapb::_GameCtrl_default_instance_.bonus_ = const_cast< ::natashapb::GameCtrlBonus*>(
       ::natashapb::GameCtrlBonus::internal_default_instance());
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->jackpot_ = const_cast< ::natashapb::GameCtrlJackpot*>(
+  ::natashapb::_GameCtrl_default_instance_.jackpot_ = const_cast< ::natashapb::GameCtrlJackpot*>(
       ::natashapb::GameCtrlJackpot::internal_default_instance());
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->commonjackpot_ = const_cast< ::natashapb::GameCtrlCommonJackpot*>(
+  ::natashapb::_GameCtrl_default_instance_.commonjackpot_ = const_cast< ::natashapb::GameCtrlCommonJackpot*>(
       ::natashapb::GameCtrlCommonJackpot::internal_default_instance());
-  ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->awardspin_ = const_cast< ::natashapb::GameCtrlAwardSpin*>(
+  ::natashapb::_GameCtrl_default_instance_.awardspin_ = const_cast< ::natashapb::GameCtrlAwardSpin*>(
       ::natashapb::GameCtrlAwardSpin::internal_default_instance());
   ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->debug_ = const_cast< ::natashapb::GameCtrlDebug*>(
       ::natashapb::GameCtrlDebug::internal_default_instance());
   ::natashapb::_GameCtrl_default_instance_._instance.get_mutable()->exdat_ = const_cast< ::google::protobuf::Any*>(
       ::google::protobuf::Any::internal_default_instance());
+}
+void GameCtrl::set_allocated_spin(::natashapb::GameCtrlSpin* spin) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (spin) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      spin = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, spin, submessage_arena);
+    }
+    set_has_spin();
+    ctrl_.spin_ = spin;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.spin)
+}
+void GameCtrl::set_allocated_selectfree(::natashapb::GameCtrlSelectFree* selectfree) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (selectfree) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      selectfree = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, selectfree, submessage_arena);
+    }
+    set_has_selectfree();
+    ctrl_.selectfree_ = selectfree;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.selectFree)
+}
+void GameCtrl::set_allocated_freespin(::natashapb::GameCtrlFreeSpin* freespin) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (freespin) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      freespin = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, freespin, submessage_arena);
+    }
+    set_has_freespin();
+    ctrl_.freespin_ = freespin;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.freeSpin)
+}
+void GameCtrl::set_allocated_bonus(::natashapb::GameCtrlBonus* bonus) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (bonus) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      bonus = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, bonus, submessage_arena);
+    }
+    set_has_bonus();
+    ctrl_.bonus_ = bonus;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.bonus)
+}
+void GameCtrl::set_allocated_jackpot(::natashapb::GameCtrlJackpot* jackpot) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (jackpot) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      jackpot = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, jackpot, submessage_arena);
+    }
+    set_has_jackpot();
+    ctrl_.jackpot_ = jackpot;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.jackpot)
+}
+void GameCtrl::set_allocated_commonjackpot(::natashapb::GameCtrlCommonJackpot* commonjackpot) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (commonjackpot) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      commonjackpot = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, commonjackpot, submessage_arena);
+    }
+    set_has_commonjackpot();
+    ctrl_.commonjackpot_ = commonjackpot;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.commonJackpot)
+}
+void GameCtrl::set_allocated_awardspin(::natashapb::GameCtrlAwardSpin* awardspin) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_ctrl();
+  if (awardspin) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      awardspin = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, awardspin, submessage_arena);
+    }
+    set_has_awardspin();
+    ctrl_.awardspin_ = awardspin;
+  }
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.awardSpin)
 }
 void GameCtrl::clear_exdat() {
   if (GetArenaNoVirtual() == NULL && exdat_ != NULL) {
@@ -9248,41 +9752,6 @@ GameCtrl::GameCtrl(const GameCtrl& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_spin()) {
-    spin_ = new ::natashapb::GameCtrlSpin(*from.spin_);
-  } else {
-    spin_ = NULL;
-  }
-  if (from.has_selectfree()) {
-    selectfree_ = new ::natashapb::GameCtrlSelectFree(*from.selectfree_);
-  } else {
-    selectfree_ = NULL;
-  }
-  if (from.has_freespin()) {
-    freespin_ = new ::natashapb::GameCtrlFreeSpin(*from.freespin_);
-  } else {
-    freespin_ = NULL;
-  }
-  if (from.has_bonus()) {
-    bonus_ = new ::natashapb::GameCtrlBonus(*from.bonus_);
-  } else {
-    bonus_ = NULL;
-  }
-  if (from.has_jackpot()) {
-    jackpot_ = new ::natashapb::GameCtrlJackpot(*from.jackpot_);
-  } else {
-    jackpot_ = NULL;
-  }
-  if (from.has_commonjackpot()) {
-    commonjackpot_ = new ::natashapb::GameCtrlCommonJackpot(*from.commonjackpot_);
-  } else {
-    commonjackpot_ = NULL;
-  }
-  if (from.has_awardspin()) {
-    awardspin_ = new ::natashapb::GameCtrlAwardSpin(*from.awardspin_);
-  } else {
-    awardspin_ = NULL;
-  }
   if (from.has_debug()) {
     debug_ = new ::natashapb::GameCtrlDebug(*from.debug_);
   } else {
@@ -9293,13 +9762,48 @@ GameCtrl::GameCtrl(const GameCtrl& from)
   } else {
     exdat_ = NULL;
   }
+  clear_has_ctrl();
+  switch (from.ctrl_case()) {
+    case kSpin: {
+      mutable_spin()->::natashapb::GameCtrlSpin::MergeFrom(from.spin());
+      break;
+    }
+    case kSelectFree: {
+      mutable_selectfree()->::natashapb::GameCtrlSelectFree::MergeFrom(from.selectfree());
+      break;
+    }
+    case kFreeSpin: {
+      mutable_freespin()->::natashapb::GameCtrlFreeSpin::MergeFrom(from.freespin());
+      break;
+    }
+    case kBonus: {
+      mutable_bonus()->::natashapb::GameCtrlBonus::MergeFrom(from.bonus());
+      break;
+    }
+    case kJackpot: {
+      mutable_jackpot()->::natashapb::GameCtrlJackpot::MergeFrom(from.jackpot());
+      break;
+    }
+    case kCommonJackpot: {
+      mutable_commonjackpot()->::natashapb::GameCtrlCommonJackpot::MergeFrom(from.commonjackpot());
+      break;
+    }
+    case kAwardSpin: {
+      mutable_awardspin()->::natashapb::GameCtrlAwardSpin::MergeFrom(from.awardspin());
+      break;
+    }
+    case CTRL_NOT_SET: {
+      break;
+    }
+  }
   // @@protoc_insertion_point(copy_constructor:natashapb.GameCtrl)
 }
 
 void GameCtrl::SharedCtor() {
-  ::memset(&spin_, 0, static_cast<size_t>(
+  ::memset(&debug_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&exdat_) -
-      reinterpret_cast<char*>(&spin_)) + sizeof(exdat_));
+      reinterpret_cast<char*>(&debug_)) + sizeof(exdat_));
+  clear_has_ctrl();
   _cached_size_ = 0;
 }
 
@@ -9309,15 +9813,11 @@ GameCtrl::~GameCtrl() {
 }
 
 void GameCtrl::SharedDtor() {
-  if (this != internal_default_instance()) delete spin_;
-  if (this != internal_default_instance()) delete selectfree_;
-  if (this != internal_default_instance()) delete freespin_;
-  if (this != internal_default_instance()) delete bonus_;
-  if (this != internal_default_instance()) delete jackpot_;
-  if (this != internal_default_instance()) delete commonjackpot_;
-  if (this != internal_default_instance()) delete awardspin_;
   if (this != internal_default_instance()) delete debug_;
   if (this != internal_default_instance()) delete exdat_;
+  if (has_ctrl()) {
+    clear_ctrl();
+  }
 }
 
 void GameCtrl::SetCachedSize(int size) const {
@@ -9336,40 +9836,51 @@ const GameCtrl& GameCtrl::default_instance() {
 }
 
 
+void GameCtrl::clear_ctrl() {
+// @@protoc_insertion_point(one_of_clear_start:natashapb.GameCtrl)
+  switch (ctrl_case()) {
+    case kSpin: {
+      delete ctrl_.spin_;
+      break;
+    }
+    case kSelectFree: {
+      delete ctrl_.selectfree_;
+      break;
+    }
+    case kFreeSpin: {
+      delete ctrl_.freespin_;
+      break;
+    }
+    case kBonus: {
+      delete ctrl_.bonus_;
+      break;
+    }
+    case kJackpot: {
+      delete ctrl_.jackpot_;
+      break;
+    }
+    case kCommonJackpot: {
+      delete ctrl_.commonjackpot_;
+      break;
+    }
+    case kAwardSpin: {
+      delete ctrl_.awardspin_;
+      break;
+    }
+    case CTRL_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = CTRL_NOT_SET;
+}
+
+
 void GameCtrl::Clear() {
 // @@protoc_insertion_point(message_clear_start:natashapb.GameCtrl)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == NULL && spin_ != NULL) {
-    delete spin_;
-  }
-  spin_ = NULL;
-  if (GetArenaNoVirtual() == NULL && selectfree_ != NULL) {
-    delete selectfree_;
-  }
-  selectfree_ = NULL;
-  if (GetArenaNoVirtual() == NULL && freespin_ != NULL) {
-    delete freespin_;
-  }
-  freespin_ = NULL;
-  if (GetArenaNoVirtual() == NULL && bonus_ != NULL) {
-    delete bonus_;
-  }
-  bonus_ = NULL;
-  if (GetArenaNoVirtual() == NULL && jackpot_ != NULL) {
-    delete jackpot_;
-  }
-  jackpot_ = NULL;
-  if (GetArenaNoVirtual() == NULL && commonjackpot_ != NULL) {
-    delete commonjackpot_;
-  }
-  commonjackpot_ = NULL;
-  if (GetArenaNoVirtual() == NULL && awardspin_ != NULL) {
-    delete awardspin_;
-  }
-  awardspin_ = NULL;
   if (GetArenaNoVirtual() == NULL && debug_ != NULL) {
     delete debug_;
   }
@@ -9378,6 +9889,7 @@ void GameCtrl::Clear() {
     delete exdat_;
   }
   exdat_ = NULL;
+  clear_ctrl();
   _internal_metadata_.Clear();
 }
 
@@ -9526,45 +10038,45 @@ void GameCtrl::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   // .natashapb.GameCtrlSpin spin = 1;
-  if (this->has_spin()) {
+  if (has_spin()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *spin_, output);
+      1, *ctrl_.spin_, output);
   }
 
   // .natashapb.GameCtrlSelectFree selectFree = 2;
-  if (this->has_selectfree()) {
+  if (has_selectfree()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *selectfree_, output);
+      2, *ctrl_.selectfree_, output);
   }
 
   // .natashapb.GameCtrlFreeSpin freeSpin = 3;
-  if (this->has_freespin()) {
+  if (has_freespin()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *freespin_, output);
+      3, *ctrl_.freespin_, output);
   }
 
   // .natashapb.GameCtrlBonus bonus = 4;
-  if (this->has_bonus()) {
+  if (has_bonus()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *bonus_, output);
+      4, *ctrl_.bonus_, output);
   }
 
   // .natashapb.GameCtrlJackpot jackpot = 5;
-  if (this->has_jackpot()) {
+  if (has_jackpot()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *jackpot_, output);
+      5, *ctrl_.jackpot_, output);
   }
 
   // .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
-  if (this->has_commonjackpot()) {
+  if (has_commonjackpot()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *commonjackpot_, output);
+      6, *ctrl_.commonjackpot_, output);
   }
 
   // .natashapb.GameCtrlAwardSpin awardSpin = 7;
-  if (this->has_awardspin()) {
+  if (has_awardspin()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, *awardspin_, output);
+      7, *ctrl_.awardspin_, output);
   }
 
   // .natashapb.GameCtrlDebug debug = 100;
@@ -9594,52 +10106,52 @@ void GameCtrl::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   // .natashapb.GameCtrlSpin spin = 1;
-  if (this->has_spin()) {
+  if (has_spin()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, *spin_, deterministic, target);
+        1, *ctrl_.spin_, deterministic, target);
   }
 
   // .natashapb.GameCtrlSelectFree selectFree = 2;
-  if (this->has_selectfree()) {
+  if (has_selectfree()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, *selectfree_, deterministic, target);
+        2, *ctrl_.selectfree_, deterministic, target);
   }
 
   // .natashapb.GameCtrlFreeSpin freeSpin = 3;
-  if (this->has_freespin()) {
+  if (has_freespin()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, *freespin_, deterministic, target);
+        3, *ctrl_.freespin_, deterministic, target);
   }
 
   // .natashapb.GameCtrlBonus bonus = 4;
-  if (this->has_bonus()) {
+  if (has_bonus()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, *bonus_, deterministic, target);
+        4, *ctrl_.bonus_, deterministic, target);
   }
 
   // .natashapb.GameCtrlJackpot jackpot = 5;
-  if (this->has_jackpot()) {
+  if (has_jackpot()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        5, *jackpot_, deterministic, target);
+        5, *ctrl_.jackpot_, deterministic, target);
   }
 
   // .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
-  if (this->has_commonjackpot()) {
+  if (has_commonjackpot()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        6, *commonjackpot_, deterministic, target);
+        6, *ctrl_.commonjackpot_, deterministic, target);
   }
 
   // .natashapb.GameCtrlAwardSpin awardSpin = 7;
-  if (this->has_awardspin()) {
+  if (has_awardspin()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        7, *awardspin_, deterministic, target);
+        7, *ctrl_.awardspin_, deterministic, target);
   }
 
   // .natashapb.GameCtrlDebug debug = 100;
@@ -9673,55 +10185,6 @@ size_t GameCtrl::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .natashapb.GameCtrlSpin spin = 1;
-  if (this->has_spin()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *spin_);
-  }
-
-  // .natashapb.GameCtrlSelectFree selectFree = 2;
-  if (this->has_selectfree()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *selectfree_);
-  }
-
-  // .natashapb.GameCtrlFreeSpin freeSpin = 3;
-  if (this->has_freespin()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *freespin_);
-  }
-
-  // .natashapb.GameCtrlBonus bonus = 4;
-  if (this->has_bonus()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *bonus_);
-  }
-
-  // .natashapb.GameCtrlJackpot jackpot = 5;
-  if (this->has_jackpot()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *jackpot_);
-  }
-
-  // .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
-  if (this->has_commonjackpot()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *commonjackpot_);
-  }
-
-  // .natashapb.GameCtrlAwardSpin awardSpin = 7;
-  if (this->has_awardspin()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *awardspin_);
-  }
-
   // .natashapb.GameCtrlDebug debug = 100;
   if (this->has_debug()) {
     total_size += 2 +
@@ -9736,6 +10199,60 @@ size_t GameCtrl::ByteSizeLong() const {
         *exdat_);
   }
 
+  switch (ctrl_case()) {
+    // .natashapb.GameCtrlSpin spin = 1;
+    case kSpin: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.spin_);
+      break;
+    }
+    // .natashapb.GameCtrlSelectFree selectFree = 2;
+    case kSelectFree: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.selectfree_);
+      break;
+    }
+    // .natashapb.GameCtrlFreeSpin freeSpin = 3;
+    case kFreeSpin: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.freespin_);
+      break;
+    }
+    // .natashapb.GameCtrlBonus bonus = 4;
+    case kBonus: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.bonus_);
+      break;
+    }
+    // .natashapb.GameCtrlJackpot jackpot = 5;
+    case kJackpot: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.jackpot_);
+      break;
+    }
+    // .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
+    case kCommonJackpot: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.commonjackpot_);
+      break;
+    }
+    // .natashapb.GameCtrlAwardSpin awardSpin = 7;
+    case kAwardSpin: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *ctrl_.awardspin_);
+      break;
+    }
+    case CTRL_NOT_SET: {
+      break;
+    }
+  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -9765,32 +10282,44 @@ void GameCtrl::MergeFrom(const GameCtrl& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_spin()) {
-    mutable_spin()->::natashapb::GameCtrlSpin::MergeFrom(from.spin());
-  }
-  if (from.has_selectfree()) {
-    mutable_selectfree()->::natashapb::GameCtrlSelectFree::MergeFrom(from.selectfree());
-  }
-  if (from.has_freespin()) {
-    mutable_freespin()->::natashapb::GameCtrlFreeSpin::MergeFrom(from.freespin());
-  }
-  if (from.has_bonus()) {
-    mutable_bonus()->::natashapb::GameCtrlBonus::MergeFrom(from.bonus());
-  }
-  if (from.has_jackpot()) {
-    mutable_jackpot()->::natashapb::GameCtrlJackpot::MergeFrom(from.jackpot());
-  }
-  if (from.has_commonjackpot()) {
-    mutable_commonjackpot()->::natashapb::GameCtrlCommonJackpot::MergeFrom(from.commonjackpot());
-  }
-  if (from.has_awardspin()) {
-    mutable_awardspin()->::natashapb::GameCtrlAwardSpin::MergeFrom(from.awardspin());
-  }
   if (from.has_debug()) {
     mutable_debug()->::natashapb::GameCtrlDebug::MergeFrom(from.debug());
   }
   if (from.has_exdat()) {
     mutable_exdat()->::google::protobuf::Any::MergeFrom(from.exdat());
+  }
+  switch (from.ctrl_case()) {
+    case kSpin: {
+      mutable_spin()->::natashapb::GameCtrlSpin::MergeFrom(from.spin());
+      break;
+    }
+    case kSelectFree: {
+      mutable_selectfree()->::natashapb::GameCtrlSelectFree::MergeFrom(from.selectfree());
+      break;
+    }
+    case kFreeSpin: {
+      mutable_freespin()->::natashapb::GameCtrlFreeSpin::MergeFrom(from.freespin());
+      break;
+    }
+    case kBonus: {
+      mutable_bonus()->::natashapb::GameCtrlBonus::MergeFrom(from.bonus());
+      break;
+    }
+    case kJackpot: {
+      mutable_jackpot()->::natashapb::GameCtrlJackpot::MergeFrom(from.jackpot());
+      break;
+    }
+    case kCommonJackpot: {
+      mutable_commonjackpot()->::natashapb::GameCtrlCommonJackpot::MergeFrom(from.commonjackpot());
+      break;
+    }
+    case kAwardSpin: {
+      mutable_awardspin()->::natashapb::GameCtrlAwardSpin::MergeFrom(from.awardspin());
+      break;
+    }
+    case CTRL_NOT_SET: {
+      break;
+    }
   }
 }
 
@@ -9818,15 +10347,10 @@ void GameCtrl::Swap(GameCtrl* other) {
 }
 void GameCtrl::InternalSwap(GameCtrl* other) {
   using std::swap;
-  swap(spin_, other->spin_);
-  swap(selectfree_, other->selectfree_);
-  swap(freespin_, other->freespin_);
-  swap(bonus_, other->bonus_);
-  swap(jackpot_, other->jackpot_);
-  swap(commonjackpot_, other->commonjackpot_);
-  swap(awardspin_, other->awardspin_);
   swap(debug_, other->debug_);
   swap(exdat_, other->exdat_);
+  swap(ctrl_, other->ctrl_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

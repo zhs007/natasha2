@@ -5,22 +5,43 @@
 #include <vector>
 #include "../include/game3x5.h"
 #include "../include/gamelogic.h"
+#include "game_tlod.h"
 
 namespace natasha {
 
 class TLODFreeGame : public SlotsGameMod {
  public:
   TLODFreeGame(StaticCascadingReels3X5& reels, Paytables3X5& paytables,
-               Lines3X5& lines)
-      : m_reels(reels), m_paytables(paytables), m_lines(lines) {}
+               Lines3X5& lines, BetList& lstBet)
+      : m_reels(reels),
+        m_paytables(paytables),
+        m_lines(lines),
+        m_lstBet(lstBet) {}
   virtual ~TLODFreeGame() {}
 
  public:
   virtual bool init() { return true; }
 
+  virtual bool reviewGameCtrl(::natashapb::GameCtrl* pGameCtrl,
+                              const ::natashapb::UserGameModInfo* pUser) {
+    assert(pUser->has_cascadinginfo());
+
+    auto spinctrl = pGameCtrl->mutable_spin();
+    spinctrl->set_bet(pUser->cascadinginfo().curbet());
+    spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
+    spinctrl->set_times(TLOD_DEFAULT_TIMES);
+    spinctrl->set_totalbet(pUser->cascadinginfo().curbet() *
+                           TLOD_DEFAULT_PAY_LINES);
+    spinctrl->set_realbet(0);
+
+    return true;
+  }
+
   virtual bool randomReels(::natashapb::RandomResult* pRandomResult,
                            const ::natashapb::GameCtrl* pGameCtrl,
                            const ::natashapb::UserGameModInfo* pUser) {
+    m_reels.random(pRandomResult, pUser);
+
     return true;
   }
 
@@ -42,6 +63,7 @@ class TLODFreeGame : public SlotsGameMod {
   StaticCascadingReels3X5& m_reels;
   Paytables3X5& m_paytables;
   Lines3X5& m_lines;
+  BetList& m_lstBet;
 };
 
 }  // namespace natasha

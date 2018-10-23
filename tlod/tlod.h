@@ -22,6 +22,7 @@ class TLOD : public GameLogic {
   StaticCascadingReels3X5 m_reels;
   Paytables3X5 m_paytables;
   Lines3X5 m_lines;
+  BetList m_lstBet;
 };
 
 }  // namespace natasha

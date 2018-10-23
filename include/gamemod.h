@@ -19,6 +19,9 @@ class GameMod {
  public:
   virtual bool init() = 0;
 
+  virtual bool reviewGameCtrl(::natashapb::GameCtrl* pGameCtrl,
+                              const ::natashapb::UserGameModInfo* pUser) = 0;
+
  protected:
 };
 

@@ -7,6 +7,18 @@
 
 namespace natasha {
 
+#ifdef NATASHA_SYMBOLTYPE_INT
+typedef int32_t SymbolType;
+#else
+typedef int SymbolType;
+#endif
+
+#ifdef NATASHA_MONEYTYPE_INT64
+typedef int64_t MoneyType;
+#else
+typedef float MoneyType;
+#endif
+
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
  public:
@@ -42,7 +54,6 @@ typedef std::vector<std::string> FileNameList;
 void clearGameResultInfo(::natashapb::GameResultInfo& gri);
 // clearSpinResult
 void clearSpinResult(::natashapb::SpinResult& sr);
-
 
 }  // namespace natasha
 

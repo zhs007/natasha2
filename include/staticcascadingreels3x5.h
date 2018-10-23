@@ -20,7 +20,8 @@ class StaticCascadingReels3X5 {
   ~StaticCascadingReels3X5() {}
 
  public:
-  void random(::natashapb::RandomResult* pRandomResult);
+  void random(::natashapb::RandomResult* pRandomResult,
+              const ::natashapb::UserGameModInfo* pUGMI);
 
   void clear();
 
@@ -37,6 +38,9 @@ class StaticCascadingReels3X5 {
 
  protected:
   void randomNew(::natashapb::StaticCascadingRandomResult3X5* pSCRR);
+
+  void fill(::natashapb::StaticCascadingRandomResult3X5* pSCRR,
+            const ::natashapb::SymbolBlock3X5* pLastSB);
 
  protected:
   int m_maxDownNums;

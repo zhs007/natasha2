@@ -1,14 +1,53 @@
 #include "../include/staticcascadingreels3x5.h"
 #include "../include/fortuna.h"
+#include "../include/symbolblock2.h"
 
 namespace natasha {
 
 void StaticCascadingReels3X5::randomNew(
     ::natashapb::StaticCascadingRandomResult3X5* pSCRR) {
-  pSCRR->set_reelsindex(randomScale(m_lst.size()));
+  uint32_t cr = randomScale(m_lst.size());
+  assert(cr >= 0 && cr < m_lst.size());
+
+  SymbolBlockData* pSBD = m_lst[cr];
+  assert(pSBD->size() > 0);
+
+  pSCRR->set_reelsindex(cr);
+  pSCRR->set_downnums(0);
+
+  ::natashapb::SymbolBlock3X5* pSB = pSCRR->mutable_sb3x5();
+  pSB->CopyFrom(*(pSBD->at(0)));
 }
 
-void StaticCascadingReels3X5::random(::natashapb::RandomResult* pRandomResult) {
+void StaticCascadingReels3X5::fill(
+    ::natashapb::StaticCascadingRandomResult3X5* pSCRR,
+    const ::natashapb::SymbolBlock3X5* pLastSB) {
+  int32_t cr = pSCRR->reelsindex();
+  assert(cr >= 0 && cr < m_lst.size());
+
+  int32_t dn = pSCRR->downnums();
+  SymbolBlockData* pSBD = m_lst[cr];
+  assert(dn >= 0 && dn + 1 < pSBD->size());
+
+  pSCRR->set_downnums(dn + 1);
+
+  ::natashapb::SymbolBlock3X5* pSB = pSCRR->mutable_sb3x5();
+  pSB->CopyFrom(*pLastSB);
+
+  const ::natashapb::SymbolBlock3X5* pNewSB = pSBD->at(dn + 1);
+
+  for (int y = 0; y < 3; ++y) {
+    for (int x = 0; x < 5; ++x) {
+      if (getSymbolBlock3X5(pSB, x, y) == -1) {
+        setSymbolBlock3X5(pSB, x, y, getSymbolBlock3X5(pNewSB, x, y));
+      }
+    }
+  }
+}
+
+void StaticCascadingReels3X5::random(
+    ::natashapb::RandomResult* pRandomResult,
+    const ::natashapb::UserGameModInfo* pUGMI) {
   assert(pRandomResult != NULL);
 
   if (!pRandomResult->has_retstaticcascading3x5()) {
@@ -25,21 +64,11 @@ void StaticCascadingReels3X5::random(::natashapb::RandomResult* pRandomResult) {
 
       randomNew(pSCRR);
     } else {
+      ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
+          pRandomResult->mutable_retstaticcascading3x5();
+
+      fill(pSCRR, &(pUGMI->sb3x5()));
     }
-  }
-
-  ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
-      pRandomResult->mutable_retstaticcascading3x5();
-
-  ::natashapb::StaticCascadingRandomResult3X5 msg;
-  pRandomResult->info().UnpackTo(&msg);
-
-  auto ri = msg.reelsindex();
-  auto dn = msg.downnums();
-
-  if (ri < 0) {
-  } else {
-    assert(dn < m_maxDownNums);
   }
 }
 

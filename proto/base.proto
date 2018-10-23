@@ -40,7 +40,10 @@ message StaticCascadingRandomResult3X5 {
 
 // RandomResult - common random result
 message RandomResult {
-    StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
+    // only once
+    oneof result {
+        StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
+    }
 
     google.protobuf.Any info = 1000;
 }
@@ -94,6 +97,10 @@ message SpinResult {
     bool inCommonJackpot = 8;
     bool inRespin = 9;
 
+    oneof symbolblock {
+        SymbolBlock3X5 sb3x5 = 100;
+    }
+
     google.protobuf.Any exDat = 1000;
 }
 
@@ -124,7 +131,7 @@ message GameCtrlID {
 
 // BaseCascadingInfo - basic cascading game data
 message BaseCascadingInfo {
-    int32 curBet = 1;
+    int64 curBet = 1;
     int32 curLines = 2;
     int32 curTimes = 3;
     int32 turnNums = 4;
@@ -142,7 +149,7 @@ message BaseFreeInfo {
 message RespinHistory {
     int64 realWin = 1;
     int64 win = 2;
-    int32 mul = 3;
+    int64 mul = 3;
     bool isSpecial = 4;
 }
 
@@ -160,6 +167,10 @@ message UserGameModInfo {
     RespinHistoryList lstHistory = 5;
     BaseFreeInfo freeInfo = 6;
 
+    oneof symbolblock {
+        SymbolBlock3X5 sb3x5 = 100;
+    }
+
     google.protobuf.Any exDat = 1000;
 }
 
@@ -175,9 +186,11 @@ message UserGameLogicInfo {
 
 // GameCtrlSpin - basegame spin
 message GameCtrlSpin {
-    int32 bet = 1;
+    int64 bet = 1;
     int32 lines = 2;
     int32 times = 3;
+    int64 totalBet = 4;
+    int64 realBet = 5;
 }
 
 // GameCtrlSelectFree - freegame select free
@@ -187,9 +200,10 @@ message GameCtrlSelectFree {
 
 // GameCtrlFreeSpin - freegame spin
 message GameCtrlFreeSpin {
-    int32 bet = 1;
+    int64 bet = 1;
     int32 lines = 2;
-    int32 times = 3;    
+    int32 times = 3;  
+    int64 totalBet = 4; 
 }
 
 // GameCtrlBonus - bonus
@@ -209,9 +223,10 @@ message GameCtrlCommonJackpot {
 
 // GameCtrlAwardSpin - award spin
 message GameCtrlAwardSpin {
-    int32 bet = 1;
+    int64 bet = 1;
     int32 lines = 2;
-    int32 times = 3;    
+    int32 times = 3;  
+    int64 totalBet = 4;
 }
 
 // GameCtrlDebug - debug params
@@ -222,15 +237,20 @@ message GameCtrlDebug {
 
 // GameCtrl - game ctrl
 message GameCtrl {
-    GameCtrlSpin spin = 1;
-    GameCtrlSelectFree selectFree = 2;
-    GameCtrlFreeSpin freeSpin = 3;
-    GameCtrlBonus bonus = 4;
-    GameCtrlJackpot jackpot = 5;
-    GameCtrlCommonJackpot commonJackpot = 6;
-    GameCtrlAwardSpin awardSpin = 7;
+    // only once
+    oneof ctrl {
+        GameCtrlSpin spin = 1;
+        GameCtrlSelectFree selectFree = 2;
+        GameCtrlFreeSpin freeSpin = 3;
+        GameCtrlBonus bonus = 4;
+        GameCtrlJackpot jackpot = 5;
+        GameCtrlCommonJackpot commonJackpot = 6;
+        GameCtrlAwardSpin awardSpin = 7;
+    }
 
+    // debug params
     GameCtrlDebug debug = 100;
 
+    // Extended data reserved for the game
     google.protobuf.Any exDat = 1000;
 }

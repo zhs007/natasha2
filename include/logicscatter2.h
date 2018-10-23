@@ -8,19 +8,18 @@
 #include "gameresult.h"
 #include "lines.h"
 #include "paytables.h"
-#include "symbolblock.h"
+#include "symbolblock2.h"
 #include "utils.h"
 
 namespace natasha {
 
 template <typename MoneyType, typename SymbolType, int Width, int Height,
-          typename GameCfgT>
+          class SymbolBlockT, typename GameCfgT>
 bool countScatter_Left(
-    ::natashapb::GameResultInfo& gri,
-    const SymbolBlock<SymbolType, Width, Height>& arr,
+    ::natashapb::GameResultInfo& gri, const SymbolBlockT& arr,
     const Paytables<Width, SymbolType, int, MoneyType>& paytables, SymbolType s,
     MoneyType totalbet) {
-  typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
+  // typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
   typedef Paytables<Width, SymbolType, int, MoneyType> PaytablesT;
 
   clearGameResultInfo(gri);
@@ -30,7 +29,7 @@ bool countScatter_Left(
 
   for (int y = 0; y < Height; ++y) {
     for (int x = 0; x < Width; ++x) {
-      SymbolType cs = arr.get(x, y);
+      SymbolType cs = getSymbolBlock<SymbolBlockT, Width, Height>(&arr, x, y);
 
       if (GameCfgT::isScatter(cs)) {
         auto pos = gri.add_lstpos();

@@ -10,14 +10,45 @@
 
 namespace natasha {
 
-int32_t getSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB, int x, int y);
+SymbolType getSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB, int x,
+                             int y);
 
 void setSymbolBlock3X5(::natashapb::SymbolBlock3X5* pSB, int x, int y,
-                       int32_t s);
+                       SymbolType s);
 
 void buildSymbolLine3X5(const ::natashapb::SymbolBlock3X5* pSB,
-                        StaticArray<5, int32_t>& sl, const Lines<5, int>& lines,
-                        int indexLine);
+                        StaticArray<5, SymbolType>& sl,
+                        const Lines<5, int>& lines, int indexLine);
+
+template <typename SymbolBlockT, int Width, int Height>
+void buildSymbolLine(const SymbolBlockT* pSB,
+                     StaticArray<Width, SymbolType>& sl,
+                     const Lines<Width, int>& lines, int indexLine);
+
+template <>
+inline void buildSymbolLine< ::natashapb::SymbolBlock3X5, 5, 3>(
+    const ::natashapb::SymbolBlock3X5* pSB, StaticArray<5, SymbolType>& sl,
+    const Lines<5, int>& lines, int indexLine) {
+  buildSymbolLine3X5(pSB, sl, lines, indexLine);
+};
+
+template <typename SymbolBlockT, int Width, int Height>
+SymbolType getSymbolBlock(const SymbolBlockT* pSB, int x, int y);
+
+template <>
+inline SymbolType getSymbolBlock< ::natashapb::SymbolBlock3X5, 5, 3>(
+    const ::natashapb::SymbolBlock3X5* pSB, int x, int y) {
+  return getSymbolBlock3X5(pSB, x, y);
+};
+
+template <typename SymbolBlockT, int Width, int Height>
+void setSymbolBlock(SymbolBlockT* pSB, int x, int y, SymbolType s);
+
+template <>
+inline void setSymbolBlock< ::natashapb::SymbolBlock3X5, 5, 3>(
+    ::natashapb::SymbolBlock3X5* pSB, int x, int y, SymbolType s) {
+  setSymbolBlock3X5(pSB, x, y, s);
+};
 
 }  // namespace natasha
 

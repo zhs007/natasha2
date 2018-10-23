@@ -2,8 +2,8 @@
 
 namespace natasha {
 
-int32_t getSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB, int x,
-                          int y) {
+SymbolType getSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB, int x,
+                             int y) {
   assert(pSB != NULL);
   assert(x >= 0 && x < 5);
   assert(y >= 0 && y < 3);
@@ -53,7 +53,7 @@ int32_t getSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB, int x,
 }
 
 void setSymbolBlock3X5(::natashapb::SymbolBlock3X5* pSB, int x, int y,
-                       int32_t s) {
+                       SymbolType s) {
   assert(pSB != NULL);
   assert(x >= 0 && x < 5);
   assert(y >= 0 && y < 3);
@@ -116,8 +116,8 @@ void setSymbolBlock3X5(::natashapb::SymbolBlock3X5* pSB, int x, int y,
 }
 
 void buildSymbolLine3X5(const ::natashapb::SymbolBlock3X5* pSB,
-                        StaticArray<5, int32_t>& sl, const Lines<5, int>& lines,
-                        int indexLine) {
+                        StaticArray<5, SymbolType>& sl,
+                        const Lines<5, int>& lines, int indexLine) {
   assert(pSB != NULL);
 
   typedef Lines<5, int> LinesT;

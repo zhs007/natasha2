@@ -31,16 +31,17 @@ class Paytables {
     m_map[symbol].set(index, payout);
   }
 
-  MoneyType getSymbolPayout(SymbolType symbol, int index) {
-    assset(m_map.has(symbol));
+  MoneyType getSymbolPayout(SymbolType symbol, int index) const {
+    auto it = m_map.find(symbol);
+    assert(it != m_map.end());
 
-    return m_map[symbol].get(index);
+    return it->second.get(index);
   }
 
   void setMapping(MappingType src, int index) { m_mapping.set(src, index); }
 
   MoneyType getSymbolPayoutWithMapping(SymbolType symbol, MappingType mapping) {
-    assset(m_map.has(symbol));
+    assert(m_map.has(symbol));
 
     return m_map[symbol].get(m_mapping.get(mapping));
   }

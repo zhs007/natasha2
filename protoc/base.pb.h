@@ -844,6 +844,11 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
   static const ::google::protobuf::Descriptor* descriptor();
   static const RandomResult& default_instance();
 
+  enum ResultCase {
+    kRetStaticCascading3X5 = 1,
+    RESULT_NOT_SET = 0,
+  };
+
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const RandomResult* internal_default_instance() {
     return reinterpret_cast<const RandomResult*>(
@@ -901,15 +906,6 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
-  bool has_retstaticcascading3x5() const;
-  void clear_retstaticcascading3x5();
-  static const int kRetStaticCascading3X5FieldNumber = 1;
-  const ::natashapb::StaticCascadingRandomResult3X5& retstaticcascading3x5() const;
-  ::natashapb::StaticCascadingRandomResult3X5* release_retstaticcascading3x5();
-  ::natashapb::StaticCascadingRandomResult3X5* mutable_retstaticcascading3x5();
-  void set_allocated_retstaticcascading3x5(::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5);
-
   // .google.protobuf.Any info = 1000;
   bool has_info() const;
   void clear_info();
@@ -919,13 +915,33 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::Any* mutable_info();
   void set_allocated_info(::google::protobuf::Any* info);
 
+  // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
+  bool has_retstaticcascading3x5() const;
+  void clear_retstaticcascading3x5();
+  static const int kRetStaticCascading3X5FieldNumber = 1;
+  const ::natashapb::StaticCascadingRandomResult3X5& retstaticcascading3x5() const;
+  ::natashapb::StaticCascadingRandomResult3X5* release_retstaticcascading3x5();
+  ::natashapb::StaticCascadingRandomResult3X5* mutable_retstaticcascading3x5();
+  void set_allocated_retstaticcascading3x5(::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5);
+
+  ResultCase result_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.RandomResult)
  private:
+  void set_has_retstaticcascading3x5();
+
+  inline bool has_result() const;
+  void clear_result();
+  inline void clear_has_result();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5_;
   ::google::protobuf::Any* info_;
+  union ResultUnion {
+    ResultUnion() {}
+    ::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5_;
+  } result_;
   mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsRandomResultImpl();
 };
@@ -1245,6 +1261,11 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   static const ::google::protobuf::Descriptor* descriptor();
   static const SpinResult& default_instance();
 
+  enum SymbolblockCase {
+    kSb3X5 = 100,
+    SYMBOLBLOCK_NOT_SET = 0,
+  };
+
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const SpinResult* internal_default_instance() {
     return reinterpret_cast<const SpinResult*>(
@@ -1371,8 +1392,23 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   bool inrespin() const;
   void set_inrespin(bool value);
 
+  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+  bool has_sb3x5() const;
+  void clear_sb3x5();
+  static const int kSb3X5FieldNumber = 100;
+  const ::natashapb::SymbolBlock3X5& sb3x5() const;
+  ::natashapb::SymbolBlock3X5* release_sb3x5();
+  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
+  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
+
+  SymbolblockCase symbolblock_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.SpinResult)
  private:
+  void set_has_sb3x5();
+
+  inline bool has_symbolblock() const;
+  void clear_symbolblock();
+  inline void clear_has_symbolblock();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo > lstgri_;
@@ -1385,7 +1421,13 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   bool injackpot_;
   bool incommonjackpot_;
   bool inrespin_;
+  union SymbolblockUnion {
+    SymbolblockUnion() {}
+    ::natashapb::SymbolBlock3X5* sb3x5_;
+  } symbolblock_;
   mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsSpinResultImpl();
 };
@@ -1601,11 +1643,11 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // int32 curBet = 1;
+  // int64 curBet = 1;
   void clear_curbet();
   static const int kCurBetFieldNumber = 1;
-  ::google::protobuf::int32 curbet() const;
-  void set_curbet(::google::protobuf::int32 value);
+  ::google::protobuf::int64 curbet() const;
+  void set_curbet(::google::protobuf::int64 value);
 
   // int32 curLines = 2;
   void clear_curlines();
@@ -1619,27 +1661,27 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 curtimes() const;
   void set_curtimes(::google::protobuf::int32 value);
 
-  // int32 turnNums = 4;
-  void clear_turnnums();
-  static const int kTurnNumsFieldNumber = 4;
-  ::google::protobuf::int32 turnnums() const;
-  void set_turnnums(::google::protobuf::int32 value);
-
   // int64 turnWin = 5;
   void clear_turnwin();
   static const int kTurnWinFieldNumber = 5;
   ::google::protobuf::int64 turnwin() const;
   void set_turnwin(::google::protobuf::int64 value);
 
+  // int32 turnNums = 4;
+  void clear_turnnums();
+  static const int kTurnNumsFieldNumber = 4;
+  ::google::protobuf::int32 turnnums() const;
+  void set_turnnums(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.BaseCascadingInfo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 curbet_;
+  ::google::protobuf::int64 curbet_;
   ::google::protobuf::int32 curlines_;
   ::google::protobuf::int32 curtimes_;
-  ::google::protobuf::int32 turnnums_;
   ::google::protobuf::int64 turnwin_;
+  ::google::protobuf::int32 turnnums_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsBaseCascadingInfoImpl();
@@ -1861,11 +1903,11 @@ class RespinHistory : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int64 win() const;
   void set_win(::google::protobuf::int64 value);
 
-  // int32 mul = 3;
+  // int64 mul = 3;
   void clear_mul();
   static const int kMulFieldNumber = 3;
-  ::google::protobuf::int32 mul() const;
-  void set_mul(::google::protobuf::int32 value);
+  ::google::protobuf::int64 mul() const;
+  void set_mul(::google::protobuf::int64 value);
 
   // bool isSpecial = 4;
   void clear_isspecial();
@@ -1879,7 +1921,7 @@ class RespinHistory : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::int64 realwin_;
   ::google::protobuf::int64 win_;
-  ::google::protobuf::int32 mul_;
+  ::google::protobuf::int64 mul_;
   bool isspecial_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
@@ -2025,6 +2067,11 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   static const ::google::protobuf::Descriptor* descriptor();
   static const UserGameModInfo& default_instance();
 
+  enum SymbolblockCase {
+    kSb3X5 = 100,
+    SYMBOLBLOCK_NOT_SET = 0,
+  };
+
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const UserGameModInfo* internal_default_instance() {
     return reinterpret_cast<const UserGameModInfo*>(
@@ -2145,8 +2192,23 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::Any* mutable_exdat();
   void set_allocated_exdat(::google::protobuf::Any* exdat);
 
+  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
+  bool has_sb3x5() const;
+  void clear_sb3x5();
+  static const int kSb3X5FieldNumber = 100;
+  const ::natashapb::SymbolBlock3X5& sb3x5() const;
+  ::natashapb::SymbolBlock3X5* release_sb3x5();
+  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
+  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
+
+  SymbolblockCase symbolblock_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.UserGameModInfo)
  private:
+  void set_has_sb3x5();
+
+  inline bool has_symbolblock() const;
+  void clear_symbolblock();
+  inline void clear_has_symbolblock();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::RandomResult* randomresult_;
@@ -2156,7 +2218,13 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::natashapb::RespinHistoryList* lsthistory_;
   ::natashapb::BaseFreeInfo* freeinfo_;
   ::google::protobuf::Any* exdat_;
+  union SymbolblockUnion {
+    SymbolblockUnion() {}
+    ::natashapb::SymbolBlock3X5* sb3x5_;
+  } symbolblock_;
   mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsUserGameModInfoImpl();
 };
@@ -2404,11 +2472,11 @@ class GameCtrlSpin : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   void clear_bet();
   static const int kBetFieldNumber = 1;
-  ::google::protobuf::int32 bet() const;
-  void set_bet(::google::protobuf::int32 value);
+  ::google::protobuf::int64 bet() const;
+  void set_bet(::google::protobuf::int64 value);
 
   // int32 lines = 2;
   void clear_lines();
@@ -2422,13 +2490,27 @@ class GameCtrlSpin : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::int32 times() const;
   void set_times(::google::protobuf::int32 value);
 
+  // int64 totalBet = 4;
+  void clear_totalbet();
+  static const int kTotalBetFieldNumber = 4;
+  ::google::protobuf::int64 totalbet() const;
+  void set_totalbet(::google::protobuf::int64 value);
+
+  // int64 realBet = 5;
+  void clear_realbet();
+  static const int kRealBetFieldNumber = 5;
+  ::google::protobuf::int64 realbet() const;
+  void set_realbet(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameCtrlSpin)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 bet_;
+  ::google::protobuf::int64 bet_;
   ::google::protobuf::int32 lines_;
   ::google::protobuf::int32 times_;
+  ::google::protobuf::int64 totalbet_;
+  ::google::protobuf::int64 realbet_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameCtrlSpinImpl();
@@ -2624,11 +2706,11 @@ class GameCtrlFreeSpin : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   void clear_bet();
   static const int kBetFieldNumber = 1;
-  ::google::protobuf::int32 bet() const;
-  void set_bet(::google::protobuf::int32 value);
+  ::google::protobuf::int64 bet() const;
+  void set_bet(::google::protobuf::int64 value);
 
   // int32 lines = 2;
   void clear_lines();
@@ -2642,13 +2724,20 @@ class GameCtrlFreeSpin : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::int32 times() const;
   void set_times(::google::protobuf::int32 value);
 
+  // int64 totalBet = 4;
+  void clear_totalbet();
+  static const int kTotalBetFieldNumber = 4;
+  ::google::protobuf::int64 totalbet() const;
+  void set_totalbet(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameCtrlFreeSpin)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 bet_;
+  ::google::protobuf::int64 bet_;
   ::google::protobuf::int32 lines_;
   ::google::protobuf::int32 times_;
+  ::google::protobuf::int64 totalbet_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameCtrlFreeSpinImpl();
@@ -3050,11 +3139,11 @@ class GameCtrlAwardSpin : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // int32 bet = 1;
+  // int64 bet = 1;
   void clear_bet();
   static const int kBetFieldNumber = 1;
-  ::google::protobuf::int32 bet() const;
-  void set_bet(::google::protobuf::int32 value);
+  ::google::protobuf::int64 bet() const;
+  void set_bet(::google::protobuf::int64 value);
 
   // int32 lines = 2;
   void clear_lines();
@@ -3068,13 +3157,20 @@ class GameCtrlAwardSpin : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 times() const;
   void set_times(::google::protobuf::int32 value);
 
+  // int64 totalBet = 4;
+  void clear_totalbet();
+  static const int kTotalBetFieldNumber = 4;
+  ::google::protobuf::int64 totalbet() const;
+  void set_totalbet(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameCtrlAwardSpin)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 bet_;
+  ::google::protobuf::int64 bet_;
   ::google::protobuf::int32 lines_;
   ::google::protobuf::int32 times_;
+  ::google::protobuf::int64 totalbet_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameCtrlAwardSpinImpl();
@@ -3227,6 +3323,17 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   static const ::google::protobuf::Descriptor* descriptor();
   static const GameCtrl& default_instance();
 
+  enum CtrlCase {
+    kSpin = 1,
+    kSelectFree = 2,
+    kFreeSpin = 3,
+    kBonus = 4,
+    kJackpot = 5,
+    kCommonJackpot = 6,
+    kAwardSpin = 7,
+    CTRL_NOT_SET = 0,
+  };
+
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const GameCtrl* internal_default_instance() {
     return reinterpret_cast<const GameCtrl*>(
@@ -3283,6 +3390,24 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   // nested types ----------------------------------------------------
 
   // accessors -------------------------------------------------------
+
+  // .natashapb.GameCtrlDebug debug = 100;
+  bool has_debug() const;
+  void clear_debug();
+  static const int kDebugFieldNumber = 100;
+  const ::natashapb::GameCtrlDebug& debug() const;
+  ::natashapb::GameCtrlDebug* release_debug();
+  ::natashapb::GameCtrlDebug* mutable_debug();
+  void set_allocated_debug(::natashapb::GameCtrlDebug* debug);
+
+  // .google.protobuf.Any exDat = 1000;
+  bool has_exdat() const;
+  void clear_exdat();
+  static const int kExDatFieldNumber = 1000;
+  const ::google::protobuf::Any& exdat() const;
+  ::google::protobuf::Any* release_exdat();
+  ::google::protobuf::Any* mutable_exdat();
+  void set_allocated_exdat(::google::protobuf::Any* exdat);
 
   // .natashapb.GameCtrlSpin spin = 1;
   bool has_spin() const;
@@ -3347,38 +3472,37 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::natashapb::GameCtrlAwardSpin* mutable_awardspin();
   void set_allocated_awardspin(::natashapb::GameCtrlAwardSpin* awardspin);
 
-  // .natashapb.GameCtrlDebug debug = 100;
-  bool has_debug() const;
-  void clear_debug();
-  static const int kDebugFieldNumber = 100;
-  const ::natashapb::GameCtrlDebug& debug() const;
-  ::natashapb::GameCtrlDebug* release_debug();
-  ::natashapb::GameCtrlDebug* mutable_debug();
-  void set_allocated_debug(::natashapb::GameCtrlDebug* debug);
-
-  // .google.protobuf.Any exDat = 1000;
-  bool has_exdat() const;
-  void clear_exdat();
-  static const int kExDatFieldNumber = 1000;
-  const ::google::protobuf::Any& exdat() const;
-  ::google::protobuf::Any* release_exdat();
-  ::google::protobuf::Any* mutable_exdat();
-  void set_allocated_exdat(::google::protobuf::Any* exdat);
-
+  CtrlCase ctrl_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.GameCtrl)
  private:
+  void set_has_spin();
+  void set_has_selectfree();
+  void set_has_freespin();
+  void set_has_bonus();
+  void set_has_jackpot();
+  void set_has_commonjackpot();
+  void set_has_awardspin();
+
+  inline bool has_ctrl() const;
+  void clear_ctrl();
+  inline void clear_has_ctrl();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::natashapb::GameCtrlSpin* spin_;
-  ::natashapb::GameCtrlSelectFree* selectfree_;
-  ::natashapb::GameCtrlFreeSpin* freespin_;
-  ::natashapb::GameCtrlBonus* bonus_;
-  ::natashapb::GameCtrlJackpot* jackpot_;
-  ::natashapb::GameCtrlCommonJackpot* commonjackpot_;
-  ::natashapb::GameCtrlAwardSpin* awardspin_;
   ::natashapb::GameCtrlDebug* debug_;
   ::google::protobuf::Any* exdat_;
+  union CtrlUnion {
+    CtrlUnion() {}
+    ::natashapb::GameCtrlSpin* spin_;
+    ::natashapb::GameCtrlSelectFree* selectfree_;
+    ::natashapb::GameCtrlFreeSpin* freespin_;
+    ::natashapb::GameCtrlBonus* bonus_;
+    ::natashapb::GameCtrlJackpot* jackpot_;
+    ::natashapb::GameCtrlCommonJackpot* commonjackpot_;
+    ::natashapb::GameCtrlAwardSpin* awardspin_;
+  } ctrl_;
   mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameCtrlImpl();
 };
@@ -3760,53 +3884,43 @@ inline void StaticCascadingRandomResult3X5::set_allocated_sb3x5(::natashapb::Sym
 
 // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
 inline bool RandomResult::has_retstaticcascading3x5() const {
-  return this != internal_default_instance() && retstaticcascading3x5_ != NULL;
+  return result_case() == kRetStaticCascading3X5;
+}
+inline void RandomResult::set_has_retstaticcascading3x5() {
+  _oneof_case_[0] = kRetStaticCascading3X5;
 }
 inline void RandomResult::clear_retstaticcascading3x5() {
-  if (GetArenaNoVirtual() == NULL && retstaticcascading3x5_ != NULL) {
-    delete retstaticcascading3x5_;
+  if (has_retstaticcascading3x5()) {
+    delete result_.retstaticcascading3x5_;
+    clear_has_result();
   }
-  retstaticcascading3x5_ = NULL;
-}
-inline const ::natashapb::StaticCascadingRandomResult3X5& RandomResult::retstaticcascading3x5() const {
-  const ::natashapb::StaticCascadingRandomResult3X5* p = retstaticcascading3x5_;
-  // @@protoc_insertion_point(field_get:natashapb.RandomResult.retStaticCascading3x5)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::StaticCascadingRandomResult3X5*>(
-      &::natashapb::_StaticCascadingRandomResult3X5_default_instance_);
 }
 inline ::natashapb::StaticCascadingRandomResult3X5* RandomResult::release_retstaticcascading3x5() {
   // @@protoc_insertion_point(field_release:natashapb.RandomResult.retStaticCascading3x5)
-  
-  ::natashapb::StaticCascadingRandomResult3X5* temp = retstaticcascading3x5_;
-  retstaticcascading3x5_ = NULL;
-  return temp;
+  if (has_retstaticcascading3x5()) {
+    clear_has_result();
+      ::natashapb::StaticCascadingRandomResult3X5* temp = result_.retstaticcascading3x5_;
+    result_.retstaticcascading3x5_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::StaticCascadingRandomResult3X5& RandomResult::retstaticcascading3x5() const {
+  // @@protoc_insertion_point(field_get:natashapb.RandomResult.retStaticCascading3x5)
+  return has_retstaticcascading3x5()
+      ? *result_.retstaticcascading3x5_
+      : *reinterpret_cast< ::natashapb::StaticCascadingRandomResult3X5*>(&::natashapb::_StaticCascadingRandomResult3X5_default_instance_);
 }
 inline ::natashapb::StaticCascadingRandomResult3X5* RandomResult::mutable_retstaticcascading3x5() {
-  
-  if (retstaticcascading3x5_ == NULL) {
-    retstaticcascading3x5_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingRandomResult3X5 >(
+  if (!has_retstaticcascading3x5()) {
+    clear_result();
+    set_has_retstaticcascading3x5();
+    result_.retstaticcascading3x5_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingRandomResult3X5 >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.RandomResult.retStaticCascading3x5)
-  return retstaticcascading3x5_;
-}
-inline void RandomResult::set_allocated_retstaticcascading3x5(::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete retstaticcascading3x5_;
-  }
-  if (retstaticcascading3x5) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      retstaticcascading3x5 = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, retstaticcascading3x5, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  retstaticcascading3x5_ = retstaticcascading3x5;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.RandomResult.retStaticCascading3x5)
+  return result_.retstaticcascading3x5_;
 }
 
 // .google.protobuf.Any info = 1000;
@@ -3854,6 +3968,15 @@ inline void RandomResult::set_allocated_info(::google::protobuf::Any* info) {
   // @@protoc_insertion_point(field_set_allocated:natashapb.RandomResult.info)
 }
 
+inline bool RandomResult::has_result() const {
+  return result_case() != RESULT_NOT_SET;
+}
+inline void RandomResult::clear_has_result() {
+  _oneof_case_[0] = RESULT_NOT_SET;
+}
+inline RandomResult::ResultCase RandomResult::result_case() const {
+  return RandomResult::ResultCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // Position2D
@@ -4225,6 +4348,47 @@ inline void SpinResult::set_inrespin(bool value) {
   // @@protoc_insertion_point(field_set:natashapb.SpinResult.inRespin)
 }
 
+// .natashapb.SymbolBlock3X5 sb3x5 = 100;
+inline bool SpinResult::has_sb3x5() const {
+  return symbolblock_case() == kSb3X5;
+}
+inline void SpinResult::set_has_sb3x5() {
+  _oneof_case_[0] = kSb3X5;
+}
+inline void SpinResult::clear_sb3x5() {
+  if (has_sb3x5()) {
+    delete symbolblock_.sb3x5_;
+    clear_has_symbolblock();
+  }
+}
+inline ::natashapb::SymbolBlock3X5* SpinResult::release_sb3x5() {
+  // @@protoc_insertion_point(field_release:natashapb.SpinResult.sb3x5)
+  if (has_sb3x5()) {
+    clear_has_symbolblock();
+      ::natashapb::SymbolBlock3X5* temp = symbolblock_.sb3x5_;
+    symbolblock_.sb3x5_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::SymbolBlock3X5& SpinResult::sb3x5() const {
+  // @@protoc_insertion_point(field_get:natashapb.SpinResult.sb3x5)
+  return has_sb3x5()
+      ? *symbolblock_.sb3x5_
+      : *reinterpret_cast< ::natashapb::SymbolBlock3X5*>(&::natashapb::_SymbolBlock3X5_default_instance_);
+}
+inline ::natashapb::SymbolBlock3X5* SpinResult::mutable_sb3x5() {
+  if (!has_sb3x5()) {
+    clear_symbolblock();
+    set_has_sb3x5();
+    symbolblock_.sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.SpinResult.sb3x5)
+  return symbolblock_.sb3x5_;
+}
+
 // .google.protobuf.Any exDat = 1000;
 inline bool SpinResult::has_exdat() const {
   return this != internal_default_instance() && exdat_ != NULL;
@@ -4270,6 +4434,15 @@ inline void SpinResult::set_allocated_exdat(::google::protobuf::Any* exdat) {
   // @@protoc_insertion_point(field_set_allocated:natashapb.SpinResult.exDat)
 }
 
+inline bool SpinResult::has_symbolblock() const {
+  return symbolblock_case() != SYMBOLBLOCK_NOT_SET;
+}
+inline void SpinResult::clear_has_symbolblock() {
+  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
+}
+inline SpinResult::SymbolblockCase SpinResult::symbolblock_case() const {
+  return SpinResult::SymbolblockCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // GameCtrlID
@@ -4334,15 +4507,15 @@ inline void GameCtrlID::set_gamemod(::natashapb::GAMEMODTYPE value) {
 
 // BaseCascadingInfo
 
-// int32 curBet = 1;
+// int64 curBet = 1;
 inline void BaseCascadingInfo::clear_curbet() {
-  curbet_ = 0;
+  curbet_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int32 BaseCascadingInfo::curbet() const {
+inline ::google::protobuf::int64 BaseCascadingInfo::curbet() const {
   // @@protoc_insertion_point(field_get:natashapb.BaseCascadingInfo.curBet)
   return curbet_;
 }
-inline void BaseCascadingInfo::set_curbet(::google::protobuf::int32 value) {
+inline void BaseCascadingInfo::set_curbet(::google::protobuf::int64 value) {
   
   curbet_ = value;
   // @@protoc_insertion_point(field_set:natashapb.BaseCascadingInfo.curBet)
@@ -4482,15 +4655,15 @@ inline void RespinHistory::set_win(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:natashapb.RespinHistory.win)
 }
 
-// int32 mul = 3;
+// int64 mul = 3;
 inline void RespinHistory::clear_mul() {
-  mul_ = 0;
+  mul_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int32 RespinHistory::mul() const {
+inline ::google::protobuf::int64 RespinHistory::mul() const {
   // @@protoc_insertion_point(field_get:natashapb.RespinHistory.mul)
   return mul_;
 }
-inline void RespinHistory::set_mul(::google::protobuf::int32 value) {
+inline void RespinHistory::set_mul(::google::protobuf::int64 value) {
   
   mul_ = value;
   // @@protoc_insertion_point(field_set:natashapb.RespinHistory.mul)
@@ -4854,6 +5027,47 @@ inline void UserGameModInfo::set_allocated_freeinfo(::natashapb::BaseFreeInfo* f
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.freeInfo)
 }
 
+// .natashapb.SymbolBlock3X5 sb3x5 = 100;
+inline bool UserGameModInfo::has_sb3x5() const {
+  return symbolblock_case() == kSb3X5;
+}
+inline void UserGameModInfo::set_has_sb3x5() {
+  _oneof_case_[0] = kSb3X5;
+}
+inline void UserGameModInfo::clear_sb3x5() {
+  if (has_sb3x5()) {
+    delete symbolblock_.sb3x5_;
+    clear_has_symbolblock();
+  }
+}
+inline ::natashapb::SymbolBlock3X5* UserGameModInfo::release_sb3x5() {
+  // @@protoc_insertion_point(field_release:natashapb.UserGameModInfo.sb3x5)
+  if (has_sb3x5()) {
+    clear_has_symbolblock();
+      ::natashapb::SymbolBlock3X5* temp = symbolblock_.sb3x5_;
+    symbolblock_.sb3x5_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::SymbolBlock3X5& UserGameModInfo::sb3x5() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameModInfo.sb3x5)
+  return has_sb3x5()
+      ? *symbolblock_.sb3x5_
+      : *reinterpret_cast< ::natashapb::SymbolBlock3X5*>(&::natashapb::_SymbolBlock3X5_default_instance_);
+}
+inline ::natashapb::SymbolBlock3X5* UserGameModInfo::mutable_sb3x5() {
+  if (!has_sb3x5()) {
+    clear_symbolblock();
+    set_has_sb3x5();
+    symbolblock_.sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.UserGameModInfo.sb3x5)
+  return symbolblock_.sb3x5_;
+}
+
 // .google.protobuf.Any exDat = 1000;
 inline bool UserGameModInfo::has_exdat() const {
   return this != internal_default_instance() && exdat_ != NULL;
@@ -4899,6 +5113,15 @@ inline void UserGameModInfo::set_allocated_exdat(::google::protobuf::Any* exdat)
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.exDat)
 }
 
+inline bool UserGameModInfo::has_symbolblock() const {
+  return symbolblock_case() != SYMBOLBLOCK_NOT_SET;
+}
+inline void UserGameModInfo::clear_has_symbolblock() {
+  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
+}
+inline UserGameModInfo::SymbolblockCase UserGameModInfo::symbolblock_case() const {
+  return UserGameModInfo::SymbolblockCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // UserGameLogicInfo
@@ -5213,15 +5436,15 @@ inline void UserGameLogicInfo::set_allocated_freegame2(::natashapb::UserGameModI
 
 // GameCtrlSpin
 
-// int32 bet = 1;
+// int64 bet = 1;
 inline void GameCtrlSpin::clear_bet() {
-  bet_ = 0;
+  bet_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int32 GameCtrlSpin::bet() const {
+inline ::google::protobuf::int64 GameCtrlSpin::bet() const {
   // @@protoc_insertion_point(field_get:natashapb.GameCtrlSpin.bet)
   return bet_;
 }
-inline void GameCtrlSpin::set_bet(::google::protobuf::int32 value) {
+inline void GameCtrlSpin::set_bet(::google::protobuf::int64 value) {
   
   bet_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlSpin.bet)
@@ -5255,6 +5478,34 @@ inline void GameCtrlSpin::set_times(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlSpin.times)
 }
 
+// int64 totalBet = 4;
+inline void GameCtrlSpin::clear_totalbet() {
+  totalbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrlSpin::totalbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrlSpin.totalBet)
+  return totalbet_;
+}
+inline void GameCtrlSpin::set_totalbet(::google::protobuf::int64 value) {
+  
+  totalbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrlSpin.totalBet)
+}
+
+// int64 realBet = 5;
+inline void GameCtrlSpin::clear_realbet() {
+  realbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrlSpin::realbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrlSpin.realBet)
+  return realbet_;
+}
+inline void GameCtrlSpin::set_realbet(::google::protobuf::int64 value) {
+  
+  realbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrlSpin.realBet)
+}
+
 // -------------------------------------------------------------------
 
 // GameCtrlSelectFree
@@ -5277,15 +5528,15 @@ inline void GameCtrlSelectFree::set_typeindex(::google::protobuf::int32 value) {
 
 // GameCtrlFreeSpin
 
-// int32 bet = 1;
+// int64 bet = 1;
 inline void GameCtrlFreeSpin::clear_bet() {
-  bet_ = 0;
+  bet_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int32 GameCtrlFreeSpin::bet() const {
+inline ::google::protobuf::int64 GameCtrlFreeSpin::bet() const {
   // @@protoc_insertion_point(field_get:natashapb.GameCtrlFreeSpin.bet)
   return bet_;
 }
-inline void GameCtrlFreeSpin::set_bet(::google::protobuf::int32 value) {
+inline void GameCtrlFreeSpin::set_bet(::google::protobuf::int64 value) {
   
   bet_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlFreeSpin.bet)
@@ -5317,6 +5568,20 @@ inline void GameCtrlFreeSpin::set_times(::google::protobuf::int32 value) {
   
   times_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlFreeSpin.times)
+}
+
+// int64 totalBet = 4;
+inline void GameCtrlFreeSpin::clear_totalbet() {
+  totalbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrlFreeSpin::totalbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrlFreeSpin.totalBet)
+  return totalbet_;
+}
+inline void GameCtrlFreeSpin::set_totalbet(::google::protobuf::int64 value) {
+  
+  totalbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrlFreeSpin.totalBet)
 }
 
 // -------------------------------------------------------------------
@@ -5377,15 +5642,15 @@ inline void GameCtrlCommonJackpot::set_itemindex(::google::protobuf::int32 value
 
 // GameCtrlAwardSpin
 
-// int32 bet = 1;
+// int64 bet = 1;
 inline void GameCtrlAwardSpin::clear_bet() {
-  bet_ = 0;
+  bet_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int32 GameCtrlAwardSpin::bet() const {
+inline ::google::protobuf::int64 GameCtrlAwardSpin::bet() const {
   // @@protoc_insertion_point(field_get:natashapb.GameCtrlAwardSpin.bet)
   return bet_;
 }
-inline void GameCtrlAwardSpin::set_bet(::google::protobuf::int32 value) {
+inline void GameCtrlAwardSpin::set_bet(::google::protobuf::int64 value) {
   
   bet_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlAwardSpin.bet)
@@ -5417,6 +5682,20 @@ inline void GameCtrlAwardSpin::set_times(::google::protobuf::int32 value) {
   
   times_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlAwardSpin.times)
+}
+
+// int64 totalBet = 4;
+inline void GameCtrlAwardSpin::clear_totalbet() {
+  totalbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrlAwardSpin::totalbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrlAwardSpin.totalBet)
+  return totalbet_;
+}
+inline void GameCtrlAwardSpin::set_totalbet(::google::protobuf::int64 value) {
+  
+  totalbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrlAwardSpin.totalBet)
 }
 
 // -------------------------------------------------------------------
@@ -5473,359 +5752,289 @@ GameCtrlDebug::mutable_lstrandom() {
 
 // .natashapb.GameCtrlSpin spin = 1;
 inline bool GameCtrl::has_spin() const {
-  return this != internal_default_instance() && spin_ != NULL;
+  return ctrl_case() == kSpin;
+}
+inline void GameCtrl::set_has_spin() {
+  _oneof_case_[0] = kSpin;
 }
 inline void GameCtrl::clear_spin() {
-  if (GetArenaNoVirtual() == NULL && spin_ != NULL) {
-    delete spin_;
+  if (has_spin()) {
+    delete ctrl_.spin_;
+    clear_has_ctrl();
   }
-  spin_ = NULL;
-}
-inline const ::natashapb::GameCtrlSpin& GameCtrl::spin() const {
-  const ::natashapb::GameCtrlSpin* p = spin_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.spin)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlSpin*>(
-      &::natashapb::_GameCtrlSpin_default_instance_);
 }
 inline ::natashapb::GameCtrlSpin* GameCtrl::release_spin() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.spin)
-  
-  ::natashapb::GameCtrlSpin* temp = spin_;
-  spin_ = NULL;
-  return temp;
+  if (has_spin()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlSpin* temp = ctrl_.spin_;
+    ctrl_.spin_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlSpin& GameCtrl::spin() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.spin)
+  return has_spin()
+      ? *ctrl_.spin_
+      : *reinterpret_cast< ::natashapb::GameCtrlSpin*>(&::natashapb::_GameCtrlSpin_default_instance_);
 }
 inline ::natashapb::GameCtrlSpin* GameCtrl::mutable_spin() {
-  
-  if (spin_ == NULL) {
-    spin_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlSpin >(
+  if (!has_spin()) {
+    clear_ctrl();
+    set_has_spin();
+    ctrl_.spin_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlSpin >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.spin)
-  return spin_;
-}
-inline void GameCtrl::set_allocated_spin(::natashapb::GameCtrlSpin* spin) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete spin_;
-  }
-  if (spin) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      spin = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, spin, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  spin_ = spin;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.spin)
+  return ctrl_.spin_;
 }
 
 // .natashapb.GameCtrlSelectFree selectFree = 2;
 inline bool GameCtrl::has_selectfree() const {
-  return this != internal_default_instance() && selectfree_ != NULL;
+  return ctrl_case() == kSelectFree;
+}
+inline void GameCtrl::set_has_selectfree() {
+  _oneof_case_[0] = kSelectFree;
 }
 inline void GameCtrl::clear_selectfree() {
-  if (GetArenaNoVirtual() == NULL && selectfree_ != NULL) {
-    delete selectfree_;
+  if (has_selectfree()) {
+    delete ctrl_.selectfree_;
+    clear_has_ctrl();
   }
-  selectfree_ = NULL;
-}
-inline const ::natashapb::GameCtrlSelectFree& GameCtrl::selectfree() const {
-  const ::natashapb::GameCtrlSelectFree* p = selectfree_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.selectFree)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlSelectFree*>(
-      &::natashapb::_GameCtrlSelectFree_default_instance_);
 }
 inline ::natashapb::GameCtrlSelectFree* GameCtrl::release_selectfree() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.selectFree)
-  
-  ::natashapb::GameCtrlSelectFree* temp = selectfree_;
-  selectfree_ = NULL;
-  return temp;
+  if (has_selectfree()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlSelectFree* temp = ctrl_.selectfree_;
+    ctrl_.selectfree_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlSelectFree& GameCtrl::selectfree() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.selectFree)
+  return has_selectfree()
+      ? *ctrl_.selectfree_
+      : *reinterpret_cast< ::natashapb::GameCtrlSelectFree*>(&::natashapb::_GameCtrlSelectFree_default_instance_);
 }
 inline ::natashapb::GameCtrlSelectFree* GameCtrl::mutable_selectfree() {
-  
-  if (selectfree_ == NULL) {
-    selectfree_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlSelectFree >(
+  if (!has_selectfree()) {
+    clear_ctrl();
+    set_has_selectfree();
+    ctrl_.selectfree_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlSelectFree >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.selectFree)
-  return selectfree_;
-}
-inline void GameCtrl::set_allocated_selectfree(::natashapb::GameCtrlSelectFree* selectfree) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete selectfree_;
-  }
-  if (selectfree) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      selectfree = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, selectfree, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  selectfree_ = selectfree;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.selectFree)
+  return ctrl_.selectfree_;
 }
 
 // .natashapb.GameCtrlFreeSpin freeSpin = 3;
 inline bool GameCtrl::has_freespin() const {
-  return this != internal_default_instance() && freespin_ != NULL;
+  return ctrl_case() == kFreeSpin;
+}
+inline void GameCtrl::set_has_freespin() {
+  _oneof_case_[0] = kFreeSpin;
 }
 inline void GameCtrl::clear_freespin() {
-  if (GetArenaNoVirtual() == NULL && freespin_ != NULL) {
-    delete freespin_;
+  if (has_freespin()) {
+    delete ctrl_.freespin_;
+    clear_has_ctrl();
   }
-  freespin_ = NULL;
-}
-inline const ::natashapb::GameCtrlFreeSpin& GameCtrl::freespin() const {
-  const ::natashapb::GameCtrlFreeSpin* p = freespin_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.freeSpin)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlFreeSpin*>(
-      &::natashapb::_GameCtrlFreeSpin_default_instance_);
 }
 inline ::natashapb::GameCtrlFreeSpin* GameCtrl::release_freespin() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.freeSpin)
-  
-  ::natashapb::GameCtrlFreeSpin* temp = freespin_;
-  freespin_ = NULL;
-  return temp;
+  if (has_freespin()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlFreeSpin* temp = ctrl_.freespin_;
+    ctrl_.freespin_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlFreeSpin& GameCtrl::freespin() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.freeSpin)
+  return has_freespin()
+      ? *ctrl_.freespin_
+      : *reinterpret_cast< ::natashapb::GameCtrlFreeSpin*>(&::natashapb::_GameCtrlFreeSpin_default_instance_);
 }
 inline ::natashapb::GameCtrlFreeSpin* GameCtrl::mutable_freespin() {
-  
-  if (freespin_ == NULL) {
-    freespin_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlFreeSpin >(
+  if (!has_freespin()) {
+    clear_ctrl();
+    set_has_freespin();
+    ctrl_.freespin_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlFreeSpin >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.freeSpin)
-  return freespin_;
-}
-inline void GameCtrl::set_allocated_freespin(::natashapb::GameCtrlFreeSpin* freespin) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete freespin_;
-  }
-  if (freespin) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      freespin = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, freespin, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  freespin_ = freespin;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.freeSpin)
+  return ctrl_.freespin_;
 }
 
 // .natashapb.GameCtrlBonus bonus = 4;
 inline bool GameCtrl::has_bonus() const {
-  return this != internal_default_instance() && bonus_ != NULL;
+  return ctrl_case() == kBonus;
+}
+inline void GameCtrl::set_has_bonus() {
+  _oneof_case_[0] = kBonus;
 }
 inline void GameCtrl::clear_bonus() {
-  if (GetArenaNoVirtual() == NULL && bonus_ != NULL) {
-    delete bonus_;
+  if (has_bonus()) {
+    delete ctrl_.bonus_;
+    clear_has_ctrl();
   }
-  bonus_ = NULL;
-}
-inline const ::natashapb::GameCtrlBonus& GameCtrl::bonus() const {
-  const ::natashapb::GameCtrlBonus* p = bonus_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.bonus)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlBonus*>(
-      &::natashapb::_GameCtrlBonus_default_instance_);
 }
 inline ::natashapb::GameCtrlBonus* GameCtrl::release_bonus() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.bonus)
-  
-  ::natashapb::GameCtrlBonus* temp = bonus_;
-  bonus_ = NULL;
-  return temp;
+  if (has_bonus()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlBonus* temp = ctrl_.bonus_;
+    ctrl_.bonus_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlBonus& GameCtrl::bonus() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.bonus)
+  return has_bonus()
+      ? *ctrl_.bonus_
+      : *reinterpret_cast< ::natashapb::GameCtrlBonus*>(&::natashapb::_GameCtrlBonus_default_instance_);
 }
 inline ::natashapb::GameCtrlBonus* GameCtrl::mutable_bonus() {
-  
-  if (bonus_ == NULL) {
-    bonus_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlBonus >(
+  if (!has_bonus()) {
+    clear_ctrl();
+    set_has_bonus();
+    ctrl_.bonus_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlBonus >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.bonus)
-  return bonus_;
-}
-inline void GameCtrl::set_allocated_bonus(::natashapb::GameCtrlBonus* bonus) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete bonus_;
-  }
-  if (bonus) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      bonus = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, bonus, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  bonus_ = bonus;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.bonus)
+  return ctrl_.bonus_;
 }
 
 // .natashapb.GameCtrlJackpot jackpot = 5;
 inline bool GameCtrl::has_jackpot() const {
-  return this != internal_default_instance() && jackpot_ != NULL;
+  return ctrl_case() == kJackpot;
+}
+inline void GameCtrl::set_has_jackpot() {
+  _oneof_case_[0] = kJackpot;
 }
 inline void GameCtrl::clear_jackpot() {
-  if (GetArenaNoVirtual() == NULL && jackpot_ != NULL) {
-    delete jackpot_;
+  if (has_jackpot()) {
+    delete ctrl_.jackpot_;
+    clear_has_ctrl();
   }
-  jackpot_ = NULL;
-}
-inline const ::natashapb::GameCtrlJackpot& GameCtrl::jackpot() const {
-  const ::natashapb::GameCtrlJackpot* p = jackpot_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.jackpot)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlJackpot*>(
-      &::natashapb::_GameCtrlJackpot_default_instance_);
 }
 inline ::natashapb::GameCtrlJackpot* GameCtrl::release_jackpot() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.jackpot)
-  
-  ::natashapb::GameCtrlJackpot* temp = jackpot_;
-  jackpot_ = NULL;
-  return temp;
+  if (has_jackpot()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlJackpot* temp = ctrl_.jackpot_;
+    ctrl_.jackpot_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlJackpot& GameCtrl::jackpot() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.jackpot)
+  return has_jackpot()
+      ? *ctrl_.jackpot_
+      : *reinterpret_cast< ::natashapb::GameCtrlJackpot*>(&::natashapb::_GameCtrlJackpot_default_instance_);
 }
 inline ::natashapb::GameCtrlJackpot* GameCtrl::mutable_jackpot() {
-  
-  if (jackpot_ == NULL) {
-    jackpot_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlJackpot >(
+  if (!has_jackpot()) {
+    clear_ctrl();
+    set_has_jackpot();
+    ctrl_.jackpot_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlJackpot >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.jackpot)
-  return jackpot_;
-}
-inline void GameCtrl::set_allocated_jackpot(::natashapb::GameCtrlJackpot* jackpot) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete jackpot_;
-  }
-  if (jackpot) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      jackpot = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, jackpot, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  jackpot_ = jackpot;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.jackpot)
+  return ctrl_.jackpot_;
 }
 
 // .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
 inline bool GameCtrl::has_commonjackpot() const {
-  return this != internal_default_instance() && commonjackpot_ != NULL;
+  return ctrl_case() == kCommonJackpot;
+}
+inline void GameCtrl::set_has_commonjackpot() {
+  _oneof_case_[0] = kCommonJackpot;
 }
 inline void GameCtrl::clear_commonjackpot() {
-  if (GetArenaNoVirtual() == NULL && commonjackpot_ != NULL) {
-    delete commonjackpot_;
+  if (has_commonjackpot()) {
+    delete ctrl_.commonjackpot_;
+    clear_has_ctrl();
   }
-  commonjackpot_ = NULL;
-}
-inline const ::natashapb::GameCtrlCommonJackpot& GameCtrl::commonjackpot() const {
-  const ::natashapb::GameCtrlCommonJackpot* p = commonjackpot_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.commonJackpot)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlCommonJackpot*>(
-      &::natashapb::_GameCtrlCommonJackpot_default_instance_);
 }
 inline ::natashapb::GameCtrlCommonJackpot* GameCtrl::release_commonjackpot() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.commonJackpot)
-  
-  ::natashapb::GameCtrlCommonJackpot* temp = commonjackpot_;
-  commonjackpot_ = NULL;
-  return temp;
+  if (has_commonjackpot()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlCommonJackpot* temp = ctrl_.commonjackpot_;
+    ctrl_.commonjackpot_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlCommonJackpot& GameCtrl::commonjackpot() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.commonJackpot)
+  return has_commonjackpot()
+      ? *ctrl_.commonjackpot_
+      : *reinterpret_cast< ::natashapb::GameCtrlCommonJackpot*>(&::natashapb::_GameCtrlCommonJackpot_default_instance_);
 }
 inline ::natashapb::GameCtrlCommonJackpot* GameCtrl::mutable_commonjackpot() {
-  
-  if (commonjackpot_ == NULL) {
-    commonjackpot_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlCommonJackpot >(
+  if (!has_commonjackpot()) {
+    clear_ctrl();
+    set_has_commonjackpot();
+    ctrl_.commonjackpot_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlCommonJackpot >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.commonJackpot)
-  return commonjackpot_;
-}
-inline void GameCtrl::set_allocated_commonjackpot(::natashapb::GameCtrlCommonJackpot* commonjackpot) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete commonjackpot_;
-  }
-  if (commonjackpot) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      commonjackpot = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, commonjackpot, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  commonjackpot_ = commonjackpot;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.commonJackpot)
+  return ctrl_.commonjackpot_;
 }
 
 // .natashapb.GameCtrlAwardSpin awardSpin = 7;
 inline bool GameCtrl::has_awardspin() const {
-  return this != internal_default_instance() && awardspin_ != NULL;
+  return ctrl_case() == kAwardSpin;
+}
+inline void GameCtrl::set_has_awardspin() {
+  _oneof_case_[0] = kAwardSpin;
 }
 inline void GameCtrl::clear_awardspin() {
-  if (GetArenaNoVirtual() == NULL && awardspin_ != NULL) {
-    delete awardspin_;
+  if (has_awardspin()) {
+    delete ctrl_.awardspin_;
+    clear_has_ctrl();
   }
-  awardspin_ = NULL;
-}
-inline const ::natashapb::GameCtrlAwardSpin& GameCtrl::awardspin() const {
-  const ::natashapb::GameCtrlAwardSpin* p = awardspin_;
-  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.awardSpin)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::GameCtrlAwardSpin*>(
-      &::natashapb::_GameCtrlAwardSpin_default_instance_);
 }
 inline ::natashapb::GameCtrlAwardSpin* GameCtrl::release_awardspin() {
   // @@protoc_insertion_point(field_release:natashapb.GameCtrl.awardSpin)
-  
-  ::natashapb::GameCtrlAwardSpin* temp = awardspin_;
-  awardspin_ = NULL;
-  return temp;
+  if (has_awardspin()) {
+    clear_has_ctrl();
+      ::natashapb::GameCtrlAwardSpin* temp = ctrl_.awardspin_;
+    ctrl_.awardspin_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::GameCtrlAwardSpin& GameCtrl::awardspin() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.awardSpin)
+  return has_awardspin()
+      ? *ctrl_.awardspin_
+      : *reinterpret_cast< ::natashapb::GameCtrlAwardSpin*>(&::natashapb::_GameCtrlAwardSpin_default_instance_);
 }
 inline ::natashapb::GameCtrlAwardSpin* GameCtrl::mutable_awardspin() {
-  
-  if (awardspin_ == NULL) {
-    awardspin_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlAwardSpin >(
+  if (!has_awardspin()) {
+    clear_ctrl();
+    set_has_awardspin();
+    ctrl_.awardspin_ = ::google::protobuf::Arena::Create< ::natashapb::GameCtrlAwardSpin >(
         GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:natashapb.GameCtrl.awardSpin)
-  return awardspin_;
-}
-inline void GameCtrl::set_allocated_awardspin(::natashapb::GameCtrlAwardSpin* awardspin) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete awardspin_;
-  }
-  if (awardspin) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      awardspin = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, awardspin, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  awardspin_ = awardspin;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.awardSpin)
+  return ctrl_.awardspin_;
 }
 
 // .natashapb.GameCtrlDebug debug = 100;
@@ -5924,6 +6133,15 @@ inline void GameCtrl::set_allocated_exdat(::google::protobuf::Any* exdat) {
   // @@protoc_insertion_point(field_set_allocated:natashapb.GameCtrl.exDat)
 }
 
+inline bool GameCtrl::has_ctrl() const {
+  return ctrl_case() != CTRL_NOT_SET;
+}
+inline void GameCtrl::clear_has_ctrl() {
+  _oneof_case_[0] = CTRL_NOT_SET;
+}
+inline GameCtrl::CtrlCase GameCtrl::ctrl_case() const {
+  return GameCtrl::CtrlCase(_oneof_case_[0]);
+}
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__

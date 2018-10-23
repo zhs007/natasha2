@@ -29,10 +29,12 @@ bool TLOD::init() {
     return false;
   }
 
+  m_lstBet.push_back(1);
+
   addGameMod(::natashapb::BASE_GAME,
-             new TLODBaseGame(m_reels, m_paytables, m_lines));
+             new TLODBaseGame(m_reels, m_paytables, m_lines, m_lstBet));
   addGameMod(::natashapb::FREE_GAME,
-             new TLODFreeGame(m_reels, m_paytables, m_lines));
+             new TLODFreeGame(m_reels, m_paytables, m_lines, m_lstBet));
 
   return true;
 }

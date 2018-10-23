@@ -8,6 +8,8 @@
 #include "../protoc/base.pb.h"
 #include "gamelogic.h"
 #include "lines.h"
+#include "logicline2.h"
+#include "logicscatter2.h"
 #include "paytables.h"
 #include "staticcascadingreels3x5.h"
 #include "symbolblock.h"
@@ -15,7 +17,7 @@
 
 namespace natasha {
 
-typedef Paytables<5, int, int, int64_t> Paytables3X5;
+typedef Paytables<5, SymbolType, SymbolType, MoneyType> Paytables3X5;
 typedef Lines<5, int> Lines3X5;
 typedef Lines3X5::LineInfoT LineInfo3X5;
 typedef SymbolBlock<int, 5, 3> SymbolBlock3X5;

@@ -3,21 +3,21 @@
 
 #include <assert.h>
 #include <vector>
-#include "../include/array.h"
-#include "../include/gamecfg.h"
-#include "../include/gamecode.h"
-#include "../include/utils.h"
+#include "../include/natasha.h"
 
 namespace natasha {
 
 const int TLOD_WIDTH = 5;
 const int TLOD_HEIGHT = 3;
 
-const int TLOD_SYMBOL_W = 0;
-const int TLOD_SYMBOL_S = 12;
+const int TLOD_DEFAULT_LINES = 30;
+const int TLOD_DEFAULT_PAY_LINES = 30;
+const int TLOD_DEFAULT_TIMES = 1;
 
-template <typename SymbolType>
-struct GameCfg<SymbolType, GAMECODE_TLOD> {
+const SymbolType TLOD_SYMBOL_W = 0;
+const SymbolType TLOD_SYMBOL_S = 12;
+
+struct TLODGameCfg {
   static bool isSameSymbol_OnLine(SymbolType s0, SymbolType s1) {
     if (s0 == TLOD_SYMBOL_S || s1 == TLOD_SYMBOL_S) {
       return false;
@@ -34,6 +34,14 @@ struct GameCfg<SymbolType, GAMECODE_TLOD> {
 
   static int getMaxScstterNums(SymbolType s) { return TLOD_WIDTH; }
 };
+
+auto const TLODCountScatter =
+    &countScatter_Left<MoneyType, SymbolType, TLOD_WIDTH, TLOD_HEIGHT,
+                       ::natashapb::SymbolBlock3X5, TLODGameCfg>;
+
+auto const TLODCountAllLine =
+    &countAllLine_Left<MoneyType, SymbolType, TLOD_WIDTH, TLOD_HEIGHT,
+                       ::natashapb::SymbolBlock3X5, TLODGameCfg>;
 
 }  // namespace natasha
 
