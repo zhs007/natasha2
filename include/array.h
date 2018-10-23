@@ -63,7 +63,7 @@ class StaticArray {
     m_arr[index] = val;
   }
 
-  ValueType get(int index) {
+  ValueType get(int index) const {
     assert(index >= 0 && index < Length);
 
     return m_arr[index];

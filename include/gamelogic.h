@@ -7,7 +7,7 @@
 #include "../protoc/base.pb.h"
 #include "array.h"
 #include "gamemod.h"
-#include "symbolblock.h"
+// #include "symbolblock.h"
 #include "utils.h"
 
 namespace natasha {
@@ -23,7 +23,8 @@ class GameLogic {
  public:
   virtual bool init();
 
-  virtual bool gameCtrl(const ::natashapb::UserGameLogicInfo* pUser);
+  virtual bool gameCtrl(const ::natashapb::GameCtrl* pGameCtrl,
+                        ::natashapb::UserGameLogicInfo* pUser);
 
  public:
   bool addGameMod(::natashapb::GAMEMODTYPE gmt, GameMod* pMod);

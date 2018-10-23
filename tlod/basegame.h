@@ -3,36 +3,45 @@
 
 #include <assert.h>
 #include <vector>
-#include "../include/game5x3.h"
+#include "../include/game3x5.h"
 #include "../include/gamelogic.h"
 
 namespace natasha {
 
 class TLODBaseGame : public SlotsGameMod {
  public:
-  TLODBaseGame(StaticCascadingReels5X3& reels, Paytables5X3& paytables,
-               Lines5X3& lines)
+  TLODBaseGame(StaticCascadingReels3X5& reels, Paytables3X5& paytables,
+               Lines3X5& lines)
       : m_reels(reels), m_paytables(paytables), m_lines(lines) {}
   virtual ~TLODBaseGame() {}
 
  public:
-  virtual bool init() {}
+  virtual bool init() { return true; }
 
   virtual bool randomReels(::natashapb::RandomResult* pRandomResult,
-                           const ::natashapb::UserGameModInfo* pUser) {}
+                           const ::natashapb::GameCtrl* pGameCtrl,
+                           const ::natashapb::UserGameModInfo* pUser) {
+    return true;
+  }
 
   virtual bool spin(::natashapb::SpinResult* pSpinResult,
+                    const ::natashapb::GameCtrl* pGameCtrl,
                     const ::natashapb::RandomResult* pRandomResult,
-                    const ::natashapb::UserGameModInfo* pUser) {}
+                    const ::natashapb::UserGameModInfo* pUser) {
+    return true;
+  }
 
   virtual bool onSpinEnd(::natashapb::UserGameModInfo* pUser,
+                         const ::natashapb::GameCtrl* pGameCtrl,
                          const ::natashapb::SpinResult* pSpinResult,
-                         const ::natashapb::RandomResult* pRandomResult) {}
+                         const ::natashapb::RandomResult* pRandomResult) {
+    return true;
+  }
 
  protected:
-  StaticCascadingReels5X3& m_reels;
-  Paytables5X3& m_paytables;
-  Lines5X3& m_lines;
+  StaticCascadingReels3X5& m_reels;
+  Paytables3X5& m_paytables;
+  Lines3X5& m_lines;
 };
 
 }  // namespace natasha

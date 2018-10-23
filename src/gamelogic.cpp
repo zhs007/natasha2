@@ -11,7 +11,8 @@ GameLogic::~GameLogic() {}
 
 bool GameLogic::init() { return true; }
 
-bool GameLogic::gameCtrl(const ::natashapb::UserGameLogicInfo* pUser) {
+bool GameLogic::gameCtrl(const ::natashapb::GameCtrl* pGameCtrl,
+                         ::natashapb::UserGameLogicInfo* pUser) {
   return true;
 }
 

@@ -8,13 +8,13 @@
 #include "gameresult.h"
 #include "lines.h"
 #include "paytables.h"
-#include "symbolblock.h"
+#include "symbolblock2.h"
 #include "utils.h"
 
 namespace natasha {
 
 template <typename MoneyType, typename SymbolType, int Width, int Height,
-          typename GameCfgT>
+          class SymbolBlockT, typename GameCfgT>
 bool _countLine_Left(
     ::natashapb::GameResultInfo& gri,
     const typename SymbolBlock<SymbolType, Width, Height>::SymbolLineT& sl,
@@ -22,7 +22,7 @@ bool _countLine_Left(
     const Paytables<Width, SymbolType, int, MoneyType>& paytables,
     MoneyType bet) {
   typedef GameResultInfo<MoneyType, SymbolType, int, NullType> GameResultInfoT;
-  typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
+  //   typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
   typedef Lines<Width, int> LinesT;
   typedef Paytables<Width, SymbolType, int, MoneyType> PaytablesT;
   typedef typename SymbolBlockT::SymbolLineT SymbolLineT;
@@ -62,7 +62,7 @@ bool _countLine_Left(
 }
 
 template <typename MoneyType, typename SymbolType, int Width, int Height,
-          typename GameCfgT>
+          class SymbolBlockT, typename GameCfgT>
 void countAllLine_Left(
     ::natashapb::SpinResult& sr,
     const SymbolBlock<SymbolType, Width, Height>& arr,
@@ -71,7 +71,7 @@ void countAllLine_Left(
     MoneyType bet) {
   typedef GameResult<MoneyType, SymbolType, int, NullType, NullType>
       GameResultT;
-  typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
+  //   typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
   typedef Lines<Width, int> LinesT;
   typedef Paytables<Width, SymbolType, int, MoneyType> PaytablesT;
   typedef typename SymbolBlockT::SymbolLineT SymbolLineT;

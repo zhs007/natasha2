@@ -1,5 +1,5 @@
-#ifndef __NATASHA_GAME5X3_H__
-#define __NATASHA_GAME5X3_H__
+#ifndef __NATASHA_GAME3X5_H__
+#define __NATASHA_GAME3X5_H__
 
 #include <assert.h>
 #include <map>
@@ -9,31 +9,30 @@
 #include "gamelogic.h"
 #include "lines.h"
 #include "paytables.h"
-#include "staticcascadingreels.h"
+#include "staticcascadingreels3x5.h"
 #include "symbolblock.h"
 #include "util.h"
 
 namespace natasha {
 
-typedef Paytables<5, int, int, int64_t> Paytables5X3;
-typedef Lines<5, int> Lines5X3;
-typedef Lines5X3::LineInfoT LineInfo5X3;
-typedef SymbolBlock<int, 5, 3> SymbolBlock5X3;
-typedef StaticCascadingReels<int, 5, 3> StaticCascadingReels5X3;
+typedef Paytables<5, int, int, int64_t> Paytables3X5;
+typedef Lines<5, int> Lines3X5;
+typedef Lines3X5::LineInfoT LineInfo3X5;
+typedef SymbolBlock<int, 5, 3> SymbolBlock3X5;
 
-// loadPaytables5X3 - load paytables.csv
-void loadPaytables5X3(const char* fn, Paytables5X3& paytables);
+// loadPaytables3X5 - load paytables.csv
+void loadPaytables3X5(const char* fn, Paytables3X5& paytables);
 
-// loadLines5X3 - load lines.csv
-void loadLines5X3(const char* fn, Lines5X3& lines);
+// loadLines3X5 - load lines.csv
+void loadLines3X5(const char* fn, Lines3X5& lines);
 
 // loadStaticCascadingReels - StaticCascadingReels.csv
-void loadStaticCascadingReels5X3(FileNameList& lstfn,
-                                 StaticCascadingReels5X3& scr);
+void loadStaticCascadingReels3X5(FileNameList& lstfn,
+                                 StaticCascadingReels3X5& scr);
 
-// pb::SymbolBlock3X5 -> SymbolBlock5X3
+// pb::SymbolBlock3X5 -> SymbolBlock3X5
 inline void setSymbolBlock5X3FromProtoc(
-    SymbolBlock5X3& dest, const natashapb::SymbolBlock3X5& sb3x5) {
+    SymbolBlock3X5& dest, const natashapb::SymbolBlock3X5& sb3x5) {
   dest.set(0, 0, sb3x5.dat0_0());
   dest.set(0, 1, sb3x5.dat0_1());
   dest.set(0, 2, sb3x5.dat0_2());
@@ -51,9 +50,9 @@ inline void setSymbolBlock5X3FromProtoc(
   dest.set(2, 4, sb3x5.dat2_4());
 }
 
-// SymbolBlock5X3 -> pb::SymbolBlock3X5
-inline void setSymbolBlock5X3ToProtoc(natashapb::SymbolBlock3X5& dest,
-                                      const SymbolBlock5X3& sb3x5) {
+// SymbolBlock3X5 -> pb::SymbolBlock3X5
+inline void setSymbolBlock3X5ToProtoc(natashapb::SymbolBlock3X5& dest,
+                                      const SymbolBlock3X5& sb3x5) {
   dest.set_dat0_0(sb3x5.get(0, 0));
   dest.set_dat0_1(sb3x5.get(0, 1));
   dest.set_dat0_2(sb3x5.get(0, 2));
@@ -73,4 +72,4 @@ inline void setSymbolBlock5X3ToProtoc(natashapb::SymbolBlock3X5& dest,
 
 }  // namespace natasha
 
-#endif  // __NATASHA_GAME5X3_H__
+#endif  // __NATASHA_GAME3X5_H__

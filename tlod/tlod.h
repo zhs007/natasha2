@@ -3,7 +3,7 @@
 
 #include <assert.h>
 #include <vector>
-#include "../include/game5x3.h"
+#include "../include/game3x5.h"
 #include "../include/gamelogic.h"
 #include "basegame.h"
 #include "freegame.h"
@@ -19,9 +19,9 @@ class TLOD : public GameLogic {
   virtual bool init();
 
  protected:
-  StaticCascadingReels5X3 m_reels;
-  Paytables5X3 m_paytables;
-  Lines5X3 m_lines;
+  StaticCascadingReels3X5 m_reels;
+  Paytables3X5 m_paytables;
+  Lines3X5 m_lines;
 };
 
 }  // namespace natasha

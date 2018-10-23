@@ -14,17 +14,17 @@ bool TLOD::init() {
   lst.push_back("./csv/game116e_payout95_5.csv");
   lst.push_back("./csv/game116e_payout95_6.csv");
 
-  loadStaticCascadingReels5X3(lst, m_reels);
+  loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
     return false;
   }
 
-  loadLines5X3("./csv/game116_line.csv", m_lines);
+  loadLines3X5("./csv/game116_line.csv", m_lines);
   if (m_lines.isEmpty()) {
     return false;
   }
 
-  loadPaytables5X3("./csv/game116_paytables.csv", m_paytables);
+  loadPaytables3X5("./csv/game116_paytables.csv", m_paytables);
   if (m_paytables.isEmpty()) {
     return false;
   }

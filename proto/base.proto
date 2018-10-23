@@ -31,16 +31,18 @@ message SymbolBlock3X5 {
     int32 dat2_4 = 15;
 }
 
-// RandomResult - common random result
-message RandomResult {
-    google.protobuf.Any info = 100;
-}
-
 // StaticCascadingRandomResult3X5 - static cascading random result for symbolblock 3X5
 message StaticCascadingRandomResult3X5 {
     int32 reelsIndex = 1;
     int32 downNums = 2;
     SymbolBlock3X5 sb3x5 = 3;
+}
+
+// RandomResult - common random result
+message RandomResult {
+    StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
+
+    google.protobuf.Any info = 1000;
 }
 
 // Position2D - position 2d
@@ -169,4 +171,66 @@ message UserGameLogicInfo {
     UserGameModInfo jackpot = 4;
     UserGameModInfo commonjackpot = 5;
     UserGameModInfo freegame2 = 6;
+}
+
+// GameCtrlSpin - basegame spin
+message GameCtrlSpin {
+    int32 bet = 1;
+    int32 lines = 2;
+    int32 times = 3;
+}
+
+// GameCtrlSelectFree - freegame select free
+message GameCtrlSelectFree {
+    int32 typeIndex = 1;
+}
+
+// GameCtrlFreeSpin - freegame spin
+message GameCtrlFreeSpin {
+    int32 bet = 1;
+    int32 lines = 2;
+    int32 times = 3;    
+}
+
+// GameCtrlBonus - bonus
+message GameCtrlBonus {
+    int32 itemIndex = 1;   
+}
+
+// GameCtrlJackpot - jackpot
+message GameCtrlJackpot {
+    int32 itemIndex = 1;   
+}
+
+// GameCtrlCommonJackpot - commonjackpot
+message GameCtrlCommonJackpot {
+    int32 itemIndex = 1;
+}
+
+// GameCtrlAwardSpin - award spin
+message GameCtrlAwardSpin {
+    int32 bet = 1;
+    int32 lines = 2;
+    int32 times = 3;    
+}
+
+// GameCtrlDebug - debug params
+message GameCtrlDebug {
+    int32 debugState = 1;
+    repeated int64 lstRandom = 2;
+}
+
+// GameCtrl - game ctrl
+message GameCtrl {
+    GameCtrlSpin spin = 1;
+    GameCtrlSelectFree selectFree = 2;
+    GameCtrlFreeSpin freeSpin = 3;
+    GameCtrlBonus bonus = 4;
+    GameCtrlJackpot jackpot = 5;
+    GameCtrlCommonJackpot commonJackpot = 6;
+    GameCtrlAwardSpin awardSpin = 7;
+
+    GameCtrlDebug debug = 100;
+
+    google.protobuf.Any exDat = 1000;
 }

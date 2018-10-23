@@ -1,13 +1,14 @@
-#include "../include/game5x3.h"
+#include "../include/game3x5.h"
 #include <fstream>
 #include <streambuf>
 #include <string>
 #include "../include/csvfile.h"
+#include "../include/symbolblock2.h"
 
 namespace natasha {
 
-// loadPaytables5X3 - load paytables.csv
-void loadPaytables5X3(const char* fn, Paytables5X3& paytables) {
+// loadPaytables3X5 - load paytables.csv
+void loadPaytables3X5(const char* fn, Paytables3X5& paytables) {
   paytables.clear();
 
   CSVFile csv;
@@ -30,8 +31,8 @@ void loadPaytables5X3(const char* fn, Paytables5X3& paytables) {
   }
 }
 
-// loadLines5X3 - load lines.csv
-void loadLines5X3(const char* fn, Lines5X3& lines) {
+// loadLines3X5 - load lines.csv
+void loadLines3X5(const char* fn, Lines3X5& lines) {
   lines.clear();
 
   CSVFile csv;
@@ -44,7 +45,7 @@ void loadLines5X3(const char* fn, Lines5X3& lines) {
       int r4 = std::stoi(csv.get(i, "R4"));
       int r5 = std::stoi(csv.get(i, "R5"));
 
-      LineInfo5X3 li;
+      LineInfo3X5 li;
 
       li.set(0, r1);
       li.set(1, r2);
@@ -57,9 +58,9 @@ void loadLines5X3(const char* fn, Lines5X3& lines) {
   }
 }
 
-// loadStaticCascadingReels5X3 - StaticCascadingReels.csv
-void loadStaticCascadingReels5X3(FileNameList& lstfn,
-                                 StaticCascadingReels5X3& scr) {
+// loadStaticCascadingReels3X5 - StaticCascadingReels.csv
+void loadStaticCascadingReels3X5(FileNameList& lstfn,
+                                 StaticCascadingReels3X5& scr) {
   scr.clear();
 
   scr.setMaxDownNums(lstfn.size());
@@ -73,13 +74,13 @@ void loadStaticCascadingReels5X3(FileNameList& lstfn,
       }
 
       for (int r = 0; r < csv.getLength(); ++r) {
-        SymbolBlock5X3 sb;
+        ::natashapb::SymbolBlock3X5 sb;
 
         for (int y = 0; y < 3; ++y) {
           for (int x = 0; x < 5; ++x) {
             int s = std::stoi(csv.get(i, std::to_string(y * 5 + x).c_str()));
 
-            sb.set(x, y, s);
+            setSymbolBlock3X5(&sb, x, y, s);
           }
         }
 
