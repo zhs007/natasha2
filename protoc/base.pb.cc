@@ -685,7 +685,7 @@ void InitDefaultsGameCtrl() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[24];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -1073,16 +1073,16 @@ void AddDescriptorsImpl() {
       "\030\007 \001(\0132\034.natashapb.GameCtrlAwardSpinH\000\022\'"
       "\n\005debug\030d \001(\0132\030.natashapb.GameCtrlDebug\022"
       "$\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.AnyB\006\n"
-      "\004ctrl*`\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tL"
-      "INE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LE"
-      "FT\020\003\022\021\n\rSCATTER_RIGHT\020\004*\204\001\n\013GAMEMODTYPE\022"
-      "\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAM"
-      "E\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n"
-      "\023COMMON_JACKPOT_GAME\020\005\022\016\n\nFREE_GAME2\020\006b\006"
-      "proto3"
+      "\004ctrl* \n\004CODE\022\006\n\002OK\020\000\022\020\n\013INVALID_BET\020\220N*"
+      "`\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LE"
+      "FT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021"
+      "\n\rSCATTER_RIGHT\020\004*\204\001\n\013GAMEMODTYPE\022\014\n\010NUL"
+      "L_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n"
+      "\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023COMMO"
+      "N_JACKPOT_GAME\020\005\022\016\n\nFREE_GAME2\020\006b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3486);
+      descriptor, 3520);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -1100,9 +1100,23 @@ struct StaticDescriptorInitializer {
 } static_descriptor_initializer;
 }  // namespace protobuf_base_2eproto
 namespace natashapb {
-const ::google::protobuf::EnumDescriptor* GAMERESULTTYPE_descriptor() {
+const ::google::protobuf::EnumDescriptor* CODE_descriptor() {
   protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_base_2eproto::file_level_enum_descriptors[0];
+}
+bool CODE_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 10000:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* GAMERESULTTYPE_descriptor() {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_base_2eproto::file_level_enum_descriptors[1];
 }
 bool GAMERESULTTYPE_IsValid(int value) {
   switch (value) {
@@ -1119,7 +1133,7 @@ bool GAMERESULTTYPE_IsValid(int value) {
 
 const ::google::protobuf::EnumDescriptor* GAMEMODTYPE_descriptor() {
   protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_base_2eproto::file_level_enum_descriptors[1];
+  return protobuf_base_2eproto::file_level_enum_descriptors[2];
 }
 bool GAMEMODTYPE_IsValid(int value) {
   switch (value) {

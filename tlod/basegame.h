@@ -22,30 +22,33 @@ class TLODBaseGame : public SlotsGameMod {
  public:
   virtual bool init() { return true; }
 
-  virtual bool reviewGameCtrl(::natashapb::GameCtrl* pGameCtrl,
-                              const ::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE reviewGameCtrl(
+      ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::UserGameModInfo* pUser) {
     assert(pUser->has_cascadinginfo());
 
+    auto spinctrl = pGameCtrl->mutable_spin();
+
     if (pUser->cascadinginfo().turnnums() > 0) {
-      auto spinctrl = pGameCtrl->mutable_spin();
       spinctrl->set_bet(pUser->cascadinginfo().curbet());
       spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
       spinctrl->set_times(TLOD_DEFAULT_TIMES);
-      spinctrl->set_totalbet(pUser->cascadinginfo().curbet() *
-                             TLOD_DEFAULT_PAY_LINES);
+      spinctrl->set_totalbet(spinctrl->bet() * TLOD_DEFAULT_PAY_LINES);
       spinctrl->set_realbet(0);
     } else {
-      auto spinctrl = pGameCtrl->mutable_spin();
       // spinctrl->set_bet(pUser->cascadinginfo().curbet());
       spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
       spinctrl->set_times(TLOD_DEFAULT_TIMES);
-      spinctrl->set_totalbet(pUser->cascadinginfo().curbet() *
-                             TLOD_DEFAULT_PAY_LINES);
-      spinctrl->set_realbet(pUser->cascadinginfo().curbet() *
-                            TLOD_DEFAULT_PAY_LINES);
+      spinctrl->set_totalbet(spinctrl->bet() * TLOD_DEFAULT_PAY_LINES);
+      spinctrl->set_realbet(spinctrl->bet() * TLOD_DEFAULT_PAY_LINES);
     }
 
-    return true;
+    auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
+    if (it == m_lstBet.end()) {
+      return ::natashapb::INVALID_BET;
+    }
+
+    return ::natashapb::OK;
   }
 
   virtual bool randomReels(::natashapb::RandomResult* pRandomResult,

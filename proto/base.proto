@@ -2,6 +2,14 @@ syntax = "proto3";
 import "google/protobuf/any.proto";
 package natashapb;
 
+// CODE - error code
+enum CODE {
+    OK = 0;
+
+    // review game ctrl
+    INVALID_BET = 10000;
+}
+
 // SymbolLine -
 message SymbolLine {
     repeated int32 xDat = 1;

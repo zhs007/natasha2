@@ -22,8 +22,9 @@ class TLODFreeGame : public SlotsGameMod {
  public:
   virtual bool init() { return true; }
 
-  virtual bool reviewGameCtrl(::natashapb::GameCtrl* pGameCtrl,
-                              const ::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE reviewGameCtrl(
+      ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::UserGameModInfo* pUser) {
     assert(pUser->has_cascadinginfo());
 
     auto spinctrl = pGameCtrl->mutable_spin();
@@ -34,7 +35,12 @@ class TLODFreeGame : public SlotsGameMod {
                            TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_realbet(0);
 
-    return true;
+    auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
+    if (it == m_lstBet.end()) {
+      return ::natashapb::INVALID_BET;
+    }
+
+    return ::natashapb::OK;
   }
 
   virtual bool randomReels(::natashapb::RandomResult* pRandomResult,

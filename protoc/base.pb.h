@@ -223,6 +223,27 @@ template<> ::natashapb::UserGameModInfo* Arena::Create< ::natashapb::UserGameMod
 }  // namespace google
 namespace natashapb {
 
+enum CODE {
+  OK = 0,
+  INVALID_BET = 10000,
+  CODE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  CODE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool CODE_IsValid(int value);
+const CODE CODE_MIN = OK;
+const CODE CODE_MAX = INVALID_BET;
+const int CODE_ARRAYSIZE = CODE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* CODE_descriptor();
+inline const ::std::string& CODE_Name(CODE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    CODE_descriptor(), value);
+}
+inline bool CODE_Parse(
+    const ::std::string& name, CODE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CODE>(
+    CODE_descriptor(), name, value);
+}
 enum GAMERESULTTYPE {
   NO_WIN = 0,
   LINE_LEFT = 1,
@@ -6199,6 +6220,11 @@ inline GameCtrl::CtrlCase GameCtrl::ctrl_case() const {
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::natashapb::CODE> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::natashapb::CODE>() {
+  return ::natashapb::CODE_descriptor();
+}
 template <> struct is_proto_enum< ::natashapb::GAMERESULTTYPE> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::natashapb::GAMERESULTTYPE>() {
