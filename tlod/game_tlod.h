@@ -14,6 +14,8 @@ const int TLOD_DEFAULT_LINES = 30;
 const int TLOD_DEFAULT_PAY_LINES = 30;
 const int TLOD_DEFAULT_TIMES = 1;
 
+const int TLOD_DEFAULT_FREENUMS = 10;
+
 const SymbolType TLOD_SYMBOL_W = 0;
 const SymbolType TLOD_SYMBOL_S = 12;
 

@@ -19,6 +19,8 @@ typedef int64_t MoneyType;
 typedef float MoneyType;
 #endif
 
+typedef int64_t CtrlID;
+
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
  public:
@@ -54,6 +56,11 @@ typedef std::vector<std::string> FileNameList;
 void clearGameResultInfo(::natashapb::GameResultInfo& gri);
 // clearSpinResult
 void clearSpinResult(::natashapb::SpinResult& sr);
+
+// setGameCtrlID
+void setGameCtrlID(::natashapb::GameCtrlID& dest,
+                   const ::natashapb::GameCtrlID& parent, CtrlID curCtrlID,
+                   ::natashapb::GAMEMODTYPE curGameMod);
 
 }  // namespace natasha
 

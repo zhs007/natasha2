@@ -3,7 +3,7 @@
 
 namespace natasha {
 
-bool TLOD::init() {
+::natashapb::CODE TLOD::init() {
   FileNameList lst;
 
   lst.push_back("./csv/game116e_payout95_0.csv");
@@ -16,27 +16,27 @@ bool TLOD::init() {
 
   loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
-    return false;
+    return ::natashapb::INVALID_REELS_CFG;
   }
 
   loadLines3X5("./csv/game116_line.csv", m_lines);
   if (m_lines.isEmpty()) {
-    return false;
+    return ::natashapb::INVALID_LINES_CFG;
   }
 
   loadPaytables3X5("./csv/game116_paytables.csv", m_paytables);
   if (m_paytables.isEmpty()) {
-    return false;
+    return ::natashapb::INVALID_PAYTABLES_CFG;
   }
 
   m_lstBet.push_back(1);
 
   addGameMod(::natashapb::BASE_GAME,
-             new TLODBaseGame(m_reels, m_paytables, m_lines, m_lstBet));
+             new TLODBaseGame(*this, m_reels, m_paytables, m_lines, m_lstBet));
   addGameMod(::natashapb::FREE_GAME,
-             new TLODFreeGame(m_reels, m_paytables, m_lines, m_lstBet));
+             new TLODFreeGame(*this, m_reels, m_paytables, m_lines, m_lstBet));
 
-  return true;
+  return ::natashapb::OK;
 }
 
 }  // namespace natasha

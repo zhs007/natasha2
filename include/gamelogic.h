@@ -21,13 +21,23 @@ class GameLogic {
   virtual ~GameLogic();
 
  public:
-  virtual bool init();
+  virtual ::natashapb::CODE init();
 
-  virtual bool gameCtrl(const ::natashapb::GameCtrl* pGameCtrl,
-                        ::natashapb::UserGameLogicInfo* pUser);
+  virtual ::natashapb::CODE gameCtrl(
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::UserGameLogicInfo* pLogicUser);
 
  public:
-  bool addGameMod(::natashapb::GAMEMODTYPE gmt, GameMod* pMod);
+  // addGameMod - init game module
+  //   Only for init
+  ::natashapb::CODE addGameMod(::natashapb::GAMEMODTYPE gmt, GameMod* pMod);
+
+  // startGameMod - start game module for user
+  //   Only for gamectrl
+  ::natashapb::CODE startGameMod(::natashapb::GAMEMODTYPE gmt,
+                                 const ::natashapb::StartGameMod* pStart,
+                                 CtrlID nextCtrlID,
+                                 ::natashapb::UserGameLogicInfo* pLogicUser);
 
  protected:
   MapGameMod m_mapGameMod;

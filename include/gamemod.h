@@ -11,13 +11,23 @@
 
 namespace natasha {
 
+class GameLogic;
+
 class GameMod {
  public:
-  GameMod() {}
+  GameMod(GameLogic& logic) : m_logic(logic) {}
   virtual ~GameMod() {}
 
  public:
-  virtual bool init() = 0;
+  virtual ::natashapb::CODE init() = 0;
+
+  // start - start cur game module for user
+  virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUser,
+                                  const ::natashapb::StartGameMod* pStart,
+                                  CtrlID nextCtrlID) = 0;
+
+  // isIn - is in current game module
+  virtual bool isIn(const ::natashapb::UserGameModInfo* pUser) = 0;
 
   // reviewGameCtrl - check & fix gamectrl params from client
   virtual ::natashapb::CODE reviewGameCtrl(
@@ -25,27 +35,35 @@ class GameMod {
       const ::natashapb::UserGameModInfo* pUser) = 0;
 
  protected:
+  GameLogic& m_logic;
 };
 
 class SlotsGameMod : public GameMod {
  public:
-  SlotsGameMod() {}
+  SlotsGameMod(GameLogic& logic) : GameMod(logic) {}
   virtual ~SlotsGameMod() {}
 
  public:
-  virtual bool randomReels(::natashapb::RandomResult* pRandomResult,
-                           const ::natashapb::GameCtrl* pGameCtrl,
-                           const ::natashapb::UserGameModInfo* pUser) = 0;
+  // randomReels - random reels
+  virtual ::natashapb::CODE randomReels(
+      ::natashapb::RandomResult* pRandomResult,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::UserGameModInfo* pUser) = 0;
 
-  virtual bool spin(::natashapb::SpinResult* pSpinResult,
-                    const ::natashapb::GameCtrl* pGameCtrl,
-                    const ::natashapb::RandomResult* pRandomResult,
-                    const ::natashapb::UserGameModInfo* pUser) = 0;
+  // countSpinResult - count spin result
+  virtual ::natashapb::CODE countSpinResult(
+      ::natashapb::SpinResult* pSpinResult,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::RandomResult* pRandomResult,
+      const ::natashapb::UserGameModInfo* pUser) = 0;
 
-  virtual bool onSpinEnd(::natashapb::UserGameModInfo* pUser,
-                         const ::natashapb::GameCtrl* pGameCtrl,
-                         const ::natashapb::SpinResult* pSpinResult,
-                         const ::natashapb::RandomResult* pRandomResult) = 0;
+  // procSpinResult - count spin result
+  virtual ::natashapb::CODE procSpinResult(
+      ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::SpinResult* pSpinResult,
+      const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
 
  protected:
 };

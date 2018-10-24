@@ -16,7 +16,7 @@ class TLOD : public GameLogic {
   virtual ~TLOD() {}
 
  public:
-  virtual bool init();
+  virtual ::natashapb::CODE init();
 
  protected:
   StaticCascadingReels3X5 m_reels;
