@@ -130,4 +130,54 @@ void buildSymbolLine3X5(const ::natashapb::SymbolBlock3X5* pSB,
   }
 }
 
+// cascadeSymbol3X5 - cascade SymbolBlock
+void cascadeBlock3X5(::natashapb::SymbolBlock3X5* pSB) {
+  assert(pSB != NULL);
+
+  for (int xx = 0; xx < 5; ++xx) {
+    if (getSymbolBlock3X5(pSB, xx, 2) < 0) {
+      if (getSymbolBlock3X5(pSB, xx, 1) < 0) {
+        if (getSymbolBlock3X5(pSB, xx, 0) >= 0) {
+          setSymbolBlock3X5(pSB, xx, 2, getSymbolBlock3X5(pSB, xx, 0));
+          setSymbolBlock3X5(pSB, xx, 0, -1);
+        }
+      } else {
+        if (getSymbolBlock3X5(pSB, xx, 0) >= 0) {
+          setSymbolBlock3X5(pSB, xx, 2, getSymbolBlock3X5(pSB, xx, 1));
+          setSymbolBlock3X5(pSB, xx, 1, getSymbolBlock3X5(pSB, xx, 0));
+          setSymbolBlock3X5(pSB, xx, 0, -1);
+        } else {
+          setSymbolBlock3X5(pSB, xx, 2, getSymbolBlock3X5(pSB, xx, 1));
+          setSymbolBlock3X5(pSB, xx, 1, -1);
+        }
+      }
+    } else if (getSymbolBlock3X5(pSB, xx, 1) < 0) {
+      if (getSymbolBlock3X5(pSB, xx, 0) >= 0) {
+        setSymbolBlock3X5(pSB, xx, 1, getSymbolBlock3X5(pSB, xx, 0));
+        setSymbolBlock3X5(pSB, xx, 0, -1);
+      }
+    }
+  }
+}
+
+// removeBlock3X5WithGameResult - remove all symbol in gameresult
+bool removeBlock3X5WithGameResult(::natashapb::SymbolBlock3X5* pSB,
+                                  ::natashapb::SpinResult* pSpinResult) {
+  assert(pSB != NULL);
+  assert(pSpinResult != NULL);
+
+  bool isremove = false;
+  for (int i = 0; i < pSpinResult->lstgri_size(); ++i) {
+    const ::natashapb::GameResultInfo& gri = pSpinResult->lstgri(i);
+    for (int j = 0; j < gri.lstpos_size(); ++j) {
+      const ::natashapb::Position2D& pos = gri.lstpos(j);
+
+      setSymbolBlock3X5(pSB, pos.x(), pos.y(), -1);
+      isremove = true;
+    }
+  }
+
+  return isremove;
+}
+
 }  // namespace natasha

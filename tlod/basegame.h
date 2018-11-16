@@ -42,6 +42,7 @@ class TLODBaseGame : public SlotsGameMod {
 
     auto spinctrl = pGameCtrl->mutable_spin();
 
+    // if respin
     if (pUser->cascadinginfo().turnnums() > 0) {
       spinctrl->set_bet(pUser->cascadinginfo().curbet());
       spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
@@ -56,6 +57,7 @@ class TLODBaseGame : public SlotsGameMod {
       spinctrl->set_realbet(spinctrl->bet() * TLOD_DEFAULT_PAY_LINES);
     }
 
+    // check bet
     auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
     if (it == m_lstBet.end()) {
       return ::natashapb::INVALID_BET;
@@ -133,6 +135,9 @@ class TLODBaseGame : public SlotsGameMod {
 
     // if respin
     if (pSpinResult->win() > 0) {
+      auto gamectrlid = pUser->mutable_gamectrlid();
+      if (gamectrlid->baseid() > 0) {
+      }
     }
 
     return ::natashapb::OK;

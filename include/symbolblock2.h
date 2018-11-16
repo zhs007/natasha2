@@ -10,15 +10,24 @@
 
 namespace natasha {
 
+// getSymbolBlock3X5 - getSymbol(x, y)
 SymbolType getSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB, int x,
                              int y);
 
+// setSymbolBlock3X5 - setSymbol(x, y, symbol)
 void setSymbolBlock3X5(::natashapb::SymbolBlock3X5* pSB, int x, int y,
                        SymbolType s);
 
 void buildSymbolLine3X5(const ::natashapb::SymbolBlock3X5* pSB,
                         StaticArray<5, SymbolType>& sl,
                         const Lines<5, int>& lines, int indexLine);
+
+// cascadeSymbol3X5 - cascade SymbolBlock
+void cascadeBlock3X5(::natashapb::SymbolBlock3X5* pSB);
+
+// removeBlock3X5WithGameResult - remove all symbol in gameresult
+bool removeBlock3X5WithGameResult(::natashapb::SymbolBlock3X5* pSB,
+                                  ::natashapb::SpinResult* pSpinResult);
 
 template <typename SymbolBlockT, int Width, int Height>
 void buildSymbolLine(const SymbolBlockT* pSB,
