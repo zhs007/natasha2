@@ -39,4 +39,26 @@ namespace natasha {
   return ::natashapb::OK;
 }
 
+// getMainGameMod - get current main game module
+GameMod* TLOD::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
+                              bool isComeInGame) {
+  auto pBG = getGameMod(::natashapb::BASE_GAME);
+  assert(pBG != NULL);
+
+  auto pFG = getGameMod(::natashapb::FREE_GAME);
+  assert(pFG != NULL);
+
+  auto pUserBG = getConstUserGameModInfo(pLogicUser, ::natashapb::BASE_GAME);
+  assert(pUserBG != NULL);
+
+  auto pUserFG = getConstUserGameModInfo(pLogicUser, ::natashapb::FREE_GAME);
+  assert(pUserFG != NULL);
+
+  if (pFG->isIn(pUserFG)) {
+    return pFG;
+  }
+
+  return pBG;
+}
+
 }  // namespace natasha

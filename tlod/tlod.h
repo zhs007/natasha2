@@ -18,6 +18,10 @@ class TLOD : public GameLogic {
  public:
   virtual ::natashapb::CODE init();
 
+  // getMainGameMod - get current main game module
+  virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
+                                  bool isComeInGame);
+
  protected:
   StaticCascadingReels3X5 m_reels;
   Paytables3X5 m_paytables;

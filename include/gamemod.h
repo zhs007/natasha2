@@ -34,6 +34,11 @@ class GameMod {
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) = 0;
 
+  // onUserComeIn -
+  virtual ::natashapb::CODE onUserComeIn(::natashapb::UserGameModInfo* pUser) {
+    return ::natashapb::OK;
+  }
+
  protected:
   GameLogic& m_logic;
 };

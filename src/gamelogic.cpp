@@ -40,4 +40,86 @@ GameLogic::~GameLogic() {}
   return it->second->start(pLogicUser->mutable_freegame(), pStart, nextCtrlID);
 }
 
+// getMainGameMod - start game module for user
+//   Only for gamectrl
+GameMod* GameLogic::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
+                                   bool isComeInGame) {
+  return NULL;
+}
+
+// getGameMod - get game module
+GameMod* GameLogic::getGameMod(::natashapb::GAMEMODTYPE gmt) {
+  auto it = m_mapGameMod.find(gmt);
+  if (it != m_mapGameMod.end()) {
+    return it->second;
+  }
+
+  return NULL;
+}
+
+// getUserGameModInfo - get user game module info
+::natashapb::UserGameModInfo* GameLogic::getUserGameModInfo(
+    ::natashapb::UserGameLogicInfo* pLogicUser, ::natashapb::GAMEMODTYPE gmt) {
+  assert(pLogicUser != NULL);
+
+  switch (gmt) {
+    case ::natashapb::BASE_GAME:
+      return pLogicUser->mutable_basegame();
+    case ::natashapb::FREE_GAME:
+      return pLogicUser->mutable_freegame();
+    case ::natashapb::BONUS_GAME:
+      return pLogicUser->mutable_bonus();
+    case ::natashapb::JACKPOT_GAME:
+      return pLogicUser->mutable_jackpot();
+    case ::natashapb::COMMON_JACKPOT_GAME:
+      return pLogicUser->mutable_commonjackpot();
+    case ::natashapb::NULL_MOD:
+      return NULL;
+    default:
+      return NULL;
+  }
+
+  return NULL;
+}
+
+// getConstUserGameModInfo - get user game module info
+const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
+    const ::natashapb::UserGameLogicInfo* pLogicUser,
+    ::natashapb::GAMEMODTYPE gmt) const {
+  assert(pLogicUser != NULL);
+
+  switch (gmt) {
+    case ::natashapb::BASE_GAME:
+      return &(pLogicUser->basegame());
+    case ::natashapb::FREE_GAME:
+      return &(pLogicUser->freegame());
+    case ::natashapb::BONUS_GAME:
+      return &(pLogicUser->bonus());
+    case ::natashapb::JACKPOT_GAME:
+      return &(pLogicUser->jackpot());
+    case ::natashapb::COMMON_JACKPOT_GAME:
+      return &(pLogicUser->commonjackpot());
+    case ::natashapb::NULL_MOD:
+      return NULL;
+    default:
+      return NULL;
+  }
+
+  return NULL;
+}
+
+::natashapb::CODE GameLogic::userComeIn(
+    ::natashapb::UserGameLogicInfo* pLogicUser) {
+  assert(pLogicUser != NULL);
+
+  for (ConstMapGameModIter it = m_mapGameMod.begin(); it != m_mapGameMod.end();
+       ++it) {
+    auto pUGMI = getUserGameModInfo(pLogicUser, it->first);
+    assert(pUGMI != NULL);
+    it->second->onUserComeIn(pUGMI);
+  }
+
+  return ::natashapb::OK;
+}
+
 }  // namespace natasha

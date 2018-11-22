@@ -9,6 +9,10 @@ int main() {
     printf("init fail!\n");
   }
 
+  auto pUGI = new ::natashapb::UserGameLogicInfo();
+  tlod.userComeIn(pUGI);
+  // tlod.
+
   printf("end!\n");
 
   return 0;

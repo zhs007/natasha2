@@ -110,6 +110,7 @@ class TLODBaseGame : public SlotsGameMod {
       }
     }
 
+    // check all line payout
     TLODCountAllLine(*pSpinResult,
                      pRandomResult->retstaticcascading3x5().sb3x5(), m_lines,
                      m_paytables, pGameCtrl->spin().bet());
