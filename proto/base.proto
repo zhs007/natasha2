@@ -141,21 +141,49 @@ message GameResultInfo {
 
 // SpinResult - spin result
 //      exDat is used to handle different game extension properties
+//            - spin结果
+//      exDat是扩展属性，不同游戏可能不一样
 message SpinResult {
+    // win - sum(GameResultInfo.realwin)
+    //     - GameResultInfo里面真实赢得之和
     int64 win = 1;
+    // realWin - win + other prize
+    //         - win加上其余的奖励，是这次spin的实际赢得
     int64 realWin = 2;
+    // lstGRI - GameResultInfo list
+    //        - GameResultInfo队列
     repeated GameResultInfo lstGRI = 3;
+    // fgNums - freegame nums
+    //        - 该局产生的免费次数
     int32 fgNums = 4;
+    // inFG - freegame
+    //      - 该局产生了freegame
     bool inFG = 5;
+    // inBonus - bonus
+    //         - 该局产生了bonus
     bool inBonus = 6;
+    // inJackpot - jackpot
+    //           - 该局产生了jackpot
     bool inJackpot = 7;
+    // inCommonJackpot - common jackpot
+    //                 - 该局产生了common jackpot    
     bool inCommonJackpot = 8;
+    // inRespin - respin
+    //          - 该局产生了respin
     bool inRespin = 9;
+    // awardMul - award muliti
+    //          - 该局产生了奖励倍数    
+    int64 awardMul = 10;
+    // realFGNums - real freegame nums
+    //            - 该局结束后，需要进免费游戏，且这个是免费游戏实际的免费次数
+    int32 realFGNums = 11;
 
+    // symbolblock - symbol block
     oneof symbolblock {
         SymbolBlock3X5 sb3x5 = 100;
     }
 
+    // exDat - extend data
     google.protobuf.Any exDat = 1000;
 }
 
@@ -253,6 +281,9 @@ message UserGameLogicInfo {
     UserGameModInfo jackpot = 4;
     UserGameModInfo commonjackpot = 5;
     UserGameModInfo respin = 6;
+
+    GAMEMODTYPE curGameModType = 100;
+    GAMEMODTYPE nextGameModType = 101;
 }
 
 // GameCtrlSpin - basegame spin

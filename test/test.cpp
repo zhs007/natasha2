@@ -11,7 +11,15 @@ int main() {
 
   auto pUGI = new ::natashapb::UserGameLogicInfo();
   tlod.userComeIn(pUGI);
-  // tlod.
+
+  for (int i = 0; i < 100; ++i) {
+    auto pGameCtrl = new ::natashapb::GameCtrl();
+    auto spin = pGameCtrl->mutable_spin();
+
+    tlod.gameCtrl(pGameCtrl, pUGI);
+
+    delete pGameCtrl;
+  }
 
   printf("end!\n");
 

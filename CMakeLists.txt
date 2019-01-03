@@ -7,6 +7,8 @@ include(CTest)
 enable_testing()
 
 include_directories(./include)
+include_directories(/usr/local/include)
+link_directories(/usr/local/lib)
 # aux_source_directory(./test DIR_ROOT_SRCS)
 
 add_subdirectory(src)

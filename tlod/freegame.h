@@ -83,7 +83,7 @@ class TLODFreeGame : public SlotsGameMod {
       return pUser->freeinfo().lastnums() > 0;
     }
 
-    return true;
+    return false;
   }
 
   // reviewGameCtrl - check & fix gamectrl params from client

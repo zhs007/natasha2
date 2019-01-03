@@ -1458,11 +1458,23 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   bool incommonjackpot() const;
   void set_incommonjackpot(bool value);
 
+  // int64 awardMul = 10;
+  void clear_awardmul();
+  static const int kAwardMulFieldNumber = 10;
+  ::google::protobuf::int64 awardmul() const;
+  void set_awardmul(::google::protobuf::int64 value);
+
   // bool inRespin = 9;
   void clear_inrespin();
   static const int kInRespinFieldNumber = 9;
   bool inrespin() const;
   void set_inrespin(bool value);
+
+  // int32 realFGNums = 11;
+  void clear_realfgnums();
+  static const int kRealFGNumsFieldNumber = 11;
+  ::google::protobuf::int32 realfgnums() const;
+  void set_realfgnums(::google::protobuf::int32 value);
 
   // .natashapb.SymbolBlock3X5 sb3x5 = 100;
   bool has_sb3x5() const;
@@ -1492,7 +1504,9 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   bool inbonus_;
   bool injackpot_;
   bool incommonjackpot_;
+  ::google::protobuf::int64 awardmul_;
   bool inrespin_;
+  ::google::protobuf::int32 realfgnums_;
   union SymbolblockUnion {
     SymbolblockUnion() {}
     ::natashapb::SymbolBlock3X5* sb3x5_;
@@ -2496,6 +2510,18 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::UserGameModInfo* mutable_respin();
   void set_allocated_respin(::natashapb::UserGameModInfo* respin);
 
+  // .natashapb.GAMEMODTYPE curGameModType = 100;
+  void clear_curgamemodtype();
+  static const int kCurGameModTypeFieldNumber = 100;
+  ::natashapb::GAMEMODTYPE curgamemodtype() const;
+  void set_curgamemodtype(::natashapb::GAMEMODTYPE value);
+
+  // .natashapb.GAMEMODTYPE nextGameModType = 101;
+  void clear_nextgamemodtype();
+  static const int kNextGameModTypeFieldNumber = 101;
+  ::natashapb::GAMEMODTYPE nextgamemodtype() const;
+  void set_nextgamemodtype(::natashapb::GAMEMODTYPE value);
+
   // @@protoc_insertion_point(class_scope:natashapb.UserGameLogicInfo)
  private:
 
@@ -2506,6 +2532,8 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::UserGameModInfo* jackpot_;
   ::natashapb::UserGameModInfo* commonjackpot_;
   ::natashapb::UserGameModInfo* respin_;
+  int curgamemodtype_;
+  int nextgamemodtype_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsUserGameLogicInfoImpl();
@@ -4747,6 +4775,34 @@ inline void SpinResult::set_inrespin(bool value) {
   // @@protoc_insertion_point(field_set:natashapb.SpinResult.inRespin)
 }
 
+// int64 awardMul = 10;
+inline void SpinResult::clear_awardmul() {
+  awardmul_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 SpinResult::awardmul() const {
+  // @@protoc_insertion_point(field_get:natashapb.SpinResult.awardMul)
+  return awardmul_;
+}
+inline void SpinResult::set_awardmul(::google::protobuf::int64 value) {
+  
+  awardmul_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.SpinResult.awardMul)
+}
+
+// int32 realFGNums = 11;
+inline void SpinResult::clear_realfgnums() {
+  realfgnums_ = 0;
+}
+inline ::google::protobuf::int32 SpinResult::realfgnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.SpinResult.realFGNums)
+  return realfgnums_;
+}
+inline void SpinResult::set_realfgnums(::google::protobuf::int32 value) {
+  
+  realfgnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.SpinResult.realFGNums)
+}
+
 // .natashapb.SymbolBlock3X5 sb3x5 = 100;
 inline bool SpinResult::has_sb3x5() const {
   return symbolblock_case() == kSb3X5;
@@ -5935,6 +5991,34 @@ inline void UserGameLogicInfo::set_allocated_respin(::natashapb::UserGameModInfo
   }
   respin_ = respin;
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameLogicInfo.respin)
+}
+
+// .natashapb.GAMEMODTYPE curGameModType = 100;
+inline void UserGameLogicInfo::clear_curgamemodtype() {
+  curgamemodtype_ = 0;
+}
+inline ::natashapb::GAMEMODTYPE UserGameLogicInfo::curgamemodtype() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameLogicInfo.curGameModType)
+  return static_cast< ::natashapb::GAMEMODTYPE >(curgamemodtype_);
+}
+inline void UserGameLogicInfo::set_curgamemodtype(::natashapb::GAMEMODTYPE value) {
+  
+  curgamemodtype_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.curGameModType)
+}
+
+// .natashapb.GAMEMODTYPE nextGameModType = 101;
+inline void UserGameLogicInfo::clear_nextgamemodtype() {
+  nextgamemodtype_ = 0;
+}
+inline ::natashapb::GAMEMODTYPE UserGameLogicInfo::nextgamemodtype() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameLogicInfo.nextGameModType)
+  return static_cast< ::natashapb::GAMEMODTYPE >(nextgamemodtype_);
+}
+inline void UserGameLogicInfo::set_nextgamemodtype(::natashapb::GAMEMODTYPE value) {
+  
+  nextgamemodtype_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.nextGameModType)
 }
 
 // -------------------------------------------------------------------

@@ -97,7 +97,9 @@ class TLODBaseGame : public SlotsGameMod {
         pCurGRI->set_win(0);
         pCurGRI->set_realwin(0);
 
+        pSpinResult->set_infg(true);
         pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
+        pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
 
         return ::natashapb::OK;
 
@@ -115,6 +117,9 @@ class TLODBaseGame : public SlotsGameMod {
                      pRandomResult->retstaticcascading3x5().sb3x5(), m_lines,
                      m_paytables, pGameCtrl->spin().bet());
 
+    pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums());
+    pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
+
     return ::natashapb::OK;
   }
 
@@ -126,12 +131,14 @@ class TLODBaseGame : public SlotsGameMod {
       const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
     // if need start free game
-    if (pSpinResult->fgnums() > 0) {
+    if (pSpinResult->realfgnums() > 0) {
       ::natashapb::StartGameMod sp;
       auto parentctrlid = sp.mutable_parentctrlid();
       parentctrlid->CopyFrom(pUser->gamectrlid());
 
       m_logic.startGameMod(::natashapb::FREE_GAME, &sp, nextCtrlID, pLogicUser);
+
+      return ::natashapb::OK;
     }
 
     // if respin
