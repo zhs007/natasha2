@@ -12,8 +12,27 @@ GameLogic::~GameLogic() {}
 ::natashapb::CODE GameLogic::init() { return ::natashapb::OK; }
 
 ::natashapb::CODE GameLogic::gameCtrl(
-    const ::natashapb::GameCtrl* pGameCtrl,
-    ::natashapb::UserGameLogicInfo* pLogicUser) {
+    ::natashapb::GameCtrl* pGameCtrl,
+    ::natashapb::UserGameLogicInfo* pLogicUser, CtrlID nextCtrlID) {
+  assert(pGameCtrl != NULL);
+  assert(pLogicUser != NULL);
+
+  auto curmod = this->getMainGameMod(pLogicUser, false);
+  assert(curmod != NULL);
+
+  auto curugmi = this->getUserGameModInfo(pLogicUser, curmod->getGameModType());
+  assert(curugmi != NULL);
+
+  auto code = curmod->reviewGameCtrl(pGameCtrl, curugmi);
+  if (code != ::natashapb::OK) {
+    return code;
+  }
+
+  code = curmod->onGameCtrl(pGameCtrl, pLogicUser, curugmi, nextCtrlID);
+  if (code != ::natashapb::OK) {
+    return code;
+  }
+
   return ::natashapb::OK;
 }
 
@@ -116,7 +135,10 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
        ++it) {
     auto pUGMI = getUserGameModInfo(pLogicUser, it->first);
     assert(pUGMI != NULL);
-    it->second->onUserComeIn(pUGMI);
+    auto code = it->second->onUserComeIn(pUGMI);
+    if (code != ::natashapb::OK) {
+      return code;
+    }
   }
 
   return ::natashapb::OK;

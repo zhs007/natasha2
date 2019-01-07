@@ -247,12 +247,13 @@ enum CODE {
   INVALID_LINES = 30001,
   INVALID_TIMES = 30002,
   INVALID_CASCADING_FREESTATE = 40000,
+  ERR_NO_OVERLOADED_INTERFACE = 90000,
   CODE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   CODE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool CODE_IsValid(int value);
 const CODE CODE_MIN = OK;
-const CODE CODE_MAX = INVALID_CASCADING_FREESTATE;
+const CODE CODE_MAX = ERR_NO_OVERLOADED_INTERFACE;
 const int CODE_ARRAYSIZE = CODE_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CODE_descriptor();
@@ -2128,55 +2129,55 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // .natashapb.RandomResult randomResult = 1;
+  // .natashapb.RandomResult randomResult = 10;
   bool has_randomresult() const;
   void clear_randomresult();
-  static const int kRandomResultFieldNumber = 1;
+  static const int kRandomResultFieldNumber = 10;
   const ::natashapb::RandomResult& randomresult() const;
   ::natashapb::RandomResult* release_randomresult();
   ::natashapb::RandomResult* mutable_randomresult();
   void set_allocated_randomresult(::natashapb::RandomResult* randomresult);
 
-  // .natashapb.SpinResult spinResult = 2;
+  // .natashapb.SpinResult spinResult = 11;
   bool has_spinresult() const;
   void clear_spinresult();
-  static const int kSpinResultFieldNumber = 2;
+  static const int kSpinResultFieldNumber = 11;
   const ::natashapb::SpinResult& spinresult() const;
   ::natashapb::SpinResult* release_spinresult();
   ::natashapb::SpinResult* mutable_spinresult();
   void set_allocated_spinresult(::natashapb::SpinResult* spinresult);
 
-  // .natashapb.GameCtrlID gameCtrlID = 3;
+  // .natashapb.GameCtrlID gameCtrlID = 12;
   bool has_gamectrlid() const;
   void clear_gamectrlid();
-  static const int kGameCtrlIDFieldNumber = 3;
+  static const int kGameCtrlIDFieldNumber = 12;
   const ::natashapb::GameCtrlID& gamectrlid() const;
   ::natashapb::GameCtrlID* release_gamectrlid();
   ::natashapb::GameCtrlID* mutable_gamectrlid();
   void set_allocated_gamectrlid(::natashapb::GameCtrlID* gamectrlid);
 
-  // .natashapb.BaseCascadingInfo cascadingInfo = 4;
+  // .natashapb.BaseCascadingInfo cascadingInfo = 13;
   bool has_cascadinginfo() const;
   void clear_cascadinginfo();
-  static const int kCascadingInfoFieldNumber = 4;
+  static const int kCascadingInfoFieldNumber = 13;
   const ::natashapb::BaseCascadingInfo& cascadinginfo() const;
   ::natashapb::BaseCascadingInfo* release_cascadinginfo();
   ::natashapb::BaseCascadingInfo* mutable_cascadinginfo();
   void set_allocated_cascadinginfo(::natashapb::BaseCascadingInfo* cascadinginfo);
 
-  // .natashapb.RespinHistoryList lstHistory = 5;
+  // .natashapb.RespinHistoryList lstHistory = 14;
   bool has_lsthistory() const;
   void clear_lsthistory();
-  static const int kLstHistoryFieldNumber = 5;
+  static const int kLstHistoryFieldNumber = 14;
   const ::natashapb::RespinHistoryList& lsthistory() const;
   ::natashapb::RespinHistoryList* release_lsthistory();
   ::natashapb::RespinHistoryList* mutable_lsthistory();
   void set_allocated_lsthistory(::natashapb::RespinHistoryList* lsthistory);
 
-  // .natashapb.BaseFreeInfo freeInfo = 6;
+  // .natashapb.BaseFreeInfo freeInfo = 15;
   bool has_freeinfo() const;
   void clear_freeinfo();
-  static const int kFreeInfoFieldNumber = 6;
+  static const int kFreeInfoFieldNumber = 15;
   const ::natashapb::BaseFreeInfo& freeinfo() const;
   ::natashapb::BaseFreeInfo* release_freeinfo();
   ::natashapb::BaseFreeInfo* mutable_freeinfo();
@@ -2200,6 +2201,12 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::Any* mutable_exdat();
   void set_allocated_exdat(::google::protobuf::Any* exdat);
 
+  // int32 ver = 1;
+  void clear_ver();
+  static const int kVerFieldNumber = 1;
+  ::google::protobuf::int32 ver() const;
+  void set_ver(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.UserGameModInfo)
  private:
 
@@ -2212,6 +2219,7 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::natashapb::BaseFreeInfo* freeinfo_;
   ::natashapb::SymbolBlock* symbolblock_;
   ::google::protobuf::Any* exdat_;
+  ::google::protobuf::int32 ver_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsUserGameModInfoImpl();
@@ -5118,7 +5126,21 @@ RespinHistoryList::lst() const {
 
 // UserGameModInfo
 
-// .natashapb.RandomResult randomResult = 1;
+// int32 ver = 1;
+inline void UserGameModInfo::clear_ver() {
+  ver_ = 0;
+}
+inline ::google::protobuf::int32 UserGameModInfo::ver() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameModInfo.ver)
+  return ver_;
+}
+inline void UserGameModInfo::set_ver(::google::protobuf::int32 value) {
+  
+  ver_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.UserGameModInfo.ver)
+}
+
+// .natashapb.RandomResult randomResult = 10;
 inline bool UserGameModInfo::has_randomresult() const {
   return this != internal_default_instance() && randomresult_ != NULL;
 }
@@ -5169,7 +5191,7 @@ inline void UserGameModInfo::set_allocated_randomresult(::natashapb::RandomResul
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.randomResult)
 }
 
-// .natashapb.SpinResult spinResult = 2;
+// .natashapb.SpinResult spinResult = 11;
 inline bool UserGameModInfo::has_spinresult() const {
   return this != internal_default_instance() && spinresult_ != NULL;
 }
@@ -5220,7 +5242,7 @@ inline void UserGameModInfo::set_allocated_spinresult(::natashapb::SpinResult* s
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.spinResult)
 }
 
-// .natashapb.GameCtrlID gameCtrlID = 3;
+// .natashapb.GameCtrlID gameCtrlID = 12;
 inline bool UserGameModInfo::has_gamectrlid() const {
   return this != internal_default_instance() && gamectrlid_ != NULL;
 }
@@ -5271,7 +5293,7 @@ inline void UserGameModInfo::set_allocated_gamectrlid(::natashapb::GameCtrlID* g
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.gameCtrlID)
 }
 
-// .natashapb.BaseCascadingInfo cascadingInfo = 4;
+// .natashapb.BaseCascadingInfo cascadingInfo = 13;
 inline bool UserGameModInfo::has_cascadinginfo() const {
   return this != internal_default_instance() && cascadinginfo_ != NULL;
 }
@@ -5322,7 +5344,7 @@ inline void UserGameModInfo::set_allocated_cascadinginfo(::natashapb::BaseCascad
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.cascadingInfo)
 }
 
-// .natashapb.RespinHistoryList lstHistory = 5;
+// .natashapb.RespinHistoryList lstHistory = 14;
 inline bool UserGameModInfo::has_lsthistory() const {
   return this != internal_default_instance() && lsthistory_ != NULL;
 }
@@ -5373,7 +5395,7 @@ inline void UserGameModInfo::set_allocated_lsthistory(::natashapb::RespinHistory
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.lstHistory)
 }
 
-// .natashapb.BaseFreeInfo freeInfo = 6;
+// .natashapb.BaseFreeInfo freeInfo = 15;
 inline bool UserGameModInfo::has_freeinfo() const {
   return this != internal_default_instance() && freeinfo_ != NULL;
 }

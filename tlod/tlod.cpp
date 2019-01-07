@@ -3,6 +3,16 @@
 
 namespace natasha {
 
+void outputReels(StaticCascadingReels3X5* pReels) {
+  for (int y = 0; y < pReels->getLength(); ++y) {
+    printf("outputReels y - %d\n", y);
+    for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
+      printf("outputReels x - %d\n", x);
+      printSymbolBlock3X5(pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
+    }
+  }
+}
+
 ::natashapb::CODE TLOD::init() {
   FileNameList lst;
 
@@ -18,6 +28,8 @@ namespace natasha {
   if (m_reels.isEmpty()) {
     return ::natashapb::INVALID_REELS_CFG;
   }
+
+  // outputReels(&m_reels);
 
   loadLines3X5("./csv/game116_line.csv", m_lines);
   if (m_lines.isEmpty()) {

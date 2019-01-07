@@ -36,6 +36,21 @@ class StaticCascadingReels3X5 {
 
   void setMaxDownNums(int maxDownNums) { m_maxDownNums = maxDownNums; }
 
+  int getMaxDownNums() const { return m_maxDownNums; }
+
+  SymbolBlockData* getRow(int row) {
+    assert(row >= 0 && row < m_lst.size());
+
+    return m_lst[row];
+  }
+
+  ::natashapb::SymbolBlock3X5* getNode(int x, int y) {
+    assert(y >= 0 && y < m_lst.size());
+    assert(x >= 0 && x < m_maxDownNums);
+
+    return m_lst[y]->at(x);
+  }
+
  protected:
   void randomNew(::natashapb::StaticCascadingRandomResult3X5* pSCRR);
 

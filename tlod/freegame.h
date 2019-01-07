@@ -137,6 +137,11 @@ class TLODFreeGame : public SlotsGameMod {
     return ::natashapb::OK;
   }
 
+  // getGameModType - get GAMEMODTYPE
+  virtual ::natashapb::GAMEMODTYPE getGameModType() {
+    return ::natashapb::FREE_GAME;
+  }
+
  protected:
   StaticCascadingReels3X5& m_reels;
   Paytables3X5& m_paytables;

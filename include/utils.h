@@ -21,6 +21,8 @@ typedef float MoneyType;
 
 typedef int64_t CtrlID;
 
+const char SYMBOL_MAPPING[] = "wabcdefghijklmnopqrstuvxyz";
+
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
  public:
@@ -61,6 +63,10 @@ void clearSpinResult(::natashapb::SpinResult& sr);
 void setGameCtrlID(::natashapb::GameCtrlID& dest,
                    const ::natashapb::GameCtrlID& parent, CtrlID curCtrlID,
                    ::natashapb::GAMEMODTYPE curGameMod);
+
+// printSymbolBlock3X5
+void printSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB,
+                         const char* str);
 
 }  // namespace natasha
 

@@ -51,6 +51,12 @@ enum CODE {
 
     // invalid cascading freegame state
     INVALID_CASCADING_FREESTATE = 40000;
+
+    //----------------------------------------------------------
+    // common
+
+    // no overloaded interface
+    ERR_NO_OVERLOADED_INTERFACE = 90000;
 }
 
 // // SymbolLine -
@@ -262,12 +268,14 @@ message RespinHistoryList {
 
 // UserGameModInfo - user's game module info
 message UserGameModInfo {
-    RandomResult randomResult = 1;
-    SpinResult spinResult = 2;
-    GameCtrlID gameCtrlID = 3;
-    BaseCascadingInfo cascadingInfo = 4;
-    RespinHistoryList lstHistory = 5;
-    BaseFreeInfo freeInfo = 6;
+    int32 ver = 1;
+
+    RandomResult randomResult = 10;
+    SpinResult spinResult = 11;
+    GameCtrlID gameCtrlID = 12;
+    BaseCascadingInfo cascadingInfo = 13;
+    RespinHistoryList lstHistory = 14;
+    BaseFreeInfo freeInfo = 15;
 
     SymbolBlock symbolblock = 100;
 

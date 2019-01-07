@@ -78,11 +78,13 @@ void loadStaticCascadingReels3X5(FileNameList& lstfn,
 
         for (int y = 0; y < 3; ++y) {
           for (int x = 0; x < 5; ++x) {
-            int s = std::stoi(csv.get(i, std::to_string(y * 5 + x).c_str()));
+            int s = std::stoi(csv.get(r, std::to_string(y * 5 + x).c_str()));
 
             setSymbolBlock3X5(&sb, x, y, s);
           }
         }
+
+        // printSymbolBlock3X5(&sb, SYMBOL_MAPPING);
 
         if (i == 0) {
           scr.newRow();

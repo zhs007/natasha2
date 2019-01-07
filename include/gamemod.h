@@ -36,14 +36,27 @@ class GameMod {
 
   // onUserComeIn -
   virtual ::natashapb::CODE onUserComeIn(::natashapb::UserGameModInfo* pUser) {
-    return ::natashapb::OK;
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
+  // onGameCtrl
+  virtual ::natashapb::CODE onGameCtrl(
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pMainUGMI, CtrlID nextCtrlID) {
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
   // updGameResult -
   virtual ::natashapb::CODE updGameResult(::natashapb::UserGameModInfo* pUser,
                                           MoneyType realbet,
                                           MoneyType realwin) {
-    return ::natashapb::OK;
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
+  // getGameModType - get GAMEMODTYPE
+  virtual ::natashapb::GAMEMODTYPE getGameModType() {
+    return ::natashapb::NULL_MOD;
   }
 
  protected:
@@ -54,6 +67,34 @@ class SlotsGameMod : public GameMod {
  public:
   SlotsGameMod(GameLogic& logic) : GameMod(logic) {}
   virtual ~SlotsGameMod() {}
+
+ public:
+  // onGameCtrl
+  virtual ::natashapb::CODE onGameCtrl(
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pMainUGMI, CtrlID nextCtrlID) {
+    // assert(pMainUGMI->has_randomresult());
+    // assert(pMainUGMI->has_spinresult());
+
+    auto code = this->randomReels(pMainUGMI->mutable_randomresult(), pGameCtrl,
+                                  pMainUGMI);
+    if (code != ::natashapb::OK) {
+      return code;
+    }
+
+    code = this->countSpinResult(pMainUGMI->mutable_spinresult(), pGameCtrl,
+                                 pMainUGMI->mutable_randomresult(), pMainUGMI);
+    if (code != ::natashapb::OK) {
+      return code;
+    }
+
+    code = this->procSpinResult(
+        pMainUGMI, pGameCtrl, pMainUGMI->mutable_spinresult(),
+        pMainUGMI->mutable_randomresult(), nextCtrlID, pLogicUser);
+
+    return ::natashapb::OK;
+  }
 
  public:
   // randomReels - random reels

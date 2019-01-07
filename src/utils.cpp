@@ -35,4 +35,15 @@ void setGameCtrlID(::natashapb::GameCtrlID& dest,
   dest.set_gamemod(curGameMod);
 }
 
+// printSymbolBlock3X5
+void printSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB,
+                         const char* str) {
+  assert(pSB != NULL);
+  assert(str != NULL);
+
+  printf("%c %c %c %c %c\n", str[pSB->dat0_0()], str[pSB->dat0_1()], str[pSB->dat0_2()], str[pSB->dat0_3()], str[pSB->dat0_4()]);
+  printf("%c %c %c %c %c\n", str[pSB->dat1_0()], str[pSB->dat1_1()], str[pSB->dat1_2()], str[pSB->dat1_3()], str[pSB->dat1_4()]);
+  printf("%c %c %c %c %c\n", str[pSB->dat2_0()], str[pSB->dat2_1()], str[pSB->dat2_2()], str[pSB->dat2_3()], str[pSB->dat2_4()]);
+}
+
 }  // namespace natasha

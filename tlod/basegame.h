@@ -9,6 +9,8 @@
 
 namespace natasha {
 
+const int32_t TLOD_BG_UGMI_VER = 1;
+
 class TLODBaseGame : public SlotsGameMod {
  public:
   TLODBaseGame(GameLogic& logic, StaticCascadingReels3X5& reels,
@@ -22,6 +24,26 @@ class TLODBaseGame : public SlotsGameMod {
 
  public:
   virtual ::natashapb::CODE init() { return ::natashapb::OK; }
+
+  // onUserComeIn -
+  virtual ::natashapb::CODE onUserComeIn(::natashapb::UserGameModInfo* pUser) {
+    assert(pUser != NULL);
+
+    // 版本号用来区分数据版本
+    // 版本号也可以用于判断数据是否已经初始化
+    if (pUser->ver() != TLOD_BG_UGMI_VER) {
+      auto ci = pUser->mutable_cascadinginfo();
+      ci->set_curbet(-1);
+      ci->set_curlines(TLOD_DEFAULT_PAY_LINES);
+      ci->set_curtimes(TLOD_DEFAULT_TIMES);
+
+      ci->set_turnnums(0);
+      ci->set_turnwin(0);
+      ci->set_freestate(::natashapb::NO_FREEGAME);
+    }
+
+    return ::natashapb::OK;
+  }
 
   // start - start cur game module for user
   //    basegame does not need to handle this
@@ -71,7 +93,17 @@ class TLODBaseGame : public SlotsGameMod {
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
+    // auto rsc = pRandomResult->mutable_retstaticcascading3x5();
+    // auto sb = rsc->mutable_symbolblock();
+    // auto sb3x5 = sb->mutable_sb3x5();
+
     m_reels.random(pRandomResult, pUser);
+
+    auto rsc = pRandomResult->mutable_retstaticcascading3x5();
+    auto sb = rsc->mutable_symbolblock();
+    auto sb3x5 = sb->mutable_sb3x5();
+
+    printSymbolBlock3X5(sb3x5, TLOD_SYMBOL_MAPPING);
 
     return ::natashapb::OK;
   }
@@ -86,8 +118,9 @@ class TLODBaseGame : public SlotsGameMod {
 
     // First check free
     ::natashapb::GameResultInfo gri;
-    TLODCountScatter(gri, pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(),
-                     m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
+    TLODCountScatter(
+        gri, pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(),
+        m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
       pCurGRI->CopyFrom(gri);
@@ -113,9 +146,10 @@ class TLODBaseGame : public SlotsGameMod {
     }
 
     // check all line payout
-    TLODCountAllLine(*pSpinResult,
-                     pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(), m_lines,
-                     m_paytables, pGameCtrl->spin().bet());
+    TLODCountAllLine(
+        *pSpinResult,
+        pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(), m_lines,
+        m_paytables, pGameCtrl->spin().bet());
 
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums());
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
@@ -149,6 +183,11 @@ class TLODBaseGame : public SlotsGameMod {
     }
 
     return ::natashapb::OK;
+  }
+
+  // getGameModType - get GAMEMODTYPE
+  virtual ::natashapb::GAMEMODTYPE getGameModType() {
+    return ::natashapb::BASE_GAME;
   }
 
  protected:

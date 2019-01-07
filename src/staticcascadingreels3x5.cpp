@@ -12,6 +12,8 @@ void StaticCascadingReels3X5::randomNew(
   SymbolBlockData* pSBD = m_lst[cr];
   assert(pSBD->size() > 0);
 
+  printSymbolBlock3X5(pSBD->at(0), SYMBOL_MAPPING);
+
   pSCRR->set_reelsindex(cr);
   pSCRR->set_downnums(0);
 
@@ -51,7 +53,7 @@ void StaticCascadingReels3X5::random(
     ::natashapb::RandomResult* pRandomResult,
     const ::natashapb::UserGameModInfo* pUGMI) {
   assert(pRandomResult != NULL);
-  assert(pUGMI->symbolblock().has_sb3x5());
+  // assert(pUGMI->symbolblock().has_sb3x5());
 
   if (!pRandomResult->has_retstaticcascading3x5()) {
     ::natashapb::StaticCascadingRandomResult3X5* pSCRR =

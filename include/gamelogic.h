@@ -27,9 +27,9 @@ class GameLogic {
   virtual ::natashapb::CODE userComeIn(
       ::natashapb::UserGameLogicInfo* pLogicUser);
 
-  virtual ::natashapb::CODE gameCtrl(
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser);
+  virtual ::natashapb::CODE gameCtrl(::natashapb::GameCtrl* pGameCtrl,
+                                     ::natashapb::UserGameLogicInfo* pLogicUser,
+                                     CtrlID nextCtrlID);
 
   // getMainGameMod - get current main game module
   virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,

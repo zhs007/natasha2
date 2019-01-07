@@ -7,6 +7,7 @@
 #include "../include/gamelogic.h"
 #include "basegame.h"
 #include "freegame.h"
+#include "game_tlod.h"
 
 namespace natasha {
 
