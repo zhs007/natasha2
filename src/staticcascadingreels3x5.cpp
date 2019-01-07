@@ -15,8 +15,9 @@ void StaticCascadingReels3X5::randomNew(
   pSCRR->set_reelsindex(cr);
   pSCRR->set_downnums(0);
 
-  ::natashapb::SymbolBlock3X5* pSB = pSCRR->mutable_sb3x5();
-  pSB->CopyFrom(*(pSBD->at(0)));
+  ::natashapb::SymbolBlock* pSB = pSCRR->mutable_symbolblock();
+  ::natashapb::SymbolBlock3X5* pSB35 = pSB->mutable_sb3x5();
+  pSB35->CopyFrom(*(pSBD->at(0)));
 }
 
 void StaticCascadingReels3X5::fill(
@@ -31,15 +32,16 @@ void StaticCascadingReels3X5::fill(
 
   pSCRR->set_downnums(dn + 1);
 
-  ::natashapb::SymbolBlock3X5* pSB = pSCRR->mutable_sb3x5();
-  pSB->CopyFrom(*pLastSB);
+  ::natashapb::SymbolBlock* pSB = pSCRR->mutable_symbolblock();
+  ::natashapb::SymbolBlock3X5* pSB35 = pSB->mutable_sb3x5();
+  pSB35->CopyFrom(*pLastSB);
 
   const ::natashapb::SymbolBlock3X5* pNewSB = pSBD->at(dn + 1);
 
   for (int y = 0; y < 3; ++y) {
     for (int x = 0; x < 5; ++x) {
-      if (getSymbolBlock3X5(pSB, x, y) == -1) {
-        setSymbolBlock3X5(pSB, x, y, getSymbolBlock3X5(pNewSB, x, y));
+      if (getSymbolBlock3X5(pSB35, x, y) == -1) {
+        setSymbolBlock3X5(pSB35, x, y, getSymbolBlock3X5(pNewSB, x, y));
       }
     }
   }
@@ -49,6 +51,7 @@ void StaticCascadingReels3X5::random(
     ::natashapb::RandomResult* pRandomResult,
     const ::natashapb::UserGameModInfo* pUGMI) {
   assert(pRandomResult != NULL);
+  assert(pUGMI->symbolblock().has_sb3x5());
 
   if (!pRandomResult->has_retstaticcascading3x5()) {
     ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
@@ -67,7 +70,7 @@ void StaticCascadingReels3X5::random(
       ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
           pRandomResult->mutable_retstaticcascading3x5();
 
-      fill(pSCRR, &(pUGMI->sb3x5()));
+      fill(pSCRR, &(pUGMI->symbolblock().sb3x5()));
     }
   }
 }

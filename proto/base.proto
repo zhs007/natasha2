@@ -53,15 +53,15 @@ enum CODE {
     INVALID_CASCADING_FREESTATE = 40000;
 }
 
-// SymbolLine -
-message SymbolLine {
-    repeated int32 xDat = 1;
-}
+// // SymbolLine -
+// message SymbolLine {
+//     repeated int32 xDat = 1;
+// }
 
-// SymbolBlock - 
-message SymbolBlock {
-    repeated SymbolLine yDat = 1;
-}
+// // SymbolBlock - 
+// message SymbolBlock {
+//     repeated SymbolLine yDat = 1;
+// }
 
 // SymbolBlock3X5 - SymbolBlock 3X5
 message SymbolBlock3X5 {
@@ -82,11 +82,18 @@ message SymbolBlock3X5 {
     int32 dat2_4 = 15;
 }
 
+// SymbolBlock - 
+message SymbolBlock {
+    oneof block {
+        SymbolBlock3X5 sb3x5 = 1;
+    }
+}
+
 // StaticCascadingRandomResult3X5 - static cascading random result for symbolblock 3X5
 message StaticCascadingRandomResult3X5 {
     int32 reelsIndex = 1;
     int32 downNums = 2;
-    SymbolBlock3X5 sb3x5 = 3;
+    SymbolBlock symbolblock = 3;
 }
 
 // RandomResult - common random result
@@ -179,9 +186,7 @@ message SpinResult {
     int32 realFGNums = 11;
 
     // symbolblock - symbol block
-    oneof symbolblock {
-        SymbolBlock3X5 sb3x5 = 100;
-    }
+    SymbolBlock symbolblock = 100;
 
     // exDat - extend data
     google.protobuf.Any exDat = 1000;
@@ -229,9 +234,7 @@ message BaseCascadingInfo {
     int64 turnWin = 5;    
     CASCADINGFREESTATE freeState = 6;
 
-    oneof symbolblock {
-        SymbolBlock3X5 sb3x5 = 100;
-    }    
+    SymbolBlock symbolblock = 100;
 }
 
 // BaseFGInfo - basic free game data
@@ -266,9 +269,7 @@ message UserGameModInfo {
     RespinHistoryList lstHistory = 5;
     BaseFreeInfo freeInfo = 6;
 
-    oneof symbolblock {
-        SymbolBlock3X5 sb3x5 = 100;
-    }
+    SymbolBlock symbolblock = 100;
 
     google.protobuf.Any exDat = 1000;
 }

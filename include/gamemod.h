@@ -39,6 +39,13 @@ class GameMod {
     return ::natashapb::OK;
   }
 
+  // updGameResult -
+  virtual ::natashapb::CODE updGameResult(::natashapb::UserGameModInfo* pUser,
+                                          MoneyType realbet,
+                                          MoneyType realwin) {
+    return ::natashapb::OK;
+  }
+
  protected:
   GameLogic& m_logic;
 };

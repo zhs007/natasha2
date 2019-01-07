@@ -86,7 +86,7 @@ class TLODBaseGame : public SlotsGameMod {
 
     // First check free
     ::natashapb::GameResultInfo gri;
-    TLODCountScatter(gri, pRandomResult->retstaticcascading3x5().sb3x5(),
+    TLODCountScatter(gri, pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(),
                      m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
@@ -114,7 +114,7 @@ class TLODBaseGame : public SlotsGameMod {
 
     // check all line payout
     TLODCountAllLine(*pSpinResult,
-                     pRandomResult->retstaticcascading3x5().sb3x5(), m_lines,
+                     pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(), m_lines,
                      m_paytables, pGameCtrl->spin().bet());
 
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums());

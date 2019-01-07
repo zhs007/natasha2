@@ -38,18 +38,16 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[26];
+  static const ::google::protobuf::internal::ParseTable schema[25];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
-void InitDefaultsSymbolLineImpl();
-void InitDefaultsSymbolLine();
-void InitDefaultsSymbolBlockImpl();
-void InitDefaultsSymbolBlock();
 void InitDefaultsSymbolBlock3X5Impl();
 void InitDefaultsSymbolBlock3X5();
+void InitDefaultsSymbolBlockImpl();
+void InitDefaultsSymbolBlock();
 void InitDefaultsStaticCascadingRandomResult3X5Impl();
 void InitDefaultsStaticCascadingRandomResult3X5();
 void InitDefaultsRandomResultImpl();
@@ -97,9 +95,8 @@ void InitDefaultsStartFreeGame();
 void InitDefaultsStartGameModImpl();
 void InitDefaultsStartGameMod();
 inline void InitDefaults() {
-  InitDefaultsSymbolLine();
-  InitDefaultsSymbolBlock();
   InitDefaultsSymbolBlock3X5();
+  InitDefaultsSymbolBlock();
   InitDefaultsStaticCascadingRandomResult3X5();
   InitDefaultsRandomResult();
   InitDefaultsPosition2D();
@@ -195,9 +192,6 @@ extern SymbolBlockDefaultTypeInternal _SymbolBlock_default_instance_;
 class SymbolBlock3X5;
 class SymbolBlock3X5DefaultTypeInternal;
 extern SymbolBlock3X5DefaultTypeInternal _SymbolBlock3X5_default_instance_;
-class SymbolLine;
-class SymbolLineDefaultTypeInternal;
-extern SymbolLineDefaultTypeInternal _SymbolLine_default_instance_;
 class UserGameLogicInfo;
 class UserGameLogicInfoDefaultTypeInternal;
 extern UserGameLogicInfoDefaultTypeInternal _UserGameLogicInfo_default_instance_;
@@ -230,7 +224,6 @@ template<> ::natashapb::StartGameMod* Arena::Create< ::natashapb::StartGameMod>(
 template<> ::natashapb::StaticCascadingRandomResult3X5* Arena::Create< ::natashapb::StaticCascadingRandomResult3X5>(Arena*);
 template<> ::natashapb::SymbolBlock* Arena::Create< ::natashapb::SymbolBlock>(Arena*);
 template<> ::natashapb::SymbolBlock3X5* Arena::Create< ::natashapb::SymbolBlock3X5>(Arena*);
-template<> ::natashapb::SymbolLine* Arena::Create< ::natashapb::SymbolLine>(Arena*);
 template<> ::natashapb::UserGameLogicInfo* Arena::Create< ::natashapb::UserGameLogicInfo>(Arena*);
 template<> ::natashapb::UserGameModInfo* Arena::Create< ::natashapb::UserGameModInfo>(Arena*);
 }  // namespace protobuf
@@ -347,225 +340,6 @@ inline bool CASCADINGFREESTATE_Parse(
 }
 // ===================================================================
 
-class SymbolLine : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolLine) */ {
- public:
-  SymbolLine();
-  virtual ~SymbolLine();
-
-  SymbolLine(const SymbolLine& from);
-
-  inline SymbolLine& operator=(const SymbolLine& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  SymbolLine(SymbolLine&& from) noexcept
-    : SymbolLine() {
-    *this = ::std::move(from);
-  }
-
-  inline SymbolLine& operator=(SymbolLine&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SymbolLine& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SymbolLine* internal_default_instance() {
-    return reinterpret_cast<const SymbolLine*>(
-               &_SymbolLine_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    0;
-
-  void Swap(SymbolLine* other);
-  friend void swap(SymbolLine& a, SymbolLine& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline SymbolLine* New() const PROTOBUF_FINAL {
-    return ::google::protobuf::Arena::Create<SymbolLine>(NULL);
-  }
-
-  SymbolLine* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
-    return ::google::protobuf::Arena::Create<SymbolLine>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const SymbolLine& from);
-  void MergeFrom(const SymbolLine& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(SymbolLine* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated int32 xDat = 1;
-  int xdat_size() const;
-  void clear_xdat();
-  static const int kXDatFieldNumber = 1;
-  ::google::protobuf::int32 xdat(int index) const;
-  void set_xdat(int index, ::google::protobuf::int32 value);
-  void add_xdat(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      xdat() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_xdat();
-
-  // @@protoc_insertion_point(class_scope:natashapb.SymbolLine)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > xdat_;
-  mutable int _xdat_cached_byte_size_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_base_2eproto::TableStruct;
-  friend void ::protobuf_base_2eproto::InitDefaultsSymbolLineImpl();
-};
-// -------------------------------------------------------------------
-
-class SymbolBlock : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolBlock) */ {
- public:
-  SymbolBlock();
-  virtual ~SymbolBlock();
-
-  SymbolBlock(const SymbolBlock& from);
-
-  inline SymbolBlock& operator=(const SymbolBlock& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  SymbolBlock(SymbolBlock&& from) noexcept
-    : SymbolBlock() {
-    *this = ::std::move(from);
-  }
-
-  inline SymbolBlock& operator=(SymbolBlock&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SymbolBlock& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SymbolBlock* internal_default_instance() {
-    return reinterpret_cast<const SymbolBlock*>(
-               &_SymbolBlock_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
-
-  void Swap(SymbolBlock* other);
-  friend void swap(SymbolBlock& a, SymbolBlock& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline SymbolBlock* New() const PROTOBUF_FINAL {
-    return ::google::protobuf::Arena::Create<SymbolBlock>(NULL);
-  }
-
-  SymbolBlock* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
-    return ::google::protobuf::Arena::Create<SymbolBlock>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const SymbolBlock& from);
-  void MergeFrom(const SymbolBlock& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(SymbolBlock* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .natashapb.SymbolLine yDat = 1;
-  int ydat_size() const;
-  void clear_ydat();
-  static const int kYDatFieldNumber = 1;
-  ::natashapb::SymbolLine* mutable_ydat(int index);
-  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >*
-      mutable_ydat();
-  const ::natashapb::SymbolLine& ydat(int index) const;
-  ::natashapb::SymbolLine* add_ydat();
-  const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >&
-      ydat() const;
-
-  // @@protoc_insertion_point(class_scope:natashapb.SymbolBlock)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine > ydat_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_base_2eproto::TableStruct;
-  friend void ::protobuf_base_2eproto::InitDefaultsSymbolBlockImpl();
-};
-// -------------------------------------------------------------------
-
 class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolBlock3X5) */ {
  public:
   SymbolBlock3X5();
@@ -601,7 +375,7 @@ class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_
                &_SymbolBlock3X5_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    0;
 
   void Swap(SymbolBlock3X5* other);
   friend void swap(SymbolBlock3X5& a, SymbolBlock3X5& b) {
@@ -767,6 +541,128 @@ class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_
 };
 // -------------------------------------------------------------------
 
+class SymbolBlock : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolBlock) */ {
+ public:
+  SymbolBlock();
+  virtual ~SymbolBlock();
+
+  SymbolBlock(const SymbolBlock& from);
+
+  inline SymbolBlock& operator=(const SymbolBlock& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SymbolBlock(SymbolBlock&& from) noexcept
+    : SymbolBlock() {
+    *this = ::std::move(from);
+  }
+
+  inline SymbolBlock& operator=(SymbolBlock&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SymbolBlock& default_instance();
+
+  enum BlockCase {
+    kSb3X5 = 1,
+    BLOCK_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SymbolBlock* internal_default_instance() {
+    return reinterpret_cast<const SymbolBlock*>(
+               &_SymbolBlock_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
+
+  void Swap(SymbolBlock* other);
+  friend void swap(SymbolBlock& a, SymbolBlock& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SymbolBlock* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolBlock>(NULL);
+  }
+
+  SymbolBlock* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolBlock>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SymbolBlock& from);
+  void MergeFrom(const SymbolBlock& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SymbolBlock* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .natashapb.SymbolBlock3X5 sb3x5 = 1;
+  bool has_sb3x5() const;
+  void clear_sb3x5();
+  static const int kSb3X5FieldNumber = 1;
+  const ::natashapb::SymbolBlock3X5& sb3x5() const;
+  ::natashapb::SymbolBlock3X5* release_sb3x5();
+  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
+  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
+
+  BlockCase block_case() const;
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolBlock)
+ private:
+  void set_has_sb3x5();
+
+  inline bool has_block() const;
+  void clear_block();
+  inline void clear_has_block();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  union BlockUnion {
+    BlockUnion() {}
+    ::natashapb::SymbolBlock3X5* sb3x5_;
+  } block_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsSymbolBlockImpl();
+};
+// -------------------------------------------------------------------
+
 class StaticCascadingRandomResult3X5 : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingRandomResult3X5) */ {
  public:
   StaticCascadingRandomResult3X5();
@@ -802,7 +698,7 @@ class StaticCascadingRandomResult3X5 : public ::google::protobuf::Message /* @@p
                &_StaticCascadingRandomResult3X5_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    2;
 
   void Swap(StaticCascadingRandomResult3X5* other);
   friend void swap(StaticCascadingRandomResult3X5& a, StaticCascadingRandomResult3X5& b) {
@@ -853,14 +749,14 @@ class StaticCascadingRandomResult3X5 : public ::google::protobuf::Message /* @@p
 
   // accessors -------------------------------------------------------
 
-  // .natashapb.SymbolBlock3X5 sb3x5 = 3;
-  bool has_sb3x5() const;
-  void clear_sb3x5();
-  static const int kSb3X5FieldNumber = 3;
-  const ::natashapb::SymbolBlock3X5& sb3x5() const;
-  ::natashapb::SymbolBlock3X5* release_sb3x5();
-  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
-  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
+  // .natashapb.SymbolBlock symbolblock = 3;
+  bool has_symbolblock() const;
+  void clear_symbolblock();
+  static const int kSymbolblockFieldNumber = 3;
+  const ::natashapb::SymbolBlock& symbolblock() const;
+  ::natashapb::SymbolBlock* release_symbolblock();
+  ::natashapb::SymbolBlock* mutable_symbolblock();
+  void set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock);
 
   // int32 reelsIndex = 1;
   void clear_reelsindex();
@@ -878,7 +774,7 @@ class StaticCascadingRandomResult3X5 : public ::google::protobuf::Message /* @@p
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::natashapb::SymbolBlock3X5* sb3x5_;
+  ::natashapb::SymbolBlock* symbolblock_;
   ::google::protobuf::int32 reelsindex_;
   ::google::protobuf::int32 downnums_;
   mutable int _cached_size_;
@@ -927,7 +823,7 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_RandomResult_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    3;
 
   void Swap(RandomResult* other);
   friend void swap(RandomResult& a, RandomResult& b) {
@@ -1054,7 +950,7 @@ class Position2D : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_Position2D_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    4;
 
   void Swap(Position2D* other);
   friend void swap(Position2D& a, Position2D& b) {
@@ -1164,7 +1060,7 @@ class GameResultInfo : public ::google::protobuf::Message /* @@protoc_insertion_
                &_GameResultInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    5;
 
   void Swap(GameResultInfo* other);
   friend void swap(GameResultInfo& a, GameResultInfo& b) {
@@ -1333,18 +1229,13 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   static const ::google::protobuf::Descriptor* descriptor();
   static const SpinResult& default_instance();
 
-  enum SymbolblockCase {
-    kSb3X5 = 100,
-    SYMBOLBLOCK_NOT_SET = 0,
-  };
-
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const SpinResult* internal_default_instance() {
     return reinterpret_cast<const SpinResult*>(
                &_SpinResult_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    6;
 
   void Swap(SpinResult* other);
   friend void swap(SpinResult& a, SpinResult& b) {
@@ -1406,6 +1297,15 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::natashapb::GameResultInfo* add_lstgri();
   const ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo >&
       lstgri() const;
+
+  // .natashapb.SymbolBlock symbolblock = 100;
+  bool has_symbolblock() const;
+  void clear_symbolblock();
+  static const int kSymbolblockFieldNumber = 100;
+  const ::natashapb::SymbolBlock& symbolblock() const;
+  ::natashapb::SymbolBlock* release_symbolblock();
+  ::natashapb::SymbolBlock* mutable_symbolblock();
+  void set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock);
 
   // .google.protobuf.Any exDat = 1000;
   bool has_exdat() const;
@@ -1476,26 +1376,12 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::int32 realfgnums() const;
   void set_realfgnums(::google::protobuf::int32 value);
 
-  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
-  bool has_sb3x5() const;
-  void clear_sb3x5();
-  static const int kSb3X5FieldNumber = 100;
-  const ::natashapb::SymbolBlock3X5& sb3x5() const;
-  ::natashapb::SymbolBlock3X5* release_sb3x5();
-  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
-  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
-
-  SymbolblockCase symbolblock_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.SpinResult)
  private:
-  void set_has_sb3x5();
-
-  inline bool has_symbolblock() const;
-  void clear_symbolblock();
-  inline void clear_has_symbolblock();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::natashapb::GameResultInfo > lstgri_;
+  ::natashapb::SymbolBlock* symbolblock_;
   ::google::protobuf::Any* exdat_;
   ::google::protobuf::int64 win_;
   ::google::protobuf::int64 realwin_;
@@ -1507,13 +1393,7 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::int64 awardmul_;
   bool inrespin_;
   ::google::protobuf::int32 realfgnums_;
-  union SymbolblockUnion {
-    SymbolblockUnion() {}
-    ::natashapb::SymbolBlock3X5* sb3x5_;
-  } symbolblock_;
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _oneof_case_[1];
-
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsSpinResultImpl();
 };
@@ -1554,7 +1434,7 @@ class GameCtrlID : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_GameCtrlID_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    7;
 
   void Swap(GameCtrlID* other);
   friend void swap(GameCtrlID& a, GameCtrlID& b) {
@@ -1672,18 +1552,13 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
   static const ::google::protobuf::Descriptor* descriptor();
   static const BaseCascadingInfo& default_instance();
 
-  enum SymbolblockCase {
-    kSb3X5 = 100,
-    SYMBOLBLOCK_NOT_SET = 0,
-  };
-
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const BaseCascadingInfo* internal_default_instance() {
     return reinterpret_cast<const BaseCascadingInfo*>(
                &_BaseCascadingInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
+    8;
 
   void Swap(BaseCascadingInfo* other);
   friend void swap(BaseCascadingInfo& a, BaseCascadingInfo& b) {
@@ -1734,6 +1609,15 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
+  // .natashapb.SymbolBlock symbolblock = 100;
+  bool has_symbolblock() const;
+  void clear_symbolblock();
+  static const int kSymbolblockFieldNumber = 100;
+  const ::natashapb::SymbolBlock& symbolblock() const;
+  ::natashapb::SymbolBlock* release_symbolblock();
+  ::natashapb::SymbolBlock* mutable_symbolblock();
+  void set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock);
+
   // int64 curBet = 1;
   void clear_curbet();
   static const int kCurBetFieldNumber = 1;
@@ -1770,38 +1654,18 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::CASCADINGFREESTATE freestate() const;
   void set_freestate(::natashapb::CASCADINGFREESTATE value);
 
-  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
-  bool has_sb3x5() const;
-  void clear_sb3x5();
-  static const int kSb3X5FieldNumber = 100;
-  const ::natashapb::SymbolBlock3X5& sb3x5() const;
-  ::natashapb::SymbolBlock3X5* release_sb3x5();
-  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
-  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
-
-  SymbolblockCase symbolblock_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.BaseCascadingInfo)
  private:
-  void set_has_sb3x5();
-
-  inline bool has_symbolblock() const;
-  void clear_symbolblock();
-  inline void clear_has_symbolblock();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::natashapb::SymbolBlock* symbolblock_;
   ::google::protobuf::int64 curbet_;
   ::google::protobuf::int32 curlines_;
   ::google::protobuf::int32 curtimes_;
   ::google::protobuf::int64 turnwin_;
   ::google::protobuf::int32 turnnums_;
   int freestate_;
-  union SymbolblockUnion {
-    SymbolblockUnion() {}
-    ::natashapb::SymbolBlock3X5* sb3x5_;
-  } symbolblock_;
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _oneof_case_[1];
-
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsBaseCascadingInfoImpl();
 };
@@ -1842,7 +1706,7 @@ class BaseFreeInfo : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_BaseFreeInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
+    9;
 
   void Swap(BaseFreeInfo* other);
   friend void swap(BaseFreeInfo& a, BaseFreeInfo& b) {
@@ -1980,7 +1844,7 @@ class RespinHistory : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_RespinHistory_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    10;
 
   void Swap(RespinHistory* other);
   friend void swap(RespinHistory& a, RespinHistory& b) {
@@ -2104,7 +1968,7 @@ class RespinHistoryList : public ::google::protobuf::Message /* @@protoc_inserti
                &_RespinHistoryList_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    11;
 
   void Swap(RespinHistoryList* other);
   friend void swap(RespinHistoryList& a, RespinHistoryList& b) {
@@ -2207,18 +2071,13 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   static const ::google::protobuf::Descriptor* descriptor();
   static const UserGameModInfo& default_instance();
 
-  enum SymbolblockCase {
-    kSb3X5 = 100,
-    SYMBOLBLOCK_NOT_SET = 0,
-  };
-
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const UserGameModInfo* internal_default_instance() {
     return reinterpret_cast<const UserGameModInfo*>(
                &_UserGameModInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    12;
 
   void Swap(UserGameModInfo* other);
   friend void swap(UserGameModInfo& a, UserGameModInfo& b) {
@@ -2323,6 +2182,15 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::natashapb::BaseFreeInfo* mutable_freeinfo();
   void set_allocated_freeinfo(::natashapb::BaseFreeInfo* freeinfo);
 
+  // .natashapb.SymbolBlock symbolblock = 100;
+  bool has_symbolblock() const;
+  void clear_symbolblock();
+  static const int kSymbolblockFieldNumber = 100;
+  const ::natashapb::SymbolBlock& symbolblock() const;
+  ::natashapb::SymbolBlock* release_symbolblock();
+  ::natashapb::SymbolBlock* mutable_symbolblock();
+  void set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock);
+
   // .google.protobuf.Any exDat = 1000;
   bool has_exdat() const;
   void clear_exdat();
@@ -2332,23 +2200,8 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::Any* mutable_exdat();
   void set_allocated_exdat(::google::protobuf::Any* exdat);
 
-  // .natashapb.SymbolBlock3X5 sb3x5 = 100;
-  bool has_sb3x5() const;
-  void clear_sb3x5();
-  static const int kSb3X5FieldNumber = 100;
-  const ::natashapb::SymbolBlock3X5& sb3x5() const;
-  ::natashapb::SymbolBlock3X5* release_sb3x5();
-  ::natashapb::SymbolBlock3X5* mutable_sb3x5();
-  void set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5);
-
-  SymbolblockCase symbolblock_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.UserGameModInfo)
  private:
-  void set_has_sb3x5();
-
-  inline bool has_symbolblock() const;
-  void clear_symbolblock();
-  inline void clear_has_symbolblock();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::RandomResult* randomresult_;
@@ -2357,14 +2210,9 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::natashapb::BaseCascadingInfo* cascadinginfo_;
   ::natashapb::RespinHistoryList* lsthistory_;
   ::natashapb::BaseFreeInfo* freeinfo_;
+  ::natashapb::SymbolBlock* symbolblock_;
   ::google::protobuf::Any* exdat_;
-  union SymbolblockUnion {
-    SymbolblockUnion() {}
-    ::natashapb::SymbolBlock3X5* sb3x5_;
-  } symbolblock_;
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _oneof_case_[1];
-
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsUserGameModInfoImpl();
 };
@@ -2405,7 +2253,7 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
                &_UserGameLogicInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    13;
 
   void Swap(UserGameLogicInfo* other);
   friend void swap(UserGameLogicInfo& a, UserGameLogicInfo& b) {
@@ -2575,7 +2423,7 @@ class GameCtrlSpin : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_GameCtrlSpin_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    14;
 
   void Swap(GameCtrlSpin* other);
   friend void swap(GameCtrlSpin& a, GameCtrlSpin& b) {
@@ -2706,7 +2554,7 @@ class GameCtrlSelectFree : public ::google::protobuf::Message /* @@protoc_insert
                &_GameCtrlSelectFree_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    15;
 
   void Swap(GameCtrlSelectFree* other);
   friend void swap(GameCtrlSelectFree& a, GameCtrlSelectFree& b) {
@@ -2809,7 +2657,7 @@ class GameCtrlFreeSpin : public ::google::protobuf::Message /* @@protoc_insertio
                &_GameCtrlFreeSpin_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    16;
 
   void Swap(GameCtrlFreeSpin* other);
   friend void swap(GameCtrlFreeSpin& a, GameCtrlFreeSpin& b) {
@@ -2933,7 +2781,7 @@ class GameCtrlBonus : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_GameCtrlBonus_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    17;
 
   void Swap(GameCtrlBonus* other);
   friend void swap(GameCtrlBonus& a, GameCtrlBonus& b) {
@@ -3036,7 +2884,7 @@ class GameCtrlJackpot : public ::google::protobuf::Message /* @@protoc_insertion
                &_GameCtrlJackpot_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    18;
 
   void Swap(GameCtrlJackpot* other);
   friend void swap(GameCtrlJackpot& a, GameCtrlJackpot& b) {
@@ -3139,7 +2987,7 @@ class GameCtrlCommonJackpot : public ::google::protobuf::Message /* @@protoc_ins
                &_GameCtrlCommonJackpot_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    19;
 
   void Swap(GameCtrlCommonJackpot* other);
   friend void swap(GameCtrlCommonJackpot& a, GameCtrlCommonJackpot& b) {
@@ -3242,7 +3090,7 @@ class GameCtrlAwardSpin : public ::google::protobuf::Message /* @@protoc_inserti
                &_GameCtrlAwardSpin_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    20;
 
   void Swap(GameCtrlAwardSpin* other);
   friend void swap(GameCtrlAwardSpin& a, GameCtrlAwardSpin& b) {
@@ -3366,7 +3214,7 @@ class GameCtrlDebug : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_GameCtrlDebug_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    21;
 
   void Swap(GameCtrlDebug* other);
   friend void swap(GameCtrlDebug& a, GameCtrlDebug& b) {
@@ -3494,7 +3342,7 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_GameCtrl_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    22;
 
   void Swap(GameCtrl* other);
   friend void swap(GameCtrl& a, GameCtrl& b) {
@@ -3697,7 +3545,7 @@ class StartFreeGame : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_StartFreeGame_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    23;
 
   void Swap(StartFreeGame* other);
   friend void swap(StartFreeGame& a, StartFreeGame& b) {
@@ -3833,7 +3681,7 @@ class StartGameMod : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_StartGameMod_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    24;
 
   void Swap(StartGameMod* other);
   friend void swap(StartGameMod& a, StartGameMod& b) {
@@ -3942,74 +3790,6 @@ class StartGameMod : public ::google::protobuf::Message /* @@protoc_insertion_po
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// SymbolLine
-
-// repeated int32 xDat = 1;
-inline int SymbolLine::xdat_size() const {
-  return xdat_.size();
-}
-inline void SymbolLine::clear_xdat() {
-  xdat_.Clear();
-}
-inline ::google::protobuf::int32 SymbolLine::xdat(int index) const {
-  // @@protoc_insertion_point(field_get:natashapb.SymbolLine.xDat)
-  return xdat_.Get(index);
-}
-inline void SymbolLine::set_xdat(int index, ::google::protobuf::int32 value) {
-  xdat_.Set(index, value);
-  // @@protoc_insertion_point(field_set:natashapb.SymbolLine.xDat)
-}
-inline void SymbolLine::add_xdat(::google::protobuf::int32 value) {
-  xdat_.Add(value);
-  // @@protoc_insertion_point(field_add:natashapb.SymbolLine.xDat)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-SymbolLine::xdat() const {
-  // @@protoc_insertion_point(field_list:natashapb.SymbolLine.xDat)
-  return xdat_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-SymbolLine::mutable_xdat() {
-  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolLine.xDat)
-  return &xdat_;
-}
-
-// -------------------------------------------------------------------
-
-// SymbolBlock
-
-// repeated .natashapb.SymbolLine yDat = 1;
-inline int SymbolBlock::ydat_size() const {
-  return ydat_.size();
-}
-inline void SymbolBlock::clear_ydat() {
-  ydat_.Clear();
-}
-inline ::natashapb::SymbolLine* SymbolBlock::mutable_ydat(int index) {
-  // @@protoc_insertion_point(field_mutable:natashapb.SymbolBlock.yDat)
-  return ydat_.Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >*
-SymbolBlock::mutable_ydat() {
-  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolBlock.yDat)
-  return &ydat_;
-}
-inline const ::natashapb::SymbolLine& SymbolBlock::ydat(int index) const {
-  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock.yDat)
-  return ydat_.Get(index);
-}
-inline ::natashapb::SymbolLine* SymbolBlock::add_ydat() {
-  // @@protoc_insertion_point(field_add:natashapb.SymbolBlock.yDat)
-  return ydat_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolLine >&
-SymbolBlock::ydat() const {
-  // @@protoc_insertion_point(field_list:natashapb.SymbolBlock.yDat)
-  return ydat_;
-}
-
-// -------------------------------------------------------------------
-
 // SymbolBlock3X5
 
 // int32 dat0_0 = 1;
@@ -4224,6 +4004,60 @@ inline void SymbolBlock3X5::set_dat2_4(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// SymbolBlock
+
+// .natashapb.SymbolBlock3X5 sb3x5 = 1;
+inline bool SymbolBlock::has_sb3x5() const {
+  return block_case() == kSb3X5;
+}
+inline void SymbolBlock::set_has_sb3x5() {
+  _oneof_case_[0] = kSb3X5;
+}
+inline void SymbolBlock::clear_sb3x5() {
+  if (has_sb3x5()) {
+    delete block_.sb3x5_;
+    clear_has_block();
+  }
+}
+inline ::natashapb::SymbolBlock3X5* SymbolBlock::release_sb3x5() {
+  // @@protoc_insertion_point(field_release:natashapb.SymbolBlock.sb3x5)
+  if (has_sb3x5()) {
+    clear_has_block();
+      ::natashapb::SymbolBlock3X5* temp = block_.sb3x5_;
+    block_.sb3x5_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline const ::natashapb::SymbolBlock3X5& SymbolBlock::sb3x5() const {
+  // @@protoc_insertion_point(field_get:natashapb.SymbolBlock.sb3x5)
+  return has_sb3x5()
+      ? *block_.sb3x5_
+      : *reinterpret_cast< ::natashapb::SymbolBlock3X5*>(&::natashapb::_SymbolBlock3X5_default_instance_);
+}
+inline ::natashapb::SymbolBlock3X5* SymbolBlock::mutable_sb3x5() {
+  if (!has_sb3x5()) {
+    clear_block();
+    set_has_sb3x5();
+    block_.sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.SymbolBlock.sb3x5)
+  return block_.sb3x5_;
+}
+
+inline bool SymbolBlock::has_block() const {
+  return block_case() != BLOCK_NOT_SET;
+}
+inline void SymbolBlock::clear_has_block() {
+  _oneof_case_[0] = BLOCK_NOT_SET;
+}
+inline SymbolBlock::BlockCase SymbolBlock::block_case() const {
+  return SymbolBlock::BlockCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
 // StaticCascadingRandomResult3X5
 
 // int32 reelsIndex = 1;
@@ -4254,55 +4088,55 @@ inline void StaticCascadingRandomResult3X5::set_downnums(::google::protobuf::int
   // @@protoc_insertion_point(field_set:natashapb.StaticCascadingRandomResult3X5.downNums)
 }
 
-// .natashapb.SymbolBlock3X5 sb3x5 = 3;
-inline bool StaticCascadingRandomResult3X5::has_sb3x5() const {
-  return this != internal_default_instance() && sb3x5_ != NULL;
+// .natashapb.SymbolBlock symbolblock = 3;
+inline bool StaticCascadingRandomResult3X5::has_symbolblock() const {
+  return this != internal_default_instance() && symbolblock_ != NULL;
 }
-inline void StaticCascadingRandomResult3X5::clear_sb3x5() {
-  if (GetArenaNoVirtual() == NULL && sb3x5_ != NULL) {
-    delete sb3x5_;
+inline void StaticCascadingRandomResult3X5::clear_symbolblock() {
+  if (GetArenaNoVirtual() == NULL && symbolblock_ != NULL) {
+    delete symbolblock_;
   }
-  sb3x5_ = NULL;
+  symbolblock_ = NULL;
 }
-inline const ::natashapb::SymbolBlock3X5& StaticCascadingRandomResult3X5::sb3x5() const {
-  const ::natashapb::SymbolBlock3X5* p = sb3x5_;
-  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingRandomResult3X5.sb3x5)
-  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::SymbolBlock3X5*>(
-      &::natashapb::_SymbolBlock3X5_default_instance_);
+inline const ::natashapb::SymbolBlock& StaticCascadingRandomResult3X5::symbolblock() const {
+  const ::natashapb::SymbolBlock* p = symbolblock_;
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingRandomResult3X5.symbolblock)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::SymbolBlock*>(
+      &::natashapb::_SymbolBlock_default_instance_);
 }
-inline ::natashapb::SymbolBlock3X5* StaticCascadingRandomResult3X5::release_sb3x5() {
-  // @@protoc_insertion_point(field_release:natashapb.StaticCascadingRandomResult3X5.sb3x5)
+inline ::natashapb::SymbolBlock* StaticCascadingRandomResult3X5::release_symbolblock() {
+  // @@protoc_insertion_point(field_release:natashapb.StaticCascadingRandomResult3X5.symbolblock)
   
-  ::natashapb::SymbolBlock3X5* temp = sb3x5_;
-  sb3x5_ = NULL;
+  ::natashapb::SymbolBlock* temp = symbolblock_;
+  symbolblock_ = NULL;
   return temp;
 }
-inline ::natashapb::SymbolBlock3X5* StaticCascadingRandomResult3X5::mutable_sb3x5() {
+inline ::natashapb::SymbolBlock* StaticCascadingRandomResult3X5::mutable_symbolblock() {
   
-  if (sb3x5_ == NULL) {
-    sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+  if (symbolblock_ == NULL) {
+    symbolblock_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natashapb.StaticCascadingRandomResult3X5.sb3x5)
-  return sb3x5_;
+  // @@protoc_insertion_point(field_mutable:natashapb.StaticCascadingRandomResult3X5.symbolblock)
+  return symbolblock_;
 }
-inline void StaticCascadingRandomResult3X5::set_allocated_sb3x5(::natashapb::SymbolBlock3X5* sb3x5) {
+inline void StaticCascadingRandomResult3X5::set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete sb3x5_;
+    delete symbolblock_;
   }
-  if (sb3x5) {
+  if (symbolblock) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      sb3x5 = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, sb3x5, submessage_arena);
+      symbolblock = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, symbolblock, submessage_arena);
     }
     
   } else {
     
   }
-  sb3x5_ = sb3x5;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.StaticCascadingRandomResult3X5.sb3x5)
+  symbolblock_ = symbolblock;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.StaticCascadingRandomResult3X5.symbolblock)
 }
 
 // -------------------------------------------------------------------
@@ -4803,45 +4637,55 @@ inline void SpinResult::set_realfgnums(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:natashapb.SpinResult.realFGNums)
 }
 
-// .natashapb.SymbolBlock3X5 sb3x5 = 100;
-inline bool SpinResult::has_sb3x5() const {
-  return symbolblock_case() == kSb3X5;
+// .natashapb.SymbolBlock symbolblock = 100;
+inline bool SpinResult::has_symbolblock() const {
+  return this != internal_default_instance() && symbolblock_ != NULL;
 }
-inline void SpinResult::set_has_sb3x5() {
-  _oneof_case_[0] = kSb3X5;
-}
-inline void SpinResult::clear_sb3x5() {
-  if (has_sb3x5()) {
-    delete symbolblock_.sb3x5_;
-    clear_has_symbolblock();
+inline void SpinResult::clear_symbolblock() {
+  if (GetArenaNoVirtual() == NULL && symbolblock_ != NULL) {
+    delete symbolblock_;
   }
+  symbolblock_ = NULL;
 }
-inline ::natashapb::SymbolBlock3X5* SpinResult::release_sb3x5() {
-  // @@protoc_insertion_point(field_release:natashapb.SpinResult.sb3x5)
-  if (has_sb3x5()) {
-    clear_has_symbolblock();
-      ::natashapb::SymbolBlock3X5* temp = symbolblock_.sb3x5_;
-    symbolblock_.sb3x5_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
+inline const ::natashapb::SymbolBlock& SpinResult::symbolblock() const {
+  const ::natashapb::SymbolBlock* p = symbolblock_;
+  // @@protoc_insertion_point(field_get:natashapb.SpinResult.symbolblock)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::SymbolBlock*>(
+      &::natashapb::_SymbolBlock_default_instance_);
 }
-inline const ::natashapb::SymbolBlock3X5& SpinResult::sb3x5() const {
-  // @@protoc_insertion_point(field_get:natashapb.SpinResult.sb3x5)
-  return has_sb3x5()
-      ? *symbolblock_.sb3x5_
-      : *reinterpret_cast< ::natashapb::SymbolBlock3X5*>(&::natashapb::_SymbolBlock3X5_default_instance_);
+inline ::natashapb::SymbolBlock* SpinResult::release_symbolblock() {
+  // @@protoc_insertion_point(field_release:natashapb.SpinResult.symbolblock)
+  
+  ::natashapb::SymbolBlock* temp = symbolblock_;
+  symbolblock_ = NULL;
+  return temp;
 }
-inline ::natashapb::SymbolBlock3X5* SpinResult::mutable_sb3x5() {
-  if (!has_sb3x5()) {
-    clear_symbolblock();
-    set_has_sb3x5();
-    symbolblock_.sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+inline ::natashapb::SymbolBlock* SpinResult::mutable_symbolblock() {
+  
+  if (symbolblock_ == NULL) {
+    symbolblock_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natashapb.SpinResult.sb3x5)
-  return symbolblock_.sb3x5_;
+  // @@protoc_insertion_point(field_mutable:natashapb.SpinResult.symbolblock)
+  return symbolblock_;
+}
+inline void SpinResult::set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete symbolblock_;
+  }
+  if (symbolblock) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      symbolblock = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, symbolblock, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  symbolblock_ = symbolblock;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.SpinResult.symbolblock)
 }
 
 // .google.protobuf.Any exDat = 1000;
@@ -4889,15 +4733,6 @@ inline void SpinResult::set_allocated_exdat(::google::protobuf::Any* exdat) {
   // @@protoc_insertion_point(field_set_allocated:natashapb.SpinResult.exDat)
 }
 
-inline bool SpinResult::has_symbolblock() const {
-  return symbolblock_case() != SYMBOLBLOCK_NOT_SET;
-}
-inline void SpinResult::clear_has_symbolblock() {
-  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
-}
-inline SpinResult::SymbolblockCase SpinResult::symbolblock_case() const {
-  return SpinResult::SymbolblockCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // GameCtrlID
@@ -5046,56 +4881,57 @@ inline void BaseCascadingInfo::set_freestate(::natashapb::CASCADINGFREESTATE val
   // @@protoc_insertion_point(field_set:natashapb.BaseCascadingInfo.freeState)
 }
 
-// .natashapb.SymbolBlock3X5 sb3x5 = 100;
-inline bool BaseCascadingInfo::has_sb3x5() const {
-  return symbolblock_case() == kSb3X5;
+// .natashapb.SymbolBlock symbolblock = 100;
+inline bool BaseCascadingInfo::has_symbolblock() const {
+  return this != internal_default_instance() && symbolblock_ != NULL;
 }
-inline void BaseCascadingInfo::set_has_sb3x5() {
-  _oneof_case_[0] = kSb3X5;
-}
-inline void BaseCascadingInfo::clear_sb3x5() {
-  if (has_sb3x5()) {
-    delete symbolblock_.sb3x5_;
-    clear_has_symbolblock();
+inline void BaseCascadingInfo::clear_symbolblock() {
+  if (GetArenaNoVirtual() == NULL && symbolblock_ != NULL) {
+    delete symbolblock_;
   }
+  symbolblock_ = NULL;
 }
-inline ::natashapb::SymbolBlock3X5* BaseCascadingInfo::release_sb3x5() {
-  // @@protoc_insertion_point(field_release:natashapb.BaseCascadingInfo.sb3x5)
-  if (has_sb3x5()) {
-    clear_has_symbolblock();
-      ::natashapb::SymbolBlock3X5* temp = symbolblock_.sb3x5_;
-    symbolblock_.sb3x5_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
+inline const ::natashapb::SymbolBlock& BaseCascadingInfo::symbolblock() const {
+  const ::natashapb::SymbolBlock* p = symbolblock_;
+  // @@protoc_insertion_point(field_get:natashapb.BaseCascadingInfo.symbolblock)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::SymbolBlock*>(
+      &::natashapb::_SymbolBlock_default_instance_);
 }
-inline const ::natashapb::SymbolBlock3X5& BaseCascadingInfo::sb3x5() const {
-  // @@protoc_insertion_point(field_get:natashapb.BaseCascadingInfo.sb3x5)
-  return has_sb3x5()
-      ? *symbolblock_.sb3x5_
-      : *reinterpret_cast< ::natashapb::SymbolBlock3X5*>(&::natashapb::_SymbolBlock3X5_default_instance_);
+inline ::natashapb::SymbolBlock* BaseCascadingInfo::release_symbolblock() {
+  // @@protoc_insertion_point(field_release:natashapb.BaseCascadingInfo.symbolblock)
+  
+  ::natashapb::SymbolBlock* temp = symbolblock_;
+  symbolblock_ = NULL;
+  return temp;
 }
-inline ::natashapb::SymbolBlock3X5* BaseCascadingInfo::mutable_sb3x5() {
-  if (!has_sb3x5()) {
-    clear_symbolblock();
-    set_has_sb3x5();
-    symbolblock_.sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+inline ::natashapb::SymbolBlock* BaseCascadingInfo::mutable_symbolblock() {
+  
+  if (symbolblock_ == NULL) {
+    symbolblock_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natashapb.BaseCascadingInfo.sb3x5)
-  return symbolblock_.sb3x5_;
+  // @@protoc_insertion_point(field_mutable:natashapb.BaseCascadingInfo.symbolblock)
+  return symbolblock_;
+}
+inline void BaseCascadingInfo::set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete symbolblock_;
+  }
+  if (symbolblock) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      symbolblock = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, symbolblock, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  symbolblock_ = symbolblock;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.BaseCascadingInfo.symbolblock)
 }
 
-inline bool BaseCascadingInfo::has_symbolblock() const {
-  return symbolblock_case() != SYMBOLBLOCK_NOT_SET;
-}
-inline void BaseCascadingInfo::clear_has_symbolblock() {
-  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
-}
-inline BaseCascadingInfo::SymbolblockCase BaseCascadingInfo::symbolblock_case() const {
-  return BaseCascadingInfo::SymbolblockCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // BaseFreeInfo
@@ -5588,45 +5424,55 @@ inline void UserGameModInfo::set_allocated_freeinfo(::natashapb::BaseFreeInfo* f
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.freeInfo)
 }
 
-// .natashapb.SymbolBlock3X5 sb3x5 = 100;
-inline bool UserGameModInfo::has_sb3x5() const {
-  return symbolblock_case() == kSb3X5;
+// .natashapb.SymbolBlock symbolblock = 100;
+inline bool UserGameModInfo::has_symbolblock() const {
+  return this != internal_default_instance() && symbolblock_ != NULL;
 }
-inline void UserGameModInfo::set_has_sb3x5() {
-  _oneof_case_[0] = kSb3X5;
-}
-inline void UserGameModInfo::clear_sb3x5() {
-  if (has_sb3x5()) {
-    delete symbolblock_.sb3x5_;
-    clear_has_symbolblock();
+inline void UserGameModInfo::clear_symbolblock() {
+  if (GetArenaNoVirtual() == NULL && symbolblock_ != NULL) {
+    delete symbolblock_;
   }
+  symbolblock_ = NULL;
 }
-inline ::natashapb::SymbolBlock3X5* UserGameModInfo::release_sb3x5() {
-  // @@protoc_insertion_point(field_release:natashapb.UserGameModInfo.sb3x5)
-  if (has_sb3x5()) {
-    clear_has_symbolblock();
-      ::natashapb::SymbolBlock3X5* temp = symbolblock_.sb3x5_;
-    symbolblock_.sb3x5_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
+inline const ::natashapb::SymbolBlock& UserGameModInfo::symbolblock() const {
+  const ::natashapb::SymbolBlock* p = symbolblock_;
+  // @@protoc_insertion_point(field_get:natashapb.UserGameModInfo.symbolblock)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::SymbolBlock*>(
+      &::natashapb::_SymbolBlock_default_instance_);
 }
-inline const ::natashapb::SymbolBlock3X5& UserGameModInfo::sb3x5() const {
-  // @@protoc_insertion_point(field_get:natashapb.UserGameModInfo.sb3x5)
-  return has_sb3x5()
-      ? *symbolblock_.sb3x5_
-      : *reinterpret_cast< ::natashapb::SymbolBlock3X5*>(&::natashapb::_SymbolBlock3X5_default_instance_);
+inline ::natashapb::SymbolBlock* UserGameModInfo::release_symbolblock() {
+  // @@protoc_insertion_point(field_release:natashapb.UserGameModInfo.symbolblock)
+  
+  ::natashapb::SymbolBlock* temp = symbolblock_;
+  symbolblock_ = NULL;
+  return temp;
 }
-inline ::natashapb::SymbolBlock3X5* UserGameModInfo::mutable_sb3x5() {
-  if (!has_sb3x5()) {
-    clear_symbolblock();
-    set_has_sb3x5();
-    symbolblock_.sb3x5_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock3X5 >(
+inline ::natashapb::SymbolBlock* UserGameModInfo::mutable_symbolblock() {
+  
+  if (symbolblock_ == NULL) {
+    symbolblock_ = ::google::protobuf::Arena::Create< ::natashapb::SymbolBlock >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natashapb.UserGameModInfo.sb3x5)
-  return symbolblock_.sb3x5_;
+  // @@protoc_insertion_point(field_mutable:natashapb.UserGameModInfo.symbolblock)
+  return symbolblock_;
+}
+inline void UserGameModInfo::set_allocated_symbolblock(::natashapb::SymbolBlock* symbolblock) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete symbolblock_;
+  }
+  if (symbolblock) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      symbolblock = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, symbolblock, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  symbolblock_ = symbolblock;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.symbolblock)
 }
 
 // .google.protobuf.Any exDat = 1000;
@@ -5674,15 +5520,6 @@ inline void UserGameModInfo::set_allocated_exdat(::google::protobuf::Any* exdat)
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.exDat)
 }
 
-inline bool UserGameModInfo::has_symbolblock() const {
-  return symbolblock_case() != SYMBOLBLOCK_NOT_SET;
-}
-inline void UserGameModInfo::clear_has_symbolblock() {
-  _oneof_case_[0] = SYMBOLBLOCK_NOT_SET;
-}
-inline UserGameModInfo::SymbolblockCase UserGameModInfo::symbolblock_case() const {
-  return UserGameModInfo::SymbolblockCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // UserGameLogicInfo
@@ -6958,8 +6795,6 @@ inline StartGameMod::StartParamsCase StartGameMod::startParams_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
