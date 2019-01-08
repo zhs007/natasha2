@@ -93,7 +93,6 @@ class TLODBaseGame : public SlotsGameMod {
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
-
     m_reels.random(pRandomResult, pUser);
 
     return ::natashapb::OK;
@@ -109,11 +108,11 @@ class TLODBaseGame : public SlotsGameMod {
 
     printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 
+    printf("start TLODCountScatter");
     // First check free
     ::natashapb::GameResultInfo gri;
-    TLODCountScatter(
-        gri, pRandomResult->scrr3x5().symbolblock().sb3x5(),
-        m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
+    TLODCountScatter(gri, pRandomResult->scrr3x5().symbolblock().sb3x5(),
+                     m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
       pCurGRI->CopyFrom(gri);
@@ -127,6 +126,8 @@ class TLODBaseGame : public SlotsGameMod {
         pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
         pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
 
+        printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+
         return ::natashapb::OK;
 
       } else if (pUser->cascadinginfo().freestate() ==
@@ -138,25 +139,36 @@ class TLODBaseGame : public SlotsGameMod {
       }
     }
 
-    // check all line payout
-    TLODCountAllLine(
-        *pSpinResult,
-        pRandomResult->scrr3x5().symbolblock().sb3x5(), m_lines,
-        m_paytables, pGameCtrl->spin().bet());
+    printf("end TLODCountScatter");
 
-    pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums());
+    // check all line payout
+    TLODCountAllLine(*pSpinResult,
+                     pRandomResult->scrr3x5().symbolblock().sb3x5(), m_lines,
+                     m_paytables, pGameCtrl->spin().bet());
+
+    printf("end TLODCountAllLine");
+
+    pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 1);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
+
+    printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
     return ::natashapb::OK;
   }
 
-  // procSpinResult - count spin result
+  // procSpinResult - proc spin result
   virtual ::natashapb::CODE procSpinResult(
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
+    assert(pUser != NULL);
+    assert(pGameCtrl != NULL);
+    assert(pSpinResult != NULL);
+    assert(pRandomResult != NULL);
+    assert(pLogicUser != NULL);
+
     // if need start free game
     if (pSpinResult->realfgnums() > 0) {
       ::natashapb::StartGameMod sp;
@@ -172,7 +184,30 @@ class TLODBaseGame : public SlotsGameMod {
     if (pSpinResult->win() > 0) {
       auto gamectrlid = pUser->mutable_gamectrlid();
       if (gamectrlid->baseid() > 0) {
+        return ::natashapb::OK;
       }
+    }
+
+    return ::natashapb::OK;
+  }
+
+  // onSpinEnd - on spin end
+  virtual ::natashapb::CODE onSpinEnd(
+      ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::SpinResult* pSpinResult,
+      ::natashapb::RandomResult* pRandomResult,
+      ::natashapb::UserGameLogicInfo* pLogicUser) {
+    assert(pUser != NULL);
+    assert(pGameCtrl != NULL);
+    assert(pSpinResult != NULL);
+    assert(pRandomResult != NULL);
+    assert(pLogicUser != NULL);
+
+    if (pSpinResult->lstgri_size() > 0) {
+    } else {
+      auto scrr = pRandomResult->mutable_scrr3x5();
+      scrr->set_reelsindex(-1);
     }
 
     return ::natashapb::OK;

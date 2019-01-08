@@ -1181,6 +1181,12 @@ class GameResultInfo : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::int64 prize() const;
   void set_prize(::google::protobuf::int64 value);
 
+  // int32 lineIndex = 9;
+  void clear_lineindex();
+  static const int kLineIndexFieldNumber = 9;
+  ::google::protobuf::int32 lineindex() const;
+  void set_lineindex(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameResultInfo)
  private:
 
@@ -1195,6 +1201,7 @@ class GameResultInfo : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::int64 realwin_;
   ::google::protobuf::int64 mul_;
   ::google::protobuf::int64 prize_;
+  ::google::protobuf::int32 lineindex_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameResultInfoImpl();
@@ -4424,6 +4431,20 @@ inline void GameResultInfo::set_prize(::google::protobuf::int64 value) {
   
   prize_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.prize)
+}
+
+// int32 lineIndex = 9;
+inline void GameResultInfo::clear_lineindex() {
+  lineindex_ = 0;
+}
+inline ::google::protobuf::int32 GameResultInfo::lineindex() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameResultInfo.lineIndex)
+  return lineindex_;
+}
+inline void GameResultInfo::set_lineindex(::google::protobuf::int32 value) {
+  
+  lineindex_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameResultInfo.lineIndex)
 }
 
 // .google.protobuf.Any exDat = 1000;

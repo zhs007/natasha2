@@ -46,7 +46,11 @@ bool countScatter_Left(
     snums = GameCfgT::getMaxScstterNums(s);
   }
 
-  MoneyType p = paytables.getSymbolPayout(s, snums);
+  if (snums < 1) {
+    return false;
+  }
+  
+  MoneyType p = paytables.getSymbolPayout(s, snums - 1);
   if (p > 0) {
     gri.set_typegameresult(::natashapb::SCATTER_LEFT);
     gri.set_win(totalbet * p);

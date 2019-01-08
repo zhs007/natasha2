@@ -48,7 +48,12 @@ bool countScatter_Left(
   if (snums > Width) {
     snums = Width;
   }
-  MoneyType p = paytables.getSymbolPayout(s, snums);
+
+  if (snums < 1) {
+    return false;
+  }
+
+  MoneyType p = paytables.getSymbolPayout(s, snums - 1);
   if (p > 0) {
     gri.type = GRT_LINE_LEFT;
     gri.win = totalbet * p;

@@ -148,6 +148,7 @@ message GameResultInfo {
     int64 realWin = 6;
     int64 mul = 7;
     int64 prize = 8;
+    int32 lineIndex = 9;
 
     google.protobuf.Any exDat = 1000;
 }

@@ -48,11 +48,18 @@ bool _countLine_Left(
     }
   }
 
-  MoneyType p = paytables.getSymbolPayout(s0, gri.lstpos_size());
+  if (gri.lstpos_size() < 1) {
+    return false;
+  }
+
+  MoneyType p = paytables.getSymbolPayout(s0, gri.lstpos_size() - 1);
   if (p > 0) {
+    gri.set_mul(p);
+    gri.set_symbol(s0);
     gri.set_typegameresult(::natashapb::LINE_LEFT);
     gri.set_win(bet * p);
     gri.set_realwin(gri.win());
+    gri.set_lineindex(lineIndex);
 
     return true;
   }

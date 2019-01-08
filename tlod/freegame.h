@@ -127,12 +127,22 @@ class TLODFreeGame : public SlotsGameMod {
     return ::natashapb::OK;
   }
 
-  // procSpinResult - count spin result
+  // procSpinResult - proc spin result
   virtual ::natashapb::CODE procSpinResult(
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      ::natashapb::UserGameLogicInfo* pLogicUser) {
+    return ::natashapb::OK;
+  }
+
+  // onSpinEnd - on spin end
+  virtual ::natashapb::CODE onSpinEnd(
+      ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::SpinResult* pSpinResult,
+      ::natashapb::RandomResult* pRandomResult,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
     return ::natashapb::OK;
   }

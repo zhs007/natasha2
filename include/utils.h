@@ -74,6 +74,15 @@ void printRandomResult(const char* str,
                        const ::natashapb::RandomResult* pRandomResult,
                        const char* strMapping);
 
+// printSpinResult
+void printSpinResult(const char* str,
+                     const ::natashapb::SpinResult* pSpinResult,
+                     const char* strMapping);
+
+// printGameResultInfo
+void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
+                         const char* strMapping);
+
 }  // namespace natasha
 
 #endif  // __NATASHA_UTILS_H__

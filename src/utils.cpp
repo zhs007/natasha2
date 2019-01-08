@@ -62,7 +62,7 @@ void printRandomResult(const char* str,
                        const ::natashapb::RandomResult* pRandomResult,
                        const char* strMapping) {
   assert(pRandomResult != NULL);
-  assert(str != NULL);
+  assert(strMapping != NULL);
 
   if (pRandomResult->has_scrr3x5()) {
     auto rsc = pRandomResult->scrr3x5();
@@ -75,6 +75,42 @@ void printRandomResult(const char* str,
       }
     }
   }
+}
+
+// printSpinResult
+void printSpinResult(const char* str,
+                     const ::natashapb::SpinResult* pSpinResult,
+                     const char* strMapping) {
+  assert(pSpinResult != NULL);
+  assert(strMapping != NULL);
+
+  if (str != NULL) {
+    printf("%s\n", str);
+  }
+
+  printf("symbol win is %lld, real win is %lld\n", pSpinResult->win(),
+         pSpinResult->realwin());
+
+  for (int i = 0; i < pSpinResult->lstgri_size(); ++i) {
+    auto gri = pSpinResult->lstgri(i);
+    printGameResultInfo(&gri, strMapping);
+  }
+}
+
+// printGameResultInfo
+void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
+                         const char* strMapping) {
+  assert(pGameResultInfo != NULL);
+  assert(strMapping != NULL);
+
+  printf("symbol %d payout is %lld line is %d\n", pGameResultInfo->symbol(),
+         pGameResultInfo->mul(), pGameResultInfo->lineindex());
+
+  for (int i = 0; i < pGameResultInfo->lstsymbol_size(); ++i) {
+    printf("%c ", strMapping[pGameResultInfo->lstsymbol(i)]);
+  }
+
+  printf("\n");
 }
 
 }  // namespace natasha

@@ -92,6 +92,16 @@ class SlotsGameMod : public GameMod {
     code = this->procSpinResult(
         pMainUGMI, pGameCtrl, pMainUGMI->mutable_spinresult(),
         pMainUGMI->mutable_randomresult(), nextCtrlID, pLogicUser);
+    if (code != ::natashapb::OK) {
+      return code;
+    }
+
+    code =
+        this->onSpinEnd(pMainUGMI, pGameCtrl, pMainUGMI->mutable_spinresult(),
+                        pMainUGMI->mutable_randomresult(), pLogicUser);
+    if (code != ::natashapb::OK) {
+      return code;
+    }
 
     return ::natashapb::OK;
   }
@@ -110,12 +120,20 @@ class SlotsGameMod : public GameMod {
       const ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::UserGameModInfo* pUser) = 0;
 
-  // procSpinResult - count spin result
+  // procSpinResult - proc spin result
   virtual ::natashapb::CODE procSpinResult(
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+
+  // onSpinEnd - on spin end
+  virtual ::natashapb::CODE onSpinEnd(
+      ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::SpinResult* pSpinResult,
+      ::natashapb::RandomResult* pRandomResult,
       ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
 
  protected:

@@ -41,7 +41,11 @@ bool _countLine_Left(
     }
   }
 
-  MoneyType p = paytables.getSymbolPayout(s0, resultinfo.lstPos.size());
+  if (resultinfo.lstPos.size() < 1) {
+    return false;
+  }
+
+  MoneyType p = paytables.getSymbolPayout(s0, resultinfo.lstPos.size() - 1);
   if (p > 0) {
     resultinfo.type = GRT_LINE_LEFT;
     resultinfo.win = bet * p;
