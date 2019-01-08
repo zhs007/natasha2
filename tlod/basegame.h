@@ -115,7 +115,7 @@ class TLODBaseGame : public SlotsGameMod {
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
                                      pRandomResult, pLogicUser);
 
-    printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
+    // printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 
     // printf("start TLODCountScatter");
     // First check free
@@ -135,7 +135,7 @@ class TLODBaseGame : public SlotsGameMod {
         pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
         pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
 
-        printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+        // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
         return ::natashapb::OK;
 
@@ -159,7 +159,7 @@ class TLODBaseGame : public SlotsGameMod {
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 1);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
 
-    printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+    // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
     return ::natashapb::OK;
   }
@@ -220,7 +220,7 @@ class TLODBaseGame : public SlotsGameMod {
       removeBlock3X5WithGameResult(sb3x5, pSpinResult);
       cascadeBlock3X5(sb3x5);
 
-      printSymbolBlock3X5("onSpinEnd", sb3x5, TLOD_SYMBOL_MAPPING);
+      // printSymbolBlock3X5("onSpinEnd", sb3x5, TLOD_SYMBOL_MAPPING);
     } else {
       auto scrr = pRandomResult->mutable_scrr3x5();
       scrr->set_reelsindex(-1);

@@ -12,7 +12,7 @@ void StaticCascadingReels3X5::randomNew(
   SymbolBlockData* pSBD = m_lst[cr];
   assert(pSBD->size() > 0);
 
-  printSymbolBlock3X5("randomNew", pSBD->at(0), SYMBOL_MAPPING);
+  // printSymbolBlock3X5("randomNew", pSBD->at(0), SYMBOL_MAPPING);
 
   pSCRR->set_reelsindex(cr);
   pSCRR->set_downnums(0);

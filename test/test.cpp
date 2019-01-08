@@ -4,6 +4,8 @@
 int main() {
   natasha::TLOD tlod;
 
+  printf("%ld\n", time(NULL));
+
   auto c = tlod.init();
   if (c != natashapb::OK) {
     printf("init fail(%d)!\n", c);
@@ -15,7 +17,7 @@ int main() {
     printf("userComeIn fail(%d)!\n", c);
   }
 
-  for (int i = 0; i < 100; ++i) {
+  for (int i = 0; i < 1000000; ++i) {
     auto pGameCtrl = new ::natashapb::GameCtrl();
     auto spin = pGameCtrl->mutable_spin();
 
@@ -30,6 +32,8 @@ int main() {
 
     delete pGameCtrl;
   }
+
+  printf("%ld\n", time(NULL));
 
   printf("end!\n");
 
