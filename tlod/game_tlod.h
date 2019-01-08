@@ -19,7 +19,7 @@ const int TLOD_DEFAULT_FREENUMS = 10;
 const SymbolType TLOD_SYMBOL_W = 0;
 const SymbolType TLOD_SYMBOL_S = 12;
 
-const char TLOD_SYMBOL_MAPPING[] = "wabcdefghijks";
+const char TLOD_SYMBOL_MAPPING[] = " wabcdefghijks";
 
 struct TLODGameCfg {
   static bool isSameSymbol_OnLine(SymbolType s0, SymbolType s1) {

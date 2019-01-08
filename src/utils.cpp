@@ -46,15 +46,15 @@ void printSymbolBlock3X5(const char* str,
     printf("%s\n", str);
   }
 
-  printf("%c %c %c %c %c\n", strMapping[pSB->dat0_0()],
-         strMapping[pSB->dat0_1()], strMapping[pSB->dat0_2()],
-         strMapping[pSB->dat0_3()], strMapping[pSB->dat0_4()]);
-  printf("%c %c %c %c %c\n", strMapping[pSB->dat1_0()],
-         strMapping[pSB->dat1_1()], strMapping[pSB->dat1_2()],
-         strMapping[pSB->dat1_3()], strMapping[pSB->dat1_4()]);
-  printf("%c %c %c %c %c\n", strMapping[pSB->dat2_0()],
-         strMapping[pSB->dat2_1()], strMapping[pSB->dat2_2()],
-         strMapping[pSB->dat2_3()], strMapping[pSB->dat2_4()]);
+  printf("%c %c %c %c %c\n", strMapping[pSB->dat0_0() + 1],
+         strMapping[pSB->dat0_1() + 1], strMapping[pSB->dat0_2() + 1],
+         strMapping[pSB->dat0_3() + 1], strMapping[pSB->dat0_4() + 1]);
+  printf("%c %c %c %c %c\n", strMapping[pSB->dat1_0() + 1],
+         strMapping[pSB->dat1_1() + 1], strMapping[pSB->dat1_2() + 1],
+         strMapping[pSB->dat1_3() + 1], strMapping[pSB->dat1_4()] + 1);
+  printf("%c %c %c %c %c\n", strMapping[pSB->dat2_0() + 1],
+         strMapping[pSB->dat2_1() + 1], strMapping[pSB->dat2_2() + 1],
+         strMapping[pSB->dat2_3() + 1], strMapping[pSB->dat2_4() + 1]);
 }
 
 // printRandomResult
@@ -107,7 +107,7 @@ void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
          pGameResultInfo->mul(), pGameResultInfo->lineindex());
 
   for (int i = 0; i < pGameResultInfo->lstsymbol_size(); ++i) {
-    printf("%c ", strMapping[pGameResultInfo->lstsymbol(i)]);
+    printf("%c ", strMapping[pGameResultInfo->lstsymbol(i) + 1]);
   }
 
   printf("\n");

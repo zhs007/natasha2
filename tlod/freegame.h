@@ -123,7 +123,8 @@ class TLODFreeGame : public SlotsGameMod {
       ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameModInfo* pUser) {
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
     return ::natashapb::OK;
   }
 
@@ -144,6 +145,16 @@ class TLODFreeGame : public SlotsGameMod {
       ::natashapb::SpinResult* pSpinResult,
       ::natashapb::RandomResult* pRandomResult,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
+    return ::natashapb::OK;
+  }
+
+  // buildSpinResultSymbolBlock - build spin result's symbol block
+  virtual ::natashapb::CODE buildSpinResultSymbolBlock(
+      ::natashapb::SpinResult* pSpinResult,
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::RandomResult* pRandomResult,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
     return ::natashapb::OK;
   }
 

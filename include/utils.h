@@ -21,7 +21,7 @@ typedef float MoneyType;
 
 typedef int64_t CtrlID;
 
-const char SYMBOL_MAPPING[] = "wabcdefghijklmnopqrstuvxyz";
+const char SYMBOL_MAPPING[] = " abcdefghijklmnopqrstuvwxyz";
 
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
