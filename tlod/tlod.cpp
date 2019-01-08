@@ -8,7 +8,7 @@ void outputReels(StaticCascadingReels3X5* pReels) {
     printf("outputReels y - %d\n", y);
     for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
       printf("outputReels x - %d\n", x);
-      printSymbolBlock3X5(pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
+      printSymbolBlock3X5(NULL, pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
     }
   }
 }

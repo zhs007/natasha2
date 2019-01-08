@@ -93,17 +93,8 @@ class TLODBaseGame : public SlotsGameMod {
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
-    // auto rsc = pRandomResult->mutable_retstaticcascading3x5();
-    // auto sb = rsc->mutable_symbolblock();
-    // auto sb3x5 = sb->mutable_sb3x5();
 
     m_reels.random(pRandomResult, pUser);
-
-    auto rsc = pRandomResult->mutable_retstaticcascading3x5();
-    auto sb = rsc->mutable_symbolblock();
-    auto sb3x5 = sb->mutable_sb3x5();
-
-    printSymbolBlock3X5(sb3x5, TLOD_SYMBOL_MAPPING);
 
     return ::natashapb::OK;
   }
@@ -116,10 +107,12 @@ class TLODBaseGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser) {
     pSpinResult->Clear();
 
+    printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
+
     // First check free
     ::natashapb::GameResultInfo gri;
     TLODCountScatter(
-        gri, pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(),
+        gri, pRandomResult->scrr3x5().symbolblock().sb3x5(),
         m_paytables, TLOD_SYMBOL_S, pGameCtrl->spin().bet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
@@ -148,7 +141,7 @@ class TLODBaseGame : public SlotsGameMod {
     // check all line payout
     TLODCountAllLine(
         *pSpinResult,
-        pRandomResult->retstaticcascading3x5().symbolblock().sb3x5(), m_lines,
+        pRandomResult->scrr3x5().symbolblock().sb3x5(), m_lines,
         m_paytables, pGameCtrl->spin().bet());
 
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums());

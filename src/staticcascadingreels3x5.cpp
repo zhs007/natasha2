@@ -12,7 +12,7 @@ void StaticCascadingReels3X5::randomNew(
   SymbolBlockData* pSBD = m_lst[cr];
   assert(pSBD->size() > 0);
 
-  printSymbolBlock3X5(pSBD->at(0), SYMBOL_MAPPING);
+  printSymbolBlock3X5("randomNew", pSBD->at(0), SYMBOL_MAPPING);
 
   pSCRR->set_reelsindex(cr);
   pSCRR->set_downnums(0);
@@ -55,22 +55,22 @@ void StaticCascadingReels3X5::random(
   assert(pRandomResult != NULL);
   // assert(pUGMI->symbolblock().has_sb3x5());
 
-  if (!pRandomResult->has_retstaticcascading3x5()) {
+  if (!pRandomResult->has_scrr3x5()) {
     ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
-        pRandomResult->mutable_retstaticcascading3x5();
+        pRandomResult->mutable_scrr3x5();
 
     randomNew(pSCRR);
   } else {
     const ::natashapb::StaticCascadingRandomResult3X5& scrr =
-        pRandomResult->retstaticcascading3x5();
+        pRandomResult->scrr3x5();
     if (scrr.reelsindex() < 0) {
       ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
-          pRandomResult->mutable_retstaticcascading3x5();
+          pRandomResult->mutable_scrr3x5();
 
       randomNew(pSCRR);
     } else {
       ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
-          pRandomResult->mutable_retstaticcascading3x5();
+          pRandomResult->mutable_scrr3x5();
 
       fill(pSCRR, &(pUGMI->symbolblock().sb3x5()));
     }

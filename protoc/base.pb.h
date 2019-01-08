@@ -814,7 +814,7 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
   static const RandomResult& default_instance();
 
   enum ResultCase {
-    kRetStaticCascading3X5 = 1,
+    kScrr3X5 = 1,
     RESULT_NOT_SET = 0,
   };
 
@@ -884,19 +884,19 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::Any* mutable_info();
   void set_allocated_info(::google::protobuf::Any* info);
 
-  // .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
-  bool has_retstaticcascading3x5() const;
-  void clear_retstaticcascading3x5();
-  static const int kRetStaticCascading3X5FieldNumber = 1;
-  const ::natashapb::StaticCascadingRandomResult3X5& retstaticcascading3x5() const;
-  ::natashapb::StaticCascadingRandomResult3X5* release_retstaticcascading3x5();
-  ::natashapb::StaticCascadingRandomResult3X5* mutable_retstaticcascading3x5();
-  void set_allocated_retstaticcascading3x5(::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5);
+  // .natashapb.StaticCascadingRandomResult3X5 scrr3x5 = 1;
+  bool has_scrr3x5() const;
+  void clear_scrr3x5();
+  static const int kScrr3X5FieldNumber = 1;
+  const ::natashapb::StaticCascadingRandomResult3X5& scrr3x5() const;
+  ::natashapb::StaticCascadingRandomResult3X5* release_scrr3x5();
+  ::natashapb::StaticCascadingRandomResult3X5* mutable_scrr3x5();
+  void set_allocated_scrr3x5(::natashapb::StaticCascadingRandomResult3X5* scrr3x5);
 
   ResultCase result_case() const;
   // @@protoc_insertion_point(class_scope:natashapb.RandomResult)
  private:
-  void set_has_retstaticcascading3x5();
+  void set_has_scrr3x5();
 
   inline bool has_result() const;
   void clear_result();
@@ -906,7 +906,7 @@ class RandomResult : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::Any* info_;
   union ResultUnion {
     ResultUnion() {}
-    ::natashapb::StaticCascadingRandomResult3X5* retstaticcascading3x5_;
+    ::natashapb::StaticCascadingRandomResult3X5* scrr3x5_;
   } result_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -4151,45 +4151,45 @@ inline void StaticCascadingRandomResult3X5::set_allocated_symbolblock(::natashap
 
 // RandomResult
 
-// .natashapb.StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
-inline bool RandomResult::has_retstaticcascading3x5() const {
-  return result_case() == kRetStaticCascading3X5;
+// .natashapb.StaticCascadingRandomResult3X5 scrr3x5 = 1;
+inline bool RandomResult::has_scrr3x5() const {
+  return result_case() == kScrr3X5;
 }
-inline void RandomResult::set_has_retstaticcascading3x5() {
-  _oneof_case_[0] = kRetStaticCascading3X5;
+inline void RandomResult::set_has_scrr3x5() {
+  _oneof_case_[0] = kScrr3X5;
 }
-inline void RandomResult::clear_retstaticcascading3x5() {
-  if (has_retstaticcascading3x5()) {
-    delete result_.retstaticcascading3x5_;
+inline void RandomResult::clear_scrr3x5() {
+  if (has_scrr3x5()) {
+    delete result_.scrr3x5_;
     clear_has_result();
   }
 }
-inline ::natashapb::StaticCascadingRandomResult3X5* RandomResult::release_retstaticcascading3x5() {
-  // @@protoc_insertion_point(field_release:natashapb.RandomResult.retStaticCascading3x5)
-  if (has_retstaticcascading3x5()) {
+inline ::natashapb::StaticCascadingRandomResult3X5* RandomResult::release_scrr3x5() {
+  // @@protoc_insertion_point(field_release:natashapb.RandomResult.scrr3x5)
+  if (has_scrr3x5()) {
     clear_has_result();
-      ::natashapb::StaticCascadingRandomResult3X5* temp = result_.retstaticcascading3x5_;
-    result_.retstaticcascading3x5_ = NULL;
+      ::natashapb::StaticCascadingRandomResult3X5* temp = result_.scrr3x5_;
+    result_.scrr3x5_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline const ::natashapb::StaticCascadingRandomResult3X5& RandomResult::retstaticcascading3x5() const {
-  // @@protoc_insertion_point(field_get:natashapb.RandomResult.retStaticCascading3x5)
-  return has_retstaticcascading3x5()
-      ? *result_.retstaticcascading3x5_
+inline const ::natashapb::StaticCascadingRandomResult3X5& RandomResult::scrr3x5() const {
+  // @@protoc_insertion_point(field_get:natashapb.RandomResult.scrr3x5)
+  return has_scrr3x5()
+      ? *result_.scrr3x5_
       : *reinterpret_cast< ::natashapb::StaticCascadingRandomResult3X5*>(&::natashapb::_StaticCascadingRandomResult3X5_default_instance_);
 }
-inline ::natashapb::StaticCascadingRandomResult3X5* RandomResult::mutable_retstaticcascading3x5() {
-  if (!has_retstaticcascading3x5()) {
+inline ::natashapb::StaticCascadingRandomResult3X5* RandomResult::mutable_scrr3x5() {
+  if (!has_scrr3x5()) {
     clear_result();
-    set_has_retstaticcascading3x5();
-    result_.retstaticcascading3x5_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingRandomResult3X5 >(
+    set_has_scrr3x5();
+    result_.scrr3x5_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingRandomResult3X5 >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natashapb.RandomResult.retStaticCascading3x5)
-  return result_.retstaticcascading3x5_;
+  // @@protoc_insertion_point(field_mutable:natashapb.RandomResult.scrr3x5)
+  return result_.scrr3x5_;
 }
 
 // .google.protobuf.Any info = 1000;

@@ -106,7 +106,7 @@ message StaticCascadingRandomResult3X5 {
 message RandomResult {
     // only once
     oneof result {
-        StaticCascadingRandomResult3X5 retStaticCascading3x5 = 1;
+        StaticCascadingRandomResult3X5 scrr3x5 = 1;
     }
 
     google.protobuf.Any info = 1000;

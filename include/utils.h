@@ -65,8 +65,14 @@ void setGameCtrlID(::natashapb::GameCtrlID& dest,
                    ::natashapb::GAMEMODTYPE curGameMod);
 
 // printSymbolBlock3X5
-void printSymbolBlock3X5(const ::natashapb::SymbolBlock3X5* pSB,
-                         const char* str);
+void printSymbolBlock3X5(const char* str,
+                         const ::natashapb::SymbolBlock3X5* pSB,
+                         const char* strMapping);
+
+// printRandomResult
+void printRandomResult(const char* str,
+                       const ::natashapb::RandomResult* pRandomResult,
+                       const char* strMapping);
 
 }  // namespace natasha
 
