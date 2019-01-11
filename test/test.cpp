@@ -17,21 +17,31 @@ int main() {
     printf("userComeIn fail(%d)!\n", c);
   }
 
-  for (int i = 0; i < 1000000; ++i) {
-    auto pGameCtrl = new ::natashapb::GameCtrl();
-    auto spin = pGameCtrl->mutable_spin();
+  int64_t totalbet = 0;
+  int64_t totalpay = 0;
 
-    spin->set_bet(1);
-    spin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
-    spin->set_times(natasha::TLOD_DEFAULT_TIMES);
+  auto pGameCtrl = new ::natashapb::GameCtrl();
+
+  for (int i = 0; i < 1000000; ++i) {
+    if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
+      auto spin = pGameCtrl->mutable_spin();
+      spin->set_bet(1);
+      spin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
+      spin->set_times(natasha::TLOD_DEFAULT_TIMES);
+    } else if (pUGI->nextgamemodtype() == natashapb::FREE_GAME) {
+      auto freespin = pGameCtrl->mutable_freespin();
+      freespin->set_bet(1);
+      freespin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
+      freespin->set_times(natasha::TLOD_DEFAULT_TIMES);
+    }
 
     c = tlod.gameCtrl(pGameCtrl, pUGI, i + 1);
     if (c != natashapb::OK) {
       printf("gameCtrl fail(%d)!\n", c);
     }
-
-    delete pGameCtrl;
   }
+
+  delete pGameCtrl;
 
   printf("%ld\n", time(NULL));
 

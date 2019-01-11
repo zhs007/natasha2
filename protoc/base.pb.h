@@ -246,6 +246,7 @@ enum CODE {
   INVALID_BET = 30000,
   INVALID_LINES = 30001,
   INVALID_TIMES = 30002,
+  INVALID_GAMECTRL_GAMEMOD = 30003,
   INVALID_CASCADING_FREESTATE = 40000,
   ERR_NO_OVERLOADED_INTERFACE = 90000,
   CODE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
@@ -2747,6 +2748,12 @@ class GameCtrlFreeSpin : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::int64 totalbet() const;
   void set_totalbet(::google::protobuf::int64 value);
 
+  // int64 realBet = 5;
+  void clear_realbet();
+  static const int kRealBetFieldNumber = 5;
+  ::google::protobuf::int64 realbet() const;
+  void set_realbet(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameCtrlFreeSpin)
  private:
 
@@ -2755,6 +2762,7 @@ class GameCtrlFreeSpin : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::int32 lines_;
   ::google::protobuf::int32 times_;
   ::google::protobuf::int64 totalbet_;
+  ::google::protobuf::int64 realbet_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameCtrlFreeSpinImpl();
@@ -6051,6 +6059,20 @@ inline void GameCtrlFreeSpin::set_totalbet(::google::protobuf::int64 value) {
   
   totalbet_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlFreeSpin.totalBet)
+}
+
+// int64 realBet = 5;
+inline void GameCtrlFreeSpin::clear_realbet() {
+  realbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrlFreeSpin::realbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrlFreeSpin.realBet)
+  return realbet_;
+}
+inline void GameCtrlFreeSpin::set_realbet(::google::protobuf::int64 value) {
+  
+  realbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrlFreeSpin.realBet)
 }
 
 // -------------------------------------------------------------------

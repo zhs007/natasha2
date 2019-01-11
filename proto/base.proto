@@ -43,8 +43,10 @@ enum CODE {
     INVALID_BET = 30000;
     // invalid lines
     INVALID_LINES = 30001;    
-    // invalid timess
+    // invalid times
     INVALID_TIMES = 30002;
+    // invalid game module in gamectrl
+    INVALID_GAMECTRL_GAMEMOD = 30003;
 
     //----------------------------------------------------------
     // countSpinResult
@@ -316,6 +318,7 @@ message GameCtrlFreeSpin {
     int32 lines = 2;
     int32 times = 3;  
     int64 totalBet = 4; 
+    int64 realBet = 5;
 }
 
 // GameCtrlBonus - bonus
@@ -349,15 +352,17 @@ message GameCtrlDebug {
 
 // GameCtrl - game ctrl
 message GameCtrl {
+    int64 ctrlID = 1;
+
     // only once
     oneof ctrl {
-        GameCtrlSpin spin = 1;
-        GameCtrlSelectFree selectFree = 2;
-        GameCtrlFreeSpin freeSpin = 3;
-        GameCtrlBonus bonus = 4;
-        GameCtrlJackpot jackpot = 5;
-        GameCtrlCommonJackpot commonJackpot = 6;
-        GameCtrlAwardSpin awardSpin = 7;
+        GameCtrlSpin spin = 10;
+        GameCtrlSelectFree selectFree = 11;
+        GameCtrlFreeSpin freeSpin = 12;
+        GameCtrlBonus bonus = 13;
+        GameCtrlJackpot jackpot = 14;
+        GameCtrlCommonJackpot commonJackpot = 15;
+        GameCtrlAwardSpin awardSpin = 16;
     }
 
     // debug params

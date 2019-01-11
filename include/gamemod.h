@@ -59,6 +59,11 @@ class GameMod {
     return ::natashapb::NULL_MOD;
   }
 
+  // setNextCtrlID - set next ctrlid
+  virtual ::natashapb::CODE setNextCtrlID(CtrlID nextCtrlID) {
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
  protected:
   GameLogic& m_logic;
 };
@@ -77,8 +82,13 @@ class SlotsGameMod : public GameMod {
     // assert(pMainUGMI->has_randomresult());
     // assert(pMainUGMI->has_spinresult());
 
-    auto code = this->randomReels(pMainUGMI->mutable_randomresult(), pGameCtrl,
-                                  pMainUGMI);
+    auto code = this->onSpinStart(pMainUGMI, pGameCtrl, pLogicUser);
+    if (code != ::natashapb::OK) {
+      return code;
+    }
+
+    code = this->randomReels(pMainUGMI->mutable_randomresult(), pGameCtrl,
+                             pMainUGMI);
     if (code != ::natashapb::OK) {
       return code;
     }
@@ -128,6 +138,12 @@ class SlotsGameMod : public GameMod {
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+
+  // onSpinStart - on spin start
+  virtual ::natashapb::CODE onSpinStart(
+      ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
       ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
 
   // onSpinEnd - on spin end

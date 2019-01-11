@@ -67,6 +67,8 @@ GameMod* TLOD::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
   assert(pUserFG != NULL);
 
   if (pFG->isIn(pUserFG)) {
+    printf("TLOD FG\n");
+
     return pFG;
   }
 

@@ -33,6 +33,12 @@ GameLogic::~GameLogic() {}
     return code;
   }
 
+  auto nextmod = this->getMainGameMod(pLogicUser, false);
+  assert(nextmod != NULL);
+
+  pLogicUser->set_curgamemodtype(curmod->getGameModType());
+  pLogicUser->set_nextgamemodtype(nextmod->getGameModType());
+
   return ::natashapb::OK;
 }
 
@@ -128,7 +134,7 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
 }
 
 ::natashapb::CODE GameLogic::userComeIn(
-    ::natashapb::UserGameLogicInfo* pLogicUser) {
+    ::natashapb::UserGameLogicInfo* pLogicUser, CtrlID nextCtrlID) {
   assert(pLogicUser != NULL);
 
   for (ConstMapGameModIter it = m_mapGameMod.begin(); it != m_mapGameMod.end();
@@ -140,6 +146,11 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
       return code;
     }
   }
+
+  auto curmod = this->getMainGameMod(pLogicUser, false);
+  assert(curmod != NULL);
+
+  pLogicUser->set_nextgamemodtype(curmod->getGameModType());
 
   return ::natashapb::OK;
 }

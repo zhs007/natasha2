@@ -25,7 +25,7 @@ class GameLogic {
   virtual ::natashapb::CODE init();
 
   virtual ::natashapb::CODE userComeIn(
-      ::natashapb::UserGameLogicInfo* pLogicUser);
+      ::natashapb::UserGameLogicInfo* pLogicUser, CtrlID nextCtrlID);
 
   virtual ::natashapb::CODE gameCtrl(::natashapb::GameCtrl* pGameCtrl,
                                      ::natashapb::UserGameLogicInfo* pLogicUser,

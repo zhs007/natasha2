@@ -62,6 +62,10 @@ class TLODBaseGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser) {
     assert(pUser->has_cascadinginfo());
 
+    if (!pGameCtrl->has_spin()) {
+      return ::natashapb::INVALID_GAMECTRL_GAMEMOD;
+    }
+
     auto spinctrl = pGameCtrl->mutable_spin();
 
     // if respin
@@ -124,7 +128,12 @@ class TLODBaseGame : public SlotsGameMod {
                      TLOD_SYMBOL_S, pGameCtrl->spin().bet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
+      gri.set_win(0);
+      gri.set_realwin(0);
+
       pCurGRI->CopyFrom(gri);
+
+      printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
       if (pUser->cascadinginfo().freestate() == ::natashapb::NO_FREEGAME) {
         pCurGRI->set_typegameresult(::natashapb::SCATTEREX_LEFT);
@@ -180,10 +189,21 @@ class TLODBaseGame : public SlotsGameMod {
     // if need start free game
     if (pSpinResult->realfgnums() > 0) {
       ::natashapb::StartGameMod sp;
+
       auto parentctrlid = sp.mutable_parentctrlid();
       parentctrlid->CopyFrom(pUser->gamectrlid());
 
-      m_logic.startGameMod(::natashapb::FREE_GAME, &sp, nextCtrlID, pLogicUser);
+      auto fg = sp.mutable_freegame();
+      fg->set_bet(pGameCtrl->spin().bet());
+      fg->set_lines(TLOD_DEFAULT_PAY_LINES);
+      fg->set_times(TLOD_DEFAULT_TIMES);
+      fg->set_freenums(TLOD_DEFAULT_FREENUMS);
+
+      auto code = m_logic.startGameMod(::natashapb::FREE_GAME, &sp, nextCtrlID,
+                                       pLogicUser);
+      if (code != ::natashapb::OK) {
+        return code;
+      }
 
       return ::natashapb::OK;
     }
@@ -196,6 +216,14 @@ class TLODBaseGame : public SlotsGameMod {
       }
     }
 
+    return ::natashapb::OK;
+  }
+
+  // onSpinStart - on spin start
+  virtual ::natashapb::CODE onSpinStart(
+      ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::UserGameLogicInfo* pLogicUser) {
     return ::natashapb::OK;
   }
 
