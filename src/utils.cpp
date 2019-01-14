@@ -113,4 +113,22 @@ void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
   printf("\n");
 }
 
+// clearUGMI_GameCtrlID
+void clearUGMI_GameCtrlID(::natashapb::GameCtrlID& gcid) {
+  gcid.set_baseid(0);
+  gcid.set_parentid(0);
+  gcid.set_ctrlid(0);
+  gcid.set_gamemod(natashapb::NULL_MOD);
+}
+
+// printGameCtrlID
+void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid) {
+  if (str != NULL) {
+    printf("%s\n", str);
+  }
+
+  printf("gamectrlid baseid - %lld, parentid - %lld, ctrlid - %lld, gmt - %d\n",
+         gcid.baseid(), gcid.parentid(), gcid.ctrlid(), gcid.gamemod());
+}
+
 }  // namespace natasha

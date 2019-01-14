@@ -15,7 +15,8 @@ class GameLogic;
 
 class GameMod {
  public:
-  GameMod(GameLogic& logic) : m_logic(logic) {}
+  GameMod(GameLogic& logic, ::natashapb::GAMEMODTYPE gmt)
+      : m_logic(logic), m_gmt(gmt) {}
   virtual ~GameMod() {}
 
  public:
@@ -23,8 +24,7 @@ class GameMod {
 
   // start - start cur game module for user
   virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUser,
-                                  const ::natashapb::StartGameMod* pStart,
-                                  CtrlID nextCtrlID) = 0;
+                                  const ::natashapb::StartGameMod* pStart) = 0;
 
   // isIn - is in current game module
   virtual bool isIn(const ::natashapb::UserGameModInfo* pUser) = 0;
@@ -43,7 +43,7 @@ class GameMod {
   virtual ::natashapb::CODE onGameCtrl(
       const ::natashapb::GameCtrl* pGameCtrl,
       ::natashapb::UserGameLogicInfo* pLogicUser,
-      ::natashapb::UserGameModInfo* pMainUGMI, CtrlID nextCtrlID) {
+      ::natashapb::UserGameModInfo* pMainUGMI) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
@@ -59,18 +59,22 @@ class GameMod {
     return ::natashapb::NULL_MOD;
   }
 
-  // setNextCtrlID - set next ctrlid
-  virtual ::natashapb::CODE setNextCtrlID(CtrlID nextCtrlID) {
+  // setCurGameCtrlID - set ctrlid
+  //                 只在产生特殊情况下才调用，用来配置baseid和parentid
+  virtual ::natashapb::CODE setCurGameCtrlID(
+      ::natashapb::UserGameModInfo* pUser, CtrlID curCtrlID) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
  protected:
   GameLogic& m_logic;
+  ::natashapb::GAMEMODTYPE m_gmt;
 };
 
 class SlotsGameMod : public GameMod {
  public:
-  SlotsGameMod(GameLogic& logic) : GameMod(logic) {}
+  SlotsGameMod(GameLogic& logic, ::natashapb::GAMEMODTYPE gmt)
+      : GameMod(logic, gmt) {}
   virtual ~SlotsGameMod() {}
 
  public:
@@ -78,7 +82,7 @@ class SlotsGameMod : public GameMod {
   virtual ::natashapb::CODE onGameCtrl(
       const ::natashapb::GameCtrl* pGameCtrl,
       ::natashapb::UserGameLogicInfo* pLogicUser,
-      ::natashapb::UserGameModInfo* pMainUGMI, CtrlID nextCtrlID) {
+      ::natashapb::UserGameModInfo* pMainUGMI) {
     // assert(pMainUGMI->has_randomresult());
     // assert(pMainUGMI->has_spinresult());
 
@@ -100,9 +104,9 @@ class SlotsGameMod : public GameMod {
       return code;
     }
 
-    code = this->procSpinResult(
-        pMainUGMI, pGameCtrl, pMainUGMI->mutable_spinresult(),
-        pMainUGMI->mutable_randomresult(), nextCtrlID, pLogicUser);
+    code = this->procSpinResult(pMainUGMI, pGameCtrl,
+                                pMainUGMI->mutable_spinresult(),
+                                pMainUGMI->mutable_randomresult(), pLogicUser);
     if (code != ::natashapb::OK) {
       return code;
     }
@@ -114,6 +118,24 @@ class SlotsGameMod : public GameMod {
       return code;
     }
 
+    return ::natashapb::OK;
+  }
+
+  // setCurGameCtrlID - set ctrlid
+  //                 只在产生特殊情况下才调用，用来配置baseid和parentid
+  virtual ::natashapb::CODE setCurGameCtrlID(
+      ::natashapb::UserGameModInfo* pUser, CtrlID curCtrlID) {
+    auto curgamrctrlid = pUser->mutable_gamectrlid();
+
+    if (curgamrctrlid->baseid() == 0) {
+      curgamrctrlid->set_baseid(curCtrlID);
+      curgamrctrlid->set_parentid(curCtrlID);
+      curgamrctrlid->set_ctrlid(curCtrlID);
+      curgamrctrlid->set_gamemod(this->m_gmt);
+    } else {
+      curgamrctrlid->set_parentid(curgamrctrlid->ctrlid());
+      curgamrctrlid->set_ctrlid(curCtrlID);
+    }
     return ::natashapb::OK;
   }
 
@@ -137,7 +159,7 @@ class SlotsGameMod : public GameMod {
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      const ::natashapb::RandomResult* pRandomResult,
       ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
 
   // onSpinStart - on spin start

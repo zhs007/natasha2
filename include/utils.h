@@ -83,6 +83,12 @@ void printSpinResult(const char* str,
 void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
                          const char* strMapping);
 
+// clearUGMI_GameCtrlID
+void clearUGMI_GameCtrlID(::natashapb::GameCtrlID& gcid);
+
+// printGameCtrlID
+void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid);
+
 }  // namespace natasha
 
 #endif  // __NATASHA_UTILS_H__

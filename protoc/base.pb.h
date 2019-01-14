@@ -3349,13 +3349,13 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   static const GameCtrl& default_instance();
 
   enum CtrlCase {
-    kSpin = 1,
-    kSelectFree = 2,
-    kFreeSpin = 3,
-    kBonus = 4,
-    kJackpot = 5,
-    kCommonJackpot = 6,
-    kAwardSpin = 7,
+    kSpin = 10,
+    kSelectFree = 11,
+    kFreeSpin = 12,
+    kBonus = 13,
+    kJackpot = 14,
+    kCommonJackpot = 15,
+    kAwardSpin = 16,
     CTRL_NOT_SET = 0,
   };
 
@@ -3434,64 +3434,70 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::Any* mutable_exdat();
   void set_allocated_exdat(::google::protobuf::Any* exdat);
 
-  // .natashapb.GameCtrlSpin spin = 1;
+  // int64 ctrlID = 1;
+  void clear_ctrlid();
+  static const int kCtrlIDFieldNumber = 1;
+  ::google::protobuf::int64 ctrlid() const;
+  void set_ctrlid(::google::protobuf::int64 value);
+
+  // .natashapb.GameCtrlSpin spin = 10;
   bool has_spin() const;
   void clear_spin();
-  static const int kSpinFieldNumber = 1;
+  static const int kSpinFieldNumber = 10;
   const ::natashapb::GameCtrlSpin& spin() const;
   ::natashapb::GameCtrlSpin* release_spin();
   ::natashapb::GameCtrlSpin* mutable_spin();
   void set_allocated_spin(::natashapb::GameCtrlSpin* spin);
 
-  // .natashapb.GameCtrlSelectFree selectFree = 2;
+  // .natashapb.GameCtrlSelectFree selectFree = 11;
   bool has_selectfree() const;
   void clear_selectfree();
-  static const int kSelectFreeFieldNumber = 2;
+  static const int kSelectFreeFieldNumber = 11;
   const ::natashapb::GameCtrlSelectFree& selectfree() const;
   ::natashapb::GameCtrlSelectFree* release_selectfree();
   ::natashapb::GameCtrlSelectFree* mutable_selectfree();
   void set_allocated_selectfree(::natashapb::GameCtrlSelectFree* selectfree);
 
-  // .natashapb.GameCtrlFreeSpin freeSpin = 3;
+  // .natashapb.GameCtrlFreeSpin freeSpin = 12;
   bool has_freespin() const;
   void clear_freespin();
-  static const int kFreeSpinFieldNumber = 3;
+  static const int kFreeSpinFieldNumber = 12;
   const ::natashapb::GameCtrlFreeSpin& freespin() const;
   ::natashapb::GameCtrlFreeSpin* release_freespin();
   ::natashapb::GameCtrlFreeSpin* mutable_freespin();
   void set_allocated_freespin(::natashapb::GameCtrlFreeSpin* freespin);
 
-  // .natashapb.GameCtrlBonus bonus = 4;
+  // .natashapb.GameCtrlBonus bonus = 13;
   bool has_bonus() const;
   void clear_bonus();
-  static const int kBonusFieldNumber = 4;
+  static const int kBonusFieldNumber = 13;
   const ::natashapb::GameCtrlBonus& bonus() const;
   ::natashapb::GameCtrlBonus* release_bonus();
   ::natashapb::GameCtrlBonus* mutable_bonus();
   void set_allocated_bonus(::natashapb::GameCtrlBonus* bonus);
 
-  // .natashapb.GameCtrlJackpot jackpot = 5;
+  // .natashapb.GameCtrlJackpot jackpot = 14;
   bool has_jackpot() const;
   void clear_jackpot();
-  static const int kJackpotFieldNumber = 5;
+  static const int kJackpotFieldNumber = 14;
   const ::natashapb::GameCtrlJackpot& jackpot() const;
   ::natashapb::GameCtrlJackpot* release_jackpot();
   ::natashapb::GameCtrlJackpot* mutable_jackpot();
   void set_allocated_jackpot(::natashapb::GameCtrlJackpot* jackpot);
 
-  // .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
+  // .natashapb.GameCtrlCommonJackpot commonJackpot = 15;
   bool has_commonjackpot() const;
   void clear_commonjackpot();
-  static const int kCommonJackpotFieldNumber = 6;
+  static const int kCommonJackpotFieldNumber = 15;
   const ::natashapb::GameCtrlCommonJackpot& commonjackpot() const;
   ::natashapb::GameCtrlCommonJackpot* release_commonjackpot();
   ::natashapb::GameCtrlCommonJackpot* mutable_commonjackpot();
   void set_allocated_commonjackpot(::natashapb::GameCtrlCommonJackpot* commonjackpot);
 
-  // .natashapb.GameCtrlAwardSpin awardSpin = 7;
+  // .natashapb.GameCtrlAwardSpin awardSpin = 16;
   bool has_awardspin() const;
   void clear_awardspin();
-  static const int kAwardSpinFieldNumber = 7;
+  static const int kAwardSpinFieldNumber = 16;
   const ::natashapb::GameCtrlAwardSpin& awardspin() const;
   ::natashapb::GameCtrlAwardSpin* release_awardspin();
   ::natashapb::GameCtrlAwardSpin* mutable_awardspin();
@@ -3515,6 +3521,7 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::GameCtrlDebug* debug_;
   ::google::protobuf::Any* exdat_;
+  ::google::protobuf::int64 ctrlid_;
   union CtrlUnion {
     CtrlUnion() {}
     ::natashapb::GameCtrlSpin* spin_;
@@ -6241,7 +6248,21 @@ GameCtrlDebug::mutable_lstrandom() {
 
 // GameCtrl
 
-// .natashapb.GameCtrlSpin spin = 1;
+// int64 ctrlID = 1;
+inline void GameCtrl::clear_ctrlid() {
+  ctrlid_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrl::ctrlid() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.ctrlID)
+  return ctrlid_;
+}
+inline void GameCtrl::set_ctrlid(::google::protobuf::int64 value) {
+  
+  ctrlid_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrl.ctrlID)
+}
+
+// .natashapb.GameCtrlSpin spin = 10;
 inline bool GameCtrl::has_spin() const {
   return ctrl_case() == kSpin;
 }
@@ -6282,7 +6303,7 @@ inline ::natashapb::GameCtrlSpin* GameCtrl::mutable_spin() {
   return ctrl_.spin_;
 }
 
-// .natashapb.GameCtrlSelectFree selectFree = 2;
+// .natashapb.GameCtrlSelectFree selectFree = 11;
 inline bool GameCtrl::has_selectfree() const {
   return ctrl_case() == kSelectFree;
 }
@@ -6323,7 +6344,7 @@ inline ::natashapb::GameCtrlSelectFree* GameCtrl::mutable_selectfree() {
   return ctrl_.selectfree_;
 }
 
-// .natashapb.GameCtrlFreeSpin freeSpin = 3;
+// .natashapb.GameCtrlFreeSpin freeSpin = 12;
 inline bool GameCtrl::has_freespin() const {
   return ctrl_case() == kFreeSpin;
 }
@@ -6364,7 +6385,7 @@ inline ::natashapb::GameCtrlFreeSpin* GameCtrl::mutable_freespin() {
   return ctrl_.freespin_;
 }
 
-// .natashapb.GameCtrlBonus bonus = 4;
+// .natashapb.GameCtrlBonus bonus = 13;
 inline bool GameCtrl::has_bonus() const {
   return ctrl_case() == kBonus;
 }
@@ -6405,7 +6426,7 @@ inline ::natashapb::GameCtrlBonus* GameCtrl::mutable_bonus() {
   return ctrl_.bonus_;
 }
 
-// .natashapb.GameCtrlJackpot jackpot = 5;
+// .natashapb.GameCtrlJackpot jackpot = 14;
 inline bool GameCtrl::has_jackpot() const {
   return ctrl_case() == kJackpot;
 }
@@ -6446,7 +6467,7 @@ inline ::natashapb::GameCtrlJackpot* GameCtrl::mutable_jackpot() {
   return ctrl_.jackpot_;
 }
 
-// .natashapb.GameCtrlCommonJackpot commonJackpot = 6;
+// .natashapb.GameCtrlCommonJackpot commonJackpot = 15;
 inline bool GameCtrl::has_commonjackpot() const {
   return ctrl_case() == kCommonJackpot;
 }
@@ -6487,7 +6508,7 @@ inline ::natashapb::GameCtrlCommonJackpot* GameCtrl::mutable_commonjackpot() {
   return ctrl_.commonjackpot_;
 }
 
-// .natashapb.GameCtrlAwardSpin awardSpin = 7;
+// .natashapb.GameCtrlAwardSpin awardSpin = 16;
 inline bool GameCtrl::has_awardspin() const {
   return ctrl_case() == kAwardSpin;
 }

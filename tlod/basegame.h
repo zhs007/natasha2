@@ -15,7 +15,7 @@ class TLODBaseGame : public SlotsGameMod {
  public:
   TLODBaseGame(GameLogic& logic, StaticCascadingReels3X5& reels,
                Paytables3X5& paytables, Lines3X5& lines, BetList& lstBet)
-      : SlotsGameMod(logic),
+      : SlotsGameMod(logic, ::natashapb::BASE_GAME),
         m_reels(reels),
         m_paytables(paytables),
         m_lines(lines),
@@ -40,6 +40,8 @@ class TLODBaseGame : public SlotsGameMod {
       ci->set_turnnums(0);
       ci->set_turnwin(0);
       ci->set_freestate(::natashapb::NO_FREEGAME);
+
+      clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
     }
 
     return ::natashapb::OK;
@@ -48,8 +50,7 @@ class TLODBaseGame : public SlotsGameMod {
   // start - start cur game module for user
   //    basegame does not need to handle this
   virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUser,
-                                  const ::natashapb::StartGameMod* pStart,
-                                  CtrlID nextCtrlID) {
+                                  const ::natashapb::StartGameMod* pStart) {
     return ::natashapb::INVALID_START_GAMEMOD_TO_START;
   }
 
@@ -178,7 +179,7 @@ class TLODBaseGame : public SlotsGameMod {
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      const ::natashapb::RandomResult* pRandomResult,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
@@ -188,10 +189,15 @@ class TLODBaseGame : public SlotsGameMod {
 
     // if need start free game
     if (pSpinResult->realfgnums() > 0) {
+      this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
+
+      printGameCtrlID("tlod basegame", pUser->gamectrlid());
+
       ::natashapb::StartGameMod sp;
 
       auto parentctrlid = sp.mutable_parentctrlid();
       parentctrlid->CopyFrom(pUser->gamectrlid());
+      // parentctrlid->set_baseid();
 
       auto fg = sp.mutable_freegame();
       fg->set_bet(pGameCtrl->spin().bet());
@@ -199,8 +205,7 @@ class TLODBaseGame : public SlotsGameMod {
       fg->set_times(TLOD_DEFAULT_TIMES);
       fg->set_freenums(TLOD_DEFAULT_FREENUMS);
 
-      auto code = m_logic.startGameMod(::natashapb::FREE_GAME, &sp, nextCtrlID,
-                                       pLogicUser);
+      auto code = m_logic.startGameMod(::natashapb::FREE_GAME, &sp, pLogicUser);
       if (code != ::natashapb::OK) {
         return code;
       }
@@ -210,10 +215,9 @@ class TLODBaseGame : public SlotsGameMod {
 
     // if respin
     if (pSpinResult->win() > 0) {
-      auto gamectrlid = pUser->mutable_gamectrlid();
-      if (gamectrlid->baseid() > 0) {
-        return ::natashapb::OK;
-      }
+      this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
+
+      // printGameCtrlID("tlod basegame", pUser->gamectrlid());
     }
 
     return ::natashapb::OK;

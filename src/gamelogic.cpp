@@ -13,7 +13,7 @@ GameLogic::~GameLogic() {}
 
 ::natashapb::CODE GameLogic::gameCtrl(
     ::natashapb::GameCtrl* pGameCtrl,
-    ::natashapb::UserGameLogicInfo* pLogicUser, CtrlID nextCtrlID) {
+    ::natashapb::UserGameLogicInfo* pLogicUser) {
   assert(pGameCtrl != NULL);
   assert(pLogicUser != NULL);
 
@@ -28,7 +28,7 @@ GameLogic::~GameLogic() {}
     return code;
   }
 
-  code = curmod->onGameCtrl(pGameCtrl, pLogicUser, curugmi, nextCtrlID);
+  code = curmod->onGameCtrl(pGameCtrl, pLogicUser, curugmi);
   if (code != ::natashapb::OK) {
     return code;
   }
@@ -58,11 +58,11 @@ GameLogic::~GameLogic() {}
 //   Only for gamectrl
 ::natashapb::CODE GameLogic::startGameMod(
     ::natashapb::GAMEMODTYPE gmt, const ::natashapb::StartGameMod* pStart,
-    CtrlID nextCtrlID, ::natashapb::UserGameLogicInfo* pLogicUser) {
+    ::natashapb::UserGameLogicInfo* pLogicUser) {
   auto it = m_mapGameMod.find(gmt);
   assert(it != m_mapGameMod.end());
 
-  return it->second->start(pLogicUser->mutable_freegame(), pStart, nextCtrlID);
+  return it->second->start(pLogicUser->mutable_freegame(), pStart);
 }
 
 // getMainGameMod - start game module for user
@@ -134,7 +134,7 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
 }
 
 ::natashapb::CODE GameLogic::userComeIn(
-    ::natashapb::UserGameLogicInfo* pLogicUser, CtrlID nextCtrlID) {
+    ::natashapb::UserGameLogicInfo* pLogicUser) {
   assert(pLogicUser != NULL);
 
   for (ConstMapGameModIter it = m_mapGameMod.begin(); it != m_mapGameMod.end();

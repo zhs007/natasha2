@@ -35,7 +35,9 @@ int main() {
       freespin->set_times(natasha::TLOD_DEFAULT_TIMES);
     }
 
-    c = tlod.gameCtrl(pGameCtrl, pUGI, i + 1);
+    pGameCtrl->set_ctrlid(i + 1);
+
+    c = tlod.gameCtrl(pGameCtrl, pUGI);
     if (c != natashapb::OK) {
       printf("gameCtrl fail(%d)!\n", c);
     }

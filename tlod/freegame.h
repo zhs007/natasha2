@@ -15,7 +15,7 @@ class TLODFreeGame : public SlotsGameMod {
  public:
   TLODFreeGame(GameLogic& logic, StaticCascadingReels3X5& reels,
                Paytables3X5& paytables, Lines3X5& lines, BetList& lstBet)
-      : SlotsGameMod(logic),
+      : SlotsGameMod(logic, ::natashapb::FREE_GAME),
         m_reels(reels),
         m_paytables(paytables),
         m_lines(lines),
@@ -28,8 +28,7 @@ class TLODFreeGame : public SlotsGameMod {
   // start - start cur game module for user
   //    basegame does not need to handle this
   virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUser,
-                                  const ::natashapb::StartGameMod* pStart,
-                                  CtrlID nextCtrlID) {
+                                  const ::natashapb::StartGameMod* pStart) {
     assert(pStart->has_freegame());
     assert(pStart->has_parentctrlid());
 
@@ -73,8 +72,10 @@ class TLODFreeGame : public SlotsGameMod {
     freeinfo->set_lastnums(pStart->freegame().freenums());
     freeinfo->set_totalwin(0);
 
-    setGameCtrlID(*pUser->mutable_gamectrlid(), pStart->parentctrlid(),
-                  nextCtrlID, ::natashapb::FREE_GAME);
+    printGameCtrlID("tlod start freegame", pStart->parentctrlid());
+
+    setGameCtrlID(*pUser->mutable_gamectrlid(), pStart->parentctrlid(), 0,
+                  ::natashapb::FREE_GAME);
 
     return ::natashapb::OK;
   }
@@ -94,6 +95,8 @@ class TLODFreeGame : public SlotsGameMod {
       ci->set_turnnums(0);
       ci->set_turnwin(0);
       ci->set_freestate(::natashapb::NO_FREEGAME);
+
+      clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
     }
 
     return ::natashapb::OK;
@@ -210,7 +213,7 @@ class TLODFreeGame : public SlotsGameMod {
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::RandomResult* pRandomResult, CtrlID nextCtrlID,
+      const ::natashapb::RandomResult* pRandomResult,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
