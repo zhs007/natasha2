@@ -2,6 +2,7 @@
 #define __NATASHA_GAMELOGIC_H__
 
 #include <assert.h>
+#include <functional>
 #include <map>
 #include <vector>
 #include "../protoc/base.pb.h"
@@ -11,6 +12,9 @@
 #include "utils.h"
 
 namespace natasha {
+
+typedef std::function< ::natashapb::CODE(::natashapb::UserGameLogicInfo*)>
+    FuncProcGameCtrlResult;
 
 class GameLogic {
  public:
@@ -35,6 +39,13 @@ class GameLogic {
   virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
                                   bool isComeInGame);
 
+  // onGameCtrlEnd - onGameCtrlEnd
+  //               - 留作后期处理结算以后事务用，目前不用
+  virtual ::natashapb::CODE onGameCtrlEnd(
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::UserGameLogicInfo* pLogicUser, GameMod* curmod,
+      ::natashapb::UserGameModInfo* curugmi);
+
  public:
   // addGameMod - init game module
   //   Only for init
@@ -58,8 +69,14 @@ class GameLogic {
                                  const ::natashapb::StartGameMod* pStart,
                                  ::natashapb::UserGameLogicInfo* pLogicUser);
 
+  // setFuncProcGameCtrlResult - set FuncProcGameCtrlResult
+  void setFuncProcGameCtrlResult(FuncProcGameCtrlResult func) {
+    m_funcProcGameCtrlResult = func;
+  }
+
  protected:
   MapGameMod m_mapGameMod;
+  FuncProcGameCtrlResult m_funcProcGameCtrlResult;
 };
 
 }  // namespace natasha

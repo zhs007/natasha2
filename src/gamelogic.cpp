@@ -39,6 +39,21 @@ GameLogic::~GameLogic() {}
   pLogicUser->set_curgamemodtype(curmod->getGameModType());
   pLogicUser->set_nextgamemodtype(nextmod->getGameModType());
 
+  auto nextugmi =
+      this->getUserGameModInfo(pLogicUser, nextmod->getGameModType());
+  assert(nextugmi != NULL);
+
+  pLogicUser->set_iscompleted(nextmod->isCompeleted(nextugmi));
+
+  if (m_funcProcGameCtrlResult != NULL) {
+    m_funcProcGameCtrlResult(pLogicUser);
+  }
+
+  // code = onGameCtrlEnd(pGameCtrl, pLogicUser, curmod, curugmi);
+  // if (code != ::natashapb::OK) {
+  //   return code;
+  // }
+
   return ::natashapb::OK;
 }
 
@@ -153,6 +168,19 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
   pLogicUser->set_nextgamemodtype(curmod->getGameModType());
 
   return ::natashapb::OK;
+}
+
+// onGameCtrlEnd - onGameCtrlEnd
+//               - 处理当前游戏模块状态，诸如isCompleted、curmod、nextmod
+::natashapb::CODE GameLogic::onGameCtrlEnd(
+    const ::natashapb::GameCtrl* pGameCtrl,
+    ::natashapb::UserGameLogicInfo* pLogicUser, GameMod* curmod,
+    ::natashapb::UserGameModInfo* curugmi) {
+  assert(pLogicUser != NULL);
+  assert(curmod != NULL);
+  assert(curugmi != NULL);
+
+  return curmod->onGameCtrlEnd(pGameCtrl, pLogicUser, curugmi);
 }
 
 }  // namespace natasha

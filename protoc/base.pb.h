@@ -2374,17 +2374,23 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::UserGameModInfo* mutable_respin();
   void set_allocated_respin(::natashapb::UserGameModInfo* respin);
 
-  // .natashapb.GAMEMODTYPE curGameModType = 100;
-  void clear_curgamemodtype();
-  static const int kCurGameModTypeFieldNumber = 100;
-  ::natashapb::GAMEMODTYPE curgamemodtype() const;
-  void set_curgamemodtype(::natashapb::GAMEMODTYPE value);
-
   // .natashapb.GAMEMODTYPE nextGameModType = 101;
   void clear_nextgamemodtype();
   static const int kNextGameModTypeFieldNumber = 101;
   ::natashapb::GAMEMODTYPE nextgamemodtype() const;
   void set_nextgamemodtype(::natashapb::GAMEMODTYPE value);
+
+  // bool isCompleted = 30;
+  void clear_iscompleted();
+  static const int kIsCompletedFieldNumber = 30;
+  bool iscompleted() const;
+  void set_iscompleted(bool value);
+
+  // .natashapb.GAMEMODTYPE curGameModType = 100;
+  void clear_curgamemodtype();
+  static const int kCurGameModTypeFieldNumber = 100;
+  ::natashapb::GAMEMODTYPE curgamemodtype() const;
+  void set_curgamemodtype(::natashapb::GAMEMODTYPE value);
 
   // @@protoc_insertion_point(class_scope:natashapb.UserGameLogicInfo)
  private:
@@ -2396,8 +2402,9 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::UserGameModInfo* jackpot_;
   ::natashapb::UserGameModInfo* commonjackpot_;
   ::natashapb::UserGameModInfo* respin_;
-  int curgamemodtype_;
   int nextgamemodtype_;
+  bool iscompleted_;
+  int curgamemodtype_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsUserGameLogicInfoImpl();
@@ -5886,6 +5893,20 @@ inline void UserGameLogicInfo::set_allocated_respin(::natashapb::UserGameModInfo
   }
   respin_ = respin;
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameLogicInfo.respin)
+}
+
+// bool isCompleted = 30;
+inline void UserGameLogicInfo::clear_iscompleted() {
+  iscompleted_ = false;
+}
+inline bool UserGameLogicInfo::iscompleted() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameLogicInfo.isCompleted)
+  return iscompleted_;
+}
+inline void UserGameLogicInfo::set_iscompleted(bool value) {
+  
+  iscompleted_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.isCompleted)
 }
 
 // .natashapb.GAMEMODTYPE curGameModType = 100;

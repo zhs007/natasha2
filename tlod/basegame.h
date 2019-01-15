@@ -285,6 +285,18 @@ class TLODBaseGame : public SlotsGameMod {
     return ::natashapb::OK;
   }
 
+  // isCompeleted - isCompeleted
+  //              - 游戏特殊状态是否已结束
+  virtual bool isCompeleted(::natashapb::UserGameModInfo* pUser) {
+    if (pUser->has_spinresult()) {
+      if (pUser->spinresult().lstgri_size() > 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
  protected:
   StaticCascadingReels3X5& m_reels;
   Paytables3X5& m_paytables;

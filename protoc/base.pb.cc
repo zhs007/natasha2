@@ -873,6 +873,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, jackpot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, commonjackpot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, respin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, iscompleted_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, curgamemodtype_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::UserGameLogicInfo, nextgamemodtype_),
   ~0u,  // no _has_bits_
@@ -986,17 +987,17 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 124, -1, sizeof(::natashapb::RespinHistoryList)},
   { 130, -1, sizeof(::natashapb::UserGameModInfo)},
   { 144, -1, sizeof(::natashapb::UserGameLogicInfo)},
-  { 157, -1, sizeof(::natashapb::GameCtrlSpin)},
-  { 167, -1, sizeof(::natashapb::GameCtrlSelectFree)},
-  { 173, -1, sizeof(::natashapb::GameCtrlFreeSpin)},
-  { 183, -1, sizeof(::natashapb::GameCtrlBonus)},
-  { 189, -1, sizeof(::natashapb::GameCtrlJackpot)},
-  { 195, -1, sizeof(::natashapb::GameCtrlCommonJackpot)},
-  { 201, -1, sizeof(::natashapb::GameCtrlAwardSpin)},
-  { 210, -1, sizeof(::natashapb::GameCtrlDebug)},
-  { 217, -1, sizeof(::natashapb::GameCtrl)},
-  { 233, -1, sizeof(::natashapb::StartFreeGame)},
-  { 243, -1, sizeof(::natashapb::StartGameMod)},
+  { 158, -1, sizeof(::natashapb::GameCtrlSpin)},
+  { 168, -1, sizeof(::natashapb::GameCtrlSelectFree)},
+  { 174, -1, sizeof(::natashapb::GameCtrlFreeSpin)},
+  { 184, -1, sizeof(::natashapb::GameCtrlBonus)},
+  { 190, -1, sizeof(::natashapb::GameCtrlJackpot)},
+  { 196, -1, sizeof(::natashapb::GameCtrlCommonJackpot)},
+  { 202, -1, sizeof(::natashapb::GameCtrlAwardSpin)},
+  { 211, -1, sizeof(::natashapb::GameCtrlDebug)},
+  { 218, -1, sizeof(::natashapb::GameCtrl)},
+  { 234, -1, sizeof(::natashapb::StartFreeGame)},
+  { 244, -1, sizeof(::natashapb::StartGameMod)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1103,7 +1104,7 @@ void AddDescriptorsImpl() {
       "2\034.natashapb.RespinHistoryList\022)\n\010freeIn"
       "fo\030\017 \001(\0132\027.natashapb.BaseFreeInfo\022+\n\013sym"
       "bolblock\030d \001(\0132\026.natashapb.SymbolBlock\022$"
-      "\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.Any\"\207\003\n"
+      "\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.Any\"\234\003\n"
       "\021UserGameLogicInfo\022,\n\010basegame\030\001 \001(\0132\032.n"
       "atashapb.UserGameModInfo\022,\n\010freegame\030\002 \001"
       "(\0132\032.natashapb.UserGameModInfo\022)\n\005bonus\030"
@@ -1111,63 +1112,64 @@ void AddDescriptorsImpl() {
       "kpot\030\004 \001(\0132\032.natashapb.UserGameModInfo\0221"
       "\n\rcommonjackpot\030\005 \001(\0132\032.natashapb.UserGa"
       "meModInfo\022*\n\006respin\030\006 \001(\0132\032.natashapb.Us"
-      "erGameModInfo\022.\n\016curGameModType\030d \001(\0162\026."
-      "natashapb.GAMEMODTYPE\022/\n\017nextGameModType"
-      "\030e \001(\0162\026.natashapb.GAMEMODTYPE\"\\\n\014GameCt"
-      "rlSpin\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005ti"
+      "erGameModInfo\022\023\n\013isCompleted\030\036 \001(\010\022.\n\016cu"
+      "rGameModType\030d \001(\0162\026.natashapb.GAMEMODTY"
+      "PE\022/\n\017nextGameModType\030e \001(\0162\026.natashapb."
+      "GAMEMODTYPE\"\\\n\014GameCtrlSpin\022\013\n\003bet\030\001 \001(\003"
+      "\022\r\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n\010totalB"
+      "et\030\004 \001(\003\022\017\n\007realBet\030\005 \001(\003\"\'\n\022GameCtrlSel"
+      "ectFree\022\021\n\ttypeIndex\030\001 \001(\005\"`\n\020GameCtrlFr"
+      "eeSpin\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005ti"
       "mes\030\003 \001(\005\022\020\n\010totalBet\030\004 \001(\003\022\017\n\007realBet\030\005"
-      " \001(\003\"\'\n\022GameCtrlSelectFree\022\021\n\ttypeIndex\030"
-      "\001 \001(\005\"`\n\020GameCtrlFreeSpin\022\013\n\003bet\030\001 \001(\003\022\r"
-      "\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n\010totalBet"
-      "\030\004 \001(\003\022\017\n\007realBet\030\005 \001(\003\"\"\n\rGameCtrlBonus"
-      "\022\021\n\titemIndex\030\001 \001(\005\"$\n\017GameCtrlJackpot\022\021"
-      "\n\titemIndex\030\001 \001(\005\"*\n\025GameCtrlCommonJackp"
-      "ot\022\021\n\titemIndex\030\001 \001(\005\"P\n\021GameCtrlAwardSp"
-      "in\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005times\030"
-      "\003 \001(\005\022\020\n\010totalBet\030\004 \001(\003\"6\n\rGameCtrlDebug"
-      "\022\022\n\ndebugState\030\001 \001(\005\022\021\n\tlstRandom\030\002 \003(\003\""
-      "\310\003\n\010GameCtrl\022\016\n\006ctrlID\030\001 \001(\003\022\'\n\004spin\030\n \001"
-      "(\0132\027.natashapb.GameCtrlSpinH\000\0223\n\nselectF"
-      "ree\030\013 \001(\0132\035.natashapb.GameCtrlSelectFree"
-      "H\000\022/\n\010freeSpin\030\014 \001(\0132\033.natashapb.GameCtr"
-      "lFreeSpinH\000\022)\n\005bonus\030\r \001(\0132\030.natashapb.G"
-      "ameCtrlBonusH\000\022-\n\007jackpot\030\016 \001(\0132\032.natash"
-      "apb.GameCtrlJackpotH\000\0229\n\rcommonJackpot\030\017"
-      " \001(\0132 .natashapb.GameCtrlCommonJackpotH\000"
-      "\0221\n\tawardSpin\030\020 \001(\0132\034.natashapb.GameCtrl"
-      "AwardSpinH\000\022\'\n\005debug\030d \001(\0132\030.natashapb.G"
-      "ameCtrlDebug\022$\n\005exDat\030\350\007 \001(\0132\024.google.pr"
-      "otobuf.AnyB\006\n\004ctrl\"\\\n\rStartFreeGame\022\013\n\003b"
-      "et\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020"
-      "\n\010freeNums\030\004 \001(\005\022\016\n\006avgBet\030\005 \001(\003\"\236\001\n\014Sta"
-      "rtGameMod\022,\n\010freegame\030\001 \001(\0132\030.natashapb."
-      "StartFreeGameH\000\022+\n\014parentCtrlID\030d \001(\0132\025."
-      "natashapb.GameCtrlID\022$\n\005exDat\030\350\007 \001(\0132\024.g"
-      "oogle.protobuf.AnyB\r\n\013startParams*\346\003\n\004CO"
-      "DE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220N\022\026"
-      "\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REELS_"
-      "CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_START"
-      "\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241\234\001\022"
-      "\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_STAR"
-      "T_LINES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234\001\022\031"
-      "\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_PAR"
-      "ENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247\234\001\022"
-      "\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001\022"
-      "\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMECTRL"
-      "_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FREEST"
-      "ATE\020\300\270\002\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220"
-      "\277\005*\211\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLIN"
-      "E_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT"
-      "\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020"
-      "\005\022\023\n\017SCATTEREX_RIGHT\020\006*t\n\013GAMEMODTYPE\022\014\n"
-      "\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020"
-      "\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023C"
-      "OMMON_JACKPOT_GAME\020\005*L\n\022CASCADINGFREESTA"
-      "TE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME\020\001"
-      "\022\020\n\014END_FREEGAME\020\002b\006proto3"
+      " \001(\003\"\"\n\rGameCtrlBonus\022\021\n\titemIndex\030\001 \001(\005"
+      "\"$\n\017GameCtrlJackpot\022\021\n\titemIndex\030\001 \001(\005\"*"
+      "\n\025GameCtrlCommonJackpot\022\021\n\titemIndex\030\001 \001"
+      "(\005\"P\n\021GameCtrlAwardSpin\022\013\n\003bet\030\001 \001(\003\022\r\n\005"
+      "lines\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n\010totalBet\030\004"
+      " \001(\003\"6\n\rGameCtrlDebug\022\022\n\ndebugState\030\001 \001("
+      "\005\022\021\n\tlstRandom\030\002 \003(\003\"\310\003\n\010GameCtrl\022\016\n\006ctr"
+      "lID\030\001 \001(\003\022\'\n\004spin\030\n \001(\0132\027.natashapb.Game"
+      "CtrlSpinH\000\0223\n\nselectFree\030\013 \001(\0132\035.natasha"
+      "pb.GameCtrlSelectFreeH\000\022/\n\010freeSpin\030\014 \001("
+      "\0132\033.natashapb.GameCtrlFreeSpinH\000\022)\n\005bonu"
+      "s\030\r \001(\0132\030.natashapb.GameCtrlBonusH\000\022-\n\007j"
+      "ackpot\030\016 \001(\0132\032.natashapb.GameCtrlJackpot"
+      "H\000\0229\n\rcommonJackpot\030\017 \001(\0132 .natashapb.Ga"
+      "meCtrlCommonJackpotH\000\0221\n\tawardSpin\030\020 \001(\013"
+      "2\034.natashapb.GameCtrlAwardSpinH\000\022\'\n\005debu"
+      "g\030d \001(\0132\030.natashapb.GameCtrlDebug\022$\n\005exD"
+      "at\030\350\007 \001(\0132\024.google.protobuf.AnyB\006\n\004ctrl\""
+      "\\\n\rStartFreeGame\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002"
+      " \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n\010freeNums\030\004 \001(\005\022\016\n"
+      "\006avgBet\030\005 \001(\003\"\236\001\n\014StartGameMod\022,\n\010freega"
+      "me\030\001 \001(\0132\030.natashapb.StartFreeGameH\000\022+\n\014"
+      "parentCtrlID\030d \001(\0132\025.natashapb.GameCtrlI"
+      "D\022$\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.AnyB"
+      "\r\n\013startParams*\346\003\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVAL"
+      "ID_PAYTABLES_CFG\020\220N\022\026\n\021INVALID_LINES_CFG"
+      "\020\221N\022\026\n\021INVALID_REELS_CFG\020\222N\022$\n\036INVALID_S"
+      "TART_GAMEMOD_TO_START\020\240\234\001\022!\n\033INVALID_STA"
+      "RT_FREEGAME_NUMS\020\241\234\001\022\027\n\021INVALID_START_BE"
+      "T\020\242\234\001\022\031\n\023INVALID_START_LINES\020\243\234\001\022\031\n\023INVA"
+      "LID_START_TIMES\020\244\234\001\022\031\n\023ALREADY_IN_FREEGA"
+      "ME\020\245\234\001\022\026\n\020INVALID_PARENTID\020\246\234\001\022\034\n\026INVALI"
+      "D_PARENT_GAMEMOD\020\247\234\001\022\021\n\013INVALID_BET\020\260\352\001\022"
+      "\023\n\rINVALID_LINES\020\261\352\001\022\023\n\rINVALID_TIMES\020\262\352"
+      "\001\022\036\n\030INVALID_GAMECTRL_GAMEMOD\020\263\352\001\022!\n\033INV"
+      "ALID_CASCADING_FREESTATE\020\300\270\002\022!\n\033ERR_NO_O"
+      "VERLOADED_INTERFACE\020\220\277\005*\211\001\n\016GAMERESULTTY"
+      "PE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RI"
+      "GHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021\n\rSCATTER_RIGHT"
+      "\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022\023\n\017SCATTEREX_RIGH"
+      "T\020\006*t\n\013GAMEMODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE"
+      "_GAME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020"
+      "\n\014JACKPOT_GAME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020"
+      "\005*L\n\022CASCADINGFREESTATE\022\017\n\013NO_FREEGAME\020\000"
+      "\022\023\n\017CHG_TO_FREEGAME\020\001\022\020\n\014END_FREEGAME\020\002b"
+      "\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4626);
+      descriptor, 4647);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -7019,6 +7021,7 @@ const int UserGameLogicInfo::kBonusFieldNumber;
 const int UserGameLogicInfo::kJackpotFieldNumber;
 const int UserGameLogicInfo::kCommonjackpotFieldNumber;
 const int UserGameLogicInfo::kRespinFieldNumber;
+const int UserGameLogicInfo::kIsCompletedFieldNumber;
 const int UserGameLogicInfo::kCurGameModTypeFieldNumber;
 const int UserGameLogicInfo::kNextGameModTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -7066,16 +7069,16 @@ UserGameLogicInfo::UserGameLogicInfo(const UserGameLogicInfo& from)
   } else {
     respin_ = NULL;
   }
-  ::memcpy(&curgamemodtype_, &from.curgamemodtype_,
-    static_cast<size_t>(reinterpret_cast<char*>(&nextgamemodtype_) -
-    reinterpret_cast<char*>(&curgamemodtype_)) + sizeof(nextgamemodtype_));
+  ::memcpy(&nextgamemodtype_, &from.nextgamemodtype_,
+    static_cast<size_t>(reinterpret_cast<char*>(&curgamemodtype_) -
+    reinterpret_cast<char*>(&nextgamemodtype_)) + sizeof(curgamemodtype_));
   // @@protoc_insertion_point(copy_constructor:natashapb.UserGameLogicInfo)
 }
 
 void UserGameLogicInfo::SharedCtor() {
   ::memset(&basegame_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nextgamemodtype_) -
-      reinterpret_cast<char*>(&basegame_)) + sizeof(nextgamemodtype_));
+      reinterpret_cast<char*>(&curgamemodtype_) -
+      reinterpret_cast<char*>(&basegame_)) + sizeof(curgamemodtype_));
   _cached_size_ = 0;
 }
 
@@ -7139,9 +7142,9 @@ void UserGameLogicInfo::Clear() {
     delete respin_;
   }
   respin_ = NULL;
-  ::memset(&curgamemodtype_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nextgamemodtype_) -
-      reinterpret_cast<char*>(&curgamemodtype_)) + sizeof(nextgamemodtype_));
+  ::memset(&nextgamemodtype_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&curgamemodtype_) -
+      reinterpret_cast<char*>(&nextgamemodtype_)) + sizeof(curgamemodtype_));
   _internal_metadata_.Clear();
 }
 
@@ -7221,6 +7224,20 @@ bool UserGameLogicInfo::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_respin()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool isCompleted = 30;
+      case 30: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(240u /* 240 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &iscompleted_)));
         } else {
           goto handle_unusual;
         }
@@ -7319,6 +7336,11 @@ void UserGameLogicInfo::SerializeWithCachedSizes(
       6, *respin_, output);
   }
 
+  // bool isCompleted = 30;
+  if (this->iscompleted() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(30, this->iscompleted(), output);
+  }
+
   // .natashapb.GAMEMODTYPE curGameModType = 100;
   if (this->curgamemodtype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
@@ -7385,6 +7407,11 @@ void UserGameLogicInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         6, *respin_, deterministic, target);
+  }
+
+  // bool isCompleted = 30;
+  if (this->iscompleted() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(30, this->iscompleted(), target);
   }
 
   // .natashapb.GAMEMODTYPE curGameModType = 100;
@@ -7458,16 +7485,21 @@ size_t UserGameLogicInfo::ByteSizeLong() const {
         *respin_);
   }
 
-  // .natashapb.GAMEMODTYPE curGameModType = 100;
-  if (this->curgamemodtype() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->curgamemodtype());
-  }
-
   // .natashapb.GAMEMODTYPE nextGameModType = 101;
   if (this->nextgamemodtype() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->nextgamemodtype());
+  }
+
+  // bool isCompleted = 30;
+  if (this->iscompleted() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // .natashapb.GAMEMODTYPE curGameModType = 100;
+  if (this->curgamemodtype() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->curgamemodtype());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7517,11 +7549,14 @@ void UserGameLogicInfo::MergeFrom(const UserGameLogicInfo& from) {
   if (from.has_respin()) {
     mutable_respin()->::natashapb::UserGameModInfo::MergeFrom(from.respin());
   }
-  if (from.curgamemodtype() != 0) {
-    set_curgamemodtype(from.curgamemodtype());
-  }
   if (from.nextgamemodtype() != 0) {
     set_nextgamemodtype(from.nextgamemodtype());
+  }
+  if (from.iscompleted() != 0) {
+    set_iscompleted(from.iscompleted());
+  }
+  if (from.curgamemodtype() != 0) {
+    set_curgamemodtype(from.curgamemodtype());
   }
 }
 
@@ -7555,8 +7590,9 @@ void UserGameLogicInfo::InternalSwap(UserGameLogicInfo* other) {
   swap(jackpot_, other->jackpot_);
   swap(commonjackpot_, other->commonjackpot_);
   swap(respin_, other->respin_);
-  swap(curgamemodtype_, other->curgamemodtype_);
   swap(nextgamemodtype_, other->nextgamemodtype_);
+  swap(iscompleted_, other->iscompleted_);
+  swap(curgamemodtype_, other->curgamemodtype_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

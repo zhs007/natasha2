@@ -47,6 +47,14 @@ class GameMod {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
+  // onGameCtrlEnd
+  virtual ::natashapb::CODE onGameCtrlEnd(
+      const ::natashapb::GameCtrl* pGameCtrl,
+      ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pMainUGMI) {
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
   // updGameResult -
   virtual ::natashapb::CODE updGameResult(::natashapb::UserGameModInfo* pUser,
                                           MoneyType realbet,
@@ -65,6 +73,12 @@ class GameMod {
   //           - 初始化用户游戏模块数据
   virtual ::natashapb::CODE clearUGMI(::natashapb::UserGameModInfo* pUser) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
+  // isCompeleted - isCompeleted
+  //              - 游戏特殊状态是否已结束
+  virtual bool isCompeleted(::natashapb::UserGameModInfo* pUser) {
+    return false;
   }
 
  public:

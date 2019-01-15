@@ -294,6 +294,9 @@ message UserGameLogicInfo {
     UserGameModInfo commonjackpot = 5;
     UserGameModInfo respin = 6;
 
+    // isCompleted - 玩家特殊状态已完成，下一局应该付费游戏
+    bool isCompleted = 30;
+
     GAMEMODTYPE curGameModType = 100;
     GAMEMODTYPE nextGameModType = 101;
 }

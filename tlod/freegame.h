@@ -333,6 +333,16 @@ class TLODFreeGame : public SlotsGameMod {
     return ::natashapb::OK;
   }
 
+  // isCompeleted - isCompeleted
+  //              - 游戏特殊状态是否已结束
+  virtual bool isCompeleted(::natashapb::UserGameModInfo* pUser) {
+    if (isIn(pUser)) {
+      return false;
+    }
+
+    return true;
+  }  
+
  protected:
   StaticCascadingReels3X5& m_reels;
   Paytables3X5& m_paytables;
