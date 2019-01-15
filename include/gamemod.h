@@ -54,17 +54,22 @@ class GameMod {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
-  // getGameModType - get GAMEMODTYPE
-  virtual ::natashapb::GAMEMODTYPE getGameModType() {
-    return ::natashapb::NULL_MOD;
-  }
-
   // setCurGameCtrlID - set ctrlid
   //                 只在产生特殊情况下才调用，用来配置baseid和parentid
   virtual ::natashapb::CODE setCurGameCtrlID(
       ::natashapb::UserGameModInfo* pUser, CtrlID curCtrlID) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
+
+  // clearUGMI - clear UserGameModInfo
+  //           - 初始化用户游戏模块数据
+  virtual ::natashapb::CODE clearUGMI(::natashapb::UserGameModInfo* pUser) {
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
+ public:
+  // getGameModType - get GAMEMODTYPE
+  ::natashapb::GAMEMODTYPE getGameModType() { return m_gmt; }
 
  protected:
   GameLogic& m_logic;

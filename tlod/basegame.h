@@ -32,16 +32,7 @@ class TLODBaseGame : public SlotsGameMod {
     // 版本号用来区分数据版本
     // 版本号也可以用于判断数据是否已经初始化
     if (pUser->ver() != TLOD_BG_UGMI_VER) {
-      auto ci = pUser->mutable_cascadinginfo();
-      ci->set_curbet(-1);
-      ci->set_curlines(TLOD_DEFAULT_PAY_LINES);
-      ci->set_curtimes(TLOD_DEFAULT_TIMES);
-
-      ci->set_turnnums(0);
-      ci->set_turnwin(0);
-      ci->set_freestate(::natashapb::NO_FREEGAME);
-
-      clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
+      return this->clearUGMI(pUser);
     }
 
     return ::natashapb::OK;
@@ -281,9 +272,17 @@ class TLODBaseGame : public SlotsGameMod {
     return ::natashapb::OK;
   }
 
-  // getGameModType - get GAMEMODTYPE
-  virtual ::natashapb::GAMEMODTYPE getGameModType() {
-    return ::natashapb::BASE_GAME;
+  // clearUGMI - clear UserGameModInfo
+  //           - 初始化用户游戏模块数据
+  virtual ::natashapb::CODE clearUGMI(::natashapb::UserGameModInfo* pUser) {
+    clearUGMI_BaseCascadingInfo(*pUser->mutable_cascadinginfo(),
+                                TLOD_DEFAULT_PAY_LINES, TLOD_DEFAULT_TIMES);
+
+    clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
+
+    pUser->set_ver(TLOD_BG_UGMI_VER);
+
+    return ::natashapb::OK;
   }
 
  protected:

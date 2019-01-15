@@ -62,7 +62,7 @@ class TLODFreeGame : public SlotsGameMod {
       return ::natashapb::ALREADY_IN_FREEGAME;
     }
 
-    pUser->Clear();
+    this->clearUGMI(pUser);
 
     auto freeinfo = pUser->mutable_freeinfo();
     freeinfo->set_curbet(pStart->freegame().bet());
@@ -87,16 +87,7 @@ class TLODFreeGame : public SlotsGameMod {
     // 版本号用来区分数据版本
     // 版本号也可以用于判断数据是否已经初始化
     if (pUser->ver() != TLOD_FG_UGMI_VER) {
-      auto ci = pUser->mutable_cascadinginfo();
-      ci->set_curbet(-1);
-      ci->set_curlines(TLOD_DEFAULT_PAY_LINES);
-      ci->set_curtimes(TLOD_DEFAULT_TIMES);
-
-      ci->set_turnnums(0);
-      ci->set_turnwin(0);
-      ci->set_freestate(::natashapb::NO_FREEGAME);
-
-      clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
+      this->clearUGMI(pUser);
     }
 
     return ::natashapb::OK;
@@ -116,16 +107,17 @@ class TLODFreeGame : public SlotsGameMod {
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
     assert(pUser->has_cascadinginfo());
+    assert(pUser->has_freeinfo());
 
     if (!pGameCtrl->has_freespin()) {
       return ::natashapb::INVALID_GAMECTRL_GAMEMOD;
     }
 
     auto spinctrl = pGameCtrl->mutable_freespin();
-    spinctrl->set_bet(pUser->cascadinginfo().curbet());
+    spinctrl->set_bet(pUser->freeinfo().curbet());
     spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_times(TLOD_DEFAULT_TIMES);
-    spinctrl->set_totalbet(pUser->cascadinginfo().curbet() *
+    spinctrl->set_totalbet(pUser->freeinfo().curbet() *
                            TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_realbet(0);
 
@@ -328,9 +320,17 @@ class TLODFreeGame : public SlotsGameMod {
     return ::natashapb::OK;
   }
 
-  // getGameModType - get GAMEMODTYPE
-  virtual ::natashapb::GAMEMODTYPE getGameModType() {
-    return ::natashapb::FREE_GAME;
+  // clearUGMI - clear UserGameModInfo
+  //           - 初始化用户游戏模块数据
+  virtual ::natashapb::CODE clearUGMI(::natashapb::UserGameModInfo* pUser) {
+    clearUGMI_BaseCascadingInfo(*pUser->mutable_cascadinginfo(),
+                                TLOD_DEFAULT_PAY_LINES, TLOD_DEFAULT_TIMES);
+
+    clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
+
+    pUser->set_ver(TLOD_BG_UGMI_VER);
+
+    return ::natashapb::OK;
   }
 
  protected:

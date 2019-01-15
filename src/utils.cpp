@@ -121,6 +121,18 @@ void clearUGMI_GameCtrlID(::natashapb::GameCtrlID& gcid) {
   gcid.set_gamemod(natashapb::NULL_MOD);
 }
 
+// clearUGMI_BaseCascadingInfo
+void clearUGMI_BaseCascadingInfo(::natashapb::BaseCascadingInfo& bci, int lines,
+                                 int times) {
+  bci.set_curbet(-1);
+  bci.set_curlines(lines);
+  bci.set_curtimes(times);
+
+  bci.set_turnnums(0);
+  bci.set_turnwin(0);
+  bci.set_freestate(::natashapb::NO_FREEGAME);
+}
+
 // printGameCtrlID
 void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid) {
   if (str != NULL) {

@@ -86,6 +86,9 @@ void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
 // clearUGMI_GameCtrlID
 void clearUGMI_GameCtrlID(::natashapb::GameCtrlID& gcid);
 
+// clearUGMI_BaseCascadingInfo
+void clearUGMI_BaseCascadingInfo(::natashapb::BaseCascadingInfo& bci, int lines, int times);
+
 // printGameCtrlID
 void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid);
 
