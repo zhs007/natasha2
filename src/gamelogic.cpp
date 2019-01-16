@@ -9,7 +9,7 @@ GameLogic::GameLogic() {}
 
 GameLogic::~GameLogic() {}
 
-::natashapb::CODE GameLogic::init() { return ::natashapb::OK; }
+::natashapb::CODE GameLogic::init(const char* cfgpath) { return ::natashapb::OK; }
 
 ::natashapb::CODE GameLogic::gameCtrl(
     ::natashapb::GameCtrl* pGameCtrl,

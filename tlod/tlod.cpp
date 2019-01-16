@@ -13,16 +13,16 @@ void outputReels(StaticCascadingReels3X5* pReels) {
   }
 }
 
-::natashapb::CODE TLOD::init() {
+::natashapb::CODE TLOD::init(const char* cfgpath) {
   FileNameList lst;
 
-  lst.push_back("./csv/game116e_payout95_0.csv");
-  lst.push_back("./csv/game116e_payout95_1.csv");
-  lst.push_back("./csv/game116e_payout95_2.csv");
-  lst.push_back("./csv/game116e_payout95_3.csv");
-  lst.push_back("./csv/game116e_payout95_4.csv");
-  lst.push_back("./csv/game116e_payout95_5.csv");
-  lst.push_back("./csv/game116e_payout95_6.csv");
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_0.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_1.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_2.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_3.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_4.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_5.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116e_payout95_6.csv"));
 
   loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
@@ -31,12 +31,12 @@ void outputReels(StaticCascadingReels3X5* pReels) {
 
   // outputReels(&m_reels);
 
-  loadLines3X5("./csv/game116_line.csv", m_lines);
+  loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
   if (m_lines.isEmpty()) {
     return ::natashapb::INVALID_LINES_CFG;
   }
 
-  loadPaytables3X5("./csv/game116_paytables.csv", m_paytables);
+  loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(), m_paytables);
   if (m_paytables.isEmpty()) {
     return ::natashapb::INVALID_PAYTABLES_CFG;
   }

@@ -26,7 +26,7 @@ class GameLogic {
   virtual ~GameLogic();
 
  public:
-  virtual ::natashapb::CODE init();
+  virtual ::natashapb::CODE init(const char* cfgpath);
 
   virtual ::natashapb::CODE userComeIn(
       ::natashapb::UserGameLogicInfo* pLogicUser);

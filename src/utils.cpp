@@ -143,4 +143,16 @@ void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid) {
          gcid.baseid(), gcid.parentid(), gcid.ctrlid(), gcid.gamemod());
 }
 
+// pathAppend
+std::string pathAppend(const std::string& p1, const std::string& p2) {
+  char sep = '/';
+  std::string tmp = p1;
+
+  if (p1[p1.length()] != sep) {
+    tmp += sep;
+    return (tmp + p2);
+  } else
+    return (p1 + p2);
+}
+
 }  // namespace natasha

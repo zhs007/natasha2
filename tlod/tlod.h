@@ -17,7 +17,7 @@ class TLOD : public GameLogic {
   virtual ~TLOD() {}
 
  public:
-  virtual ::natashapb::CODE init();
+  virtual ::natashapb::CODE init(const char* cfgpath);
 
   // getMainGameMod - get current main game module
   virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,

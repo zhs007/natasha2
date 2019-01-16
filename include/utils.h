@@ -92,6 +92,9 @@ void clearUGMI_BaseCascadingInfo(::natashapb::BaseCascadingInfo& bci, int lines,
 // printGameCtrlID
 void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid);
 
+// pathAppend
+std::string pathAppend(const std::string& p1, const std::string& p2);
+
 }  // namespace natasha
 
 #endif  // __NATASHA_UTILS_H__

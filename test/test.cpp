@@ -6,7 +6,7 @@ int main() {
 
   printf("%ld\n", time(NULL));
 
-  auto c = tlod.init();
+  auto c = tlod.init("./csv");
   if (c != natashapb::OK) {
     printf("init fail(%d)!\n", c);
   }
