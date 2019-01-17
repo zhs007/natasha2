@@ -328,7 +328,7 @@ class TLODFreeGame : public SlotsGameMod {
 
     clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
 
-    pUser->set_ver(TLOD_BG_UGMI_VER);
+    pUser->set_ver(TLOD_FG_UGMI_VER);
 
     return ::natashapb::OK;
   }

@@ -23,7 +23,9 @@ int main() {
   auto pGameCtrl = new ::natashapb::GameCtrl();
   int64_t ctrlid = 1;
 
-  for (int i = 0; i <= 1000000; ++ctrlid) {
+  for (int i = 0; i <= 1000000; ++ctrlid, ++i) {
+    // continue ;
+
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
       auto spin = pGameCtrl->mutable_spin();
       spin->set_bet(1);

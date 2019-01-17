@@ -89,17 +89,20 @@ void countAllLine_Left(
     buildSymbolLine<SymbolBlockT, Width, Height>(&arr, sl, lines, i);
     // arr.buildSymbolLine(sl, lines, i);
 
-    ::natashapb::GameResultInfo gri;
+    auto curgri = sr.add_lstgri();
+    // ::natashapb::GameResultInfo gri;
 
     bool iswin =
         _countLine_Left<MoneyType, SymbolType, Width, Height, SymbolBlockT,
-                        GameCfgT>(gri, sl, i, lines.get(i), paytables, bet);
+                        GameCfgT>(*curgri, sl, i, lines.get(i), paytables, bet);
     if (iswin) {
-      auto curgri = sr.add_lstgri();
-      curgri->CopyFrom(gri);
+      // auto curgri = sr.add_lstgri();
+      // curgri->CopyFrom(gri);
 
-      sr.set_win(sr.win() + gri.win());
-      sr.set_realwin(sr.realwin() + gri.realwin());
+      sr.set_win(sr.win() + curgri->win());
+      sr.set_realwin(sr.realwin() + curgri->realwin());
+    } else {
+      sr.mutable_lstgri()->RemoveLast();
     }
   }
 }
