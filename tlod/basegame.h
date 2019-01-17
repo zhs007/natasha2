@@ -125,7 +125,7 @@ class TLODBaseGame : public SlotsGameMod {
 
       pCurGRI->CopyFrom(gri);
 
-      printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+      // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
       if (pUser->cascadinginfo().freestate() == ::natashapb::NO_FREEGAME) {
         pCurGRI->set_typegameresult(::natashapb::SCATTEREX_LEFT);
@@ -182,7 +182,7 @@ class TLODBaseGame : public SlotsGameMod {
     if (pSpinResult->realfgnums() > 0) {
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
-      printGameCtrlID("tlod basegame", pUser->gamectrlid());
+      // printGameCtrlID("tlod basegame", pUser->gamectrlid());
 
       ::natashapb::StartGameMod sp;
 

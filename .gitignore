@@ -34,3 +34,9 @@
 build
 .vscode
 csv
+CMakeFiles
+*.cmake
+Makefile
+CMakeCache.txt
+maintest
+*.tcl

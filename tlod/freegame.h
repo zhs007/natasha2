@@ -72,7 +72,7 @@ class TLODFreeGame : public SlotsGameMod {
     freeinfo->set_lastnums(pStart->freegame().freenums());
     freeinfo->set_totalwin(0);
 
-    printGameCtrlID("tlod start freegame", pStart->parentctrlid());
+    // printGameCtrlID("tlod start freegame", pStart->parentctrlid());
 
     setGameCtrlID(*pUser->mutable_gamectrlid(), pStart->parentctrlid(), 0,
                   ::natashapb::FREE_GAME);
