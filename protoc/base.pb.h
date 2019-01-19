@@ -249,12 +249,13 @@ enum CODE {
   INVALID_GAMECTRL_GAMEMOD = 30003,
   INVALID_CASCADING_FREESTATE = 40000,
   ERR_NO_OVERLOADED_INTERFACE = 90000,
+  ERR_INVALID_JS_PARAMS = 90001,
   CODE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   CODE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool CODE_IsValid(int value);
 const CODE CODE_MIN = OK;
-const CODE CODE_MAX = ERR_NO_OVERLOADED_INTERFACE;
+const CODE CODE_MAX = ERR_INVALID_JS_PARAMS;
 const int CODE_ARRAYSIZE = CODE_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CODE_descriptor();

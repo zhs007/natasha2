@@ -59,6 +59,8 @@ enum CODE {
 
     // no overloaded interface
     ERR_NO_OVERLOADED_INTERFACE = 90000;
+    // js invalid params
+    ERR_INVALID_JS_PARAMS = 90001;
 }
 
 // // SymbolLine -
