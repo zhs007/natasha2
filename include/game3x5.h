@@ -13,7 +13,7 @@
 #include "paytables.h"
 #include "staticcascadingreels3x5.h"
 #include "symbolblock.h"
-#include "util.h"
+#include "utils.h"
 
 namespace natasha {
 

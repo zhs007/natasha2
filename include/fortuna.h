@@ -2,6 +2,7 @@
 #define __NATASHA_FORTUNA_H__
 
 #include <assert.h>
+#include <stdint.h>
 
 namespace natasha {
 
