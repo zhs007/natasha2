@@ -61,6 +61,10 @@ enum CODE {
     ERR_NO_OVERLOADED_INTERFACE = 90000;
     // js invalid params
     ERR_INVALID_JS_PARAMS = 90001;
+    // protobuf parse error
+    ERR_PROTOBUF_PARSE = 90002;
+    // build return object error
+    ERR_JS_BUILD_RET_OBJECT = 90003;
 }
 
 // // SymbolLine -
