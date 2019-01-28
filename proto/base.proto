@@ -372,6 +372,7 @@ message GameCtrl {
         GameCtrlJackpot jackpot = 14;
         GameCtrlCommonJackpot commonJackpot = 15;
         GameCtrlAwardSpin awardSpin = 16;
+        GameCtrlSpin respin = 17;
     }
 
     // debug params

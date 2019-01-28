@@ -72,7 +72,7 @@ class TLODFreeGame : public SlotsGameMod {
     freeinfo->set_lastnums(pStart->freegame().freenums());
     freeinfo->set_totalwin(0);
 
-    // printGameCtrlID("tlod start freegame", pStart->parentctrlid());
+    printGameCtrlID("tlod start freegame", pStart->parentctrlid());
 
     setGameCtrlID(*pUser->mutable_gamectrlid(), pStart->parentctrlid(), 0,
                   ::natashapb::FREE_GAME);
@@ -328,7 +328,7 @@ class TLODFreeGame : public SlotsGameMod {
 
     clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
 
-    pUser->set_ver(TLOD_FG_UGMI_VER);
+    pUser->set_ver(TLOD_BG_UGMI_VER);
 
     return ::natashapb::OK;
   }
