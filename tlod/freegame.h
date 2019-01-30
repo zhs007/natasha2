@@ -246,6 +246,7 @@ class TLODFreeGame : public SlotsGameMod {
 
     // if respin
     if (pSpinResult->realwin() > 0) {
+      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->spin().bet());
       pUser->mutable_cascadinginfo()->set_turnnums(
           pUser->cascadinginfo().turnnums() + 1);
 

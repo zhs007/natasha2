@@ -219,6 +219,7 @@ class TLODBaseGame : public SlotsGameMod {
     if (pSpinResult->realwin() > 0) {
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
+      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->spin().bet());
       pUser->mutable_cascadinginfo()->set_turnnums(
           pUser->cascadinginfo().turnnums() + 1);
       // printGameCtrlID("tlod basegame", pUser->gamectrlid());
