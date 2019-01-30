@@ -26,13 +26,24 @@ class TLODBaseGame : public SlotsGameMod {
   virtual ::natashapb::CODE init() { return ::natashapb::OK; }
 
   // onUserComeIn -
-  virtual ::natashapb::CODE onUserComeIn(::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE onUserComeIn(
+      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pUser) {
     assert(pUser != NULL);
 
     // 版本号用来区分数据版本
     // 版本号也可以用于判断数据是否已经初始化
     if (pUser->ver() != TLOD_BG_UGMI_VER) {
-      return this->clearUGMI(pUser);
+      auto code = this->clearUGMI(pUser);
+      if (code != ::natashapb::OK) {
+        return code;
+      }
+
+      auto pGameCtrl = new ::natashapb::GameCtrl();
+      code = this->makeInitScenario(pGameCtrl, pLogicUser, pUser);
+      if (code != ::natashapb::OK) {
+        return code;
+      }
     }
 
     return ::natashapb::OK;

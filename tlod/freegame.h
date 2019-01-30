@@ -81,13 +81,24 @@ class TLODFreeGame : public SlotsGameMod {
   }
 
   // onUserComeIn -
-  virtual ::natashapb::CODE onUserComeIn(::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE onUserComeIn(
+      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pUser) {
     assert(pUser != NULL);
 
     // 版本号用来区分数据版本
     // 版本号也可以用于判断数据是否已经初始化
     if (pUser->ver() != TLOD_FG_UGMI_VER) {
-      this->clearUGMI(pUser);
+      auto code = this->clearUGMI(pUser);
+      if (code != ::natashapb::OK) {
+        return code;
+      }
+
+      auto pGameCtrl = new ::natashapb::GameCtrl();
+      code = this->makeInitScenario(pGameCtrl, pLogicUser, pUser);
+      if (code != ::natashapb::OK) {
+        return code;
+      }
     }
 
     return ::natashapb::OK;
@@ -117,8 +128,7 @@ class TLODFreeGame : public SlotsGameMod {
     spinctrl->set_bet(pUser->freeinfo().curbet());
     spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_times(TLOD_DEFAULT_TIMES);
-    spinctrl->set_totalbet(pUser->freeinfo().curbet() *
-                           TLOD_DEFAULT_PAY_LINES);
+    spinctrl->set_totalbet(pUser->freeinfo().curbet() * TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_realbet(0);
 
     auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
@@ -341,7 +351,7 @@ class TLODFreeGame : public SlotsGameMod {
     }
 
     return true;
-  }  
+  }
 
  protected:
   StaticCascadingReels3X5& m_reels;

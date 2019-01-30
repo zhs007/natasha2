@@ -55,6 +55,12 @@ enum CODE {
     INVALID_CASCADING_FREESTATE = 40000;
 
     //----------------------------------------------------------
+    // userComeIn    
+
+    // make a initial scenario error
+    ERR_MAKE_INITIAL_SCENARIO = 50000;
+
+    //----------------------------------------------------------
     // common
 
     // no overloaded interface

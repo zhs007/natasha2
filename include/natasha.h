@@ -16,6 +16,9 @@ namespace natasha {
 
 typedef std::vector<MoneyType> BetList;
 
+// max nums for makeInitScenario
+const int MAX_NUMS_MAKEINITIALSCENARIO = 200;
+
 }  // namespace natasha
 
 #endif  // __NATASA_NATASHA_H__

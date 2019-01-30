@@ -35,7 +35,9 @@ class GameMod {
       const ::natashapb::UserGameModInfo* pUser) = 0;
 
   // onUserComeIn -
-  virtual ::natashapb::CODE onUserComeIn(::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE onUserComeIn(
+      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pUser) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
@@ -81,9 +83,22 @@ class GameMod {
     return false;
   }
 
+  // makeInitScenario - make a initial scenario
+  //                  - 产生一个初始局面，不中奖的
+  virtual ::natashapb::CODE makeInitScenario(
+      ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pUGMI) {
+    return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
+  }
+
  public:
   // getGameModType - get GAMEMODTYPE
   ::natashapb::GAMEMODTYPE getGameModType() { return m_gmt; }
+
+  // getUserGameModInfo - get user game module info
+  ::natashapb::UserGameModInfo* getUserGameModInfo(
+      ::natashapb::UserGameLogicInfo* pLogicUser);
 
  protected:
   GameLogic& m_logic;
@@ -157,6 +172,13 @@ class SlotsGameMod : public GameMod {
     }
     return ::natashapb::OK;
   }
+
+  // makeInitScenario - make a initial scenario
+  //                  - 产生一个初始局面，不中奖的
+  virtual ::natashapb::CODE makeInitScenario(
+      ::natashapb::GameCtrl* pGameCtrl,
+      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::UserGameModInfo* pUGMI);
 
  public:
   // randomReels - random reels

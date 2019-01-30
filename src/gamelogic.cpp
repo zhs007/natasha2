@@ -9,7 +9,9 @@ GameLogic::GameLogic() {}
 
 GameLogic::~GameLogic() {}
 
-::natashapb::CODE GameLogic::init(const char* cfgpath) { return ::natashapb::OK; }
+::natashapb::CODE GameLogic::init(const char* cfgpath) {
+  return ::natashapb::OK;
+}
 
 ::natashapb::CODE GameLogic::gameCtrl(
     ::natashapb::GameCtrl* pGameCtrl,
@@ -156,7 +158,7 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
        ++it) {
     auto pUGMI = getUserGameModInfo(pLogicUser, it->first);
     assert(pUGMI != NULL);
-    auto code = it->second->onUserComeIn(pUGMI);
+    auto code = it->second->onUserComeIn(pLogicUser, pUGMI);
     if (code != ::natashapb::OK) {
       return code;
     }
