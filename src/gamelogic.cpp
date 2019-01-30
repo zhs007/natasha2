@@ -167,6 +167,10 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
   auto curmod = this->getMainGameMod(pLogicUser, false);
   assert(curmod != NULL);
 
+  if (pLogicUser->curgamemodtype() == ::natashapb::NULL_MOD) {
+    pLogicUser->set_curgamemodtype(curmod->getGameModType());
+  }
+
   pLogicUser->set_nextgamemodtype(curmod->getGameModType());
 
   return ::natashapb::OK;

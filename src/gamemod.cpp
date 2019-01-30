@@ -28,12 +28,14 @@ namespace natasha {
   //   auto pGameCtrl = new ::natashapb::GameCtrl();
 
   for (int i = 0; i < MAX_NUMS_MAKEINITIALSCENARIO; ++i) {
+    pUGMI->clear_randomresult();
     auto code =
         this->randomReels(pUGMI->mutable_randomresult(), pGameCtrl, pUGMI);
     if (code != ::natashapb::OK) {
       return code;
     }
 
+    // pUGMI->clear_spinresult();
     code =
         this->countSpinResult(pUGMI->mutable_spinresult(), pGameCtrl,
                               pUGMI->mutable_randomresult(), pUGMI, pLogicUser);
@@ -41,8 +43,8 @@ namespace natasha {
       return code;
     }
 
-    if (pUGMI->spinresult().realwin() == 0 && pUGMI->spinresult().fgnums() == 0) {
-        return ::natashapb::OK;
+    if (pUGMI->spinresult().lstgri_size() == 0) {
+      return ::natashapb::OK;
     }
   }
 
