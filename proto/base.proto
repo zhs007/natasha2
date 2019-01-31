@@ -254,6 +254,7 @@ message BaseCascadingInfo {
     int32 turnNums = 4;
     int64 turnWin = 5;    
     CASCADINGFREESTATE freeState = 6;
+    bool isEnd = 7;
 
     SymbolBlock symbolblock = 100;
 }

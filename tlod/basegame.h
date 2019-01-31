@@ -221,11 +221,14 @@ class TLODBaseGame : public SlotsGameMod {
 
       pUser->mutable_cascadinginfo()->set_turnwin(
           pUser->cascadinginfo().turnwin() + pSpinResult->realwin());
-          
+
       pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->spin().bet());
       pUser->mutable_cascadinginfo()->set_turnnums(
           pUser->cascadinginfo().turnnums() + 1);
+      pUser->mutable_cascadinginfo()->set_isend(false);
       // printGameCtrlID("tlod basegame", pUser->gamectrlid());
+    } else {
+      pUser->mutable_cascadinginfo()->set_isend(true);
     }
 
     return ::natashapb::OK;
@@ -236,6 +239,11 @@ class TLODBaseGame : public SlotsGameMod {
       ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       ::natashapb::UserGameLogicInfo* pLogicUser) {
+    if (pUser->cascadinginfo().isend()) {
+      pUser->mutable_cascadinginfo()->set_turnnums(0);
+      pUser->mutable_cascadinginfo()->set_turnwin(0);
+    }
+
     return ::natashapb::OK;
   }
 

@@ -251,11 +251,14 @@ class TLODFreeGame : public SlotsGameMod {
           pUser->cascadinginfo().turnwin() + pSpinResult->realwin());
       pUser->mutable_cascadinginfo()->set_turnnums(
           pUser->cascadinginfo().turnnums() + 1);
+      pUser->mutable_cascadinginfo()->set_isend(false);
 
       auto gamectrlid = pUser->mutable_gamectrlid();
       if (gamectrlid->baseid() > 0) {
         return ::natashapb::OK;
       }
+    } else {
+      pUser->mutable_cascadinginfo()->set_isend(true);
     }
 
     return ::natashapb::OK;
@@ -273,9 +276,12 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pUser->freeinfo().lastnums() > 0);
     assert(pUser->has_cascadinginfo());
 
-    bool isrespin = false;
-    if (pUser->has_spinresult() && pUser->spinresult().lstgri_size() > 0) {
-      isrespin = true;
+    bool isrespin = true;
+    if (pUser->cascadinginfo().isend()) {
+      pUser->mutable_cascadinginfo()->set_turnnums(0);
+      pUser->mutable_cascadinginfo()->set_turnwin(0);
+
+      isrespin = false;
     }
 
     if (!isrespin) {

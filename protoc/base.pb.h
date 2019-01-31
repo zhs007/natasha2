@@ -1667,6 +1667,12 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::CASCADINGFREESTATE freestate() const;
   void set_freestate(::natashapb::CASCADINGFREESTATE value);
 
+  // bool isEnd = 7;
+  void clear_isend();
+  static const int kIsEndFieldNumber = 7;
+  bool isend() const;
+  void set_isend(bool value);
+
   // @@protoc_insertion_point(class_scope:natashapb.BaseCascadingInfo)
  private:
 
@@ -1678,6 +1684,7 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int64 turnwin_;
   ::google::protobuf::int32 turnnums_;
   int freestate_;
+  bool isend_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsBaseCascadingInfoImpl();
@@ -4946,6 +4953,20 @@ inline void BaseCascadingInfo::set_freestate(::natashapb::CASCADINGFREESTATE val
   
   freestate_ = value;
   // @@protoc_insertion_point(field_set:natashapb.BaseCascadingInfo.freeState)
+}
+
+// bool isEnd = 7;
+inline void BaseCascadingInfo::clear_isend() {
+  isend_ = false;
+}
+inline bool BaseCascadingInfo::isend() const {
+  // @@protoc_insertion_point(field_get:natashapb.BaseCascadingInfo.isEnd)
+  return isend_;
+}
+inline void BaseCascadingInfo::set_isend(bool value) {
+  
+  isend_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.BaseCascadingInfo.isEnd)
 }
 
 // .natashapb.SymbolBlock symbolblock = 100;
