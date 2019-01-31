@@ -344,6 +344,34 @@ inline bool CASCADINGFREESTATE_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<CASCADINGFREESTATE>(
     CASCADINGFREESTATE_descriptor(), name, value);
 }
+enum DEBUGSTATE {
+  NO_DEBUG = 0,
+  SMALL_WIN = 1,
+  MEDIUM_WIN = 2,
+  BIG_WIN = 3,
+  ANY_WIN = 4,
+  DEBUG_FREEGAME = 5,
+  DEBUG_BONUS = 6,
+  DEBUG_COMMONJACKPOT = 7,
+  DEBUG_RANDOM = 8,
+  DEBUGSTATE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  DEBUGSTATE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool DEBUGSTATE_IsValid(int value);
+const DEBUGSTATE DEBUGSTATE_MIN = NO_DEBUG;
+const DEBUGSTATE DEBUGSTATE_MAX = DEBUG_RANDOM;
+const int DEBUGSTATE_ARRAYSIZE = DEBUGSTATE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* DEBUGSTATE_descriptor();
+inline const ::std::string& DEBUGSTATE_Name(DEBUGSTATE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    DEBUGSTATE_descriptor(), value);
+}
+inline bool DEBUGSTATE_Parse(
+    const ::std::string& name, DEBUGSTATE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<DEBUGSTATE>(
+    DEBUGSTATE_descriptor(), name, value);
+}
 // ===================================================================
 
 class SymbolBlock3X5 : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolBlock3X5) */ {
@@ -3318,11 +3346,11 @@ class GameCtrlDebug : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
       mutable_lstrandom();
 
-  // int32 debugState = 1;
+  // .natashapb.DEBUGSTATE debugState = 1;
   void clear_debugstate();
   static const int kDebugStateFieldNumber = 1;
-  ::google::protobuf::int32 debugstate() const;
-  void set_debugstate(::google::protobuf::int32 value);
+  ::natashapb::DEBUGSTATE debugstate() const;
+  void set_debugstate(::natashapb::DEBUGSTATE value);
 
   // @@protoc_insertion_point(class_scope:natashapb.GameCtrlDebug)
  private:
@@ -3330,7 +3358,7 @@ class GameCtrlDebug : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > lstrandom_;
   mutable int _lstrandom_cached_byte_size_;
-  ::google::protobuf::int32 debugstate_;
+  int debugstate_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameCtrlDebugImpl();
@@ -6258,15 +6286,15 @@ inline void GameCtrlAwardSpin::set_totalbet(::google::protobuf::int64 value) {
 
 // GameCtrlDebug
 
-// int32 debugState = 1;
+// .natashapb.DEBUGSTATE debugState = 1;
 inline void GameCtrlDebug::clear_debugstate() {
   debugstate_ = 0;
 }
-inline ::google::protobuf::int32 GameCtrlDebug::debugstate() const {
+inline ::natashapb::DEBUGSTATE GameCtrlDebug::debugstate() const {
   // @@protoc_insertion_point(field_get:natashapb.GameCtrlDebug.debugState)
-  return debugstate_;
+  return static_cast< ::natashapb::DEBUGSTATE >(debugstate_);
 }
-inline void GameCtrlDebug::set_debugstate(::google::protobuf::int32 value) {
+inline void GameCtrlDebug::set_debugstate(::natashapb::DEBUGSTATE value) {
   
   debugstate_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrlDebug.debugState)
@@ -7055,6 +7083,11 @@ template <> struct is_proto_enum< ::natashapb::CASCADINGFREESTATE> : ::google::p
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::natashapb::CASCADINGFREESTATE>() {
   return ::natashapb::CASCADINGFREESTATE_descriptor();
+}
+template <> struct is_proto_enum< ::natashapb::DEBUGSTATE> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::natashapb::DEBUGSTATE>() {
+  return ::natashapb::DEBUGSTATE_descriptor();
 }
 
 }  // namespace protobuf

@@ -360,9 +360,31 @@ message GameCtrlAwardSpin {
     int64 totalBet = 4;
 }
 
+// debug state
+enum DEBUGSTATE {
+    // no debug
+    NO_DEBUG = 0;
+    // small win
+    SMALL_WIN = 1;
+    // medium win
+    MEDIUM_WIN = 2;
+    // big win
+    BIG_WIN = 3;
+    // any win
+    ANY_WIN = 4;
+    // free game
+    DEBUG_FREEGAME = 5;
+    // bonus
+    DEBUG_BONUS = 6;
+    // common jackpot
+    DEBUG_COMMONJACKPOT = 7;
+    // debug random
+    DEBUG_RANDOM = 8;
+}
+
 // GameCtrlDebug - debug params
 message GameCtrlDebug {
-    int32 debugState = 1;
+    DEBUGSTATE debugState = 1;
     repeated int64 lstRandom = 2;
 }
 

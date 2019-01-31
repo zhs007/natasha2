@@ -716,7 +716,7 @@ void InitDefaultsStartGameMod() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[25];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -1129,54 +1129,59 @@ void AddDescriptorsImpl() {
       "emIndex\030\001 \001(\005\"*\n\025GameCtrlCommonJackpot\022\021"
       "\n\titemIndex\030\001 \001(\005\"P\n\021GameCtrlAwardSpin\022\013"
       "\n\003bet\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001("
-      "\005\022\020\n\010totalBet\030\004 \001(\003\"6\n\rGameCtrlDebug\022\022\n\n"
-      "debugState\030\001 \001(\005\022\021\n\tlstRandom\030\002 \003(\003\"\363\003\n\010"
-      "GameCtrl\022\016\n\006ctrlID\030\001 \001(\003\022\'\n\004spin\030\n \001(\0132\027"
-      ".natashapb.GameCtrlSpinH\000\0223\n\nselectFree\030"
-      "\013 \001(\0132\035.natashapb.GameCtrlSelectFreeH\000\022/"
-      "\n\010freeSpin\030\014 \001(\0132\033.natashapb.GameCtrlFre"
-      "eSpinH\000\022)\n\005bonus\030\r \001(\0132\030.natashapb.GameC"
-      "trlBonusH\000\022-\n\007jackpot\030\016 \001(\0132\032.natashapb."
-      "GameCtrlJackpotH\000\0229\n\rcommonJackpot\030\017 \001(\013"
-      "2 .natashapb.GameCtrlCommonJackpotH\000\0221\n\t"
-      "awardSpin\030\020 \001(\0132\034.natashapb.GameCtrlAwar"
-      "dSpinH\000\022)\n\006respin\030\021 \001(\0132\027.natashapb.Game"
-      "CtrlSpinH\000\022\'\n\005debug\030d \001(\0132\030.natashapb.Ga"
-      "meCtrlDebug\022$\n\005exDat\030\350\007 \001(\0132\024.google.pro"
-      "tobuf.AnyB\006\n\004ctrl\"\\\n\rStartFreeGame\022\013\n\003be"
-      "t\030\001 \001(\003\022\r\n\005lines\030\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n"
-      "\010freeNums\030\004 \001(\005\022\016\n\006avgBet\030\005 \001(\003\"\236\001\n\014Star"
-      "tGameMod\022,\n\010freegame\030\001 \001(\0132\030.natashapb.S"
-      "tartFreeGameH\000\022+\n\014parentCtrlID\030d \001(\0132\025.n"
-      "atashapb.GameCtrlID\022$\n\005exDat\030\350\007 \001(\0132\024.go"
-      "ogle.protobuf.AnyB\r\n\013startParams*\335\004\n\004COD"
-      "E\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220N\022\026\n"
-      "\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REELS_C"
-      "FG\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_START\020"
-      "\240\234\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241\234\001\022\027"
-      "\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_START"
-      "_LINES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234\001\022\031\n"
-      "\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_PARE"
-      "NTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247\234\001\022\021"
-      "\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001\022\023"
-      "\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMECTRL_"
-      "GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FREESTA"
-      "TE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020\320\206\003\022"
-      "!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033\n\025ER"
-      "R_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBUF_"
-      "PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT\020\223\277\005"
-      "*\211\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_"
-      "LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT\020\003"
-      "\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022"
-      "\023\n\017SCATTEREX_RIGHT\020\006*t\n\013GAMEMODTYPE\022\014\n\010N"
-      "ULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020\002\022"
-      "\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023COM"
-      "MON_JACKPOT_GAME\020\005*L\n\022CASCADINGFREESTATE"
-      "\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME\020\001\022\020"
-      "\n\014END_FREEGAME\020\002b\006proto3"
+      "\005\022\020\n\010totalBet\030\004 \001(\003\"M\n\rGameCtrlDebug\022)\n\n"
+      "debugState\030\001 \001(\0162\025.natashapb.DEBUGSTATE\022"
+      "\021\n\tlstRandom\030\002 \003(\003\"\363\003\n\010GameCtrl\022\016\n\006ctrlI"
+      "D\030\001 \001(\003\022\'\n\004spin\030\n \001(\0132\027.natashapb.GameCt"
+      "rlSpinH\000\0223\n\nselectFree\030\013 \001(\0132\035.natashapb"
+      ".GameCtrlSelectFreeH\000\022/\n\010freeSpin\030\014 \001(\0132"
+      "\033.natashapb.GameCtrlFreeSpinH\000\022)\n\005bonus\030"
+      "\r \001(\0132\030.natashapb.GameCtrlBonusH\000\022-\n\007jac"
+      "kpot\030\016 \001(\0132\032.natashapb.GameCtrlJackpotH\000"
+      "\0229\n\rcommonJackpot\030\017 \001(\0132 .natashapb.Game"
+      "CtrlCommonJackpotH\000\0221\n\tawardSpin\030\020 \001(\0132\034"
+      ".natashapb.GameCtrlAwardSpinH\000\022)\n\006respin"
+      "\030\021 \001(\0132\027.natashapb.GameCtrlSpinH\000\022\'\n\005deb"
+      "ug\030d \001(\0132\030.natashapb.GameCtrlDebug\022$\n\005ex"
+      "Dat\030\350\007 \001(\0132\024.google.protobuf.AnyB\006\n\004ctrl"
+      "\"\\\n\rStartFreeGame\022\013\n\003bet\030\001 \001(\003\022\r\n\005lines\030"
+      "\002 \001(\005\022\r\n\005times\030\003 \001(\005\022\020\n\010freeNums\030\004 \001(\005\022\016"
+      "\n\006avgBet\030\005 \001(\003\"\236\001\n\014StartGameMod\022,\n\010freeg"
+      "ame\030\001 \001(\0132\030.natashapb.StartFreeGameH\000\022+\n"
+      "\014parentCtrlID\030d \001(\0132\025.natashapb.GameCtrl"
+      "ID\022$\n\005exDat\030\350\007 \001(\0132\024.google.protobuf.Any"
+      "B\r\n\013startParams*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVA"
+      "LID_PAYTABLES_CFG\020\220N\022\026\n\021INVALID_LINES_CF"
+      "G\020\221N\022\026\n\021INVALID_REELS_CFG\020\222N\022$\n\036INVALID_"
+      "START_GAMEMOD_TO_START\020\240\234\001\022!\n\033INVALID_ST"
+      "ART_FREEGAME_NUMS\020\241\234\001\022\027\n\021INVALID_START_B"
+      "ET\020\242\234\001\022\031\n\023INVALID_START_LINES\020\243\234\001\022\031\n\023INV"
+      "ALID_START_TIMES\020\244\234\001\022\031\n\023ALREADY_IN_FREEG"
+      "AME\020\245\234\001\022\026\n\020INVALID_PARENTID\020\246\234\001\022\034\n\026INVAL"
+      "ID_PARENT_GAMEMOD\020\247\234\001\022\021\n\013INVALID_BET\020\260\352\001"
+      "\022\023\n\rINVALID_LINES\020\261\352\001\022\023\n\rINVALID_TIMES\020\262"
+      "\352\001\022\036\n\030INVALID_GAMECTRL_GAMEMOD\020\263\352\001\022!\n\033IN"
+      "VALID_CASCADING_FREESTATE\020\300\270\002\022\037\n\031ERR_MAK"
+      "E_INITIAL_SCENARIO\020\320\206\003\022!\n\033ERR_NO_OVERLOA"
+      "DED_INTERFACE\020\220\277\005\022\033\n\025ERR_INVALID_JS_PARA"
+      "MS\020\221\277\005\022\030\n\022ERR_PROTOBUF_PARSE\020\222\277\005\022\035\n\027ERR_"
+      "JS_BUILD_RET_OBJECT\020\223\277\005*\211\001\n\016GAMERESULTTY"
+      "PE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RI"
+      "GHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021\n\rSCATTER_RIGHT"
+      "\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022\023\n\017SCATTEREX_RIGH"
+      "T\020\006*t\n\013GAMEMODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE"
+      "_GAME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020"
+      "\n\014JACKPOT_GAME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020"
+      "\005*L\n\022CASCADINGFREESTATE\022\017\n\013NO_FREEGAME\020\000"
+      "\022\023\n\017CHG_TO_FREEGAME\020\001\022\020\n\014END_FREEGAME\020\002*"
+      "\243\001\n\nDEBUGSTATE\022\014\n\010NO_DEBUG\020\000\022\r\n\tSMALL_WI"
+      "N\020\001\022\016\n\nMEDIUM_WIN\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_"
+      "WIN\020\004\022\022\n\016DEBUG_FREEGAME\020\005\022\017\n\013DEBUG_BONUS"
+      "\020\006\022\027\n\023DEBUG_COMMONJACKPOT\020\007\022\020\n\014DEBUG_RAN"
+      "DOM\020\010b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4824);
+      descriptor, 5013);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -1274,6 +1279,27 @@ bool CASCADINGFREESTATE_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* DEBUGSTATE_descriptor() {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_base_2eproto::file_level_enum_descriptors[4];
+}
+bool DEBUGSTATE_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
       return true;
     default:
       return false;
@@ -9756,14 +9782,15 @@ bool GameCtrlDebug::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 debugState = 1;
+      // .natashapb.DEBUGSTATE debugState = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
+          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &debugstate_)));
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_debugstate(static_cast< ::natashapb::DEBUGSTATE >(value));
         } else {
           goto handle_unusual;
         }
@@ -9815,9 +9842,10 @@ void GameCtrlDebug::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 debugState = 1;
+  // .natashapb.DEBUGSTATE debugState = 1;
   if (this->debugstate() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->debugstate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->debugstate(), output);
   }
 
   // repeated int64 lstRandom = 2;
@@ -9845,9 +9873,10 @@ void GameCtrlDebug::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 debugState = 1;
+  // .natashapb.DEBUGSTATE debugState = 1;
   if (this->debugstate() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->debugstate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->debugstate(), target);
   }
 
   // repeated int64 lstRandom = 2;
@@ -9896,11 +9925,10 @@ size_t GameCtrlDebug::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // int32 debugState = 1;
+  // .natashapb.DEBUGSTATE debugState = 1;
   if (this->debugstate() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->debugstate());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->debugstate());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
