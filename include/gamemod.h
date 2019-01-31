@@ -225,6 +225,14 @@ class SlotsGameMod : public GameMod {
       const ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
 
+ public:
+  // clearRespinHistory
+  ::natashapb::CODE clearRespinHistory(::natashapb::UserGameModInfo* pUser);
+  // addRespinHistory
+  ::natashapb::CODE addRespinHistory(::natashapb::UserGameModInfo* pUser,
+                                     int64_t realWin, int64_t win, int64_t mul,
+                                     bool isSpecial);
+
  protected:
 };
 

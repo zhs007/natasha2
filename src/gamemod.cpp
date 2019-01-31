@@ -51,4 +51,31 @@ namespace natasha {
   return ::natashapb::ERR_MAKE_INITIAL_SCENARIO;
 }
 
+// clearRespinHistory
+::natashapb::CODE SlotsGameMod::clearRespinHistory(
+    ::natashapb::UserGameModInfo* pUser) {
+  assert(pUser != NULL);
+
+  pUser->clear_lsthistory();
+
+  return ::natashapb::OK;
+}
+
+// addRespinHistory
+::natashapb::CODE SlotsGameMod::addRespinHistory(
+    ::natashapb::UserGameModInfo* pUser, int64_t realWin, int64_t win,
+    int64_t mul, bool isSpecial) {
+  assert(pUser != NULL);
+
+  auto h = pUser->mutable_lsthistory()->add_lst();
+  assert(h != NULL);
+
+  h->set_realwin(realWin);
+  h->set_win(win);
+  h->set_mul(mul);
+  h->set_isspecial(isSpecial);
+
+  return ::natashapb::OK;
+}
+
 }  // namespace natasha

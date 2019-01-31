@@ -212,6 +212,8 @@ class TLODBaseGame : public SlotsGameMod {
         return code;
       }
 
+      this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(), pSpinResult->awardmul(), true);
+
       return ::natashapb::OK;
     }
 
@@ -231,6 +233,8 @@ class TLODBaseGame : public SlotsGameMod {
       pUser->mutable_cascadinginfo()->set_isend(true);
     }
 
+    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(), pSpinResult->awardmul(), false);
+
     return ::natashapb::OK;
   }
 
@@ -242,6 +246,8 @@ class TLODBaseGame : public SlotsGameMod {
     if (pUser->cascadinginfo().isend()) {
       pUser->mutable_cascadinginfo()->set_turnnums(0);
       pUser->mutable_cascadinginfo()->set_turnwin(0);
+
+      this->clearRespinHistory(pUser);
     }
 
     return ::natashapb::OK;

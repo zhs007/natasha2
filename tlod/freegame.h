@@ -227,21 +227,6 @@ class TLODFreeGame : public SlotsGameMod {
     if (pSpinResult->realfgnums() > 0) {
       auto fi = pUser->mutable_freeinfo();
       fi->set_lastnums(fi->lastnums() + pSpinResult->realfgnums());
-      // ::natashapb::StartGameMod sp;
-
-      // auto parentctrlid = sp.mutable_parentctrlid();
-      // parentctrlid->CopyFrom(pUser->gamectrlid());
-
-      // auto fg = sp.mutable_freegame();
-      // fg->set_bet(pGameCtrl->spin().bet());
-      // fg->set_lines(TLOD_DEFAULT_PAY_LINES);
-      // fg->set_times(TLOD_DEFAULT_TIMES);
-      // fg->set_freenums(TLOD_DEFAULT_FREENUMS);
-
-      // m_logic.startGameMod(::natashapb::FREE_GAME, &sp, nextCtrlID,
-      // pLogicUser);
-
-      // return ::natashapb::OK;
     }
 
     // if respin
@@ -260,6 +245,8 @@ class TLODFreeGame : public SlotsGameMod {
     } else {
       pUser->mutable_cascadinginfo()->set_isend(true);
     }
+
+    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(), pSpinResult->awardmul(), false);
 
     return ::natashapb::OK;
   }
@@ -280,6 +267,8 @@ class TLODFreeGame : public SlotsGameMod {
     if (pUser->cascadinginfo().isend()) {
       pUser->mutable_cascadinginfo()->set_turnnums(0);
       pUser->mutable_cascadinginfo()->set_turnwin(0);
+
+      this->clearRespinHistory(pUser);
 
       isrespin = false;
     }
