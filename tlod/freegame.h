@@ -204,7 +204,7 @@ class TLODFreeGame : public SlotsGameMod {
     TLODCountAllLine(*pSpinResult, pSpinResult->symbolblock().sb3x5(), m_lines,
                      m_paytables, pGameCtrl->spin().bet());
 
-    pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 1);
+    pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 3);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
 
     return ::natashapb::OK;
