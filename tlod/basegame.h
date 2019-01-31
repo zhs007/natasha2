@@ -39,6 +39,8 @@ class TLODBaseGame : public SlotsGameMod {
         return code;
       }
 
+      pUser->mutable_cascadinginfo()->set_isend(true);
+
       auto pGameCtrl = new ::natashapb::GameCtrl();
       code = this->makeInitScenario(pGameCtrl, pLogicUser, pUser);
       if (code != ::natashapb::OK) {
@@ -128,7 +130,8 @@ class TLODBaseGame : public SlotsGameMod {
     // First check free
     ::natashapb::GameResultInfo gri;
     TLODCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
-                     TLOD_SYMBOL_S, pGameCtrl->spin().bet());
+                     TLOD_SYMBOL_S,
+                     pGameCtrl->spin().bet() * TLOD_DEFAULT_PAY_LINES);
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
       gri.set_win(0);
@@ -212,6 +215,7 @@ class TLODBaseGame : public SlotsGameMod {
         return code;
       }
 
+      pUser->mutable_cascadinginfo()->set_isend(true);
       this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
                              pSpinResult->awardmul(), true);
 

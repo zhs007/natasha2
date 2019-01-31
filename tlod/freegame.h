@@ -72,6 +72,8 @@ class TLODFreeGame : public SlotsGameMod {
     freeinfo->set_lastnums(pStart->freegame().freenums());
     freeinfo->set_totalwin(0);
 
+    pUser->mutable_cascadinginfo()->set_isend(true);
+
     // printGameCtrlID("tlod start freegame", pStart->parentctrlid());
 
     setGameCtrlID(*pUser->mutable_gamectrlid(), pStart->parentctrlid(), 0,
@@ -94,6 +96,8 @@ class TLODFreeGame : public SlotsGameMod {
         return code;
       }
 
+      pUser->mutable_cascadinginfo()->set_isend(true);
+
       auto pGameCtrl = new ::natashapb::GameCtrl();
       code = this->makeInitScenario(pGameCtrl, pLogicUser, pUser);
       if (code != ::natashapb::OK) {
@@ -107,7 +111,11 @@ class TLODFreeGame : public SlotsGameMod {
   // isIn - is in current game module
   virtual bool isIn(const ::natashapb::UserGameModInfo* pUser) {
     if (pUser->has_freeinfo()) {
-      return pUser->freeinfo().lastnums() > 0;
+      if (pUser->freeinfo().lastnums() > 0) {
+        return true;
+      }
+
+      return !pUser->cascadinginfo().isend();
     }
 
     return false;
@@ -169,13 +177,16 @@ class TLODFreeGame : public SlotsGameMod {
     // First check free
     ::natashapb::GameResultInfo gri;
     TLODCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
-                     TLOD_SYMBOL_S, pGameCtrl->spin().bet());
+                     TLOD_SYMBOL_S,
+                     pGameCtrl->freespin().bet() * TLOD_DEFAULT_PAY_LINES);
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
       gri.set_win(0);
       gri.set_realwin(0);
 
       pCurGRI->CopyFrom(gri);
+      
+      pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
       pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
 
       // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
@@ -202,7 +213,7 @@ class TLODFreeGame : public SlotsGameMod {
 
     // check all line payout
     TLODCountAllLine(*pSpinResult, pSpinResult->symbolblock().sb3x5(), m_lines,
-                     m_paytables, pGameCtrl->spin().bet());
+                     m_paytables, pGameCtrl->freespin().bet());
 
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 3);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
@@ -238,15 +249,19 @@ class TLODFreeGame : public SlotsGameMod {
           pUser->cascadinginfo().turnnums() + 1);
       pUser->mutable_cascadinginfo()->set_isend(false);
 
-      auto gamectrlid = pUser->mutable_gamectrlid();
-      if (gamectrlid->baseid() > 0) {
-        return ::natashapb::OK;
-      }
+      pUser->mutable_freeinfo()->set_totalwin(pUser->freeinfo().totalwin() +
+                                              pSpinResult->realwin());
+
+      // auto gamectrlid = pUser->mutable_gamectrlid();
+      // if (gamectrlid->baseid() > 0) {
+      //   return ::natashapb::OK;
+      // }
     } else {
       pUser->mutable_cascadinginfo()->set_isend(true);
     }
 
-    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(), pSpinResult->awardmul(), false);
+    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
+                           pSpinResult->awardmul(), false);
 
     return ::natashapb::OK;
   }
@@ -260,8 +275,12 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pGameCtrl != NULL);
     assert(pLogicUser != NULL);
     assert(pUser->has_freeinfo());
-    assert(pUser->freeinfo().lastnums() > 0);
+    // assert(pUser->freeinfo().lastnums() > 0);
     assert(pUser->has_cascadinginfo());
+
+    if (pUser->freeinfo().lastnums() == 0) {
+      assert(!pUser->cascadinginfo().isend());
+    }
 
     bool isrespin = true;
     if (pUser->cascadinginfo().isend()) {
@@ -297,7 +316,7 @@ class TLODFreeGame : public SlotsGameMod {
 
 #ifdef NATASHA_SERVER
     pSpinResult->mutable_spin()->CopyFrom(pGameCtrl->freespin());
-#endif  // NATASHA_SERVER    
+#endif  // NATASHA_SERVER
 
     if (pSpinResult->lstgri_size() > 0) {
       auto sb = pUser->mutable_symbolblock();

@@ -55,7 +55,7 @@ void StaticCascadingReels3X5::random(
   assert(pRandomResult != NULL);
   // assert(pUGMI->symbolblock().has_sb3x5());
 
-  if (pUGMI->cascadinginfo().turnnums() == 0) {
+  if (pUGMI->cascadinginfo().isend()) {
     ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
         pRandomResult->mutable_scrr3x5();
 
