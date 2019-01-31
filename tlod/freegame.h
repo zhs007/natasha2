@@ -276,6 +276,7 @@ class TLODFreeGame : public SlotsGameMod {
     if (!isrespin) {
       auto fi = pUser->mutable_freeinfo();
       fi->set_lastnums(fi->lastnums() - 1);
+      fi->set_curnums(fi->curnums() + 1);
     }
 
     return ::natashapb::OK;
@@ -293,6 +294,10 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pSpinResult != NULL);
     assert(pRandomResult != NULL);
     assert(pLogicUser != NULL);
+
+#ifdef NATASHA_SERVER
+    pSpinResult->mutable_spin()->CopyFrom(pGameCtrl->freespin());
+#endif  // NATASHA_SERVER    
 
     if (pSpinResult->lstgri_size() > 0) {
       auto sb = pUser->mutable_symbolblock();

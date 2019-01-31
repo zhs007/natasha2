@@ -212,7 +212,8 @@ class TLODBaseGame : public SlotsGameMod {
         return code;
       }
 
-      this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(), pSpinResult->awardmul(), true);
+      this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
+                             pSpinResult->awardmul(), true);
 
       return ::natashapb::OK;
     }
@@ -233,7 +234,8 @@ class TLODBaseGame : public SlotsGameMod {
       pUser->mutable_cascadinginfo()->set_isend(true);
     }
 
-    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(), pSpinResult->awardmul(), false);
+    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
+                           pSpinResult->awardmul(), false);
 
     return ::natashapb::OK;
   }
@@ -265,6 +267,10 @@ class TLODBaseGame : public SlotsGameMod {
     assert(pSpinResult != NULL);
     assert(pRandomResult != NULL);
     assert(pLogicUser != NULL);
+
+#ifdef NATASHA_SERVER
+    pSpinResult->mutable_spin()->CopyFrom(pGameCtrl->spin());
+#endif  // NATASHA_SERVER
 
     if (pSpinResult->lstgri_size() > 0) {
       auto sb = pUser->mutable_symbolblock();

@@ -12,6 +12,8 @@
 #include "logicscatter2.h"
 #include "utils.h"
 
+// #define NATASHA_SERVER
+
 namespace natasha {
 
 typedef std::vector<MoneyType> BetList;

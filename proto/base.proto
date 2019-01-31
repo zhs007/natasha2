@@ -208,6 +208,8 @@ message SpinResult {
 
     // symbolblock - symbol block
     SymbolBlock symbolblock = 100;
+    // spin - spin
+    GameCtrlSpin spin = 101;
 
     // exDat - extend data
     google.protobuf.Any exDat = 1000;
@@ -328,14 +330,14 @@ message GameCtrlSelectFree {
     int32 typeIndex = 1;
 }
 
-// GameCtrlFreeSpin - freegame spin
-message GameCtrlFreeSpin {
-    int64 bet = 1;
-    int32 lines = 2;
-    int32 times = 3;  
-    int64 totalBet = 4; 
-    int64 realBet = 5;
-}
+// // GameCtrlFreeSpin - freegame spin
+// message GameCtrlFreeSpin {
+//     int64 bet = 1;
+//     int32 lines = 2;
+//     int32 times = 3;  
+//     int64 totalBet = 4; 
+//     int64 realBet = 5;
+// }
 
 // GameCtrlBonus - bonus
 message GameCtrlBonus {
@@ -396,7 +398,7 @@ message GameCtrl {
     oneof ctrl {
         GameCtrlSpin spin = 10;
         GameCtrlSelectFree selectFree = 11;
-        GameCtrlFreeSpin freeSpin = 12;
+        GameCtrlSpin freeSpin = 12;
         GameCtrlBonus bonus = 13;
         GameCtrlJackpot jackpot = 14;
         GameCtrlCommonJackpot commonJackpot = 15;
