@@ -13,6 +13,7 @@
 #include "utils.h"
 
 // #define NATASHA_SERVER
+// #define NATASHA_COUNTRTP
 
 namespace natasha {
 

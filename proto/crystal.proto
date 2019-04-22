@@ -1,0 +1,8 @@
+syntax = "proto3";
+package crystalpb;
+
+message BGUserInfo {
+}
+
+message FGUserInfo {
+}

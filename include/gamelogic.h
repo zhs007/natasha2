@@ -9,6 +9,7 @@
 #include "array.h"
 #include "gamemod.h"
 // #include "symbolblock.h"
+#include "rtp.h"
 #include "utils.h"
 
 namespace natasha {
@@ -20,6 +21,10 @@ class GameLogic {
  public:
   typedef std::map< ::natashapb::GAMEMODTYPE, GameMod*> MapGameMod;
   typedef MapGameMod::const_iterator ConstMapGameModIter;
+
+#ifdef NATASHA_COUNTRTP
+  typedef RTP<MoneyType, SymbolType> _RTP;
+#endif  // NATASHA_COUNTRTP
 
  public:
   GameLogic();
@@ -74,9 +79,30 @@ class GameLogic {
     m_funcProcGameCtrlResult = func;
   }
 
+#ifdef NATASHA_COUNTRTP
+ public:
+  virtual void onInitRTP() = 0;
+
+  void onRTPAddBet(MoneyType bet) { m_rtp.addBet(bet); }
+
+  void onRTPAddPayout(::natashapb::GAMEMODTYPE module, SymbolType s, int nums,
+                      MoneyType payout) {
+    m_rtp.addPayout(module, s, nums, payout);
+  }
+
+  void addRTPModule(::natashapb::GAMEMODTYPE module, int maxNums,
+                    int maxSymbol) {
+    m_rtp.addModule(module, maxNums, maxSymbol);
+  }
+#endif  // NATASHA_COUNTRTP
+
  protected:
   MapGameMod m_mapGameMod;
   FuncProcGameCtrlResult m_funcProcGameCtrlResult;
+
+#ifdef NATASHA_COUNTRTP
+  _RTP m_rtp;
+#endif  // NATASHA_COUNTRTP
 };
 
 }  // namespace natasha

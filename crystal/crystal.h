@@ -1,5 +1,5 @@
-#ifndef __NATASHA_TLOD_H__
-#define __NATASHA_TLOD_H__
+#ifndef __NATASHA_CRYSTAL_H__
+#define __NATASHA_CRYSTAL_H__
 
 #include <assert.h>
 #include <vector>
@@ -11,10 +11,10 @@
 
 namespace natasha {
 
-class TLOD : public GameLogic {
+class Crystal : public GameLogic {
  public:
-  TLOD() {}
-  virtual ~TLOD() {}
+  Crystal() {}
+  virtual ~Crystal() {}
 
  public:
   virtual ::natashapb::CODE init(const char* cfgpath);
@@ -22,19 +22,14 @@ class TLOD : public GameLogic {
   // getMainGameMod - get current main game module
   virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
                                   bool isComeInGame);
-#ifdef NATASHA_COUNTRTP
- public:
-  virtual void onInitRTP() {
-    addRTPModule(::natashapb::BASE_GAME, MaxSymbols, MaxPayoutNums);
-  }
-#endif  // NATASHA_COUNTRTP
+
  protected:
   StaticCascadingReels3X5 m_reels;
   Paytables3X5 m_paytables;
   Lines3X5 m_lines;
   BetList m_lstBet;
-};  // namespace natasha
+};
 
 }  // namespace natasha
 
-#endif  // __NATASHA_TLOD_H__
+#endif  // __NATASHA_CRYSTAL_H__

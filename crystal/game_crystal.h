@@ -1,5 +1,5 @@
-#ifndef __NATASHA_GAME_TLOD_H__
-#define __NATASHA_GAME_TLOD_H__
+#ifndef __NATASHA_GAME_CRYSTAL_H__
+#define __NATASHA_GAME_CRYSTAL_H__
 
 #include <assert.h>
 #include <vector>
@@ -18,9 +18,6 @@ const int TLOD_DEFAULT_FREENUMS = 10;
 
 const SymbolType TLOD_SYMBOL_W = 0;
 const SymbolType TLOD_SYMBOL_S = 12;
-
-const int MaxSymbols = 13;
-const int MaxPayoutNums = 5;
 
 const char TLOD_SYMBOL_MAPPING[] = " wabcdefghijks";
 
@@ -52,4 +49,4 @@ auto const TLODCountAllLine =
 
 }  // namespace natasha
 
-#endif  // __NATASHA_GAME_TLOD_H__
+#endif  // __NATASHA_GAME_CRYSTAL_H__
