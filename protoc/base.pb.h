@@ -2422,6 +2422,18 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::GAMEMODTYPE nextgamemodtype() const;
   void set_nextgamemodtype(::natashapb::GAMEMODTYPE value);
 
+  // int64 curBet = 31;
+  void clear_curbet();
+  static const int kCurBetFieldNumber = 31;
+  ::google::protobuf::int64 curbet() const;
+  void set_curbet(::google::protobuf::int64 value);
+
+  // int64 realWin = 32;
+  void clear_realwin();
+  static const int kRealWinFieldNumber = 32;
+  ::google::protobuf::int64 realwin() const;
+  void set_realwin(::google::protobuf::int64 value);
+
   // bool isCompleted = 30;
   void clear_iscompleted();
   static const int kIsCompletedFieldNumber = 30;
@@ -2445,6 +2457,8 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
   ::natashapb::UserGameModInfo* commonjackpot_;
   ::natashapb::UserGameModInfo* respin_;
   int nextgamemodtype_;
+  ::google::protobuf::int64 curbet_;
+  ::google::protobuf::int64 realwin_;
   bool iscompleted_;
   int curgamemodtype_;
   mutable int _cached_size_;
@@ -3359,6 +3373,12 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::int64 ctrlid() const;
   void set_ctrlid(::google::protobuf::int64 value);
 
+  // int64 realBet = 2;
+  void clear_realbet();
+  static const int kRealBetFieldNumber = 2;
+  ::google::protobuf::int64 realbet() const;
+  void set_realbet(::google::protobuf::int64 value);
+
   // .natashapb.GameCtrlSpin spin = 10;
   bool has_spin() const;
   void clear_spin();
@@ -3451,6 +3471,7 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::natashapb::GameCtrlDebug* debug_;
   ::google::protobuf::Any* exdat_;
   ::google::protobuf::int64 ctrlid_;
+  ::google::protobuf::int64 realbet_;
   union CtrlUnion {
     CtrlUnion() {}
     ::natashapb::GameCtrlSpin* spin_;
@@ -5897,6 +5918,34 @@ inline void UserGameLogicInfo::set_iscompleted(bool value) {
   // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.isCompleted)
 }
 
+// int64 curBet = 31;
+inline void UserGameLogicInfo::clear_curbet() {
+  curbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 UserGameLogicInfo::curbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameLogicInfo.curBet)
+  return curbet_;
+}
+inline void UserGameLogicInfo::set_curbet(::google::protobuf::int64 value) {
+  
+  curbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.curBet)
+}
+
+// int64 realWin = 32;
+inline void UserGameLogicInfo::clear_realwin() {
+  realwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 UserGameLogicInfo::realwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameLogicInfo.realWin)
+  return realwin_;
+}
+inline void UserGameLogicInfo::set_realwin(::google::protobuf::int64 value) {
+  
+  realwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.realWin)
+}
+
 // .natashapb.GAMEMODTYPE curGameModType = 100;
 inline void UserGameLogicInfo::clear_curgamemodtype() {
   curgamemodtype_ = 0;
@@ -6195,6 +6244,20 @@ inline void GameCtrl::set_ctrlid(::google::protobuf::int64 value) {
   
   ctrlid_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameCtrl.ctrlID)
+}
+
+// int64 realBet = 2;
+inline void GameCtrl::clear_realbet() {
+  realbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameCtrl::realbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameCtrl.realBet)
+  return realbet_;
+}
+inline void GameCtrl::set_realbet(::google::protobuf::int64 value) {
+  
+  realbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameCtrl.realBet)
 }
 
 // .natashapb.GameCtrlSpin spin = 10;

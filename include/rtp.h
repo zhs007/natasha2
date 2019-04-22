@@ -54,6 +54,7 @@ struct RTP {
       ModuleMap;
 
   ModuleMap mapModule;
+  MoneyType totalWin;
   MoneyType totalBet;
 
   RTP() { clear(); }
@@ -65,6 +66,7 @@ struct RTP {
 
     mapModule.clear();
 
+    totalWin = 0;
     totalBet = 0;
   }
 
@@ -87,9 +89,13 @@ struct RTP {
     if (it != mapModule.end()) {
       it->second->addPayout(s, nums, payout);
     }
+
+    totalWin += payout;
   }
 
   void addBet(MoneyType bet) { totalBet += bet; }
+
+  void output() { printf("RTP is %lld / %lld\n", totalWin, totalBet); }
 };
 
 }  // namespace natasha

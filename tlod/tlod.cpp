@@ -36,7 +36,8 @@ void outputReels(StaticCascadingReels3X5* pReels) {
     return ::natashapb::INVALID_LINES_CFG;
   }
 
-  loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(), m_paytables);
+  loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(),
+                   m_paytables);
   if (m_paytables.isEmpty()) {
     return ::natashapb::INVALID_PAYTABLES_CFG;
   }
@@ -48,7 +49,7 @@ void outputReels(StaticCascadingReels3X5* pReels) {
   addGameMod(::natashapb::FREE_GAME,
              new TLODFreeGame(*this, m_reels, m_paytables, m_lines, m_lstBet));
 
-  return ::natashapb::OK;
+  return GameLogic::init(cfgpath);
 }
 
 // getMainGameMod - get current main game module

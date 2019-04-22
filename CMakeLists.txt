@@ -7,6 +7,8 @@ include(CTest)
 enable_testing()
 
 add_definitions(-DNATASHA_COUNTRTP)
+add_definitions(-DNATASHA_MONEYTYPE_INT64)
+add_definitions(-DNATASHA_SYMBOLTYPE_INT)
 
 include_directories(./include)
 include_directories(/usr/local/include)

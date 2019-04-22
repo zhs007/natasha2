@@ -50,6 +50,8 @@ int main() {
     }
   }
 
+  tlod.outputRTP();
+
   delete pGameCtrl;
 
   printf("%ld\n", time(NULL));

@@ -94,6 +94,8 @@ class GameLogic {
                     int maxSymbol) {
     m_rtp.addModule(module, maxNums, maxSymbol);
   }
+
+  void outputRTP() { m_rtp.output(); }
 #endif  // NATASHA_COUNTRTP
 
  protected:

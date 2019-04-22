@@ -311,6 +311,10 @@ message UserGameLogicInfo {
 
     // isCompleted - 玩家特殊状态已完成，下一局应该付费游戏
     bool isCompleted = 30;
+    // curBet - 这一次的总下注
+    int64 curBet = 31;
+    // realWin - 这一次的总赢得
+    int64 realWin = 32;
 
     GAMEMODTYPE curGameModType = 100;
     GAMEMODTYPE nextGameModType = 101;
@@ -393,6 +397,7 @@ message GameCtrlDebug {
 // GameCtrl - game ctrl
 message GameCtrl {
     int64 ctrlID = 1;
+    int64 realBet = 2;
 
     // only once
     oneof ctrl {

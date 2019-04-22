@@ -1,8 +1,8 @@
 #ifndef __NATASHA_NATASA_H__
 #define __NATASHA_NATASA_H__
 
-#define NATASHA_MONEYTYPE_INT64
-#define NATASHA_SYMBOLTYPE_INT
+// #define NATASHA_MONEYTYPE_INT64
+// #define NATASHA_SYMBOLTYPE_INT
 
 #include <vector>
 #include "array.h"

@@ -10,6 +10,10 @@ GameLogic::GameLogic() {}
 GameLogic::~GameLogic() {}
 
 ::natashapb::CODE GameLogic::init(const char* cfgpath) {
+#ifdef NATASHA_COUNTRTP
+  onInitRTP();
+#endif  // NATASHA_COUNTRTP
+
   return ::natashapb::OK;
 }
 
@@ -50,6 +54,22 @@ GameLogic::~GameLogic() {}
   if (m_funcProcGameCtrlResult != NULL) {
     m_funcProcGameCtrlResult(pLogicUser);
   }
+
+#ifdef NATASHA_COUNTRTP
+  if (pGameCtrl->has_spin()) {
+    if (pGameCtrl->spin().realbet() > 0) {
+      onRTPAddBet(pGameCtrl->spin().realbet());
+    }
+  }
+
+  if (curugmi->has_spinresult()) {
+    for (auto i = 0; i < curugmi->spinresult().lstgri_size(); ++i) {
+      auto curgri = curugmi->spinresult().lstgri(i);
+      onRTPAddPayout(curmod->getGameModType(), curgri.symbol(),
+                     curgri.lstsymbol_size(), curgri.realwin());
+    }
+  }
+#endif  // NATASHA_COUNTRTP
 
   // code = onGameCtrlEnd(pGameCtrl, pLogicUser, curmod, curugmi);
   // if (code != ::natashapb::OK) {
