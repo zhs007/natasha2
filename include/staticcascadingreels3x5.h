@@ -10,8 +10,6 @@ namespace natasha {
 
 class StaticCascadingReels3X5 {
  public:
-  // typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
-  // typedef BaseReels<SymbolType, Width, Height> BaseReelsT;
   typedef std::vector< ::natashapb::SymbolBlock3X5*> SymbolBlockData;
   typedef std::vector<SymbolBlockData*> SymbolBlockDataList;
 

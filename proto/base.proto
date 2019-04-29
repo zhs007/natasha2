@@ -116,11 +116,18 @@ message StaticCascadingRandomResult3X5 {
     SymbolBlock symbolblock = 3;
 }
 
+// NormalReelsRandomResult3X5 - normal reels random result for symbolblock 3X5
+message NormalReelsRandomResult3X5 {
+    repeated int32 reelsIndex = 1;
+    SymbolBlock symbolblock = 2;
+}
+
 // RandomResult - common random result
 message RandomResult {
     // only once
     oneof result {
         StaticCascadingRandomResult3X5 scrr3x5 = 1;
+        NormalReelsRandomResult3X5 nrrr3X5 = 2;
     }
 
     google.protobuf.Any info = 1000;

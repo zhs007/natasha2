@@ -10,6 +10,7 @@
 #include "lines.h"
 #include "logicline2.h"
 #include "logicscatter2.h"
+#include "normalreels.h"
 #include "paytables.h"
 #include "staticcascadingreels3x5.h"
 #include "symbolblock.h"
@@ -21,6 +22,11 @@ typedef Paytables<5, SymbolType, SymbolType, MoneyType> Paytables3X5;
 typedef Lines<5, int> Lines3X5;
 typedef Lines3X5::LineInfoT LineInfo3X5;
 typedef SymbolBlock<int, 5, 3> SymbolBlock3X5;
+typedef NormalReels<SymbolType, 5, 3> NormalReels3X5;
+
+// randomNew - random with NormalReels
+void randomNew(const NormalReels3X5& reels,
+               ::natashapb::NormalReelsRandomResult3X5* pNRRR);
 
 // loadPaytables3X5 - load paytables.csv
 void loadPaytables3X5(const char* fn, Paytables3X5& paytables);
@@ -31,6 +37,9 @@ void loadLines3X5(const char* fn, Lines3X5& lines);
 // loadStaticCascadingReels - StaticCascadingReels.csv
 void loadStaticCascadingReels3X5(FileNameList& lstfn,
                                  StaticCascadingReels3X5& scr);
+
+// loadNormalReels - reelstrips.csv
+void loadNormalReels3X5(const char* fn, NormalReels3X5& scr);
 
 // pb::SymbolBlock3X5 -> SymbolBlock3X5
 inline void setSymbolBlock5X3FromProtoc(

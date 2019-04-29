@@ -3,6 +3,7 @@
 #include <streambuf>
 #include <string>
 #include "../include/csvfile.h"
+#include "../include/fortuna.h"
 #include "../include/symbolblock2.h"
 
 namespace natasha {
@@ -94,6 +95,37 @@ void loadStaticCascadingReels3X5(FileNameList& lstfn,
       }
     }
   }
+}
+
+// randomNew - random with NormalReels
+void randomNew(const NormalReels3X5& reels,
+               ::natashapb::NormalReelsRandomResult3X5* pNRRR) {
+  pNRRR->clear_reelsindex();
+  auto sb = pNRRR->mutable_symbolblock();
+  auto sb3x5 = sb->mutable_sb3x5();
+
+  for (int x = 0; x < 5; ++x) {
+    uint32_t cr = randomScale(reels.getReelsLength(x));
+    pNRRR->add_reelsindex(cr);
+  }
+
+  sb3x5->set_dat0_0(reels.getSymbol(0, pNRRR->reelsindex(0)));
+  sb3x5->set_dat0_1(reels.getSymbol(1, pNRRR->reelsindex(1)));
+  sb3x5->set_dat0_2(reels.getSymbol(2, pNRRR->reelsindex(2)));
+  sb3x5->set_dat0_3(reels.getSymbol(3, pNRRR->reelsindex(3)));
+  sb3x5->set_dat0_4(reels.getSymbol(4, pNRRR->reelsindex(4)));
+
+  sb3x5->set_dat1_0(reels.getSymbol(0, pNRRR->reelsindex(0) + 1));
+  sb3x5->set_dat1_1(reels.getSymbol(1, pNRRR->reelsindex(1) + 1));
+  sb3x5->set_dat1_2(reels.getSymbol(2, pNRRR->reelsindex(2) + 1));
+  sb3x5->set_dat1_3(reels.getSymbol(3, pNRRR->reelsindex(3) + 1));
+  sb3x5->set_dat1_4(reels.getSymbol(4, pNRRR->reelsindex(4) + 1));
+
+  sb3x5->set_dat2_0(reels.getSymbol(0, pNRRR->reelsindex(0) + 2));
+  sb3x5->set_dat2_1(reels.getSymbol(1, pNRRR->reelsindex(1) + 2));
+  sb3x5->set_dat2_2(reels.getSymbol(2, pNRRR->reelsindex(2) + 2));
+  sb3x5->set_dat2_3(reels.getSymbol(3, pNRRR->reelsindex(3) + 2));
+  sb3x5->set_dat2_4(reels.getSymbol(4, pNRRR->reelsindex(4) + 2));    
 }
 
 }  // namespace natasha
