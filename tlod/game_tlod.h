@@ -19,8 +19,8 @@ const int TLOD_DEFAULT_FREENUMS = 10;
 const SymbolType TLOD_SYMBOL_W = 0;
 const SymbolType TLOD_SYMBOL_S = 12;
 
-const int MaxSymbols = 13;
-const int MaxPayoutNums = 5;
+const int TLODMaxSymbols = 13;
+const int TLODMaxPayoutNums = 5;
 
 const char TLOD_SYMBOL_MAPPING[] = " wabcdefghijks";
 

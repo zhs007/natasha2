@@ -155,6 +155,10 @@ enum GAMERESULTTYPE {
     SCATTEREX_LEFT = 5;
     // scatterex from right to left
     SCATTEREX_RIGHT = 6;
+    // way from left to right
+    WAY_LEFT = 7;
+    // way from right to left
+    WAY_RIGHT = 8;    
 };
 
 // GameResultInfo - game result info

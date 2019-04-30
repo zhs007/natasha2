@@ -18,6 +18,10 @@ class NormalReels {
   virtual ~NormalReels() { release(); }
 
  public:
+  void clear() { release(); }
+
+  bool isEmpty() const { return m_reelsLength[0] == 0; }
+
  public:
   void release() {
     for (int i = 0; i < Width; ++i) {
@@ -57,6 +61,20 @@ class NormalReels {
   }
 
   SymbolType getSymbol(int x, int y) const {
+    assert(x >= 0 && x < Width);
+    assert(m_reels[x] != NULL);
+    assert(y >= -m_reelsLength[x] && y < 2 * m_reelsLength[x]);
+
+    if (y < 0) {
+      y += m_reelsLength[x];
+    } else if (y >= m_reelsLength[x]) {
+      y -= m_reelsLength[x];
+    }
+
+    return m_reels[x][y];
+  }
+
+  SymbolType getSymbolEx(int x, int& y) const {
     assert(x >= 0 && x < Width);
     assert(m_reels[x] != NULL);
     assert(y >= -m_reelsLength[x] && y < 2 * m_reelsLength[x]);

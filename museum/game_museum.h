@@ -19,8 +19,8 @@ const int MUSEUM_DEFAULT_FREENUMS = 10;
 const SymbolType MUSEUM_SYMBOL_W = 0;
 const SymbolType MUSEUM_SYMBOL_S = 10;
 
-const int MaxSymbols = 11;
-const int MaxPayoutNums = 5;
+const int MeseumMaxSymbols = 11;
+const int MeseumMaxPayoutNums = 5;
 
 const char MUSEUM_SYMBOL_MAPPING[] = " wabcdefghjs";
 
@@ -46,9 +46,9 @@ auto const MuseumCountScatter =
     &countScatter_Left<MoneyType, SymbolType, MUSEUM_WIDTH, MUSEUM_HEIGHT,
                        ::natashapb::SymbolBlock3X5, MuseumGameCfg>;
 
-auto const TLODCountAllLine =
-    &countAllLine_Left<MoneyType, SymbolType, MUSEUM_WIDTH, MUSEUM_HEIGHT,
-                       ::natashapb::SymbolBlock3X5, MuseumGameCfg>;
+auto const MuseumCountWays =
+    &countFullWays5_Left<MoneyType, SymbolType, MUSEUM_HEIGHT,
+                         ::natashapb::SymbolBlock3X5, MuseumGameCfg>;
 
 }  // namespace natasha
 

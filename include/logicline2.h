@@ -1,5 +1,5 @@
-#ifndef __NATASHA_LOGICLINE_H__
-#define __NATASHA_LOGICLINE_H__
+#ifndef __NATASHA_LOGICLINE2_H__
+#define __NATASHA_LOGICLINE2_H__
 
 #include <assert.h>
 #include <map>
@@ -106,4 +106,4 @@ void countAllLine_Left(
 
 }  // namespace natasha
 
-#endif  // __NATASHA_LOGICLINE_H__
+#endif  // __NATASHA_LOGICLINE2_H__
