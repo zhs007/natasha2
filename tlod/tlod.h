@@ -11,6 +11,10 @@
 
 namespace natasha {
 
+// countRTP_tlod - count rtp
+void countRTP_tlod();
+
+// TLOD
 class TLOD : public GameLogic {
  public:
   TLOD() {}
