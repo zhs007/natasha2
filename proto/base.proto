@@ -454,7 +454,8 @@ message StartGameMod {
 // SymbolRTP - RTP for the symbol
 message SymbolRTP {
     int64 totalWin = 1;
-    int64 winNums = 2;    
+    int64 winNums = 2;
+    int64 realWin = 3;
 }
 
 // SymbolRTPList - RTP for the symbol
@@ -466,7 +467,7 @@ message SymbolRTPList {
 message GameModuleRTP {
     int64 totalBet = 1;
     int64 totalWin = 2;
-    int64 spinNums = 3;    
+    int64 spinNums = 3;
 
     repeated SymbolRTPList symbols = 100;
 }
@@ -476,4 +477,6 @@ message RTP {
     int64 totalBet = 1;
     int64 totalWin = 2;
     int64 spinNums = 3;
+
+    map<string, GameModuleRTP> gameModules = 100;
 }

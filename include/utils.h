@@ -96,6 +96,9 @@ void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid);
 // pathAppend
 std::string pathAppend(const std::string& p1, const std::string& p2);
 
+// getGameModuleName
+const char* getGameModuleName(::natashapb::GAMEMODTYPE module);
+
 }  // namespace natasha
 
 #endif  // __NATASHA_UTILS_H__

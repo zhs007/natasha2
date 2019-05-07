@@ -151,8 +151,18 @@ std::string pathAppend(const std::string& p1, const std::string& p2) {
   if (p1[p1.length()] != sep) {
     tmp += sep;
     return (tmp + p2);
-  } else
-    return (p1 + p2);
+  }
+
+  return (p1 + p2);
+}
+
+// getGameModuleName
+const char* getGameModuleName(::natashapb::GAMEMODTYPE module) {
+  const char* name[] = {
+      "null", "basegame", "freegame", "bonus", "jackpot", "commonjackpot",
+  };
+
+  return name[(int)module];
 }
 
 }  // namespace natasha

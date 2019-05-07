@@ -22,10 +22,6 @@ class GameLogic {
   typedef std::map< ::natashapb::GAMEMODTYPE, GameMod*> MapGameMod;
   typedef MapGameMod::const_iterator ConstMapGameModIter;
 
-#ifdef NATASHA_COUNTRTP
-  typedef RTP<MoneyType, SymbolType> _RTP;
-#endif  // NATASHA_COUNTRTP
-
  public:
   GameLogic();
   virtual ~GameLogic();
@@ -103,7 +99,7 @@ class GameLogic {
   FuncProcGameCtrlResult m_funcProcGameCtrlResult;
 
 #ifdef NATASHA_COUNTRTP
-  _RTP m_rtp;
+  RTP m_rtp;
 #endif  // NATASHA_COUNTRTP
 };
 
