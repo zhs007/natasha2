@@ -38,7 +38,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[25];
+  static const ::google::protobuf::internal::ParseTable schema[29];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -94,6 +94,14 @@ void InitDefaultsStartFreeGameImpl();
 void InitDefaultsStartFreeGame();
 void InitDefaultsStartGameModImpl();
 void InitDefaultsStartGameMod();
+void InitDefaultsSymbolRTPImpl();
+void InitDefaultsSymbolRTP();
+void InitDefaultsSymbolRTPListImpl();
+void InitDefaultsSymbolRTPList();
+void InitDefaultsGameModuleRTPImpl();
+void InitDefaultsGameModuleRTP();
+void InitDefaultsRTPImpl();
+void InitDefaultsRTP();
 inline void InitDefaults() {
   InitDefaultsSymbolBlock3X5();
   InitDefaultsSymbolBlock();
@@ -120,6 +128,10 @@ inline void InitDefaults() {
   InitDefaultsGameCtrl();
   InitDefaultsStartFreeGame();
   InitDefaultsStartGameMod();
+  InitDefaultsSymbolRTP();
+  InitDefaultsSymbolRTPList();
+  InitDefaultsGameModuleRTP();
+  InitDefaultsRTP();
 }
 }  // namespace protobuf_base_2eproto
 namespace natashapb {
@@ -156,6 +168,9 @@ extern GameCtrlSelectFreeDefaultTypeInternal _GameCtrlSelectFree_default_instanc
 class GameCtrlSpin;
 class GameCtrlSpinDefaultTypeInternal;
 extern GameCtrlSpinDefaultTypeInternal _GameCtrlSpin_default_instance_;
+class GameModuleRTP;
+class GameModuleRTPDefaultTypeInternal;
+extern GameModuleRTPDefaultTypeInternal _GameModuleRTP_default_instance_;
 class GameResultInfo;
 class GameResultInfoDefaultTypeInternal;
 extern GameResultInfoDefaultTypeInternal _GameResultInfo_default_instance_;
@@ -165,6 +180,9 @@ extern NormalReelsRandomResult3X5DefaultTypeInternal _NormalReelsRandomResult3X5
 class Position2D;
 class Position2DDefaultTypeInternal;
 extern Position2DDefaultTypeInternal _Position2D_default_instance_;
+class RTP;
+class RTPDefaultTypeInternal;
+extern RTPDefaultTypeInternal _RTP_default_instance_;
 class RandomResult;
 class RandomResultDefaultTypeInternal;
 extern RandomResultDefaultTypeInternal _RandomResult_default_instance_;
@@ -192,6 +210,12 @@ extern SymbolBlockDefaultTypeInternal _SymbolBlock_default_instance_;
 class SymbolBlock3X5;
 class SymbolBlock3X5DefaultTypeInternal;
 extern SymbolBlock3X5DefaultTypeInternal _SymbolBlock3X5_default_instance_;
+class SymbolRTP;
+class SymbolRTPDefaultTypeInternal;
+extern SymbolRTPDefaultTypeInternal _SymbolRTP_default_instance_;
+class SymbolRTPList;
+class SymbolRTPListDefaultTypeInternal;
+extern SymbolRTPListDefaultTypeInternal _SymbolRTPList_default_instance_;
 class UserGameLogicInfo;
 class UserGameLogicInfoDefaultTypeInternal;
 extern UserGameLogicInfoDefaultTypeInternal _UserGameLogicInfo_default_instance_;
@@ -212,9 +236,11 @@ template<> ::natashapb::GameCtrlID* Arena::Create< ::natashapb::GameCtrlID>(Aren
 template<> ::natashapb::GameCtrlJackpot* Arena::Create< ::natashapb::GameCtrlJackpot>(Arena*);
 template<> ::natashapb::GameCtrlSelectFree* Arena::Create< ::natashapb::GameCtrlSelectFree>(Arena*);
 template<> ::natashapb::GameCtrlSpin* Arena::Create< ::natashapb::GameCtrlSpin>(Arena*);
+template<> ::natashapb::GameModuleRTP* Arena::Create< ::natashapb::GameModuleRTP>(Arena*);
 template<> ::natashapb::GameResultInfo* Arena::Create< ::natashapb::GameResultInfo>(Arena*);
 template<> ::natashapb::NormalReelsRandomResult3X5* Arena::Create< ::natashapb::NormalReelsRandomResult3X5>(Arena*);
 template<> ::natashapb::Position2D* Arena::Create< ::natashapb::Position2D>(Arena*);
+template<> ::natashapb::RTP* Arena::Create< ::natashapb::RTP>(Arena*);
 template<> ::natashapb::RandomResult* Arena::Create< ::natashapb::RandomResult>(Arena*);
 template<> ::natashapb::RespinHistory* Arena::Create< ::natashapb::RespinHistory>(Arena*);
 template<> ::natashapb::RespinHistoryList* Arena::Create< ::natashapb::RespinHistoryList>(Arena*);
@@ -224,6 +250,8 @@ template<> ::natashapb::StartGameMod* Arena::Create< ::natashapb::StartGameMod>(
 template<> ::natashapb::StaticCascadingRandomResult3X5* Arena::Create< ::natashapb::StaticCascadingRandomResult3X5>(Arena*);
 template<> ::natashapb::SymbolBlock* Arena::Create< ::natashapb::SymbolBlock>(Arena*);
 template<> ::natashapb::SymbolBlock3X5* Arena::Create< ::natashapb::SymbolBlock3X5>(Arena*);
+template<> ::natashapb::SymbolRTP* Arena::Create< ::natashapb::SymbolRTP>(Arena*);
+template<> ::natashapb::SymbolRTPList* Arena::Create< ::natashapb::SymbolRTPList>(Arena*);
 template<> ::natashapb::UserGameLogicInfo* Arena::Create< ::natashapb::UserGameLogicInfo>(Arena*);
 template<> ::natashapb::UserGameModInfo* Arena::Create< ::natashapb::UserGameModInfo>(Arena*);
 }  // namespace protobuf
@@ -3903,6 +3931,472 @@ class StartGameMod : public ::google::protobuf::Message /* @@protoc_insertion_po
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsStartGameModImpl();
 };
+// -------------------------------------------------------------------
+
+class SymbolRTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolRTP) */ {
+ public:
+  SymbolRTP();
+  virtual ~SymbolRTP();
+
+  SymbolRTP(const SymbolRTP& from);
+
+  inline SymbolRTP& operator=(const SymbolRTP& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SymbolRTP(SymbolRTP&& from) noexcept
+    : SymbolRTP() {
+    *this = ::std::move(from);
+  }
+
+  inline SymbolRTP& operator=(SymbolRTP&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SymbolRTP& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SymbolRTP* internal_default_instance() {
+    return reinterpret_cast<const SymbolRTP*>(
+               &_SymbolRTP_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    25;
+
+  void Swap(SymbolRTP* other);
+  friend void swap(SymbolRTP& a, SymbolRTP& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SymbolRTP* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolRTP>(NULL);
+  }
+
+  SymbolRTP* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolRTP>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SymbolRTP& from);
+  void MergeFrom(const SymbolRTP& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SymbolRTP* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int64 totalWin = 1;
+  void clear_totalwin();
+  static const int kTotalWinFieldNumber = 1;
+  ::google::protobuf::int64 totalwin() const;
+  void set_totalwin(::google::protobuf::int64 value);
+
+  // int64 winNums = 2;
+  void clear_winnums();
+  static const int kWinNumsFieldNumber = 2;
+  ::google::protobuf::int64 winnums() const;
+  void set_winnums(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolRTP)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int64 totalwin_;
+  ::google::protobuf::int64 winnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsSymbolRTPImpl();
+};
+// -------------------------------------------------------------------
+
+class SymbolRTPList : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolRTPList) */ {
+ public:
+  SymbolRTPList();
+  virtual ~SymbolRTPList();
+
+  SymbolRTPList(const SymbolRTPList& from);
+
+  inline SymbolRTPList& operator=(const SymbolRTPList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SymbolRTPList(SymbolRTPList&& from) noexcept
+    : SymbolRTPList() {
+    *this = ::std::move(from);
+  }
+
+  inline SymbolRTPList& operator=(SymbolRTPList&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SymbolRTPList& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SymbolRTPList* internal_default_instance() {
+    return reinterpret_cast<const SymbolRTPList*>(
+               &_SymbolRTPList_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    26;
+
+  void Swap(SymbolRTPList* other);
+  friend void swap(SymbolRTPList& a, SymbolRTPList& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SymbolRTPList* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolRTPList>(NULL);
+  }
+
+  SymbolRTPList* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolRTPList>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SymbolRTPList& from);
+  void MergeFrom(const SymbolRTPList& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SymbolRTPList* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.SymbolRTP lst = 1;
+  int lst_size() const;
+  void clear_lst();
+  static const int kLstFieldNumber = 1;
+  ::natashapb::SymbolRTP* mutable_lst(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTP >*
+      mutable_lst();
+  const ::natashapb::SymbolRTP& lst(int index) const;
+  ::natashapb::SymbolRTP* add_lst();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTP >&
+      lst() const;
+
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolRTPList)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTP > lst_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsSymbolRTPListImpl();
+};
+// -------------------------------------------------------------------
+
+class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.GameModuleRTP) */ {
+ public:
+  GameModuleRTP();
+  virtual ~GameModuleRTP();
+
+  GameModuleRTP(const GameModuleRTP& from);
+
+  inline GameModuleRTP& operator=(const GameModuleRTP& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GameModuleRTP(GameModuleRTP&& from) noexcept
+    : GameModuleRTP() {
+    *this = ::std::move(from);
+  }
+
+  inline GameModuleRTP& operator=(GameModuleRTP&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameModuleRTP& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GameModuleRTP* internal_default_instance() {
+    return reinterpret_cast<const GameModuleRTP*>(
+               &_GameModuleRTP_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    27;
+
+  void Swap(GameModuleRTP* other);
+  friend void swap(GameModuleRTP& a, GameModuleRTP& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GameModuleRTP* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameModuleRTP>(NULL);
+  }
+
+  GameModuleRTP* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameModuleRTP>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GameModuleRTP& from);
+  void MergeFrom(const GameModuleRTP& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GameModuleRTP* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.SymbolRTPList symbols = 100;
+  int symbols_size() const;
+  void clear_symbols();
+  static const int kSymbolsFieldNumber = 100;
+  ::natashapb::SymbolRTPList* mutable_symbols(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList >*
+      mutable_symbols();
+  const ::natashapb::SymbolRTPList& symbols(int index) const;
+  ::natashapb::SymbolRTPList* add_symbols();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList >&
+      symbols() const;
+
+  // int64 totalBet = 1;
+  void clear_totalbet();
+  static const int kTotalBetFieldNumber = 1;
+  ::google::protobuf::int64 totalbet() const;
+  void set_totalbet(::google::protobuf::int64 value);
+
+  // int64 totalWin = 2;
+  void clear_totalwin();
+  static const int kTotalWinFieldNumber = 2;
+  ::google::protobuf::int64 totalwin() const;
+  void set_totalwin(::google::protobuf::int64 value);
+
+  // int64 spinNums = 3;
+  void clear_spinnums();
+  static const int kSpinNumsFieldNumber = 3;
+  ::google::protobuf::int64 spinnums() const;
+  void set_spinnums(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.GameModuleRTP)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList > symbols_;
+  ::google::protobuf::int64 totalbet_;
+  ::google::protobuf::int64 totalwin_;
+  ::google::protobuf::int64 spinnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsGameModuleRTPImpl();
+};
+// -------------------------------------------------------------------
+
+class RTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.RTP) */ {
+ public:
+  RTP();
+  virtual ~RTP();
+
+  RTP(const RTP& from);
+
+  inline RTP& operator=(const RTP& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RTP(RTP&& from) noexcept
+    : RTP() {
+    *this = ::std::move(from);
+  }
+
+  inline RTP& operator=(RTP&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RTP& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RTP* internal_default_instance() {
+    return reinterpret_cast<const RTP*>(
+               &_RTP_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    28;
+
+  void Swap(RTP* other);
+  friend void swap(RTP& a, RTP& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RTP* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<RTP>(NULL);
+  }
+
+  RTP* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<RTP>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const RTP& from);
+  void MergeFrom(const RTP& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(RTP* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int64 totalBet = 1;
+  void clear_totalbet();
+  static const int kTotalBetFieldNumber = 1;
+  ::google::protobuf::int64 totalbet() const;
+  void set_totalbet(::google::protobuf::int64 value);
+
+  // int64 totalWin = 2;
+  void clear_totalwin();
+  static const int kTotalWinFieldNumber = 2;
+  ::google::protobuf::int64 totalwin() const;
+  void set_totalwin(::google::protobuf::int64 value);
+
+  // int64 spinNums = 3;
+  void clear_spinnums();
+  static const int kSpinNumsFieldNumber = 3;
+  ::google::protobuf::int64 spinnums() const;
+  void set_spinnums(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.RTP)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int64 totalbet_;
+  ::google::protobuf::int64 totalwin_;
+  ::google::protobuf::int64 spinnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsRTPImpl();
+};
 // ===================================================================
 
 
@@ -7184,9 +7678,205 @@ inline void StartGameMod::clear_has_startParams() {
 inline StartGameMod::StartParamsCase StartGameMod::startParams_case() const {
   return StartGameMod::StartParamsCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// SymbolRTP
+
+// int64 totalWin = 1;
+inline void SymbolRTP::clear_totalwin() {
+  totalwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 SymbolRTP::totalwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.SymbolRTP.totalWin)
+  return totalwin_;
+}
+inline void SymbolRTP::set_totalwin(::google::protobuf::int64 value) {
+  
+  totalwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.SymbolRTP.totalWin)
+}
+
+// int64 winNums = 2;
+inline void SymbolRTP::clear_winnums() {
+  winnums_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 SymbolRTP::winnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.SymbolRTP.winNums)
+  return winnums_;
+}
+inline void SymbolRTP::set_winnums(::google::protobuf::int64 value) {
+  
+  winnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.SymbolRTP.winNums)
+}
+
+// -------------------------------------------------------------------
+
+// SymbolRTPList
+
+// repeated .natashapb.SymbolRTP lst = 1;
+inline int SymbolRTPList::lst_size() const {
+  return lst_.size();
+}
+inline void SymbolRTPList::clear_lst() {
+  lst_.Clear();
+}
+inline ::natashapb::SymbolRTP* SymbolRTPList::mutable_lst(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.SymbolRTPList.lst)
+  return lst_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTP >*
+SymbolRTPList::mutable_lst() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolRTPList.lst)
+  return &lst_;
+}
+inline const ::natashapb::SymbolRTP& SymbolRTPList::lst(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.SymbolRTPList.lst)
+  return lst_.Get(index);
+}
+inline ::natashapb::SymbolRTP* SymbolRTPList::add_lst() {
+  // @@protoc_insertion_point(field_add:natashapb.SymbolRTPList.lst)
+  return lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTP >&
+SymbolRTPList::lst() const {
+  // @@protoc_insertion_point(field_list:natashapb.SymbolRTPList.lst)
+  return lst_;
+}
+
+// -------------------------------------------------------------------
+
+// GameModuleRTP
+
+// int64 totalBet = 1;
+inline void GameModuleRTP::clear_totalbet() {
+  totalbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameModuleRTP::totalbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameModuleRTP.totalBet)
+  return totalbet_;
+}
+inline void GameModuleRTP::set_totalbet(::google::protobuf::int64 value) {
+  
+  totalbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.totalBet)
+}
+
+// int64 totalWin = 2;
+inline void GameModuleRTP::clear_totalwin() {
+  totalwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameModuleRTP::totalwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameModuleRTP.totalWin)
+  return totalwin_;
+}
+inline void GameModuleRTP::set_totalwin(::google::protobuf::int64 value) {
+  
+  totalwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.totalWin)
+}
+
+// int64 spinNums = 3;
+inline void GameModuleRTP::clear_spinnums() {
+  spinnums_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameModuleRTP::spinnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameModuleRTP.spinNums)
+  return spinnums_;
+}
+inline void GameModuleRTP::set_spinnums(::google::protobuf::int64 value) {
+  
+  spinnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.spinNums)
+}
+
+// repeated .natashapb.SymbolRTPList symbols = 100;
+inline int GameModuleRTP::symbols_size() const {
+  return symbols_.size();
+}
+inline void GameModuleRTP::clear_symbols() {
+  symbols_.Clear();
+}
+inline ::natashapb::SymbolRTPList* GameModuleRTP::mutable_symbols(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.GameModuleRTP.symbols)
+  return symbols_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList >*
+GameModuleRTP::mutable_symbols() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.GameModuleRTP.symbols)
+  return &symbols_;
+}
+inline const ::natashapb::SymbolRTPList& GameModuleRTP::symbols(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.GameModuleRTP.symbols)
+  return symbols_.Get(index);
+}
+inline ::natashapb::SymbolRTPList* GameModuleRTP::add_symbols() {
+  // @@protoc_insertion_point(field_add:natashapb.GameModuleRTP.symbols)
+  return symbols_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList >&
+GameModuleRTP::symbols() const {
+  // @@protoc_insertion_point(field_list:natashapb.GameModuleRTP.symbols)
+  return symbols_;
+}
+
+// -------------------------------------------------------------------
+
+// RTP
+
+// int64 totalBet = 1;
+inline void RTP::clear_totalbet() {
+  totalbet_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 RTP::totalbet() const {
+  // @@protoc_insertion_point(field_get:natashapb.RTP.totalBet)
+  return totalbet_;
+}
+inline void RTP::set_totalbet(::google::protobuf::int64 value) {
+  
+  totalbet_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.RTP.totalBet)
+}
+
+// int64 totalWin = 2;
+inline void RTP::clear_totalwin() {
+  totalwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 RTP::totalwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.RTP.totalWin)
+  return totalwin_;
+}
+inline void RTP::set_totalwin(::google::protobuf::int64 value) {
+  
+  totalwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.RTP.totalWin)
+}
+
+// int64 spinNums = 3;
+inline void RTP::clear_spinnums() {
+  spinnums_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 RTP::spinnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.RTP.spinNums)
+  return spinnums_;
+}
+inline void RTP::set_spinnums(::google::protobuf::int64 value) {
+  
+  spinnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.RTP.spinNums)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

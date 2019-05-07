@@ -450,3 +450,30 @@ message StartGameMod {
     // Extended data reserved for the game
     google.protobuf.Any exDat = 1000;
 }
+
+// SymbolRTP - RTP for the symbol
+message SymbolRTP {
+    int64 totalWin = 1;
+    int64 winNums = 2;    
+}
+
+// SymbolRTPList - RTP for the symbol
+message SymbolRTPList {
+    repeated SymbolRTP lst = 1;
+}
+
+// GameModuleRTP - RTP for the game module
+message GameModuleRTP {
+    int64 totalBet = 1;
+    int64 totalWin = 2;
+    int64 spinNums = 3;    
+
+    repeated SymbolRTPList symbols = 100;
+}
+
+// RTP - RTP
+message RTP {
+    int64 totalBet = 1;
+    int64 totalWin = 2;
+    int64 spinNums = 3;
+}
