@@ -3,7 +3,7 @@
 #include "../museum/museum.h"
 
 int main() {
-  natasha::countRTP_tlod();
+  // natasha::countRTP_tlod();
   natasha::countRTP_museum();
 
   return 0;

@@ -40,10 +40,10 @@ class NormalReels {
 
     if (m_reels[x] != NULL) {
       free(m_reels[x]);
-
-      m_reels[x] = (SymbolType*)malloc(sizeof(SymbolType) * length);
-      m_reelsLength[x] = length;
     }
+
+    m_reels[x] = (SymbolType*)malloc(sizeof(SymbolType) * length);
+    m_reelsLength[x] = length;
   }
 
   void setReels(int x, int y, SymbolType s) {

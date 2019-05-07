@@ -104,6 +104,8 @@ void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
   CSVFile csv;
 
   if (csv.load(fn)) {
+    printf("loadNormalReels3X5 %d\n", csv.getLength());
+
     int len[] = {0, 0, 0, 0, 0};
 
     for (int i = 0; i < csv.getLength(); ++i) {
@@ -115,26 +117,42 @@ void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
 
       if (p1 < 0 && len[0] == 0) {
         len[0] = i;
+
+        // printf("loadNormalReels3X5 reel0 is %d\n", i);
       }
 
       if (p2 < 0 && len[1] == 0) {
         len[1] = i;
+
+        // printf("loadNormalReels3X5 reel1 is %d\n", i);
       }
 
       if (p3 < 0 && len[2] == 0) {
         len[2] = i;
+
+        // printf("loadNormalReels3X5 reel2 is %d\n", i);
       }
 
       if (p4 < 0 && len[3] == 0) {
         len[3] = i;
+
+        // printf("loadNormalReels3X5 reel3 is %d\n", i);
       }
 
       if (p5 < 0 && len[4] == 0) {
         len[4] = i;
+
+        // printf("loadNormalReels3X5 reel4 is %d\n", i);
       }
     }
 
     for (int i = 0; i < 5; ++i) {
+      if (len[i] == 0) {
+        len[i] = csv.getLength();
+      }
+
+      printf("loadNormalReels3X5 reel%d is %d\n", i, len[i]);
+
       scr.resetReelsLength(i, len[i]);
     }
 
