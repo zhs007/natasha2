@@ -480,3 +480,36 @@ message RTP {
 
     map<string, GameModuleRTP> gameModules = 100;
 }
+
+// NormalReelstriptConfig - normal reelstript config
+message NormalReelstriptConfig {
+    string filename = 1;
+}
+
+// ReelstriptConfig - reelstript config
+message ReelstriptConfig {
+    NormalReelstriptConfig normal = 1;
+}
+
+message WeightConfig {
+    repeated int32 weights = 1;
+}
+
+message MuseumRTPConfig {
+    string bgReelstrips = 100;
+    repeated int32 bgBonusPrize = 101;
+    repeated int32 bgMultipliers = 102;
+    repeated WeightConfig bgMysteryWild = 103;
+
+    int32 fgNums = 200;
+
+    string fgReelstrips = 300;
+    repeated int32 fgBonusPrize = 301;
+    repeated int32 fgMultipliers = 302;
+    repeated WeightConfig fgMysteryWild = 303;
+}
+
+message MuseumConfig {
+    map<string, ReelstriptConfig> reelstripts = 1;
+    map<string, MuseumRTPConfig> rtp = 2;
+}

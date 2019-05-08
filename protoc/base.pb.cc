@@ -182,6 +182,41 @@ class RTPDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<RTP>
       _instance;
 } _RTP_default_instance_;
+class NormalReelstriptConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<NormalReelstriptConfig>
+      _instance;
+} _NormalReelstriptConfig_default_instance_;
+class ReelstriptConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ReelstriptConfig>
+      _instance;
+} _ReelstriptConfig_default_instance_;
+class WeightConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<WeightConfig>
+      _instance;
+} _WeightConfig_default_instance_;
+class MuseumRTPConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MuseumRTPConfig>
+      _instance;
+} _MuseumRTPConfig_default_instance_;
+class MuseumConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MuseumConfig_ReelstriptsEntry_DoNotUse>
+      _instance;
+} _MuseumConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+class MuseumConfig_RtpEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MuseumConfig_RtpEntry_DoNotUse>
+      _instance;
+} _MuseumConfig_RtpEntry_DoNotUse_default_instance_;
+class MuseumConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MuseumConfig>
+      _instance;
+} _MuseumConfig_default_instance_;
 }  // namespace natashapb
 namespace protobuf_base_2eproto {
 void InitDefaultsSymbolBlock3X5Impl() {
@@ -851,7 +886,158 @@ void InitDefaultsRTP() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRTPImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[30];
+void InitDefaultsNormalReelstriptConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::natashapb::_NormalReelstriptConfig_default_instance_;
+    new (ptr) ::natashapb::NormalReelstriptConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::NormalReelstriptConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsNormalReelstriptConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsNormalReelstriptConfigImpl);
+}
+
+void InitDefaultsReelstriptConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsNormalReelstriptConfig();
+  {
+    void* ptr = &::natashapb::_ReelstriptConfig_default_instance_;
+    new (ptr) ::natashapb::ReelstriptConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::ReelstriptConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsReelstriptConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsReelstriptConfigImpl);
+}
+
+void InitDefaultsWeightConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::natashapb::_WeightConfig_default_instance_;
+    new (ptr) ::natashapb::WeightConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::WeightConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsWeightConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsWeightConfigImpl);
+}
+
+void InitDefaultsMuseumRTPConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsWeightConfig();
+  {
+    void* ptr = &::natashapb::_MuseumRTPConfig_default_instance_;
+    new (ptr) ::natashapb::MuseumRTPConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::MuseumRTPConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsMuseumRTPConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsMuseumRTPConfigImpl);
+}
+
+void InitDefaultsMuseumConfig_ReelstriptsEntry_DoNotUseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsReelstriptConfig();
+  {
+    void* ptr = &::natashapb::_MuseumConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+    new (ptr) ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse();
+  }
+  ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+void InitDefaultsMuseumConfig_ReelstriptsEntry_DoNotUse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsMuseumConfig_ReelstriptsEntry_DoNotUseImpl);
+}
+
+void InitDefaultsMuseumConfig_RtpEntry_DoNotUseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsMuseumRTPConfig();
+  {
+    void* ptr = &::natashapb::_MuseumConfig_RtpEntry_DoNotUse_default_instance_;
+    new (ptr) ::natashapb::MuseumConfig_RtpEntry_DoNotUse();
+  }
+  ::natashapb::MuseumConfig_RtpEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+void InitDefaultsMuseumConfig_RtpEntry_DoNotUse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsMuseumConfig_RtpEntry_DoNotUseImpl);
+}
+
+void InitDefaultsMuseumConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsMuseumConfig_ReelstriptsEntry_DoNotUse();
+  protobuf_base_2eproto::InitDefaultsMuseumConfig_RtpEntry_DoNotUse();
+  {
+    void* ptr = &::natashapb::_MuseumConfig_default_instance_;
+    new (ptr) ::natashapb::MuseumConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::MuseumConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsMuseumConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsMuseumConfigImpl);
+}
+
+::google::protobuf::Metadata file_level_metadata[37];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -1153,6 +1339,63 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RTP, totalwin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RTP, spinnums_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RTP, gamemodules_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::NormalReelstriptConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::NormalReelstriptConfig, filename_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, normal_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, weights_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, bgreelstrips_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, bgbonusprize_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, bgmultipliers_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, bgmysterywild_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, fgnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, fgreelstrips_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, fgbonusprize_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, fgmultipliers_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, fgmysterywild_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse, value_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_RtpEntry_DoNotUse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_RtpEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_RtpEntry_DoNotUse, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig_RtpEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig, reelstripts_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig, rtp_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::natashapb::SymbolBlock3X5)},
@@ -1185,6 +1428,13 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 271, -1, sizeof(::natashapb::GameModuleRTP)},
   { 280, 287, sizeof(::natashapb::RTP_GameModulesEntry_DoNotUse)},
   { 289, -1, sizeof(::natashapb::RTP)},
+  { 298, -1, sizeof(::natashapb::NormalReelstriptConfig)},
+  { 304, -1, sizeof(::natashapb::ReelstriptConfig)},
+  { 310, -1, sizeof(::natashapb::WeightConfig)},
+  { 316, -1, sizeof(::natashapb::MuseumRTPConfig)},
+  { 330, 337, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
+  { 339, 346, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
+  { 348, -1, sizeof(::natashapb::MuseumConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1218,6 +1468,13 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_GameModuleRTP_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_RTP_GameModulesEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_RTP_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_NormalReelstriptConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_ReelstriptConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_WeightConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumRTPConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_ReelstriptsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_RtpEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -1236,7 +1493,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 30);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 37);
 }
 
 void AddDescriptorsImpl() {
@@ -1353,39 +1610,56 @@ void AddDescriptorsImpl() {
       "ums\030\003 \001(\003\0224\n\013gameModules\030d \003(\0132\037.natasha"
       "pb.RTP.GameModulesEntry\032L\n\020GameModulesEn"
       "try\022\013\n\003key\030\001 \001(\t\022\'\n\005value\030\002 \001(\0132\030.natash"
-      "apb.GameModuleRTP:\0028\001*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032"
-      "\n\025INVALID_PAYTABLES_CFG\020\220N\022\026\n\021INVALID_LI"
-      "NES_CFG\020\221N\022\026\n\021INVALID_REELS_CFG\020\222N\022$\n\036IN"
-      "VALID_START_GAMEMOD_TO_START\020\240\234\001\022!\n\033INVA"
-      "LID_START_FREEGAME_NUMS\020\241\234\001\022\027\n\021INVALID_S"
-      "TART_BET\020\242\234\001\022\031\n\023INVALID_START_LINES\020\243\234\001\022"
-      "\031\n\023INVALID_START_TIMES\020\244\234\001\022\031\n\023ALREADY_IN"
-      "_FREEGAME\020\245\234\001\022\026\n\020INVALID_PARENTID\020\246\234\001\022\034\n"
-      "\026INVALID_PARENT_GAMEMOD\020\247\234\001\022\021\n\013INVALID_B"
-      "ET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001\022\023\n\rINVALID_T"
-      "IMES\020\262\352\001\022\036\n\030INVALID_GAMECTRL_GAMEMOD\020\263\352\001"
-      "\022!\n\033INVALID_CASCADING_FREESTATE\020\300\270\002\022\037\n\031E"
-      "RR_MAKE_INITIAL_SCENARIO\020\320\206\003\022!\n\033ERR_NO_O"
-      "VERLOADED_INTERFACE\020\220\277\005\022\033\n\025ERR_INVALID_J"
-      "S_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBUF_PARSE\020\222\277\005\022\035"
-      "\n\027ERR_JS_BUILD_RET_OBJECT\020\223\277\005*\246\001\n\016GAMERE"
-      "SULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nL"
-      "INE_RIGHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021\n\rSCATTER"
-      "_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022\023\n\017SCATTERE"
-      "X_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r\n\tWAY_RIGHT\020\010*t"
-      "\n\013GAMEMODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME"
-      "\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JAC"
-      "KPOT_GAME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020\005*L\n\022"
-      "CASCADINGFREESTATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017C"
-      "HG_TO_FREEGAME\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nD"
-      "EBUGSTATE\022\014\n\010NO_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016"
-      "\n\nMEDIUM_WIN\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004"
-      "\022\022\n\016DEBUG_FREEGAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n"
-      "\023DEBUG_COMMONJACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010"
-      "b\006proto3"
+      "apb.GameModuleRTP:\0028\001\"*\n\026NormalReelstrip"
+      "tConfig\022\020\n\010filename\030\001 \001(\t\"E\n\020ReelstriptC"
+      "onfig\0221\n\006normal\030\001 \001(\0132!.natashapb.Normal"
+      "ReelstriptConfig\"\037\n\014WeightConfig\022\017\n\007weig"
+      "hts\030\001 \003(\005\"\214\002\n\017MuseumRTPConfig\022\024\n\014bgReels"
+      "trips\030d \001(\t\022\024\n\014bgBonusPrize\030e \003(\005\022\025\n\rbgM"
+      "ultipliers\030f \003(\005\022.\n\rbgMysteryWild\030g \003(\0132"
+      "\027.natashapb.WeightConfig\022\017\n\006fgNums\030\310\001 \001("
+      "\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022\025\n\014fgBonusPrize"
+      "\030\255\002 \003(\005\022\026\n\rfgMultipliers\030\256\002 \003(\005\022/\n\rfgMys"
+      "teryWild\030\257\002 \003(\0132\027.natashapb.WeightConfig"
+      "\"\225\002\n\014MuseumConfig\022=\n\013reelstripts\030\001 \003(\0132("
+      ".natashapb.MuseumConfig.ReelstriptsEntry"
+      "\022-\n\003rtp\030\002 \003(\0132 .natashapb.MuseumConfig.R"
+      "tpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001(\t"
+      "\022*\n\005value\030\002 \001(\0132\033.natashapb.ReelstriptCo"
+      "nfig:\0028\001\032F\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022)\n\005val"
+      "ue\030\002 \001(\0132\032.natashapb.MuseumRTPConfig:\0028\001"
+      "*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_C"
+      "FG\020\220N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID"
+      "_REELS_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_T"
+      "O_START\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NU"
+      "MS\020\241\234\001\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVAL"
+      "ID_START_LINES\020\243\234\001\022\031\n\023INVALID_START_TIME"
+      "S\020\244\234\001\022\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVA"
+      "LID_PARENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEM"
+      "OD\020\247\234\001\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LIN"
+      "ES\020\261\352\001\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_G"
+      "AMECTRL_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING"
+      "_FREESTATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENA"
+      "RIO\020\320\206\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220"
+      "\277\005\022\033\n\025ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_P"
+      "ROTOBUF_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OB"
+      "JECT\020\223\277\005*\246\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022"
+      "\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTE"
+      "R_LEFT\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX"
+      "_LEFT\020\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT"
+      "\020\007\022\r\n\tWAY_RIGHT\020\010*t\n\013GAMEMODTYPE\022\014\n\010NULL"
+      "_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\n"
+      "BONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023COMMON"
+      "_JACKPOT_GAME\020\005*L\n\022CASCADINGFREESTATE\022\017\n"
+      "\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME\020\001\022\020\n\014E"
+      "ND_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n\010NO_DEBUG"
+      "\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN\020\002\022\013\n\007BIG"
+      "_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FREEGAME\020\005\022"
+      "\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMONJACKPOT\020"
+      "\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 5608);
+      descriptor, 6307);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -13359,6 +13633,1958 @@ void RTP::InternalSwap(RTP* other) {
 }
 
 
+// ===================================================================
+
+void NormalReelstriptConfig::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NormalReelstriptConfig::kFilenameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NormalReelstriptConfig::NormalReelstriptConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsNormalReelstriptConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.NormalReelstriptConfig)
+}
+NormalReelstriptConfig::NormalReelstriptConfig(const NormalReelstriptConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  filename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.filename().size() > 0) {
+    filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filename_);
+  }
+  // @@protoc_insertion_point(copy_constructor:natashapb.NormalReelstriptConfig)
+}
+
+void NormalReelstriptConfig::SharedCtor() {
+  filename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+NormalReelstriptConfig::~NormalReelstriptConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.NormalReelstriptConfig)
+  SharedDtor();
+}
+
+void NormalReelstriptConfig::SharedDtor() {
+  filename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void NormalReelstriptConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NormalReelstriptConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const NormalReelstriptConfig& NormalReelstriptConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsNormalReelstriptConfig();
+  return *internal_default_instance();
+}
+
+
+void NormalReelstriptConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.NormalReelstriptConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  filename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+bool NormalReelstriptConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.NormalReelstriptConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string filename = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_filename()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->filename().data(), static_cast<int>(this->filename().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.NormalReelstriptConfig.filename"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.NormalReelstriptConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.NormalReelstriptConfig)
+  return false;
+#undef DO_
+}
+
+void NormalReelstriptConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.NormalReelstriptConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string filename = 1;
+  if (this->filename().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->filename().data(), static_cast<int>(this->filename().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.NormalReelstriptConfig.filename");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->filename(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.NormalReelstriptConfig)
+}
+
+::google::protobuf::uint8* NormalReelstriptConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.NormalReelstriptConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string filename = 1;
+  if (this->filename().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->filename().data(), static_cast<int>(this->filename().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.NormalReelstriptConfig.filename");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->filename(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.NormalReelstriptConfig)
+  return target;
+}
+
+size_t NormalReelstriptConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.NormalReelstriptConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // string filename = 1;
+  if (this->filename().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->filename());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NormalReelstriptConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.NormalReelstriptConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NormalReelstriptConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const NormalReelstriptConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.NormalReelstriptConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.NormalReelstriptConfig)
+    MergeFrom(*source);
+  }
+}
+
+void NormalReelstriptConfig::MergeFrom(const NormalReelstriptConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.NormalReelstriptConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.filename().size() > 0) {
+
+    filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filename_);
+  }
+}
+
+void NormalReelstriptConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.NormalReelstriptConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NormalReelstriptConfig::CopyFrom(const NormalReelstriptConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.NormalReelstriptConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NormalReelstriptConfig::IsInitialized() const {
+  return true;
+}
+
+void NormalReelstriptConfig::Swap(NormalReelstriptConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NormalReelstriptConfig::InternalSwap(NormalReelstriptConfig* other) {
+  using std::swap;
+  filename_.Swap(&other->filename_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata NormalReelstriptConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void ReelstriptConfig::InitAsDefaultInstance() {
+  ::natashapb::_ReelstriptConfig_default_instance_._instance.get_mutable()->normal_ = const_cast< ::natashapb::NormalReelstriptConfig*>(
+      ::natashapb::NormalReelstriptConfig::internal_default_instance());
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ReelstriptConfig::kNormalFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ReelstriptConfig::ReelstriptConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsReelstriptConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.ReelstriptConfig)
+}
+ReelstriptConfig::ReelstriptConfig(const ReelstriptConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_normal()) {
+    normal_ = new ::natashapb::NormalReelstriptConfig(*from.normal_);
+  } else {
+    normal_ = NULL;
+  }
+  // @@protoc_insertion_point(copy_constructor:natashapb.ReelstriptConfig)
+}
+
+void ReelstriptConfig::SharedCtor() {
+  normal_ = NULL;
+  _cached_size_ = 0;
+}
+
+ReelstriptConfig::~ReelstriptConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.ReelstriptConfig)
+  SharedDtor();
+}
+
+void ReelstriptConfig::SharedDtor() {
+  if (this != internal_default_instance()) delete normal_;
+}
+
+void ReelstriptConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ReelstriptConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ReelstriptConfig& ReelstriptConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsReelstriptConfig();
+  return *internal_default_instance();
+}
+
+
+void ReelstriptConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.ReelstriptConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == NULL && normal_ != NULL) {
+    delete normal_;
+  }
+  normal_ = NULL;
+  _internal_metadata_.Clear();
+}
+
+bool ReelstriptConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.ReelstriptConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .natashapb.NormalReelstriptConfig normal = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_normal()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.ReelstriptConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.ReelstriptConfig)
+  return false;
+#undef DO_
+}
+
+void ReelstriptConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.ReelstriptConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .natashapb.NormalReelstriptConfig normal = 1;
+  if (this->has_normal()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *normal_, output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.ReelstriptConfig)
+}
+
+::google::protobuf::uint8* ReelstriptConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.ReelstriptConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .natashapb.NormalReelstriptConfig normal = 1;
+  if (this->has_normal()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, *normal_, deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.ReelstriptConfig)
+  return target;
+}
+
+size_t ReelstriptConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.ReelstriptConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .natashapb.NormalReelstriptConfig normal = 1;
+  if (this->has_normal()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *normal_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ReelstriptConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.ReelstriptConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ReelstriptConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ReelstriptConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.ReelstriptConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.ReelstriptConfig)
+    MergeFrom(*source);
+  }
+}
+
+void ReelstriptConfig::MergeFrom(const ReelstriptConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.ReelstriptConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_normal()) {
+    mutable_normal()->::natashapb::NormalReelstriptConfig::MergeFrom(from.normal());
+  }
+}
+
+void ReelstriptConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.ReelstriptConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReelstriptConfig::CopyFrom(const ReelstriptConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.ReelstriptConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReelstriptConfig::IsInitialized() const {
+  return true;
+}
+
+void ReelstriptConfig::Swap(ReelstriptConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ReelstriptConfig::InternalSwap(ReelstriptConfig* other) {
+  using std::swap;
+  swap(normal_, other->normal_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata ReelstriptConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void WeightConfig::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WeightConfig::kWeightsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WeightConfig::WeightConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsWeightConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.WeightConfig)
+}
+WeightConfig::WeightConfig(const WeightConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      weights_(from.weights_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.WeightConfig)
+}
+
+void WeightConfig::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+WeightConfig::~WeightConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.WeightConfig)
+  SharedDtor();
+}
+
+void WeightConfig::SharedDtor() {
+}
+
+void WeightConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WeightConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const WeightConfig& WeightConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsWeightConfig();
+  return *internal_default_instance();
+}
+
+
+void WeightConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.WeightConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  weights_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool WeightConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.WeightConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated int32 weights = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_weights())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 10u, input, this->mutable_weights())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.WeightConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.WeightConfig)
+  return false;
+#undef DO_
+}
+
+void WeightConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.WeightConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 weights = 1;
+  if (this->weights_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _weights_cached_byte_size_));
+  }
+  for (int i = 0, n = this->weights_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->weights(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.WeightConfig)
+}
+
+::google::protobuf::uint8* WeightConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.WeightConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 weights = 1;
+  if (this->weights_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _weights_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->weights_, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.WeightConfig)
+  return target;
+}
+
+size_t WeightConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.WeightConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated int32 weights = 1;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->weights_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _weights_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WeightConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.WeightConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WeightConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WeightConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.WeightConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.WeightConfig)
+    MergeFrom(*source);
+  }
+}
+
+void WeightConfig::MergeFrom(const WeightConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.WeightConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  weights_.MergeFrom(from.weights_);
+}
+
+void WeightConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.WeightConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WeightConfig::CopyFrom(const WeightConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.WeightConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WeightConfig::IsInitialized() const {
+  return true;
+}
+
+void WeightConfig::Swap(WeightConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WeightConfig::InternalSwap(WeightConfig* other) {
+  using std::swap;
+  weights_.InternalSwap(&other->weights_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WeightConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MuseumRTPConfig::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MuseumRTPConfig::kBgReelstripsFieldNumber;
+const int MuseumRTPConfig::kBgBonusPrizeFieldNumber;
+const int MuseumRTPConfig::kBgMultipliersFieldNumber;
+const int MuseumRTPConfig::kBgMysteryWildFieldNumber;
+const int MuseumRTPConfig::kFgNumsFieldNumber;
+const int MuseumRTPConfig::kFgReelstripsFieldNumber;
+const int MuseumRTPConfig::kFgBonusPrizeFieldNumber;
+const int MuseumRTPConfig::kFgMultipliersFieldNumber;
+const int MuseumRTPConfig::kFgMysteryWildFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MuseumRTPConfig::MuseumRTPConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsMuseumRTPConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.MuseumRTPConfig)
+}
+MuseumRTPConfig::MuseumRTPConfig(const MuseumRTPConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      bgbonusprize_(from.bgbonusprize_),
+      bgmultipliers_(from.bgmultipliers_),
+      bgmysterywild_(from.bgmysterywild_),
+      fgbonusprize_(from.fgbonusprize_),
+      fgmultipliers_(from.fgmultipliers_),
+      fgmysterywild_(from.fgmysterywild_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  bgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.bgreelstrips().size() > 0) {
+    bgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bgreelstrips_);
+  }
+  fgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.fgreelstrips().size() > 0) {
+    fgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fgreelstrips_);
+  }
+  fgnums_ = from.fgnums_;
+  // @@protoc_insertion_point(copy_constructor:natashapb.MuseumRTPConfig)
+}
+
+void MuseumRTPConfig::SharedCtor() {
+  bgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgnums_ = 0;
+  _cached_size_ = 0;
+}
+
+MuseumRTPConfig::~MuseumRTPConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.MuseumRTPConfig)
+  SharedDtor();
+}
+
+void MuseumRTPConfig::SharedDtor() {
+  bgreelstrips_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgreelstrips_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void MuseumRTPConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MuseumRTPConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MuseumRTPConfig& MuseumRTPConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsMuseumRTPConfig();
+  return *internal_default_instance();
+}
+
+
+void MuseumRTPConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.MuseumRTPConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  bgbonusprize_.Clear();
+  bgmultipliers_.Clear();
+  bgmysterywild_.Clear();
+  fgbonusprize_.Clear();
+  fgmultipliers_.Clear();
+  fgmysterywild_.Clear();
+  bgreelstrips_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgreelstrips_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgnums_ = 0;
+  _internal_metadata_.Clear();
+}
+
+bool MuseumRTPConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.MuseumRTPConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string bgReelstrips = 100;
+      case 100: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 802 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_bgreelstrips()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->bgreelstrips().data(), static_cast<int>(this->bgreelstrips().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.MuseumRTPConfig.bgReelstrips"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 bgBonusPrize = 101;
+      case 101: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 810 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_bgbonusprize())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 808 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 810u, input, this->mutable_bgbonusprize())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 bgMultipliers = 102;
+      case 102: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 818 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_bgmultipliers())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u /* 816 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 818u, input, this->mutable_bgmultipliers())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .natashapb.WeightConfig bgMysteryWild = 103;
+      case 103: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 826 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_bgmysterywild()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 fgNums = 200;
+      case 200: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 1600 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fgnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string fgReelstrips = 300;
+      case 300: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(98u /* 2402 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fgreelstrips()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->fgreelstrips().data(), static_cast<int>(this->fgreelstrips().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.MuseumRTPConfig.fgReelstrips"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 fgBonusPrize = 301;
+      case 301: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(106u /* 2410 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_fgbonusprize())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(104u /* 2408 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 2410u, input, this->mutable_fgbonusprize())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 fgMultipliers = 302;
+      case 302: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(114u /* 2418 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_fgmultipliers())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(112u /* 2416 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 2418u, input, this->mutable_fgmultipliers())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .natashapb.WeightConfig fgMysteryWild = 303;
+      case 303: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(122u /* 2426 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_fgmysterywild()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.MuseumRTPConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.MuseumRTPConfig)
+  return false;
+#undef DO_
+}
+
+void MuseumRTPConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.MuseumRTPConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string bgReelstrips = 100;
+  if (this->bgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->bgreelstrips().data(), static_cast<int>(this->bgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.MuseumRTPConfig.bgReelstrips");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      100, this->bgreelstrips(), output);
+  }
+
+  // repeated int32 bgBonusPrize = 101;
+  if (this->bgbonusprize_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(101, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _bgbonusprize_cached_byte_size_));
+  }
+  for (int i = 0, n = this->bgbonusprize_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->bgbonusprize(i), output);
+  }
+
+  // repeated int32 bgMultipliers = 102;
+  if (this->bgmultipliers_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(102, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _bgmultipliers_cached_byte_size_));
+  }
+  for (int i = 0, n = this->bgmultipliers_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->bgmultipliers(i), output);
+  }
+
+  // repeated .natashapb.WeightConfig bgMysteryWild = 103;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->bgmysterywild_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      103,
+      this->bgmysterywild(static_cast<int>(i)),
+      output);
+  }
+
+  // int32 fgNums = 200;
+  if (this->fgnums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(200, this->fgnums(), output);
+  }
+
+  // string fgReelstrips = 300;
+  if (this->fgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fgreelstrips().data(), static_cast<int>(this->fgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.MuseumRTPConfig.fgReelstrips");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      300, this->fgreelstrips(), output);
+  }
+
+  // repeated int32 fgBonusPrize = 301;
+  if (this->fgbonusprize_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(301, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _fgbonusprize_cached_byte_size_));
+  }
+  for (int i = 0, n = this->fgbonusprize_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->fgbonusprize(i), output);
+  }
+
+  // repeated int32 fgMultipliers = 302;
+  if (this->fgmultipliers_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(302, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _fgmultipliers_cached_byte_size_));
+  }
+  for (int i = 0, n = this->fgmultipliers_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->fgmultipliers(i), output);
+  }
+
+  // repeated .natashapb.WeightConfig fgMysteryWild = 303;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->fgmysterywild_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      303,
+      this->fgmysterywild(static_cast<int>(i)),
+      output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.MuseumRTPConfig)
+}
+
+::google::protobuf::uint8* MuseumRTPConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.MuseumRTPConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string bgReelstrips = 100;
+  if (this->bgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->bgreelstrips().data(), static_cast<int>(this->bgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.MuseumRTPConfig.bgReelstrips");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        100, this->bgreelstrips(), target);
+  }
+
+  // repeated int32 bgBonusPrize = 101;
+  if (this->bgbonusprize_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      101,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _bgbonusprize_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->bgbonusprize_, target);
+  }
+
+  // repeated int32 bgMultipliers = 102;
+  if (this->bgmultipliers_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      102,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _bgmultipliers_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->bgmultipliers_, target);
+  }
+
+  // repeated .natashapb.WeightConfig bgMysteryWild = 103;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->bgmysterywild_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        103, this->bgmysterywild(static_cast<int>(i)), deterministic, target);
+  }
+
+  // int32 fgNums = 200;
+  if (this->fgnums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(200, this->fgnums(), target);
+  }
+
+  // string fgReelstrips = 300;
+  if (this->fgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fgreelstrips().data(), static_cast<int>(this->fgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.MuseumRTPConfig.fgReelstrips");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        300, this->fgreelstrips(), target);
+  }
+
+  // repeated int32 fgBonusPrize = 301;
+  if (this->fgbonusprize_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      301,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _fgbonusprize_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->fgbonusprize_, target);
+  }
+
+  // repeated int32 fgMultipliers = 302;
+  if (this->fgmultipliers_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      302,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _fgmultipliers_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->fgmultipliers_, target);
+  }
+
+  // repeated .natashapb.WeightConfig fgMysteryWild = 303;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->fgmysterywild_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        303, this->fgmysterywild(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.MuseumRTPConfig)
+  return target;
+}
+
+size_t MuseumRTPConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.MuseumRTPConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated int32 bgBonusPrize = 101;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->bgbonusprize_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _bgbonusprize_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated int32 bgMultipliers = 102;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->bgmultipliers_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _bgmultipliers_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated .natashapb.WeightConfig bgMysteryWild = 103;
+  {
+    unsigned int count = static_cast<unsigned int>(this->bgmysterywild_size());
+    total_size += 2UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->bgmysterywild(static_cast<int>(i)));
+    }
+  }
+
+  // repeated int32 fgBonusPrize = 301;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->fgbonusprize_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _fgbonusprize_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated int32 fgMultipliers = 302;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->fgmultipliers_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _fgmultipliers_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated .natashapb.WeightConfig fgMysteryWild = 303;
+  {
+    unsigned int count = static_cast<unsigned int>(this->fgmysterywild_size());
+    total_size += 2UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->fgmysterywild(static_cast<int>(i)));
+    }
+  }
+
+  // string bgReelstrips = 100;
+  if (this->bgreelstrips().size() > 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->bgreelstrips());
+  }
+
+  // string fgReelstrips = 300;
+  if (this->fgreelstrips().size() > 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fgreelstrips());
+  }
+
+  // int32 fgNums = 200;
+  if (this->fgnums() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->fgnums());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MuseumRTPConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.MuseumRTPConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MuseumRTPConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MuseumRTPConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.MuseumRTPConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.MuseumRTPConfig)
+    MergeFrom(*source);
+  }
+}
+
+void MuseumRTPConfig::MergeFrom(const MuseumRTPConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.MuseumRTPConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  bgbonusprize_.MergeFrom(from.bgbonusprize_);
+  bgmultipliers_.MergeFrom(from.bgmultipliers_);
+  bgmysterywild_.MergeFrom(from.bgmysterywild_);
+  fgbonusprize_.MergeFrom(from.fgbonusprize_);
+  fgmultipliers_.MergeFrom(from.fgmultipliers_);
+  fgmysterywild_.MergeFrom(from.fgmysterywild_);
+  if (from.bgreelstrips().size() > 0) {
+
+    bgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bgreelstrips_);
+  }
+  if (from.fgreelstrips().size() > 0) {
+
+    fgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fgreelstrips_);
+  }
+  if (from.fgnums() != 0) {
+    set_fgnums(from.fgnums());
+  }
+}
+
+void MuseumRTPConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.MuseumRTPConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MuseumRTPConfig::CopyFrom(const MuseumRTPConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.MuseumRTPConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MuseumRTPConfig::IsInitialized() const {
+  return true;
+}
+
+void MuseumRTPConfig::Swap(MuseumRTPConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MuseumRTPConfig::InternalSwap(MuseumRTPConfig* other) {
+  using std::swap;
+  bgbonusprize_.InternalSwap(&other->bgbonusprize_);
+  bgmultipliers_.InternalSwap(&other->bgmultipliers_);
+  CastToBase(&bgmysterywild_)->InternalSwap(CastToBase(&other->bgmysterywild_));
+  fgbonusprize_.InternalSwap(&other->fgbonusprize_);
+  fgmultipliers_.InternalSwap(&other->fgmultipliers_);
+  CastToBase(&fgmysterywild_)->InternalSwap(CastToBase(&other->fgmysterywild_));
+  bgreelstrips_.Swap(&other->bgreelstrips_);
+  fgreelstrips_.Swap(&other->fgreelstrips_);
+  swap(fgnums_, other->fgnums_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MuseumRTPConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+MuseumConfig_ReelstriptsEntry_DoNotUse::MuseumConfig_ReelstriptsEntry_DoNotUse() {}
+MuseumConfig_ReelstriptsEntry_DoNotUse::MuseumConfig_ReelstriptsEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const MuseumConfig_ReelstriptsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata MuseumConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[34];
+}
+void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+MuseumConfig_RtpEntry_DoNotUse::MuseumConfig_RtpEntry_DoNotUse() {}
+MuseumConfig_RtpEntry_DoNotUse::MuseumConfig_RtpEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(const MuseumConfig_RtpEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata MuseumConfig_RtpEntry_DoNotUse::GetMetadata() const {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[35];
+}
+void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+void MuseumConfig::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MuseumConfig::kReelstriptsFieldNumber;
+const int MuseumConfig::kRtpFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MuseumConfig::MuseumConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsMuseumConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.MuseumConfig)
+}
+MuseumConfig::MuseumConfig(const MuseumConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  reelstripts_.MergeFrom(from.reelstripts_);
+  rtp_.MergeFrom(from.rtp_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.MuseumConfig)
+}
+
+void MuseumConfig::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+MuseumConfig::~MuseumConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.MuseumConfig)
+  SharedDtor();
+}
+
+void MuseumConfig::SharedDtor() {
+}
+
+void MuseumConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MuseumConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MuseumConfig& MuseumConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsMuseumConfig();
+  return *internal_default_instance();
+}
+
+
+void MuseumConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.MuseumConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  reelstripts_.Clear();
+  rtp_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool MuseumConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.MuseumConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          MuseumConfig_ReelstriptsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              MuseumConfig_ReelstriptsEntry_DoNotUse,
+              ::std::string, ::natashapb::ReelstriptConfig,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig > > parser(&reelstripts_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.MuseumConfig.ReelstriptsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, .natashapb.MuseumRTPConfig> rtp = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          MuseumConfig_RtpEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              MuseumConfig_RtpEntry_DoNotUse,
+              ::std::string, ::natashapb::MuseumRTPConfig,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig > > parser(&rtp_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.MuseumConfig.RtpEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.MuseumConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.MuseumConfig)
+  return false;
+#undef DO_
+}
+
+void MuseumConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.MuseumConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  if (!this->reelstripts().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.MuseumConfig.ReelstriptsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->reelstripts().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->reelstripts().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<MuseumConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            1, *entry, output);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<MuseumConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            1, *entry, output);
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  // map<string, .natashapb.MuseumRTPConfig> rtp = 2;
+  if (!this->rtp().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.MuseumConfig.RtpEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->rtp().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->rtp().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<MuseumConfig_RtpEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(rtp_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            2, *entry, output);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<MuseumConfig_RtpEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it) {
+        entry.reset(rtp_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            2, *entry, output);
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.MuseumConfig)
+}
+
+::google::protobuf::uint8* MuseumConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.MuseumConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  if (!this->reelstripts().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.MuseumConfig.ReelstriptsEntry.key");
+      }
+    };
+
+    if (deterministic &&
+        this->reelstripts().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->reelstripts().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<MuseumConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       1, *entry, deterministic, target);
+;
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<MuseumConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       1, *entry, deterministic, target);
+;
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  // map<string, .natashapb.MuseumRTPConfig> rtp = 2;
+  if (!this->rtp().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.MuseumConfig.RtpEntry.key");
+      }
+    };
+
+    if (deterministic &&
+        this->rtp().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->rtp().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<MuseumConfig_RtpEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(rtp_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       2, *entry, deterministic, target);
+;
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<MuseumConfig_RtpEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it) {
+        entry.reset(rtp_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       2, *entry, deterministic, target);
+;
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.MuseumConfig)
+  return target;
+}
+
+size_t MuseumConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.MuseumConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->reelstripts_size());
+  {
+    ::google::protobuf::scoped_ptr<MuseumConfig_ReelstriptsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+        it = this->reelstripts().begin();
+        it != this->reelstripts().end(); ++it) {
+      entry.reset(reelstripts_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  // map<string, .natashapb.MuseumRTPConfig> rtp = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->rtp_size());
+  {
+    ::google::protobuf::scoped_ptr<MuseumConfig_RtpEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::natashapb::MuseumRTPConfig >::const_iterator
+        it = this->rtp().begin();
+        it != this->rtp().end(); ++it) {
+      entry.reset(rtp_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MuseumConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.MuseumConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MuseumConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MuseumConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.MuseumConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.MuseumConfig)
+    MergeFrom(*source);
+  }
+}
+
+void MuseumConfig::MergeFrom(const MuseumConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.MuseumConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  reelstripts_.MergeFrom(from.reelstripts_);
+  rtp_.MergeFrom(from.rtp_);
+}
+
+void MuseumConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.MuseumConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MuseumConfig::CopyFrom(const MuseumConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.MuseumConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MuseumConfig::IsInitialized() const {
+  return true;
+}
+
+void MuseumConfig::Swap(MuseumConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MuseumConfig::InternalSwap(MuseumConfig* other) {
+  using std::swap;
+  reelstripts_.Swap(&other->reelstripts_);
+  rtp_.Swap(&other->rtp_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MuseumConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace natashapb
 namespace google {
@@ -13452,6 +15678,27 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::RTP_GameModulesEntry_
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::RTP* Arena::Create< ::natashapb::RTP >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::RTP >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::NormalReelstriptConfig* Arena::Create< ::natashapb::NormalReelstriptConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::NormalReelstriptConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::ReelstriptConfig* Arena::Create< ::natashapb::ReelstriptConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::ReelstriptConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::WeightConfig* Arena::Create< ::natashapb::WeightConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::WeightConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::MuseumRTPConfig* Arena::Create< ::natashapb::MuseumRTPConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::MuseumRTPConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::MuseumConfig_RtpEntry_DoNotUse* Arena::Create< ::natashapb::MuseumConfig_RtpEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::MuseumConfig_RtpEntry_DoNotUse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::MuseumConfig* Arena::Create< ::natashapb::MuseumConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::MuseumConfig >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
