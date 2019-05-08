@@ -32,11 +32,17 @@ class Museum : public GameLogic {
     addRTPModule(::natashapb::BASE_GAME, MeseumMaxSymbols, MeseumMaxPayoutNums);
   }
 #endif  // NATASHA_COUNTRTP
+
+#ifdef NATASHA_RUNINCPP
+ public:
+  void initConfig();
+#endif  // NATASHA_RUNINCPP
+
  protected:
   NormalReels3X5 m_reels;
   Paytables3X5 m_paytables;
-  // Lines3X5 m_lines;
   BetList m_lstBet;
+  ::natashapb::MuseumConfig m_cfg;
 };  // namespace natasha
 
 }  // namespace natasha

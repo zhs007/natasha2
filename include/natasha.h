@@ -11,9 +11,11 @@
 #include "logicline2.h"
 #include "logicscatter2.h"
 #include "utils.h"
+#include "config.h"
 
 // #define NATASHA_SERVER
 // #define NATASHA_COUNTRTP
+// #define NATASHA_RUNINCPP
 
 namespace natasha {
 

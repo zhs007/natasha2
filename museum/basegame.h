@@ -14,12 +14,13 @@ const int32_t MUSEUM_BG_UGMI_VER = 1;
 class MuseumBaseGame : public SlotsGameMod {
  public:
   MuseumBaseGame(GameLogic& logic, NormalReels3X5& reels,
-                 Paytables3X5& paytables, BetList& lstBet)
+                 Paytables3X5& paytables, BetList& lstBet,
+                 ::natashapb::MuseumConfig& cfg)
       : SlotsGameMod(logic, ::natashapb::BASE_GAME),
         m_reels(reels),
         m_paytables(paytables),
-        // m_lines(lines),
-        m_lstBet(lstBet) {}
+        m_lstBet(lstBet),
+        m_cfg(cfg) {}
   virtual ~MuseumBaseGame() {}
 
  public:
@@ -341,8 +342,8 @@ class MuseumBaseGame : public SlotsGameMod {
  protected:
   NormalReels3X5& m_reels;
   Paytables3X5& m_paytables;
-  // Lines3X5& m_lines;
   BetList& m_lstBet;
+  ::natashapb::MuseumConfig& m_cfg;
 };
 
 }  // namespace natasha

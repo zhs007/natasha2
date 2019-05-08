@@ -4817,12 +4817,19 @@ class WeightConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_weights();
 
+  // int32 totalWeight = 2;
+  void clear_totalweight();
+  static const int kTotalWeightFieldNumber = 2;
+  ::google::protobuf::int32 totalweight() const;
+  void set_totalweight(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.WeightConfig)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > weights_;
   mutable int _weights_cached_byte_size_;
+  ::google::protobuf::int32 totalweight_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsWeightConfigImpl();
@@ -8858,6 +8865,20 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 WeightConfig::mutable_weights() {
   // @@protoc_insertion_point(field_mutable_list:natashapb.WeightConfig.weights)
   return &weights_;
+}
+
+// int32 totalWeight = 2;
+inline void WeightConfig::clear_totalweight() {
+  totalweight_ = 0;
+}
+inline ::google::protobuf::int32 WeightConfig::totalweight() const {
+  // @@protoc_insertion_point(field_get:natashapb.WeightConfig.totalWeight)
+  return totalweight_;
+}
+inline void WeightConfig::set_totalweight(::google::protobuf::int32 value) {
+  
+  totalweight_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.WeightConfig.totalWeight)
 }
 
 // -------------------------------------------------------------------

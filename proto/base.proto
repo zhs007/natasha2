@@ -493,6 +493,7 @@ message ReelstriptConfig {
 
 message WeightConfig {
     repeated int32 weights = 1;
+    int32 totalWeight = 2;
 }
 
 message MuseumRTPConfig {

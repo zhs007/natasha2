@@ -1357,6 +1357,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, weights_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, totalweight_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumRTPConfig, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1431,10 +1432,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 298, -1, sizeof(::natashapb::NormalReelstriptConfig)},
   { 304, -1, sizeof(::natashapb::ReelstriptConfig)},
   { 310, -1, sizeof(::natashapb::WeightConfig)},
-  { 316, -1, sizeof(::natashapb::MuseumRTPConfig)},
-  { 330, 337, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
-  { 339, 346, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
-  { 348, -1, sizeof(::natashapb::MuseumConfig)},
+  { 317, -1, sizeof(::natashapb::MuseumRTPConfig)},
+  { 331, 338, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
+  { 340, 347, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
+  { 349, -1, sizeof(::natashapb::MuseumConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1613,53 +1614,54 @@ void AddDescriptorsImpl() {
       "apb.GameModuleRTP:\0028\001\"*\n\026NormalReelstrip"
       "tConfig\022\020\n\010filename\030\001 \001(\t\"E\n\020ReelstriptC"
       "onfig\0221\n\006normal\030\001 \001(\0132!.natashapb.Normal"
-      "ReelstriptConfig\"\037\n\014WeightConfig\022\017\n\007weig"
-      "hts\030\001 \003(\005\"\214\002\n\017MuseumRTPConfig\022\024\n\014bgReels"
-      "trips\030d \001(\t\022\024\n\014bgBonusPrize\030e \003(\005\022\025\n\rbgM"
-      "ultipliers\030f \003(\005\022.\n\rbgMysteryWild\030g \003(\0132"
-      "\027.natashapb.WeightConfig\022\017\n\006fgNums\030\310\001 \001("
-      "\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022\025\n\014fgBonusPrize"
-      "\030\255\002 \003(\005\022\026\n\rfgMultipliers\030\256\002 \003(\005\022/\n\rfgMys"
-      "teryWild\030\257\002 \003(\0132\027.natashapb.WeightConfig"
-      "\"\225\002\n\014MuseumConfig\022=\n\013reelstripts\030\001 \003(\0132("
-      ".natashapb.MuseumConfig.ReelstriptsEntry"
-      "\022-\n\003rtp\030\002 \003(\0132 .natashapb.MuseumConfig.R"
-      "tpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001(\t"
-      "\022*\n\005value\030\002 \001(\0132\033.natashapb.ReelstriptCo"
-      "nfig:\0028\001\032F\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022)\n\005val"
-      "ue\030\002 \001(\0132\032.natashapb.MuseumRTPConfig:\0028\001"
-      "*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_C"
-      "FG\020\220N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID"
-      "_REELS_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_T"
-      "O_START\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NU"
-      "MS\020\241\234\001\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVAL"
-      "ID_START_LINES\020\243\234\001\022\031\n\023INVALID_START_TIME"
-      "S\020\244\234\001\022\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVA"
-      "LID_PARENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEM"
-      "OD\020\247\234\001\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LIN"
-      "ES\020\261\352\001\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_G"
-      "AMECTRL_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING"
-      "_FREESTATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENA"
-      "RIO\020\320\206\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220"
-      "\277\005\022\033\n\025ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_P"
-      "ROTOBUF_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OB"
-      "JECT\020\223\277\005*\246\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022"
-      "\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTE"
-      "R_LEFT\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX"
-      "_LEFT\020\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT"
-      "\020\007\022\r\n\tWAY_RIGHT\020\010*t\n\013GAMEMODTYPE\022\014\n\010NULL"
-      "_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\n"
-      "BONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023COMMON"
-      "_JACKPOT_GAME\020\005*L\n\022CASCADINGFREESTATE\022\017\n"
-      "\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME\020\001\022\020\n\014E"
-      "ND_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n\010NO_DEBUG"
-      "\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN\020\002\022\013\n\007BIG"
-      "_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FREEGAME\020\005\022"
-      "\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMONJACKPOT\020"
-      "\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
+      "ReelstriptConfig\"4\n\014WeightConfig\022\017\n\007weig"
+      "hts\030\001 \003(\005\022\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017Museu"
+      "mRTPConfig\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBo"
+      "nusPrize\030e \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n"
+      "\rbgMysteryWild\030g \003(\0132\027.natashapb.WeightC"
+      "onfig\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254"
+      "\002 \001(\t\022\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultip"
+      "liers\030\256\002 \003(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.n"
+      "atashapb.WeightConfig\"\225\002\n\014MuseumConfig\022="
+      "\n\013reelstripts\030\001 \003(\0132(.natashapb.MuseumCo"
+      "nfig.ReelstriptsEntry\022-\n\003rtp\030\002 \003(\0132 .nat"
+      "ashapb.MuseumConfig.RtpEntry\032O\n\020Reelstri"
+      "ptsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.n"
+      "atashapb.ReelstriptConfig:\0028\001\032F\n\010RtpEntr"
+      "y\022\013\n\003key\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.natashap"
+      "b.MuseumRTPConfig:\0028\001*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032"
+      "\n\025INVALID_PAYTABLES_CFG\020\220N\022\026\n\021INVALID_LI"
+      "NES_CFG\020\221N\022\026\n\021INVALID_REELS_CFG\020\222N\022$\n\036IN"
+      "VALID_START_GAMEMOD_TO_START\020\240\234\001\022!\n\033INVA"
+      "LID_START_FREEGAME_NUMS\020\241\234\001\022\027\n\021INVALID_S"
+      "TART_BET\020\242\234\001\022\031\n\023INVALID_START_LINES\020\243\234\001\022"
+      "\031\n\023INVALID_START_TIMES\020\244\234\001\022\031\n\023ALREADY_IN"
+      "_FREEGAME\020\245\234\001\022\026\n\020INVALID_PARENTID\020\246\234\001\022\034\n"
+      "\026INVALID_PARENT_GAMEMOD\020\247\234\001\022\021\n\013INVALID_B"
+      "ET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001\022\023\n\rINVALID_T"
+      "IMES\020\262\352\001\022\036\n\030INVALID_GAMECTRL_GAMEMOD\020\263\352\001"
+      "\022!\n\033INVALID_CASCADING_FREESTATE\020\300\270\002\022\037\n\031E"
+      "RR_MAKE_INITIAL_SCENARIO\020\320\206\003\022!\n\033ERR_NO_O"
+      "VERLOADED_INTERFACE\020\220\277\005\022\033\n\025ERR_INVALID_J"
+      "S_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBUF_PARSE\020\222\277\005\022\035"
+      "\n\027ERR_JS_BUILD_RET_OBJECT\020\223\277\005*\246\001\n\016GAMERE"
+      "SULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nL"
+      "INE_RIGHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021\n\rSCATTER"
+      "_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022\023\n\017SCATTERE"
+      "X_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r\n\tWAY_RIGHT\020\010*t"
+      "\n\013GAMEMODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME"
+      "\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JAC"
+      "KPOT_GAME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020\005*L\n\022"
+      "CASCADINGFREESTATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017C"
+      "HG_TO_FREEGAME\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nD"
+      "EBUGSTATE\022\014\n\010NO_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016"
+      "\n\nMEDIUM_WIN\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004"
+      "\022\022\n\016DEBUG_FREEGAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n"
+      "\023DEBUG_COMMONJACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010"
+      "b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6307);
+      descriptor, 6328);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -14130,6 +14132,7 @@ void WeightConfig::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int WeightConfig::kWeightsFieldNumber;
+const int WeightConfig::kTotalWeightFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 WeightConfig::WeightConfig()
@@ -14146,10 +14149,12 @@ WeightConfig::WeightConfig(const WeightConfig& from)
       weights_(from.weights_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  totalweight_ = from.totalweight_;
   // @@protoc_insertion_point(copy_constructor:natashapb.WeightConfig)
 }
 
 void WeightConfig::SharedCtor() {
+  totalweight_ = 0;
   _cached_size_ = 0;
 }
 
@@ -14184,6 +14189,7 @@ void WeightConfig::Clear() {
   (void) cached_has_bits;
 
   weights_.Clear();
+  totalweight_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -14210,6 +14216,20 @@ bool WeightConfig::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  1, 10u, input, this->mutable_weights())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 totalWeight = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &totalweight_)));
         } else {
           goto handle_unusual;
         }
@@ -14253,6 +14273,11 @@ void WeightConfig::SerializeWithCachedSizes(
       this->weights(i), output);
   }
 
+  // int32 totalWeight = 2;
+  if (this->totalweight() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->totalweight(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -14278,6 +14303,11 @@ void WeightConfig::SerializeWithCachedSizes(
             _weights_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->weights_, target);
+  }
+
+  // int32 totalWeight = 2;
+  if (this->totalweight() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->totalweight(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -14313,6 +14343,13 @@ size_t WeightConfig::ByteSizeLong() const {
     total_size += data_size;
   }
 
+  // int32 totalWeight = 2;
+  if (this->totalweight() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->totalweight());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -14343,6 +14380,9 @@ void WeightConfig::MergeFrom(const WeightConfig& from) {
   (void) cached_has_bits;
 
   weights_.MergeFrom(from.weights_);
+  if (from.totalweight() != 0) {
+    set_totalweight(from.totalweight());
+  }
 }
 
 void WeightConfig::CopyFrom(const ::google::protobuf::Message& from) {
@@ -14370,6 +14410,7 @@ void WeightConfig::Swap(WeightConfig* other) {
 void WeightConfig::InternalSwap(WeightConfig* other) {
   using std::swap;
   weights_.InternalSwap(&other->weights_);
+  swap(totalweight_, other->totalweight_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

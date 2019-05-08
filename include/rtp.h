@@ -54,6 +54,8 @@ struct RTP {
           gmname, *gm);
 
       gamemodules->insert(p);
+
+      delete gm;
     }
   }
 

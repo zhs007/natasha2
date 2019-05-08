@@ -14,11 +14,13 @@ const int32_t MUSEUM_FG_UGMI_VER = 1;
 class MuseumFreeGame : public SlotsGameMod {
  public:
   MuseumFreeGame(GameLogic& logic, NormalReels3X5& reels,
-                 Paytables3X5& paytables, BetList& lstBet)
+                 Paytables3X5& paytables, BetList& lstBet,
+                 ::natashapb::MuseumConfig& cfg)
       : SlotsGameMod(logic, ::natashapb::FREE_GAME),
         m_reels(reels),
         m_paytables(paytables),
-        m_lstBet(lstBet) {}
+        m_lstBet(lstBet),
+        m_cfg(cfg) {}
   virtual ~MuseumFreeGame() {}
 
  public:
@@ -381,8 +383,8 @@ class MuseumFreeGame : public SlotsGameMod {
  protected:
   NormalReels3X5& m_reels;
   Paytables3X5& m_paytables;
-  // Lines3X5& m_lines;
   BetList& m_lstBet;
+  ::natashapb::MuseumConfig& m_cfg;
 };
 
 }  // namespace natasha
