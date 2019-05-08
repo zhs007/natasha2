@@ -104,7 +104,9 @@ void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
   CSVFile csv;
 
   if (csv.load(fn)) {
+#ifdef NATASHA_DEBUG
     printf("loadNormalReels3X5 %d\n", csv.getLength());
+#endif  // NATASHA_DEBUG
 
     int len[] = {0, 0, 0, 0, 0};
 
@@ -117,32 +119,22 @@ void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
 
       if (p1 < 0 && len[0] == 0) {
         len[0] = i;
-
-        // printf("loadNormalReels3X5 reel0 is %d\n", i);
       }
 
       if (p2 < 0 && len[1] == 0) {
         len[1] = i;
-
-        // printf("loadNormalReels3X5 reel1 is %d\n", i);
       }
 
       if (p3 < 0 && len[2] == 0) {
         len[2] = i;
-
-        // printf("loadNormalReels3X5 reel2 is %d\n", i);
       }
 
       if (p4 < 0 && len[3] == 0) {
         len[3] = i;
-
-        // printf("loadNormalReels3X5 reel3 is %d\n", i);
       }
 
       if (p5 < 0 && len[4] == 0) {
         len[4] = i;
-
-        // printf("loadNormalReels3X5 reel4 is %d\n", i);
       }
     }
 
@@ -151,7 +143,9 @@ void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
         len[i] = csv.getLength();
       }
 
+#ifdef NATASHA_DEBUG
       printf("loadNormalReels3X5 reel%d is %d\n", i, len[i]);
+#endif  // NATASHA_DEBUG
 
       scr.resetReelsLength(i, len[i]);
     }
@@ -163,23 +157,23 @@ void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
       int p4 = std::stoi(csv.get(i, "R4"));
       int p5 = std::stoi(csv.get(i, "R5"));
 
-      if (p1 < 0 && i < len[0]) {
+      if (p1 >= 0 && i < len[0]) {
         scr.setReels(0, i, p1);
       }
 
-      if (p2 < 0 && i < len[1]) {
+      if (p2 >= 0 && i < len[1]) {
         scr.setReels(1, i, p2);
       }
 
-      if (p3 < 0 && i < len[2]) {
+      if (p3 >= 0 && i < len[2]) {
         scr.setReels(2, i, p3);
       }
 
-      if (p4 < 0 && i < len[3]) {
+      if (p4 >= 0 && i < len[3]) {
         scr.setReels(3, i, p4);
       }
 
-      if (p5 < 0 && i < len[4]) {
+      if (p5 >= 0 && i < len[4]) {
         scr.setReels(4, i, p5);
       }
     }
@@ -197,6 +191,12 @@ void _randomNewReels3x5(const NormalReels3X5& reels,
     uint32_t cr = randomScale(reels.getReelsLength(x));
     pNRRR->add_reelsindex(cr);
   }
+
+#ifdef NATASHA_DEBUG
+  printf("_randomNewReels3x5 index: \n %d %d %d %d %d\n", pNRRR->reelsindex(0),
+         pNRRR->reelsindex(1), pNRRR->reelsindex(2), pNRRR->reelsindex(3),
+         pNRRR->reelsindex(4));
+#endif  // NATASHA_DEBUG
 
   sb3x5->set_dat0_0(reels.getSymbol(0, pNRRR->reelsindex(0)));
   sb3x5->set_dat0_1(reels.getSymbol(1, pNRRR->reelsindex(1)));

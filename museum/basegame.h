@@ -105,6 +105,12 @@ class MuseumBaseGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser) {
     randomReels3x5(m_reels, pRandomResult, pUser);
 
+#ifdef NATASHA_DEBUG
+    printSymbolBlock3X5("randomReels",
+                        &pRandomResult->nrrr3x5().symbolblock().sb3x5(),
+                        MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
+
     return ::natashapb::OK;
   }
 

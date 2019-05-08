@@ -16,6 +16,7 @@
 // #define NATASHA_SERVER
 // #define NATASHA_COUNTRTP
 // #define NATASHA_RUNINCPP
+// #define NATASHA_DEBUG
 
 namespace natasha {
 
