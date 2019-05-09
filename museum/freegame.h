@@ -330,8 +330,8 @@ class MuseumFreeGame : public SlotsGameMod {
 
       // printSymbolBlock3X5("onSpinEnd", sb3x5, TLOD_SYMBOL_MAPPING);
     } else {
-      auto scrr = pRandomResult->mutable_scrr3x5();
-      scrr->set_reelsindex(-1);
+      auto nrrr = pRandomResult->mutable_nrrr3x5();
+      // nrrr->set_reelsindex(-1);
     }
 
     return ::natashapb::OK;
@@ -352,7 +352,7 @@ class MuseumFreeGame : public SlotsGameMod {
 
     auto sb = pSpinResult->mutable_symbolblock();
     auto sb3x5 = sb->mutable_sb3x5();
-    sb3x5->CopyFrom(pRandomResult->scrr3x5().symbolblock().sb3x5());
+    sb3x5->CopyFrom(pRandomResult->nrrr3x5().symbolblock().sb3x5());
 
     return ::natashapb::OK;
   }

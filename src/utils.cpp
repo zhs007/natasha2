@@ -74,6 +74,16 @@ void printRandomResult(const char* str,
         printSymbolBlock3X5(str, &sb3x5, strMapping);
       }
     }
+  } else if (pRandomResult->has_nrrr3x5()) {
+    auto rsc = pRandomResult->nrrr3x5();
+    if (rsc.has_symbolblock()) {
+      auto sb = rsc.symbolblock();
+      if (sb.has_sb3x5()) {
+        auto sb3x5 = sb.sb3x5();
+
+        printSymbolBlock3X5(str, &sb3x5, strMapping);
+      }
+    }
   }
 }
 
@@ -88,8 +98,9 @@ void printSpinResult(const char* str,
     printf("%s\n", str);
   }
 
-  printf("symbol win is %lld, real win is %lld\n", pSpinResult->win(),
-         pSpinResult->realwin());
+  printf("symbol win is %lld, real win is %lld, win nums is %d\n",
+         pSpinResult->win(), pSpinResult->realwin(),
+         pSpinResult->lstgri_size());
 
   for (int i = 0; i < pSpinResult->lstgri_size(); ++i) {
     auto gri = pSpinResult->lstgri(i);

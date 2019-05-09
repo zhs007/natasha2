@@ -228,13 +228,16 @@ void _fillReels3x5(const NormalReels3X5& reels,
 
   for (int y = 2; y >= 0; --y) {
     for (int x = 0; x < 5; ++x) {
-      if (getSymbolBlock3X5(&last3x5, x, y) == -1) {
-        auto ci = pNRRR->reelsindex(x);
+      auto curs = getSymbolBlock3X5(&last3x5, x, y);
+      if (curs == -1) {
+        auto ci = pNRRR->reelsindex(x) - 1;
         auto cs = reels.getSymbolEx(x, ci);
 
         setSymbolBlock3X5(pSB35, x, y, cs);
 
         pNRRR->set_reelsindex(x, ci);
+      } else {
+        setSymbolBlock3X5(pSB35, x, y, curs);
       }
     }
   }

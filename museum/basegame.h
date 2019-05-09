@@ -74,6 +74,8 @@ class MuseumBaseGame : public SlotsGameMod {
 
     auto spinctrl = pGameCtrl->mutable_spin();
 
+    // printf("reviewGameCtrl %d\n", pUser->cascadinginfo().turnnums());
+
     // if respin
     if (pUser->cascadinginfo().turnnums() > 0) {
       spinctrl->set_bet(pUser->cascadinginfo().curbet());
@@ -105,12 +107,6 @@ class MuseumBaseGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser) {
     randomReels3x5(m_reels, pRandomResult, pUser);
 
-#ifdef NATASHA_DEBUG
-    printSymbolBlock3X5("randomReels",
-                        &pRandomResult->nrrr3x5().symbolblock().sb3x5(),
-                        MUSEUM_SYMBOL_MAPPING);
-#endif  // NATASHA_DEBUG
-
     return ::natashapb::OK;
   }
 
@@ -125,6 +121,10 @@ class MuseumBaseGame : public SlotsGameMod {
     assert(pGameCtrl != NULL);
     assert(pRandomResult != NULL);
     assert(pUser != NULL);
+
+#ifdef NATASHA_DEBUG
+    printRandomResult("countSpinResult", pRandomResult, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
 
     pSpinResult->Clear();
 
@@ -146,6 +146,9 @@ class MuseumBaseGame : public SlotsGameMod {
 
       pCurGRI->CopyFrom(gri);
 
+#ifdef NATASHA_DEBUG
+      printSpinResult("countSpinResult:fg", pSpinResult, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
       // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
       if (pUser->cascadinginfo().freestate() == ::natashapb::NO_FREEGAME) {
@@ -180,6 +183,10 @@ class MuseumBaseGame : public SlotsGameMod {
 
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 1);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
+
+#ifdef NATASHA_DEBUG
+    printSpinResult("countSpinResult", pSpinResult, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
 
     // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
@@ -291,10 +298,13 @@ class MuseumBaseGame : public SlotsGameMod {
       removeBlock3X5WithGameResult(sb3x5, pSpinResult);
       cascadeBlock3X5(sb3x5);
 
+#ifdef NATASHA_DEBUG
+      printSymbolBlock3X5("onSpinEnd", sb3x5, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
       // printSymbolBlock3X5("onSpinEnd", sb3x5, TLOD_SYMBOL_MAPPING);
     } else {
-      auto scrr = pRandomResult->mutable_scrr3x5();
-      scrr->set_reelsindex(-1);
+      auto nrrr = pRandomResult->mutable_nrrr3x5();
+      // nrrr->set_reelsindex(-1);
     }
 
     return ::natashapb::OK;
@@ -315,7 +325,7 @@ class MuseumBaseGame : public SlotsGameMod {
 
     auto sb = pSpinResult->mutable_symbolblock();
     auto sb3x5 = sb->mutable_sb3x5();
-    sb3x5->CopyFrom(pRandomResult->scrr3x5().symbolblock().sb3x5());
+    sb3x5->CopyFrom(pRandomResult->nrrr3x5().symbolblock().sb3x5());
 
     return ::natashapb::OK;
   }

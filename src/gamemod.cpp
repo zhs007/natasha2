@@ -44,6 +44,10 @@ namespace natasha {
     }
 
     if (pUGMI->spinresult().lstgri_size() == 0) {
+#ifdef NATASHA_DEBUG
+      printf("makeInitScenario OK (%d)\n", i);
+#endif  // NATASHA_DEBUG
+
       return ::natashapb::OK;
     }
   }
