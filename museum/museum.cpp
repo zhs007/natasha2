@@ -3,17 +3,6 @@
 
 namespace natasha {
 
-// void outputReels(StaticCascadingReels3X5* pReels) {
-//   for (int y = 0; y < pReels->getLength(); ++y) {
-//     printf("outputReels y - %d\n", y);
-//     for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
-//       printf("outputReels x - %d\n", x);
-//       printSymbolBlock3X5(NULL, pReels->getNode(x, y),
-//       MUSEUM_SYMBOL_MAPPING);
-//     }
-//   }
-// }
-
 #ifdef NATASHA_RUNINCPP
 void Museum::initConfig() {
   m_cfg.Clear();
@@ -136,13 +125,6 @@ void Museum::initConfig() {
     return ::natashapb::INVALID_REELS_CFG;
   }
 
-  // outputReels(&m_reels);
-
-  //   loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
-  //   if (m_lines.isEmpty()) {
-  //     return ::natashapb::INVALID_LINES_CFG;
-  //   }
-
   loadPaytables3X5(pathAppend(cfgpath, "game462_paytables.csv").c_str(),
                    m_paytables);
   if (m_paytables.isEmpty()) {
@@ -211,7 +193,7 @@ void countRTP_museum() {
   auto pGameCtrl = new ::natashapb::GameCtrl();
   int64_t ctrlid = 1;
 
-  for (int i = 0; i <= 10; ++ctrlid, ++i) {
+  for (int i = 0; i <= 1000000; ++ctrlid, ++i) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {

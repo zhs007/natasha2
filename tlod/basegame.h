@@ -122,7 +122,7 @@ class TLODBaseGame : public SlotsGameMod {
     pSpinResult->Clear();
 
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
-                                     pRandomResult, pLogicUser);
+                                     pRandomResult, pLogicUser, NULL);
 
     // printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 
@@ -299,7 +299,7 @@ class TLODBaseGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+      const ::natashapb::UserGameLogicInfo* pLogicUser, const void* pCfg) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);

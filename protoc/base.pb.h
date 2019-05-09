@@ -41,7 +41,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[37];
+  static const ::google::protobuf::internal::ParseTable schema[38];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -67,6 +67,8 @@ void InitDefaultsGameCtrlIDImpl();
 void InitDefaultsGameCtrlID();
 void InitDefaultsBaseCascadingInfoImpl();
 void InitDefaultsBaseCascadingInfo();
+void InitDefaultsFGCacheImpl();
+void InitDefaultsFGCache();
 void InitDefaultsBaseFreeInfoImpl();
 void InitDefaultsBaseFreeInfo();
 void InitDefaultsRespinHistoryImpl();
@@ -132,6 +134,7 @@ inline void InitDefaults() {
   InitDefaultsSpinResult();
   InitDefaultsGameCtrlID();
   InitDefaultsBaseCascadingInfo();
+  InitDefaultsFGCache();
   InitDefaultsBaseFreeInfo();
   InitDefaultsRespinHistory();
   InitDefaultsRespinHistoryList();
@@ -168,6 +171,9 @@ extern BaseCascadingInfoDefaultTypeInternal _BaseCascadingInfo_default_instance_
 class BaseFreeInfo;
 class BaseFreeInfoDefaultTypeInternal;
 extern BaseFreeInfoDefaultTypeInternal _BaseFreeInfo_default_instance_;
+class FGCache;
+class FGCacheDefaultTypeInternal;
+extern FGCacheDefaultTypeInternal _FGCache_default_instance_;
 class GameCtrl;
 class GameCtrlDefaultTypeInternal;
 extern GameCtrlDefaultTypeInternal _GameCtrl_default_instance_;
@@ -278,6 +284,7 @@ namespace google {
 namespace protobuf {
 template<> ::natashapb::BaseCascadingInfo* Arena::Create< ::natashapb::BaseCascadingInfo>(Arena*);
 template<> ::natashapb::BaseFreeInfo* Arena::Create< ::natashapb::BaseFreeInfo>(Arena*);
+template<> ::natashapb::FGCache* Arena::Create< ::natashapb::FGCache>(Arena*);
 template<> ::natashapb::GameCtrl* Arena::Create< ::natashapb::GameCtrl>(Arena*);
 template<> ::natashapb::GameCtrlAwardSpin* Arena::Create< ::natashapb::GameCtrlAwardSpin>(Arena*);
 template<> ::natashapb::GameCtrlBonus* Arena::Create< ::natashapb::GameCtrlBonus>(Arena*);
@@ -368,12 +375,13 @@ enum GAMERESULTTYPE {
   SCATTEREX_RIGHT = 6,
   WAY_LEFT = 7,
   WAY_RIGHT = 8,
+  SPECIAL = 9,
   GAMERESULTTYPE_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   GAMERESULTTYPE_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool GAMERESULTTYPE_IsValid(int value);
 const GAMERESULTTYPE GAMERESULTTYPE_MIN = NO_WIN;
-const GAMERESULTTYPE GAMERESULTTYPE_MAX = WAY_RIGHT;
+const GAMERESULTTYPE GAMERESULTTYPE_MAX = SPECIAL;
 const int GAMERESULTTYPE_ARRAYSIZE = GAMERESULTTYPE_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* GAMERESULTTYPE_descriptor();
@@ -1647,6 +1655,12 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::int32 realfgnums() const;
   void set_realfgnums(::google::protobuf::int32 value);
 
+  // int32 specialTriggered = 12;
+  void clear_specialtriggered();
+  static const int kSpecialTriggeredFieldNumber = 12;
+  ::google::protobuf::int32 specialtriggered() const;
+  void set_specialtriggered(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.SpinResult)
  private:
 
@@ -1665,6 +1679,7 @@ class SpinResult : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::int64 awardmul_;
   bool inrespin_;
   ::google::protobuf::int32 realfgnums_;
+  ::google::protobuf::int32 specialtriggered_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsSpinResultImpl();
@@ -1950,6 +1965,109 @@ class BaseCascadingInfo : public ::google::protobuf::Message /* @@protoc_inserti
 };
 // -------------------------------------------------------------------
 
+class FGCache : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.FGCache) */ {
+ public:
+  FGCache();
+  virtual ~FGCache();
+
+  FGCache(const FGCache& from);
+
+  inline FGCache& operator=(const FGCache& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  FGCache(FGCache&& from) noexcept
+    : FGCache() {
+    *this = ::std::move(from);
+  }
+
+  inline FGCache& operator=(FGCache&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FGCache& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const FGCache* internal_default_instance() {
+    return reinterpret_cast<const FGCache*>(
+               &_FGCache_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    10;
+
+  void Swap(FGCache* other);
+  friend void swap(FGCache& a, FGCache& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline FGCache* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<FGCache>(NULL);
+  }
+
+  FGCache* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<FGCache>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const FGCache& from);
+  void MergeFrom(const FGCache& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(FGCache* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 fgNums = 1;
+  void clear_fgnums();
+  static const int kFgNumsFieldNumber = 1;
+  ::google::protobuf::int32 fgnums() const;
+  void set_fgnums(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.FGCache)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 fgnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsFGCacheImpl();
+};
+// -------------------------------------------------------------------
+
 class BaseFreeInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.BaseFreeInfo) */ {
  public:
   BaseFreeInfo();
@@ -1985,7 +2103,7 @@ class BaseFreeInfo : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_BaseFreeInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(BaseFreeInfo* other);
   friend void swap(BaseFreeInfo& a, BaseFreeInfo& b) {
@@ -2123,7 +2241,7 @@ class RespinHistory : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_RespinHistory_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(RespinHistory* other);
   friend void swap(RespinHistory& a, RespinHistory& b) {
@@ -2247,7 +2365,7 @@ class RespinHistoryList : public ::google::protobuf::Message /* @@protoc_inserti
                &_RespinHistoryList_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(RespinHistoryList* other);
   friend void swap(RespinHistoryList& a, RespinHistoryList& b) {
@@ -2356,7 +2474,7 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
                &_UserGameModInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(UserGameModInfo* other);
   friend void swap(UserGameModInfo& a, UserGameModInfo& b) {
@@ -2461,6 +2579,15 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::natashapb::BaseFreeInfo* mutable_freeinfo();
   void set_allocated_freeinfo(::natashapb::BaseFreeInfo* freeinfo);
 
+  // .natashapb.FGCache fgCache = 16;
+  bool has_fgcache() const;
+  void clear_fgcache();
+  static const int kFgCacheFieldNumber = 16;
+  const ::natashapb::FGCache& fgcache() const;
+  ::natashapb::FGCache* release_fgcache();
+  ::natashapb::FGCache* mutable_fgcache();
+  void set_allocated_fgcache(::natashapb::FGCache* fgcache);
+
   // .natashapb.SymbolBlock symbolblock = 100;
   bool has_symbolblock() const;
   void clear_symbolblock();
@@ -2495,6 +2622,7 @@ class UserGameModInfo : public ::google::protobuf::Message /* @@protoc_insertion
   ::natashapb::BaseCascadingInfo* cascadinginfo_;
   ::natashapb::RespinHistoryList* lsthistory_;
   ::natashapb::BaseFreeInfo* freeinfo_;
+  ::natashapb::FGCache* fgcache_;
   ::natashapb::SymbolBlock* symbolblock_;
   ::google::protobuf::Any* exdat_;
   ::google::protobuf::int32 ver_;
@@ -2539,7 +2667,7 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
                &_UserGameLogicInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(UserGameLogicInfo* other);
   friend void swap(UserGameLogicInfo& a, UserGameLogicInfo& b) {
@@ -2745,7 +2873,7 @@ class GameCtrlSpin : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_GameCtrlSpin_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(GameCtrlSpin* other);
   friend void swap(GameCtrlSpin& a, GameCtrlSpin& b) {
@@ -2876,7 +3004,7 @@ class GameCtrlSelectFree : public ::google::protobuf::Message /* @@protoc_insert
                &_GameCtrlSelectFree_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(GameCtrlSelectFree* other);
   friend void swap(GameCtrlSelectFree& a, GameCtrlSelectFree& b) {
@@ -2979,7 +3107,7 @@ class GameCtrlBonus : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_GameCtrlBonus_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(GameCtrlBonus* other);
   friend void swap(GameCtrlBonus& a, GameCtrlBonus& b) {
@@ -3082,7 +3210,7 @@ class GameCtrlJackpot : public ::google::protobuf::Message /* @@protoc_insertion
                &_GameCtrlJackpot_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(GameCtrlJackpot* other);
   friend void swap(GameCtrlJackpot& a, GameCtrlJackpot& b) {
@@ -3185,7 +3313,7 @@ class GameCtrlCommonJackpot : public ::google::protobuf::Message /* @@protoc_ins
                &_GameCtrlCommonJackpot_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    20;
 
   void Swap(GameCtrlCommonJackpot* other);
   friend void swap(GameCtrlCommonJackpot& a, GameCtrlCommonJackpot& b) {
@@ -3288,7 +3416,7 @@ class GameCtrlAwardSpin : public ::google::protobuf::Message /* @@protoc_inserti
                &_GameCtrlAwardSpin_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(GameCtrlAwardSpin* other);
   friend void swap(GameCtrlAwardSpin& a, GameCtrlAwardSpin& b) {
@@ -3412,7 +3540,7 @@ class GameCtrlDebug : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_GameCtrlDebug_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(GameCtrlDebug* other);
   friend void swap(GameCtrlDebug& a, GameCtrlDebug& b) {
@@ -3541,7 +3669,7 @@ class GameCtrl : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_GameCtrl_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(GameCtrl* other);
   friend void swap(GameCtrl& a, GameCtrl& b) {
@@ -3769,7 +3897,7 @@ class StartFreeGame : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_StartFreeGame_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    24;
 
   void Swap(StartFreeGame* other);
   friend void swap(StartFreeGame& a, StartFreeGame& b) {
@@ -3905,7 +4033,7 @@ class StartGameMod : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_StartGameMod_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    25;
 
   void Swap(StartGameMod* other);
   friend void swap(StartGameMod& a, StartGameMod& b) {
@@ -4042,7 +4170,7 @@ class SymbolRTP : public ::google::protobuf::Message /* @@protoc_insertion_point
                &_SymbolRTP_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    25;
+    26;
 
   void Swap(SymbolRTP* other);
   friend void swap(SymbolRTP& a, SymbolRTP& b) {
@@ -4159,7 +4287,7 @@ class SymbolRTPList : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_SymbolRTPList_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    26;
+    27;
 
   void Swap(SymbolRTPList* other);
   friend void swap(SymbolRTPList& a, SymbolRTPList& b) {
@@ -4268,7 +4396,7 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_GameModuleRTP_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    27;
+    28;
 
   void Swap(GameModuleRTP* other);
   friend void swap(GameModuleRTP& a, GameModuleRTP& b) {
@@ -4419,7 +4547,7 @@ class RTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class
                &_RTP_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    29;
+    30;
 
   void Swap(RTP* other);
   friend void swap(RTP& a, RTP& b) {
@@ -4552,7 +4680,7 @@ class NormalReelstriptConfig : public ::google::protobuf::Message /* @@protoc_in
                &_NormalReelstriptConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    30;
+    31;
 
   void Swap(NormalReelstriptConfig* other);
   friend void swap(NormalReelstriptConfig& a, NormalReelstriptConfig& b) {
@@ -4663,7 +4791,7 @@ class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertio
                &_ReelstriptConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    31;
+    32;
 
   void Swap(ReelstriptConfig* other);
   friend void swap(ReelstriptConfig& a, ReelstriptConfig& b) {
@@ -4769,7 +4897,7 @@ class WeightConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_WeightConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    32;
+    33;
 
   void Swap(WeightConfig* other);
   friend void swap(WeightConfig& a, WeightConfig& b) {
@@ -4886,7 +5014,7 @@ class MuseumRTPConfig : public ::google::protobuf::Message /* @@protoc_insertion
                &_MuseumRTPConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    33;
+    34;
 
   void Swap(MuseumRTPConfig* other);
   friend void swap(MuseumRTPConfig& a, MuseumRTPConfig& b) {
@@ -5143,7 +5271,7 @@ class MuseumConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_MuseumConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    36;
+    37;
 
   void Swap(MuseumConfig* other);
   friend void swap(MuseumConfig& a, MuseumConfig& b) {
@@ -6229,6 +6357,20 @@ inline void SpinResult::set_realfgnums(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:natashapb.SpinResult.realFGNums)
 }
 
+// int32 specialTriggered = 12;
+inline void SpinResult::clear_specialtriggered() {
+  specialtriggered_ = 0;
+}
+inline ::google::protobuf::int32 SpinResult::specialtriggered() const {
+  // @@protoc_insertion_point(field_get:natashapb.SpinResult.specialTriggered)
+  return specialtriggered_;
+}
+inline void SpinResult::set_specialtriggered(::google::protobuf::int32 value) {
+  
+  specialtriggered_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.SpinResult.specialTriggered)
+}
+
 // .natashapb.SymbolBlock symbolblock = 100;
 inline bool SpinResult::has_symbolblock() const {
   return this != internal_default_instance() && symbolblock_ != NULL;
@@ -6587,6 +6729,24 @@ inline void BaseCascadingInfo::set_allocated_symbolblock(::natashapb::SymbolBloc
   }
   symbolblock_ = symbolblock;
   // @@protoc_insertion_point(field_set_allocated:natashapb.BaseCascadingInfo.symbolblock)
+}
+
+// -------------------------------------------------------------------
+
+// FGCache
+
+// int32 fgNums = 1;
+inline void FGCache::clear_fgnums() {
+  fgnums_ = 0;
+}
+inline ::google::protobuf::int32 FGCache::fgnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.FGCache.fgNums)
+  return fgnums_;
+}
+inline void FGCache::set_fgnums(::google::protobuf::int32 value) {
+  
+  fgnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.FGCache.fgNums)
 }
 
 // -------------------------------------------------------------------
@@ -7093,6 +7253,57 @@ inline void UserGameModInfo::set_allocated_freeinfo(::natashapb::BaseFreeInfo* f
   }
   freeinfo_ = freeinfo;
   // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.freeInfo)
+}
+
+// .natashapb.FGCache fgCache = 16;
+inline bool UserGameModInfo::has_fgcache() const {
+  return this != internal_default_instance() && fgcache_ != NULL;
+}
+inline void UserGameModInfo::clear_fgcache() {
+  if (GetArenaNoVirtual() == NULL && fgcache_ != NULL) {
+    delete fgcache_;
+  }
+  fgcache_ = NULL;
+}
+inline const ::natashapb::FGCache& UserGameModInfo::fgcache() const {
+  const ::natashapb::FGCache* p = fgcache_;
+  // @@protoc_insertion_point(field_get:natashapb.UserGameModInfo.fgCache)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::FGCache*>(
+      &::natashapb::_FGCache_default_instance_);
+}
+inline ::natashapb::FGCache* UserGameModInfo::release_fgcache() {
+  // @@protoc_insertion_point(field_release:natashapb.UserGameModInfo.fgCache)
+  
+  ::natashapb::FGCache* temp = fgcache_;
+  fgcache_ = NULL;
+  return temp;
+}
+inline ::natashapb::FGCache* UserGameModInfo::mutable_fgcache() {
+  
+  if (fgcache_ == NULL) {
+    fgcache_ = ::google::protobuf::Arena::Create< ::natashapb::FGCache >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.UserGameModInfo.fgCache)
+  return fgcache_;
+}
+inline void UserGameModInfo::set_allocated_fgcache(::natashapb::FGCache* fgcache) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete fgcache_;
+  }
+  if (fgcache) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      fgcache = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, fgcache, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  fgcache_ = fgcache;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameModInfo.fgCache)
 }
 
 // .natashapb.SymbolBlock symbolblock = 100;
@@ -9300,6 +9511,8 @@ MuseumConfig::mutable_rtp() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

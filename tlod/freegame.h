@@ -172,7 +172,7 @@ class TLODFreeGame : public SlotsGameMod {
     pSpinResult->Clear();
 
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
-                                     pRandomResult, pLogicUser);
+                                     pRandomResult, pLogicUser, NULL);
 
     // First check free
     ::natashapb::GameResultInfo gri;
@@ -185,7 +185,7 @@ class TLODFreeGame : public SlotsGameMod {
       gri.set_realwin(0);
 
       pCurGRI->CopyFrom(gri);
-      
+
       pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
       pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
 
@@ -341,7 +341,7 @@ class TLODFreeGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+      const ::natashapb::UserGameLogicInfo* pLogicUser, const void* pCfg) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);

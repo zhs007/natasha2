@@ -171,10 +171,12 @@ class MuseumFreeGame : public SlotsGameMod {
     assert(pRandomResult != NULL);
     assert(pUser != NULL);
 
+    auto pCfg = getUserConfig(pLogicUser);
+
     pSpinResult->Clear();
 
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
-                                     pRandomResult, pLogicUser);
+                                     pRandomResult, pLogicUser, pCfg);
 
     // First check free
     ::natashapb::GameResultInfo gri;
@@ -343,7 +345,7 @@ class MuseumFreeGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+      const ::natashapb::UserGameLogicInfo* pLogicUser, const void* pCfg) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);
@@ -378,6 +380,17 @@ class MuseumFreeGame : public SlotsGameMod {
     }
 
     return true;
+  }
+
+ public:
+  const ::natashapb::MuseumRTPConfig* getUserConfig(
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+    auto rtpcfg = m_cfg.rtp().find(pLogicUser->configname());
+    if (rtpcfg != m_cfg.rtp().end()) {
+      return &rtpcfg->second;
+    }
+
+    return NULL;
   }
 
  protected:

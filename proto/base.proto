@@ -158,7 +158,9 @@ enum GAMERESULTTYPE {
     // way from left to right
     WAY_LEFT = 7;
     // way from right to left
-    WAY_RIGHT = 8;    
+    WAY_RIGHT = 8;
+    // special
+    SPECIAL = 9;
 };
 
 // GameResultInfo - game result info
@@ -216,6 +218,8 @@ message SpinResult {
     // realFGNums - real freegame nums
     //            - 该局结束后，需要进免费游戏，且这个是免费游戏实际的免费次数
     int32 realFGNums = 11;
+    // specialTriggered - 特殊效果是否触发，部分游戏用
+    int32 specialTriggered = 12;
 
     // symbolblock - symbol block
     SymbolBlock symbolblock = 100;
@@ -272,6 +276,11 @@ message BaseCascadingInfo {
     SymbolBlock symbolblock = 100;
 }
 
+// FGCache - freegame cache
+message FGCache {
+    int32 fgNums = 1;
+}
+
 // BaseFGInfo - basic free game data
 message BaseFreeInfo {
     int64 curBet = 1;
@@ -305,6 +314,7 @@ message UserGameModInfo {
     BaseCascadingInfo cascadingInfo = 13;
     RespinHistoryList lstHistory = 14;
     BaseFreeInfo freeInfo = 15;
+    FGCache fgCache = 16;
 
     SymbolBlock symbolblock = 100;
 
