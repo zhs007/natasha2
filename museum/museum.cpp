@@ -197,6 +197,9 @@ void countRTP_museum() {
   }
 
   auto pUGI = new ::natashapb::UserGameLogicInfo();
+
+  pUGI->set_configname("rtp96");
+
   c = museum.userComeIn(pUGI);
   if (c != natashapb::OK) {
     printf("userComeIn fail(%d)!\n", c);

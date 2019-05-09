@@ -2590,6 +2590,20 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
+  // string configName = 50;
+  void clear_configname();
+  static const int kConfigNameFieldNumber = 50;
+  const ::std::string& configname() const;
+  void set_configname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_configname(::std::string&& value);
+  #endif
+  void set_configname(const char* value);
+  void set_configname(const char* value, size_t size);
+  ::std::string* mutable_configname();
+  ::std::string* release_configname();
+  void set_allocated_configname(::std::string* configname);
+
   // .natashapb.UserGameModInfo basegame = 1;
   bool has_basegame() const;
   void clear_basegame();
@@ -2678,6 +2692,7 @@ class UserGameLogicInfo : public ::google::protobuf::Message /* @@protoc_inserti
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr configname_;
   ::natashapb::UserGameModInfo* basegame_;
   ::natashapb::UserGameModInfo* freegame_;
   ::natashapb::UserGameModInfo* bonus_;
@@ -7526,6 +7541,59 @@ inline void UserGameLogicInfo::set_realwin(::google::protobuf::int64 value) {
   
   realwin_ = value;
   // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.realWin)
+}
+
+// string configName = 50;
+inline void UserGameLogicInfo::clear_configname() {
+  configname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UserGameLogicInfo::configname() const {
+  // @@protoc_insertion_point(field_get:natashapb.UserGameLogicInfo.configName)
+  return configname_.GetNoArena();
+}
+inline void UserGameLogicInfo::set_configname(const ::std::string& value) {
+  
+  configname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:natashapb.UserGameLogicInfo.configName)
+}
+#if LANG_CXX11
+inline void UserGameLogicInfo::set_configname(::std::string&& value) {
+  
+  configname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:natashapb.UserGameLogicInfo.configName)
+}
+#endif
+inline void UserGameLogicInfo::set_configname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  configname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:natashapb.UserGameLogicInfo.configName)
+}
+inline void UserGameLogicInfo::set_configname(const char* value, size_t size) {
+  
+  configname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:natashapb.UserGameLogicInfo.configName)
+}
+inline ::std::string* UserGameLogicInfo::mutable_configname() {
+  
+  // @@protoc_insertion_point(field_mutable:natashapb.UserGameLogicInfo.configName)
+  return configname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserGameLogicInfo::release_configname() {
+  // @@protoc_insertion_point(field_release:natashapb.UserGameLogicInfo.configName)
+  
+  return configname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserGameLogicInfo::set_allocated_configname(::std::string* configname) {
+  if (configname != NULL) {
+    
+  } else {
+    
+  }
+  configname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), configname);
+  // @@protoc_insertion_point(field_set_allocated:natashapb.UserGameLogicInfo.configName)
 }
 
 // .natashapb.GAMEMODTYPE curGameModType = 100;

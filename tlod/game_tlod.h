@@ -37,7 +37,23 @@ struct TLODGameCfg {
     return s0 == TLOD_SYMBOL_W || s1 == TLOD_SYMBOL_W;
   }
 
+  static bool isSameSymbol_wild_OnLine(SymbolType s, SymbolType& curws) {
+    if (curws < 0) {
+      if (s == TLOD_SYMBOL_W) {
+        return true;
+      }
+
+      curws = s;
+
+      return true;
+    }
+
+    return s == curws || s == TLOD_SYMBOL_W;
+  }
+
   static bool isScatter(SymbolType s) { return s == TLOD_SYMBOL_S; }
+
+  static bool isWild(SymbolType s) { return s == TLOD_SYMBOL_S; }
 
   static int getMaxScstterNums(SymbolType s) { return TLOD_WIDTH; }
 };

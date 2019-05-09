@@ -37,7 +37,23 @@ struct MuseumGameCfg {
     return s0 == MUSEUM_SYMBOL_W || s1 == MUSEUM_SYMBOL_W;
   }
 
+  static bool isSameSymbol_wild_OnLine(SymbolType s, SymbolType& curws) {
+    if (curws < 0) {
+      if (s == MUSEUM_SYMBOL_W) {
+        return true;
+      }
+
+      curws = s;
+
+      return true;
+    }
+
+    return s == curws || s == MUSEUM_SYMBOL_W;
+  }
+
   static bool isScatter(SymbolType s) { return s == MUSEUM_SYMBOL_S; }
+
+  static bool isWild(SymbolType s) { return s == MUSEUM_SYMBOL_W; }
 
   static int getMaxScstterNums(SymbolType s) { return MUSEUM_WIDTH; }
 };

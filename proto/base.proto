@@ -327,6 +327,8 @@ message UserGameLogicInfo {
     // realWin - 这一次的总赢得
     int64 realWin = 32;
 
+    string configName = 50;
+
     GAMEMODTYPE curGameModType = 100;
     GAMEMODTYPE nextGameModType = 101;
 }
