@@ -13,6 +13,10 @@ const int32_t MUSEUM_BG_UGMI_VER = 1;
 
 static SymbolType onfillbg(int x, int y, SymbolType s,
                            const ::natashapb::WeightConfig& weightcfg) {
+  if (x == 0 || s == MUSEUM_SYMBOL_S) {
+    return s;
+  }
+
   auto cr = randWeightConfig(weightcfg);
   if (cr == 0) {
     return MUSEUM_SYMBOL_W;
@@ -177,7 +181,7 @@ class MuseumBaseGame : public SlotsGameMod {
       turnnums = pCfg->bgmultipliers_size() - 1;
     }
 
-    pSpinResult->set_awardmul(pCfg->bgbonusprize(turnnums));
+    pSpinResult->set_awardmul(pCfg->bgmultipliers(turnnums));
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul() +
                              bonuswin);
 
@@ -339,6 +343,7 @@ class MuseumBaseGame : public SlotsGameMod {
 
         pSpinResult->set_specialtriggered(spTriggered);
       } else {
+        pSpinResult->set_specialtriggered(1);
         sb3x5->CopyFrom(pRandomResult->nrrr3x5().symbolblock().sb3x5());
       }
 
@@ -426,6 +431,7 @@ class MuseumBaseGame : public SlotsGameMod {
   void bomb(::natashapb::SymbolBlock3X5& tmp,
             const ::natashapb::SymbolBlock3X5& sb3x5, int x, int y,
             ::natashapb::GameResultInfo* pGRI) {
+    // printf("bomb %d %d\n", x, y);
     for (int cy = y - 1; cy <= y + 1; ++cy) {
       if (cy >= 0 && cy < MUSEUM_HEIGHT) {
         for (int cx = x - 1; cx <= x + 1; ++cx) {
@@ -478,7 +484,7 @@ class MuseumBaseGame : public SlotsGameMod {
                                       MUSEUM_HEIGHT>(&tmp, x, y);
           auto cs = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
                                    MUSEUM_HEIGHT>(&sb3x5, x, y);
-          if (ctmps == 0 && cs == MUSEUM_SYMBOL_W) {
+          if (cs == MUSEUM_SYMBOL_W) {
             bomb(tmp, sb3x5, x, y, pGRI);
           }
         }

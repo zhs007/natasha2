@@ -129,8 +129,10 @@ void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
   assert(pGameResultInfo != NULL);
   assert(strMapping != NULL);
 
-  printf("symbol %d payout is %lld line is %d\n", pGameResultInfo->symbol(),
-         pGameResultInfo->mul(), pGameResultInfo->lineindex());
+  printf("%d symbol %d payout is %lld(%lld) line is %d\n",
+         pGameResultInfo->typegameresult(), pGameResultInfo->symbol(),
+         pGameResultInfo->realwin(), pGameResultInfo->mul(),
+         pGameResultInfo->lineindex());
 
   for (int i = 0; i < pGameResultInfo->lstsymbol_size(); ++i) {
     printf("%c ", strMapping[pGameResultInfo->lstsymbol(i) + 1]);

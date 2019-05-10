@@ -67,10 +67,12 @@ GameLogic::~GameLogic() {}
 
     for (auto i = 0; i < curugmi->spinresult().lstgri_size(); ++i) {
       auto curgri = curugmi->spinresult().lstgri(i);
-      onRTPAddPayoutGRI(curmod->getGameModType(), curgri);
+      onRTPAddPayoutGRI(
+          curmod->getGameModType(), spinret, curgri,
+          getUserGameModInfo(pLogicUser, curmod->getGameModType()));
     }
 
-    onRTPAddPayout(spinret.realwin());
+    onRTPAddPayout(curmod->getGameModType(), spinret.realwin());
   }
 #endif  // NATASHA_COUNTRTP
 

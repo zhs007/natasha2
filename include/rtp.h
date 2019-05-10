@@ -20,12 +20,16 @@ struct RTP {
 
   void addPayout2Module(::natashapb::GameModuleRTP& gm, SymbolType s, int nums,
                         MoneyType payout) {
+    // printf("addPayout2Module %d %d %lld\n", s, gm.symbols_size(), payout);
     if (s >= 0 && s < gm.symbols_size()) {
-      auto cs = gm.symbols(s);
-      if (nums > 0 && nums <= cs.lst_size()) {
-        auto ccs = cs.lst(nums - 1);
-        ccs.set_totalwin(ccs.totalwin() + payout);
-        ccs.set_winnums(ccs.winnums() + 1);
+      auto cs = gm.mutable_symbols(s);
+      // printf("addPayout2Module %d %d %lld\n", nums, cs.lst_size(), payout);
+      if (nums > 0 && nums <= cs->lst_size()) {
+        auto ccs = cs->mutable_lst(nums - 1);
+        ccs->set_totalwin(ccs->totalwin() + payout);
+        ccs->set_winnums(ccs->winnums() + 1);
+
+        // printf("addPayout2Module %lld\n", ccs.totalwin());
       }
     }
   }
@@ -61,14 +65,17 @@ struct RTP {
     }
   }
 
-  void addBonus(::natashapb::GAMEMODTYPE module, const char* bonusName,
-                int bonusIndex, MoneyType payout) {
+  void addBonusPayout(::natashapb::GAMEMODTYPE module, const char* bonusName,
+                      int bonusIndex, MoneyType payout) {
+    // printf("addBonusPayout %s %d\n", bonusName, bonusIndex);
     auto gmname = getGameModuleName(module);
     auto gamemodules = rtp.mutable_gamemodules();
     auto gmit = gamemodules->find(gmname);
     if (gmit != gamemodules->end()) {
       auto bonusit = gmit->second.mutable_bonus()->find(bonusName);
+      // printf("addBonusPayout %s\n", bonusName);
       if (bonusit != gmit->second.mutable_bonus()->end()) {
+        // printf("addBonusPayout %s OK\n", bonusName);
         assert(bonusIndex >= 0 && bonusIndex < bonusit->second.lst_size());
 
         auto currtp = bonusit->second.mutable_lst(bonusIndex);
@@ -76,12 +83,27 @@ struct RTP {
         currtp->set_winnums(currtp->winnums() + 1);
         currtp->set_totalwin(currtp->totalwin() + payout);
         currtp->set_realwin(currtp->realwin() + payout);
+
+        // printf("addBonusPayout %lld\n", currtp->totalwin());
       }
+
+      // gmit->second.set_totalwin(gmit->second.totalwin() + payout);
+      // gmit->second.set_winnums(gmit->second.winnums() + 1);
     }
   }
 
-  void addPayout(MoneyType payout) {
+  void addPayout(::natashapb::GAMEMODTYPE module, MoneyType payout) {
     rtp.set_totalwin(rtp.totalwin() + payout);
+
+    auto gmname = getGameModuleName(module);
+    auto gamemodules = rtp.mutable_gamemodules();
+    auto gmit = gamemodules->find(gmname);
+    if (gmit != gamemodules->end()) {
+      gmit->second.set_totalwin(gmit->second.totalwin() + payout);
+      if (payout > 0) {
+        gmit->second.set_winnums(gmit->second.winnums() + 1);
+      }
+    }
   }
 
   void addSymbolPayout(::natashapb::GAMEMODTYPE module, SymbolType s, int nums,
@@ -90,10 +112,12 @@ struct RTP {
     auto gamemodules = rtp.mutable_gamemodules();
     auto gmit = gamemodules->find(gmname);
     if (gmit != gamemodules->end()) {
+      // printf("addSymbolPayout %d %d\n", s, nums);
+
       addPayout2Module(gmit->second, s, nums, payout);
 
-      gmit->second.set_totalwin(gmit->second.totalwin() + payout);
-      gmit->second.set_winnums(gmit->second.winnums() + 1);
+      // gmit->second.set_totalwin(gmit->second.totalwin() + payout);
+      // gmit->second.set_winnums(gmit->second.winnums() + 1);
     }
   }
 
@@ -152,6 +176,33 @@ struct RTP {
       printf("%s RTP is %.2f(%lld / %lld)\n", gmname,
              100.f * gmit->second.totalwin() / rtp.totalbet(),
              gmit->second.totalwin(), rtp.totalbet());
+
+      for (int s = 0; s < gmit->second.symbols_size(); ++s) {
+        auto cs = gmit->second.symbols(s);
+
+        printf("%d RTP is ", s);
+
+        for (int i = 0; i < cs.lst_size(); ++i) {
+          auto curs = cs.lst(i);
+
+          printf("%.2f ", 100.f * curs.totalwin() / rtp.totalbet());
+        }
+
+        printf("\n");
+      }
+
+      auto mapbonus = gmit->second.bonus();
+      for (auto it = mapbonus.begin(); it != mapbonus.end(); ++it) {
+        auto curbonus = it->second;
+        printf("%s RTP is ", it->first.c_str());
+        for (int i = 0; i < curbonus.lst_size(); ++i) {
+          auto curs = curbonus.lst(i);
+
+          printf("%.2f ", 100.f * curs.totalwin() / rtp.totalbet());
+        }
+
+        printf("\n");
+      }
     }
   }
 };

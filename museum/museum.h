@@ -29,15 +29,24 @@ class Museum : public GameLogic {
 #ifdef NATASHA_COUNTRTP
  public:
   virtual void onInitRTP() {
-    addRTPModule(::natashapb::BASE_GAME, MeseumMaxSymbols, MeseumMaxPayoutNums);
+    addRTPModule(::natashapb::BASE_GAME, MeseumMaxPayoutNums, MeseumMaxSymbols);
+    addRTPModuleBonus(::natashapb::BASE_GAME, "wildbomb", 6);
   }
 
   virtual void onRTPAddPayoutGRI(::natashapb::GAMEMODTYPE module,
-                                 const ::natashapb::GameResultInfo& gri) {
+                                 const ::natashapb::SpinResult& spinret,
+                                 const ::natashapb::GameResultInfo& gri,
+                                 const ::natashapb::UserGameModInfo* pUser) {
     if (gri.typegameresult() == ::natashapb::SPECIAL) {
+      auto turnnums = pUser->cascadinginfo().turnnums();
+      if (turnnums > 6) {
+        turnnums = 6;
+      }
+
+      m_rtp.addBonusPayout(module, "wildbomb", turnnums - 1, gri.realwin());
     } else {
       m_rtp.addSymbolPayout(module, gri.symbol(), gri.lstsymbol_size(),
-                            gri.realwin());
+                            gri.realwin() * spinret.awardmul());
     }
   }
 #endif  // NATASHA_COUNTRTP

@@ -83,10 +83,14 @@ class GameLogic {
     m_rtp.addBet(module, bet);
   }
 
-  void onRTPAddPayout(MoneyType payout) { m_rtp.addPayout(payout); }
+  void onRTPAddPayout(::natashapb::GAMEMODTYPE module, MoneyType payout) {
+    m_rtp.addPayout(module, payout);
+  }
 
   virtual void onRTPAddPayoutGRI(::natashapb::GAMEMODTYPE module,
-                                 const ::natashapb::GameResultInfo& gri) {
+                                 const ::natashapb::SpinResult& spinret,
+                                 const ::natashapb::GameResultInfo& gri,
+                                 const ::natashapb::UserGameModInfo* pUser) {
     m_rtp.addSymbolPayout(module, gri.symbol(), gri.lstsymbol_size(),
                           gri.realwin());
   }
@@ -94,6 +98,11 @@ class GameLogic {
   void addRTPModule(::natashapb::GAMEMODTYPE module, int maxNums,
                     int maxSymbol) {
     m_rtp.addModule(module, maxNums, maxSymbol);
+  }
+
+  void addRTPModuleBonus(::natashapb::GAMEMODTYPE module, const char* bonusName,
+                         int maxNums) {
+    m_rtp.initModuleBonus(module, bonusName, maxNums);
   }
 
   void outputRTP() { m_rtp.output(); }
