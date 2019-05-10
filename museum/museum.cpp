@@ -193,7 +193,7 @@ void countRTP_museum() {
   auto pGameCtrl = new ::natashapb::GameCtrl();
   int64_t ctrlid = 1;
 
-  for (int i = 0; i <= 1000000; ++ctrlid, ++i) {
+  for (int i = 0; i <= 10000; ++ctrlid, ++i) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {

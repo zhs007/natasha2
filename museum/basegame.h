@@ -11,6 +11,16 @@ namespace natasha {
 
 const int32_t MUSEUM_BG_UGMI_VER = 1;
 
+static SymbolType onfillbg(int x, int y, SymbolType s,
+                           const ::natashapb::WeightConfig& weightcfg) {
+  auto cr = randWeightConfig(weightcfg);
+  if (cr == 0) {
+    return MUSEUM_SYMBOL_W;
+  }
+
+  return s;
+}
+
 class MuseumBaseGame : public SlotsGameMod {
  public:
   MuseumBaseGame(GameLogic& logic, NormalReels3X5& reels,
@@ -102,8 +112,21 @@ class MuseumBaseGame : public SlotsGameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser) {
-    randomReels3x5(m_reels, pRandomResult, pUser);
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+    auto turnnums = pUser->cascadinginfo().turnnums();
+    auto pCfg = getUserConfig(pLogicUser);
+    if (turnnums >= pCfg->bgmysterywild_size()) {
+      turnnums = pCfg->bgmysterywild_size() - 1;
+    }
+
+    auto mwweight = pCfg->bgmysterywild(turnnums);
+
+    FuncOnFillReels f =
+        std::bind(onfillbg, std::placeholders::_1, std::placeholders::_2,
+                  std::placeholders::_3, mwweight);
+
+    randomReels3x5(m_reels, pRandomResult, pUser, f);
 
     return ::natashapb::OK;
   }
@@ -300,15 +323,24 @@ class MuseumBaseGame : public SlotsGameMod {
     auto sb = pSpinResult->mutable_symbolblock();
     auto sb3x5 = sb->mutable_sb3x5();
 
-    sb3x5->Clear();
-
     auto cfg = (const ::natashapb::MuseumRTPConfig*)pCfg;
     if (cfg != NULL) {
-      auto spTriggered =
-          randWArr(*cfg, pUser->cascadinginfo().turnnums(),
-                   pRandomResult->nrrr3x5().symbolblock().sb3x5(), sb3x5);
+      auto turnnums = pUser->cascadinginfo().turnnums();
+#ifdef NATASHA_DEBUG
+      printf("buildSpinResultSymbolBlock %d\n", turnnums);
+      printSymbolBlock3X5("buildSpinResultSymbolBlock first",
+                          &(pRandomResult->nrrr3x5().symbolblock().sb3x5()),
+                          MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
 
-      pSpinResult->set_specialtriggered(spTriggered);
+      if (turnnums == 0) {
+        auto spTriggered = randWArr(
+            *cfg, pRandomResult->nrrr3x5().symbolblock().sb3x5(), sb3x5);
+
+        pSpinResult->set_specialtriggered(spTriggered);
+      } else {
+        sb3x5->CopyFrom(pRandomResult->nrrr3x5().symbolblock().sb3x5());
+      }
 
 #ifdef NATASHA_DEBUG
       printSymbolBlock3X5("buildSpinResultSymbolBlock", sb3x5,
@@ -355,16 +387,12 @@ class MuseumBaseGame : public SlotsGameMod {
     return NULL;
   }
 
-  int randWArr(const ::natashapb::MuseumRTPConfig& cfg, int turnnums,
+  int randWArr(const ::natashapb::MuseumRTPConfig& cfg,
                const ::natashapb::SymbolBlock3X5& srcsb3x5,
                ::natashapb::SymbolBlock3X5* sb3x5) {
     int nums = 0;
 
-    if (turnnums >= cfg.bgmysterywild_size()) {
-      turnnums = cfg.bgmysterywild_size() - 1;
-    }
-
-    auto mwweight = cfg.bgmysterywild(turnnums);
+    auto mwweight = cfg.bgmysterywild(0);
 
     for (int y = 0; y < MUSEUM_HEIGHT; ++y) {
       setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH, MUSEUM_HEIGHT>(

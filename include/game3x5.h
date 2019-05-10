@@ -25,18 +25,22 @@ typedef Lines3X5::LineInfoT LineInfo3X5;
 typedef SymbolBlock<int, 5, 3> SymbolBlock3X5;
 typedef NormalReels<SymbolType, 5, 3> NormalReels3X5;
 
+typedef std::function<SymbolType(int, int, SymbolType)> FuncOnFillReels;
+
 // _randomNewReels - random with NormalReels
 void _randomNewReels3x5(const NormalReels3X5& reels,
-                     ::natashapb::NormalReelsRandomResult3X5* pNRRR);
+                        ::natashapb::NormalReelsRandomResult3X5* pNRRR);
 
 void _fillReels3x5(const NormalReels3X5& reels,
-                const ::natashapb::SymbolBlock3X5& last3x5,
-                ::natashapb::NormalReelsRandomResult3X5* pNRRR);
+                   const ::natashapb::SymbolBlock3X5& last3x5,
+                   ::natashapb::NormalReelsRandomResult3X5* pNRRR,
+                   FuncOnFillReels onfillreels);
 
 // randomReels3x5 - random normal reels
 void randomReels3x5(const NormalReels3X5& reels,
-                 ::natashapb::RandomResult* pRandomResult,
-                 const ::natashapb::UserGameModInfo* pUGMI);
+                    ::natashapb::RandomResult* pRandomResult,
+                    const ::natashapb::UserGameModInfo* pUGMI,
+                    FuncOnFillReels onfillreels);
 
 // loadPaytables3X5 - load paytables.csv
 void loadPaytables3X5(const char* fn, Paytables3X5& paytables);

@@ -29,8 +29,8 @@ namespace natasha {
 
   for (int i = 0; i < MAX_NUMS_MAKEINITIALSCENARIO; ++i) {
     pUGMI->clear_randomresult();
-    auto code =
-        this->randomReels(pUGMI->mutable_randomresult(), pGameCtrl, pUGMI);
+    auto code = this->randomReels(pUGMI->mutable_randomresult(), pGameCtrl,
+                                  pUGMI, pLogicUser);
     if (code != ::natashapb::OK) {
       return code;
     }

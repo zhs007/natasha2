@@ -126,7 +126,7 @@ class SlotsGameMod : public GameMod {
     }
 
     code = this->randomReels(pMainUGMI->mutable_randomresult(), pGameCtrl,
-                             pMainUGMI);
+                             pMainUGMI, pLogicUser);
     if (code != ::natashapb::OK) {
       return code;
     }
@@ -185,7 +185,8 @@ class SlotsGameMod : public GameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser) = 0;
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
 
   // countSpinResult - count spin result
   virtual ::natashapb::CODE countSpinResult(

@@ -101,7 +101,8 @@ class TLODBaseGame : public SlotsGameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser) {
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
     m_reels.random(pRandomResult, pUser);
 
     return ::natashapb::OK;

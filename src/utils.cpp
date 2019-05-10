@@ -41,6 +41,21 @@ void printSymbolBlock3X5(const char* str,
                          const char* strMapping) {
   assert(pSB != NULL);
   assert(strMapping != NULL);
+  assert(pSB->dat0_0() + 1 >= 0 && pSB->dat0_0() + 1 < strlen(strMapping));
+  assert(pSB->dat0_1() + 1 >= 0 && pSB->dat0_1() + 1 < strlen(strMapping));
+  assert(pSB->dat0_2() + 1 >= 0 && pSB->dat0_2() + 1 < strlen(strMapping));
+  assert(pSB->dat0_3() + 1 >= 0 && pSB->dat0_3() + 1 < strlen(strMapping));
+  assert(pSB->dat0_4() + 1 >= 0 && pSB->dat0_4() + 1 < strlen(strMapping));
+  assert(pSB->dat1_0() + 1 >= 0 && pSB->dat1_0() + 1 < strlen(strMapping));
+  assert(pSB->dat1_1() + 1 >= 0 && pSB->dat1_1() + 1 < strlen(strMapping));
+  assert(pSB->dat1_2() + 1 >= 0 && pSB->dat1_2() + 1 < strlen(strMapping));
+  assert(pSB->dat1_3() + 1 >= 0 && pSB->dat1_3() + 1 < strlen(strMapping));
+  assert(pSB->dat1_4() + 1 >= 0 && pSB->dat1_4() + 1 < strlen(strMapping));
+  assert(pSB->dat2_0() + 1 >= 0 && pSB->dat2_0() + 1 < strlen(strMapping));
+  assert(pSB->dat2_1() + 1 >= 0 && pSB->dat2_1() + 1 < strlen(strMapping));
+  assert(pSB->dat2_2() + 1 >= 0 && pSB->dat2_2() + 1 < strlen(strMapping));
+  assert(pSB->dat2_3() + 1 >= 0 && pSB->dat2_3() + 1 < strlen(strMapping));
+  assert(pSB->dat2_4() + 1 >= 0 && pSB->dat2_4() + 1 < strlen(strMapping));
 
   if (str != NULL) {
     printf("%s\n", str);

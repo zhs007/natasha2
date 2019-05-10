@@ -220,7 +220,8 @@ void _randomNewReels3x5(const NormalReels3X5& reels,
 // _fillReels3x5 - fill with NormalReels
 void _fillReels3x5(const NormalReels3X5& reels,
                    const ::natashapb::SymbolBlock3X5& last3x5,
-                   ::natashapb::NormalReelsRandomResult3X5* pNRRR) {
+                   ::natashapb::NormalReelsRandomResult3X5* pNRRR,
+                   FuncOnFillReels onfillreels) {
   assert(pNRRR->reelsindex_size() == 5);
 
   ::natashapb::SymbolBlock* pSB = pNRRR->mutable_symbolblock();
@@ -232,6 +233,8 @@ void _fillReels3x5(const NormalReels3X5& reels,
       if (curs == -1) {
         auto ci = pNRRR->reelsindex(x) - 1;
         auto cs = reels.getSymbolEx(x, ci);
+
+        cs = onfillreels(x, y, cs);
 
         setSymbolBlock3X5(pSB35, x, y, cs);
 
@@ -246,7 +249,8 @@ void _fillReels3x5(const NormalReels3X5& reels,
 // randomReels3x5 - random normal reels
 void randomReels3x5(const NormalReels3X5& reels,
                     ::natashapb::RandomResult* pRandomResult,
-                    const ::natashapb::UserGameModInfo* pUGMI) {
+                    const ::natashapb::UserGameModInfo* pUGMI,
+                    FuncOnFillReels onfillreels) {
   assert(pRandomResult != NULL);
 
   if (pUGMI->cascadinginfo().isend()) {
@@ -275,7 +279,7 @@ void randomReels3x5(const NormalReels3X5& reels,
       ::natashapb::NormalReelsRandomResult3X5* pNRRR =
           pRandomResult->mutable_nrrr3x5();
 
-      _fillReels3x5(reels, pUGMI->symbolblock().sb3x5(), pNRRR);
+      _fillReels3x5(reels, pUGMI->symbolblock().sb3x5(), pNRRR, onfillreels);
     }
   }
 }

@@ -153,8 +153,9 @@ class MuseumFreeGame : public SlotsGameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser) {
-    randomReels3x5(m_reels, pRandomResult, pUser);
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+    // randomReels3x5(m_reels, pRandomResult, pUser);
 
     return ::natashapb::OK;
   }

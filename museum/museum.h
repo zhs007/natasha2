@@ -31,6 +31,15 @@ class Museum : public GameLogic {
   virtual void onInitRTP() {
     addRTPModule(::natashapb::BASE_GAME, MeseumMaxSymbols, MeseumMaxPayoutNums);
   }
+
+  virtual void onRTPAddPayoutGRI(::natashapb::GAMEMODTYPE module,
+                                 const ::natashapb::GameResultInfo& gri) {
+    if (gri.typegameresult() == ::natashapb::SPECIAL) {
+    } else {
+      m_rtp.addSymbolPayout(module, gri.symbol(), gri.lstsymbol_size(),
+                            gri.realwin());
+    }
+  }
 #endif  // NATASHA_COUNTRTP
 
 #ifdef NATASHA_RUNINCPP

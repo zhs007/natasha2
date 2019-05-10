@@ -475,13 +475,27 @@ message SymbolRTPList {
     repeated SymbolRTP lst = 1;
 }
 
+// BonusRTP - RTP for the bonus
+message BonusRTP {
+    int64 totalWin = 1;
+    int64 winNums = 2;
+    int64 realWin = 3;
+}
+
+// BonusRTPList - RTP for the bonus
+message BonusRTPList {
+    repeated BonusRTP lst = 1;
+}
+
 // GameModuleRTP - RTP for the game module
 message GameModuleRTP {
     int64 totalBet = 1;
     int64 totalWin = 2;
     int64 spinNums = 3;
+    int64 winNums = 4;
 
     repeated SymbolRTPList symbols = 100;
+    map<string, BonusRTPList> bonus = 101;
 }
 
 // RTP - RTP

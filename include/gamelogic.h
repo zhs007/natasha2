@@ -79,11 +79,16 @@ class GameLogic {
  public:
   virtual void onInitRTP() = 0;
 
-  void onRTPAddBet(MoneyType bet) { m_rtp.addBet(bet); }
+  void onRTPAddBet(::natashapb::GAMEMODTYPE module, MoneyType bet) {
+    m_rtp.addBet(module, bet);
+  }
 
-  void onRTPAddPayout(::natashapb::GAMEMODTYPE module, SymbolType s, int nums,
-                      MoneyType payout) {
-    m_rtp.addPayout(module, s, nums, payout);
+  void onRTPAddPayout(MoneyType payout) { m_rtp.addPayout(payout); }
+
+  virtual void onRTPAddPayoutGRI(::natashapb::GAMEMODTYPE module,
+                                 const ::natashapb::GameResultInfo& gri) {
+    m_rtp.addSymbolPayout(module, gri.symbol(), gri.lstsymbol_size(),
+                          gri.realwin());
   }
 
   void addRTPModule(::natashapb::GAMEMODTYPE module, int maxNums,

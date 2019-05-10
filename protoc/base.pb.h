@@ -41,7 +41,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[38];
+  static const ::google::protobuf::internal::ParseTable schema[41];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -103,6 +103,12 @@ void InitDefaultsSymbolRTPImpl();
 void InitDefaultsSymbolRTP();
 void InitDefaultsSymbolRTPListImpl();
 void InitDefaultsSymbolRTPList();
+void InitDefaultsBonusRTPImpl();
+void InitDefaultsBonusRTP();
+void InitDefaultsBonusRTPListImpl();
+void InitDefaultsBonusRTPList();
+void InitDefaultsGameModuleRTP_BonusEntry_DoNotUseImpl();
+void InitDefaultsGameModuleRTP_BonusEntry_DoNotUse();
 void InitDefaultsGameModuleRTPImpl();
 void InitDefaultsGameModuleRTP();
 void InitDefaultsRTP_GameModulesEntry_DoNotUseImpl();
@@ -152,6 +158,9 @@ inline void InitDefaults() {
   InitDefaultsStartGameMod();
   InitDefaultsSymbolRTP();
   InitDefaultsSymbolRTPList();
+  InitDefaultsBonusRTP();
+  InitDefaultsBonusRTPList();
+  InitDefaultsGameModuleRTP_BonusEntry_DoNotUse();
   InitDefaultsGameModuleRTP();
   InitDefaultsRTP_GameModulesEntry_DoNotUse();
   InitDefaultsRTP();
@@ -171,6 +180,12 @@ extern BaseCascadingInfoDefaultTypeInternal _BaseCascadingInfo_default_instance_
 class BaseFreeInfo;
 class BaseFreeInfoDefaultTypeInternal;
 extern BaseFreeInfoDefaultTypeInternal _BaseFreeInfo_default_instance_;
+class BonusRTP;
+class BonusRTPDefaultTypeInternal;
+extern BonusRTPDefaultTypeInternal _BonusRTP_default_instance_;
+class BonusRTPList;
+class BonusRTPListDefaultTypeInternal;
+extern BonusRTPListDefaultTypeInternal _BonusRTPList_default_instance_;
 class FGCache;
 class FGCacheDefaultTypeInternal;
 extern FGCacheDefaultTypeInternal _FGCache_default_instance_;
@@ -204,6 +219,9 @@ extern GameCtrlSpinDefaultTypeInternal _GameCtrlSpin_default_instance_;
 class GameModuleRTP;
 class GameModuleRTPDefaultTypeInternal;
 extern GameModuleRTPDefaultTypeInternal _GameModuleRTP_default_instance_;
+class GameModuleRTP_BonusEntry_DoNotUse;
+class GameModuleRTP_BonusEntry_DoNotUseDefaultTypeInternal;
+extern GameModuleRTP_BonusEntry_DoNotUseDefaultTypeInternal _GameModuleRTP_BonusEntry_DoNotUse_default_instance_;
 class GameResultInfo;
 class GameResultInfoDefaultTypeInternal;
 extern GameResultInfoDefaultTypeInternal _GameResultInfo_default_instance_;
@@ -284,6 +302,8 @@ namespace google {
 namespace protobuf {
 template<> ::natashapb::BaseCascadingInfo* Arena::Create< ::natashapb::BaseCascadingInfo>(Arena*);
 template<> ::natashapb::BaseFreeInfo* Arena::Create< ::natashapb::BaseFreeInfo>(Arena*);
+template<> ::natashapb::BonusRTP* Arena::Create< ::natashapb::BonusRTP>(Arena*);
+template<> ::natashapb::BonusRTPList* Arena::Create< ::natashapb::BonusRTPList>(Arena*);
 template<> ::natashapb::FGCache* Arena::Create< ::natashapb::FGCache>(Arena*);
 template<> ::natashapb::GameCtrl* Arena::Create< ::natashapb::GameCtrl>(Arena*);
 template<> ::natashapb::GameCtrlAwardSpin* Arena::Create< ::natashapb::GameCtrlAwardSpin>(Arena*);
@@ -295,6 +315,7 @@ template<> ::natashapb::GameCtrlJackpot* Arena::Create< ::natashapb::GameCtrlJac
 template<> ::natashapb::GameCtrlSelectFree* Arena::Create< ::natashapb::GameCtrlSelectFree>(Arena*);
 template<> ::natashapb::GameCtrlSpin* Arena::Create< ::natashapb::GameCtrlSpin>(Arena*);
 template<> ::natashapb::GameModuleRTP* Arena::Create< ::natashapb::GameModuleRTP>(Arena*);
+template<> ::natashapb::GameModuleRTP_BonusEntry_DoNotUse* Arena::Create< ::natashapb::GameModuleRTP_BonusEntry_DoNotUse>(Arena*);
 template<> ::natashapb::GameResultInfo* Arena::Create< ::natashapb::GameResultInfo>(Arena*);
 template<> ::natashapb::MuseumConfig* Arena::Create< ::natashapb::MuseumConfig>(Arena*);
 template<> ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse>(Arena*);
@@ -4361,6 +4382,253 @@ class SymbolRTPList : public ::google::protobuf::Message /* @@protoc_insertion_p
 };
 // -------------------------------------------------------------------
 
+class BonusRTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.BonusRTP) */ {
+ public:
+  BonusRTP();
+  virtual ~BonusRTP();
+
+  BonusRTP(const BonusRTP& from);
+
+  inline BonusRTP& operator=(const BonusRTP& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BonusRTP(BonusRTP&& from) noexcept
+    : BonusRTP() {
+    *this = ::std::move(from);
+  }
+
+  inline BonusRTP& operator=(BonusRTP&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BonusRTP& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BonusRTP* internal_default_instance() {
+    return reinterpret_cast<const BonusRTP*>(
+               &_BonusRTP_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    28;
+
+  void Swap(BonusRTP* other);
+  friend void swap(BonusRTP& a, BonusRTP& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BonusRTP* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<BonusRTP>(NULL);
+  }
+
+  BonusRTP* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<BonusRTP>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const BonusRTP& from);
+  void MergeFrom(const BonusRTP& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(BonusRTP* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int64 totalWin = 1;
+  void clear_totalwin();
+  static const int kTotalWinFieldNumber = 1;
+  ::google::protobuf::int64 totalwin() const;
+  void set_totalwin(::google::protobuf::int64 value);
+
+  // int64 winNums = 2;
+  void clear_winnums();
+  static const int kWinNumsFieldNumber = 2;
+  ::google::protobuf::int64 winnums() const;
+  void set_winnums(::google::protobuf::int64 value);
+
+  // int64 realWin = 3;
+  void clear_realwin();
+  static const int kRealWinFieldNumber = 3;
+  ::google::protobuf::int64 realwin() const;
+  void set_realwin(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.BonusRTP)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int64 totalwin_;
+  ::google::protobuf::int64 winnums_;
+  ::google::protobuf::int64 realwin_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsBonusRTPImpl();
+};
+// -------------------------------------------------------------------
+
+class BonusRTPList : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.BonusRTPList) */ {
+ public:
+  BonusRTPList();
+  virtual ~BonusRTPList();
+
+  BonusRTPList(const BonusRTPList& from);
+
+  inline BonusRTPList& operator=(const BonusRTPList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BonusRTPList(BonusRTPList&& from) noexcept
+    : BonusRTPList() {
+    *this = ::std::move(from);
+  }
+
+  inline BonusRTPList& operator=(BonusRTPList&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BonusRTPList& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BonusRTPList* internal_default_instance() {
+    return reinterpret_cast<const BonusRTPList*>(
+               &_BonusRTPList_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    29;
+
+  void Swap(BonusRTPList* other);
+  friend void swap(BonusRTPList& a, BonusRTPList& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BonusRTPList* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<BonusRTPList>(NULL);
+  }
+
+  BonusRTPList* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<BonusRTPList>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const BonusRTPList& from);
+  void MergeFrom(const BonusRTPList& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(BonusRTPList* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.BonusRTP lst = 1;
+  int lst_size() const;
+  void clear_lst();
+  static const int kLstFieldNumber = 1;
+  ::natashapb::BonusRTP* mutable_lst(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::BonusRTP >*
+      mutable_lst();
+  const ::natashapb::BonusRTP& lst(int index) const;
+  ::natashapb::BonusRTP* add_lst();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::BonusRTP >&
+      lst() const;
+
+  // @@protoc_insertion_point(class_scope:natashapb.BonusRTPList)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::BonusRTP > lst_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsBonusRTPListImpl();
+};
+// -------------------------------------------------------------------
+
+class GameModuleRTP_BonusEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<GameModuleRTP_BonusEntry_DoNotUse, 
+    ::std::string, ::natashapb::BonusRTPList,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<GameModuleRTP_BonusEntry_DoNotUse, 
+    ::std::string, ::natashapb::BonusRTPList,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  GameModuleRTP_BonusEntry_DoNotUse();
+  GameModuleRTP_BonusEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const GameModuleRTP_BonusEntry_DoNotUse& other);
+  static const GameModuleRTP_BonusEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GameModuleRTP_BonusEntry_DoNotUse*>(&_GameModuleRTP_BonusEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
 class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.GameModuleRTP) */ {
  public:
   GameModuleRTP();
@@ -4396,7 +4664,7 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_GameModuleRTP_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    28;
+    31;
 
   void Swap(GameModuleRTP* other);
   friend void swap(GameModuleRTP& a, GameModuleRTP& b) {
@@ -4445,6 +4713,7 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   // repeated .natashapb.SymbolRTPList symbols = 100;
@@ -4458,6 +4727,15 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::natashapb::SymbolRTPList* add_symbols();
   const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList >&
       symbols() const;
+
+  // map<string, .natashapb.BonusRTPList> bonus = 101;
+  int bonus_size() const;
+  void clear_bonus();
+  static const int kBonusFieldNumber = 101;
+  const ::google::protobuf::Map< ::std::string, ::natashapb::BonusRTPList >&
+      bonus() const;
+  ::google::protobuf::Map< ::std::string, ::natashapb::BonusRTPList >*
+      mutable_bonus();
 
   // int64 totalBet = 1;
   void clear_totalbet();
@@ -4477,14 +4755,27 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int64 spinnums() const;
   void set_spinnums(::google::protobuf::int64 value);
 
+  // int64 winNums = 4;
+  void clear_winnums();
+  static const int kWinNumsFieldNumber = 4;
+  ::google::protobuf::int64 winnums() const;
+  void set_winnums(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameModuleRTP)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList > symbols_;
+  ::google::protobuf::internal::MapField<
+      GameModuleRTP_BonusEntry_DoNotUse,
+      ::std::string, ::natashapb::BonusRTPList,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > bonus_;
   ::google::protobuf::int64 totalbet_;
   ::google::protobuf::int64 totalwin_;
   ::google::protobuf::int64 spinnums_;
+  ::google::protobuf::int64 winnums_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameModuleRTPImpl();
@@ -4547,7 +4838,7 @@ class RTP : public ::google::protobuf::Message /* @@protoc_insertion_point(class
                &_RTP_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    30;
+    33;
 
   void Swap(RTP* other);
   friend void swap(RTP& a, RTP& b) {
@@ -4680,7 +4971,7 @@ class NormalReelstriptConfig : public ::google::protobuf::Message /* @@protoc_in
                &_NormalReelstriptConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    31;
+    34;
 
   void Swap(NormalReelstriptConfig* other);
   friend void swap(NormalReelstriptConfig& a, NormalReelstriptConfig& b) {
@@ -4791,7 +5082,7 @@ class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertio
                &_ReelstriptConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    32;
+    35;
 
   void Swap(ReelstriptConfig* other);
   friend void swap(ReelstriptConfig& a, ReelstriptConfig& b) {
@@ -4897,7 +5188,7 @@ class WeightConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_WeightConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    33;
+    36;
 
   void Swap(WeightConfig* other);
   friend void swap(WeightConfig& a, WeightConfig& b) {
@@ -5014,7 +5305,7 @@ class MuseumRTPConfig : public ::google::protobuf::Message /* @@protoc_insertion
                &_MuseumRTPConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    34;
+    37;
 
   void Swap(MuseumRTPConfig* other);
   friend void swap(MuseumRTPConfig& a, MuseumRTPConfig& b) {
@@ -5271,7 +5562,7 @@ class MuseumConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_MuseumConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    37;
+    40;
 
   void Swap(MuseumConfig* other);
   friend void swap(MuseumConfig& a, MuseumConfig& b) {
@@ -8860,6 +9151,88 @@ SymbolRTPList::lst() const {
 
 // -------------------------------------------------------------------
 
+// BonusRTP
+
+// int64 totalWin = 1;
+inline void BonusRTP::clear_totalwin() {
+  totalwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 BonusRTP::totalwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.BonusRTP.totalWin)
+  return totalwin_;
+}
+inline void BonusRTP::set_totalwin(::google::protobuf::int64 value) {
+  
+  totalwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.BonusRTP.totalWin)
+}
+
+// int64 winNums = 2;
+inline void BonusRTP::clear_winnums() {
+  winnums_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 BonusRTP::winnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.BonusRTP.winNums)
+  return winnums_;
+}
+inline void BonusRTP::set_winnums(::google::protobuf::int64 value) {
+  
+  winnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.BonusRTP.winNums)
+}
+
+// int64 realWin = 3;
+inline void BonusRTP::clear_realwin() {
+  realwin_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 BonusRTP::realwin() const {
+  // @@protoc_insertion_point(field_get:natashapb.BonusRTP.realWin)
+  return realwin_;
+}
+inline void BonusRTP::set_realwin(::google::protobuf::int64 value) {
+  
+  realwin_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.BonusRTP.realWin)
+}
+
+// -------------------------------------------------------------------
+
+// BonusRTPList
+
+// repeated .natashapb.BonusRTP lst = 1;
+inline int BonusRTPList::lst_size() const {
+  return lst_.size();
+}
+inline void BonusRTPList::clear_lst() {
+  lst_.Clear();
+}
+inline ::natashapb::BonusRTP* BonusRTPList::mutable_lst(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.BonusRTPList.lst)
+  return lst_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::BonusRTP >*
+BonusRTPList::mutable_lst() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.BonusRTPList.lst)
+  return &lst_;
+}
+inline const ::natashapb::BonusRTP& BonusRTPList::lst(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.BonusRTPList.lst)
+  return lst_.Get(index);
+}
+inline ::natashapb::BonusRTP* BonusRTPList::add_lst() {
+  // @@protoc_insertion_point(field_add:natashapb.BonusRTPList.lst)
+  return lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::BonusRTP >&
+BonusRTPList::lst() const {
+  // @@protoc_insertion_point(field_list:natashapb.BonusRTPList.lst)
+  return lst_;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // GameModuleRTP
 
 // int64 totalBet = 1;
@@ -8904,6 +9277,20 @@ inline void GameModuleRTP::set_spinnums(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.spinNums)
 }
 
+// int64 winNums = 4;
+inline void GameModuleRTP::clear_winnums() {
+  winnums_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameModuleRTP::winnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameModuleRTP.winNums)
+  return winnums_;
+}
+inline void GameModuleRTP::set_winnums(::google::protobuf::int64 value) {
+  
+  winnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.winNums)
+}
+
 // repeated .natashapb.SymbolRTPList symbols = 100;
 inline int GameModuleRTP::symbols_size() const {
   return symbols_.size();
@@ -8932,6 +9319,24 @@ inline const ::google::protobuf::RepeatedPtrField< ::natashapb::SymbolRTPList >&
 GameModuleRTP::symbols() const {
   // @@protoc_insertion_point(field_list:natashapb.GameModuleRTP.symbols)
   return symbols_;
+}
+
+// map<string, .natashapb.BonusRTPList> bonus = 101;
+inline int GameModuleRTP::bonus_size() const {
+  return bonus_.size();
+}
+inline void GameModuleRTP::clear_bonus() {
+  bonus_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::natashapb::BonusRTPList >&
+GameModuleRTP::bonus() const {
+  // @@protoc_insertion_point(field_map:natashapb.GameModuleRTP.bonus)
+  return bonus_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::natashapb::BonusRTPList >*
+GameModuleRTP::mutable_bonus() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.GameModuleRTP.bonus)
+  return bonus_.MutableMap();
 }
 
 // -------------------------------------------------------------------
@@ -9511,6 +9916,12 @@ MuseumConfig::mutable_rtp() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
