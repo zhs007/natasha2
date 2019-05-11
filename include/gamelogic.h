@@ -106,6 +106,8 @@ class GameLogic {
   }
 
   void outputRTP() { m_rtp.output(); }
+
+  const RTP& getRTP() const { return m_rtp; }
 #endif  // NATASHA_COUNTRTP
 
  protected:

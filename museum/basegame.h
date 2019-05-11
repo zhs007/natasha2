@@ -374,6 +374,8 @@ class MuseumBaseGame : public SlotsGameMod {
   virtual bool isCompeleted(::natashapb::UserGameModInfo* pUser) {
     if (pUser->has_spinresult()) {
       if (pUser->spinresult().lstgri_size() > 0) {
+        // printf("not isCompeleted\n");
+
         return false;
       }
     }

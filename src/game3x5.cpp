@@ -188,7 +188,8 @@ void _randomNewReels3x5(const NormalReels3X5& reels,
   auto sb3x5 = sb->mutable_sb3x5();
 
   for (int x = 0; x < 5; ++x) {
-    uint32_t cr = randomScale(reels.getReelsLength(x));
+    uint32_t cr = rand() % reels.getReelsLength(
+                               x);  // randomScale(reels.getReelsLength(x));
     pNRRR->add_reelsindex(cr);
   }
 
@@ -227,6 +228,12 @@ void _fillReels3x5(const NormalReels3X5& reels,
   ::natashapb::SymbolBlock* pSB = pNRRR->mutable_symbolblock();
   ::natashapb::SymbolBlock3X5* pSB35 = pSB->mutable_sb3x5();
 
+#ifdef NATASHA_DEBUG
+  printf("_fillReels3x5 start index: \n %d %d %d %d %d\n", pNRRR->reelsindex(0),
+         pNRRR->reelsindex(1), pNRRR->reelsindex(2), pNRRR->reelsindex(3),
+         pNRRR->reelsindex(4));
+#endif  // NATASHA_DEBUG
+
   for (int y = 2; y >= 0; --y) {
     for (int x = 0; x < 5; ++x) {
       auto curs = getSymbolBlock3X5(&last3x5, x, y);
@@ -244,6 +251,12 @@ void _fillReels3x5(const NormalReels3X5& reels,
       }
     }
   }
+
+#ifdef NATASHA_DEBUG
+  printf("_fillReels3x5 start index: \n %d %d %d %d %d\n", pNRRR->reelsindex(0),
+         pNRRR->reelsindex(1), pNRRR->reelsindex(2), pNRRR->reelsindex(3),
+         pNRRR->reelsindex(4));
+#endif  // NATASHA_DEBUG
 }
 
 // randomReels3x5 - random normal reels

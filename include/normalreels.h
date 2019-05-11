@@ -2,6 +2,7 @@
 #define __NATASHA_NORMALREELS_H__
 
 #include <assert.h>
+#include <stdio.h>
 
 namespace natasha {
 
@@ -86,6 +87,34 @@ class NormalReels {
     }
 
     return m_reels[x][y];
+  }
+
+  int countSymbol(int x, SymbolType s) const {
+    assert(x >= 0 && x < Width);
+    assert(m_reels[x] != NULL);
+
+    int nums = 0;
+    for (int y = 0; y < m_reelsLength[x]; ++y) {
+      if (m_reels[x][y] == s) {
+        ++nums;
+      }
+    }
+
+    return nums;
+  }
+
+  void output(const char* str, SymbolType maxSymbol) const {
+    printf("%s\n", str);
+
+    for (SymbolType s = 0; s <= maxSymbol; ++s) {
+      printf("symbol %d ", s);
+
+      for (int x = 0; x < Width; ++x) {
+        printf("%d ", this->countSymbol(x, s));
+      }
+
+      printf("\n");
+    }
   }
 
  protected:

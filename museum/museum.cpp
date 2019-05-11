@@ -13,50 +13,93 @@ void Museum::initConfig() {
 
   rtp96.set_fgnums(12);
 
-  rtp96.add_bgbonusprize(5);
-  rtp96.add_bgbonusprize(8);
-  rtp96.add_bgbonusprize(10);
-  rtp96.add_bgbonusprize(15);
-  rtp96.add_bgbonusprize(30);
-  rtp96.add_bgbonusprize(50);
+  rtp96.add_bgbonusprize(1);
+  rtp96.add_bgbonusprize(1);
+  rtp96.add_bgbonusprize(1);
+  rtp96.add_bgbonusprize(1);
+  rtp96.add_bgbonusprize(1);
+  rtp96.add_bgbonusprize(1);
 
   rtp96.add_bgmultipliers(1);
-  rtp96.add_bgmultipliers(2);
-  rtp96.add_bgmultipliers(3);
-  rtp96.add_bgmultipliers(5);
-  rtp96.add_bgmultipliers(10);
-  rtp96.add_bgmultipliers(15);
+  rtp96.add_bgmultipliers(1);
+  rtp96.add_bgmultipliers(1);
+  rtp96.add_bgmultipliers(1);
+  rtp96.add_bgmultipliers(1);
+  rtp96.add_bgmultipliers(1);
+
+  // rtp96.add_bgbonusprize(5);
+  // rtp96.add_bgbonusprize(8);
+  // rtp96.add_bgbonusprize(10);
+  // rtp96.add_bgbonusprize(15);
+  // rtp96.add_bgbonusprize(30);
+  // rtp96.add_bgbonusprize(50);
+
+  // rtp96.add_bgmultipliers(1);
+  // rtp96.add_bgmultipliers(2);
+  // rtp96.add_bgmultipliers(3);
+  // rtp96.add_bgmultipliers(5);
+  // rtp96.add_bgmultipliers(10);
+  // rtp96.add_bgmultipliers(15);
 
   {
     auto mw0 = rtp96.add_bgmysterywild();
-    mw0->add_weights(1);
+    mw0->add_weights(0);
     mw0->add_weights(185);
     mw0->set_totalweight(sumWeightConfig(*mw0));
 
     auto mw1 = rtp96.add_bgmysterywild();
-    mw1->add_weights(1);
+    mw1->add_weights(0);
     mw1->add_weights(15);
     mw1->set_totalweight(sumWeightConfig(*mw1));
 
     auto mw2 = rtp96.add_bgmysterywild();
-    mw2->add_weights(1);
+    mw2->add_weights(0);
     mw2->add_weights(12);
     mw2->set_totalweight(sumWeightConfig(*mw2));
 
     auto mw3 = rtp96.add_bgmysterywild();
-    mw3->add_weights(1);
+    mw3->add_weights(0);
     mw3->add_weights(75);
     mw3->set_totalweight(sumWeightConfig(*mw3));
 
     auto mw4 = rtp96.add_bgmysterywild();
-    mw4->add_weights(1);
+    mw4->add_weights(0);
     mw4->add_weights(100);
     mw4->set_totalweight(sumWeightConfig(*mw4));
 
     auto mw5 = rtp96.add_bgmysterywild();
-    mw5->add_weights(1);
+    mw5->add_weights(0);
     mw5->add_weights(200);
     mw5->set_totalweight(sumWeightConfig(*mw5));
+    // auto mw0 = rtp96.add_bgmysterywild();
+    // mw0->add_weights(1);
+    // mw0->add_weights(185);
+    // mw0->set_totalweight(sumWeightConfig(*mw0));
+
+    // auto mw1 = rtp96.add_bgmysterywild();
+    // mw1->add_weights(1);
+    // mw1->add_weights(15);
+    // mw1->set_totalweight(sumWeightConfig(*mw1));
+
+    // auto mw2 = rtp96.add_bgmysterywild();
+    // mw2->add_weights(1);
+    // mw2->add_weights(12);
+    // mw2->set_totalweight(sumWeightConfig(*mw2));
+
+    // auto mw3 = rtp96.add_bgmysterywild();
+    // mw3->add_weights(1);
+    // mw3->add_weights(75);
+    // mw3->set_totalweight(sumWeightConfig(*mw3));
+
+    // auto mw4 = rtp96.add_bgmysterywild();
+    // mw4->add_weights(1);
+    // mw4->add_weights(100);
+    // mw4->set_totalweight(sumWeightConfig(*mw4));
+
+    // auto mw5 = rtp96.add_bgmysterywild();
+    // mw5->add_weights(1);
+    // mw5->add_weights(200);
+    // mw5->set_totalweight(sumWeightConfig(*mw5));
   }
 
   rtp96.add_fgbonusprize(10);
@@ -124,6 +167,10 @@ void Museum::initConfig() {
   if (m_reels.isEmpty()) {
     return ::natashapb::INVALID_REELS_CFG;
   }
+
+#ifdef NATASHA_COUNTRTP
+  m_reels.output("reels", MUSEUM_SYMBOL_S);
+#endif  // NATASHA_COUNTRTP
 
   loadPaytables3X5(pathAppend(cfgpath, "game462_paytables.csv").c_str(),
                    m_paytables);
@@ -193,7 +240,7 @@ void countRTP_museum() {
   auto pGameCtrl = new ::natashapb::GameCtrl();
   int64_t ctrlid = 1;
 
-  for (int i = 0; i <= 1000000; ++ctrlid, ++i) {
+  for (int i = 0; i <= 100; ++ctrlid) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
@@ -216,6 +263,8 @@ void countRTP_museum() {
     }
 
     if (pUGI->iscompleted()) {
+      printf("totalbet is %lld\n", museum.getRTP().rtp.totalbet());
+
       ++i;
     }
   }
