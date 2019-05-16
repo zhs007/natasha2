@@ -89,7 +89,7 @@ class MuseumBaseGame : public SlotsGameMod {
     auto spinctrl = pGameCtrl->mutable_spin();
 
     // if respin
-    if (pUser->cascadinginfo().turnnums() > 0) {
+    if (!pUser->cascadinginfo().isend()) {
       spinctrl->set_bet(pUser->cascadinginfo().curbet());
       spinctrl->set_lines(MUSEUM_DEFAULT_PAY_LINES);
       spinctrl->set_times(MUSEUM_DEFAULT_TIMES);
