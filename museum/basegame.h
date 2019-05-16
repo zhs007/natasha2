@@ -11,20 +11,6 @@ namespace natasha {
 
 const int32_t MUSEUM_BG_UGMI_VER = 1;
 
-static SymbolType onfillbg(int x, int y, SymbolType s,
-                           const ::natashapb::WeightConfig& weightcfg) {
-  if (x == 0 || s == MUSEUM_SYMBOL_S) {
-    return s;
-  }
-
-  auto cr = randWeightConfig(weightcfg);
-  if (cr == 0) {
-    return MUSEUM_SYMBOL_W;
-  }
-
-  return s;
-}
-
 class MuseumBaseGame : public SlotsGameMod {
  public:
   MuseumBaseGame(GameLogic& logic, NormalReels3X5& reels,
@@ -127,7 +113,7 @@ class MuseumBaseGame : public SlotsGameMod {
     auto mwweight = pCfg->bgmysterywild(turnnums);
 
     FuncOnFillReels f =
-        std::bind(onfillbg, std::placeholders::_1, std::placeholders::_2,
+        std::bind(museum_onfill, std::placeholders::_1, std::placeholders::_2,
                   std::placeholders::_3, mwweight);
 
     randomReels3x5(m_reels, pRandomResult, pUser, f);
@@ -161,8 +147,7 @@ class MuseumBaseGame : public SlotsGameMod {
     // First check free
     ::natashapb::GameResultInfo gri;
     MuseumCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
-                       MUSEUM_SYMBOL_S,
-                       pGameCtrl->spin().bet() * MUSEUM_DEFAULT_PAY_LINES);
+                       MUSEUM_SYMBOL_S, pGameCtrl->spin().totalbet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
       pCurGRI->CopyFrom(gri);
@@ -173,8 +158,8 @@ class MuseumBaseGame : public SlotsGameMod {
     MuseumCountWays(*pSpinResult, pSpinResult->symbolblock().sb3x5(),
                     m_paytables, pGameCtrl->spin().bet());
 
-    auto bonuswin =
-        procWildBomb(pGameCtrl->spin().bet(), *pCfg, pUser, pSpinResult);
+    auto bonuswin = museum_procWildBomb<::natashapb::BASE_GAME>(
+        pGameCtrl->spin().bet(), *pCfg, pUser, pSpinResult);
 
     auto turnnums = pUser->cascadinginfo().turnnums();
     if (turnnums >= pCfg->bgmultipliers_size()) {
@@ -338,7 +323,7 @@ class MuseumBaseGame : public SlotsGameMod {
 #endif  // NATASHA_DEBUG
 
       if (turnnums == 0) {
-        auto spTriggered = randWArr(
+        auto spTriggered = museum_randWArr<::natashapb::BASE_GAME>(
             *cfg, pRandomResult->nrrr3x5().symbolblock().sb3x5(), sb3x5);
 
         pSpinResult->set_specialtriggered(spTriggered);
@@ -394,124 +379,127 @@ class MuseumBaseGame : public SlotsGameMod {
     return NULL;
   }
 
-  int randWArr(const ::natashapb::MuseumRTPConfig& cfg,
-               const ::natashapb::SymbolBlock3X5& srcsb3x5,
-               ::natashapb::SymbolBlock3X5* sb3x5) {
-    int nums = 0;
+  // int randWArr(const ::natashapb::MuseumRTPConfig& cfg,
+  //              const ::natashapb::SymbolBlock3X5& srcsb3x5,
+  //              ::natashapb::SymbolBlock3X5* sb3x5) {
+  //   int nums = 0;
 
-    auto mwweight = cfg.bgmysterywild(0);
+  //   auto mwweight = cfg.bgmysterywild(0);
 
-    for (int y = 0; y < MUSEUM_HEIGHT; ++y) {
-      setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH, MUSEUM_HEIGHT>(
-          sb3x5, 0, y,
-          getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                         MUSEUM_HEIGHT>(&srcsb3x5, 0, y));
+  //   for (int y = 0; y < MUSEUM_HEIGHT; ++y) {
+  //     setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //     MUSEUM_HEIGHT>(
+  //         sb3x5, 0, y,
+  //         getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                        MUSEUM_HEIGHT>(&srcsb3x5, 0, y));
 
-      for (int x = 1; x < MUSEUM_WIDTH; ++x) {
-        auto cs = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                                 MUSEUM_HEIGHT>(&srcsb3x5, x, y);
-        if (cs != MUSEUM_SYMBOL_S) {
-          auto ci = randWeightConfig(mwweight);
-          if (ci == 0) {
-            setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                           MUSEUM_HEIGHT>(sb3x5, x, y, MUSEUM_SYMBOL_W);
+  //     for (int x = 1; x < MUSEUM_WIDTH; ++x) {
+  //       auto cs = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                MUSEUM_HEIGHT>(&srcsb3x5, x, y);
+  //       if (cs != MUSEUM_SYMBOL_S) {
+  //         auto ci = randWeightConfig(mwweight);
+  //         if (ci == 0) {
+  //           setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                          MUSEUM_HEIGHT>(sb3x5, x, y, MUSEUM_SYMBOL_W);
 
-            nums++;
+  //           nums++;
 
-            continue;
-          }
-        }
+  //           continue;
+  //         }
+  //       }
 
-        setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                       MUSEUM_HEIGHT>(sb3x5, x, y, cs);
-      }
-    }
+  //       setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                      MUSEUM_HEIGHT>(sb3x5, x, y, cs);
+  //     }
+  //   }
 
-    return nums;
-  }
+  //   return nums;
+  // }
 
-  void bomb(::natashapb::SymbolBlock3X5& tmp,
-            const ::natashapb::SymbolBlock3X5& sb3x5, int x, int y,
-            ::natashapb::GameResultInfo* pGRI) {
-    // printf("bomb %d %d\n", x, y);
-    for (int cy = y - 1; cy <= y + 1; ++cy) {
-      if (cy >= 0 && cy < MUSEUM_HEIGHT) {
-        for (int cx = x - 1; cx <= x + 1; ++cx) {
-          if (cx >= 0 && cx < MUSEUM_WIDTH) {
-            auto ctmps =
-                getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                               MUSEUM_HEIGHT>(&tmp, cx, cy);
-            if (ctmps == 0) {
-              if (cx == x && cy == y) {
-                auto cp = pGRI->add_lstpos();
-                cp->set_x(cx);
-                cp->set_y(cy);
+  // void bomb(::natashapb::SymbolBlock3X5& tmp,
+  //           const ::natashapb::SymbolBlock3X5& sb3x5, int x, int y,
+  //           ::natashapb::GameResultInfo* pGRI) {
+  //   // printf("bomb %d %d\n", x, y);
+  //   for (int cy = y - 1; cy <= y + 1; ++cy) {
+  //     if (cy >= 0 && cy < MUSEUM_HEIGHT) {
+  //       for (int cx = x - 1; cx <= x + 1; ++cx) {
+  //         if (cx >= 0 && cx < MUSEUM_WIDTH) {
+  //           auto ctmps =
+  //               getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                              MUSEUM_HEIGHT>(&tmp, cx, cy);
+  //           if (ctmps == 0) {
+  //             if (cx == x && cy == y) {
+  //               auto cp = pGRI->add_lstpos();
+  //               cp->set_x(cx);
+  //               cp->set_y(cy);
 
-                setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                               MUSEUM_HEIGHT>(&tmp, cx, cy, -1);
-              } else {
-                auto cs =
-                    getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                                   MUSEUM_HEIGHT>(&sb3x5, cx, cy);
+  //               setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                              MUSEUM_HEIGHT>(&tmp, cx, cy, -1);
+  //             } else {
+  //               auto cs =
+  //                   getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                  MUSEUM_HEIGHT>(&sb3x5, cx, cy);
 
-                if (cs != MUSEUM_SYMBOL_W && cs != MUSEUM_SYMBOL_S) {
-                  auto cp = pGRI->add_lstpos();
-                  cp->set_x(cx);
-                  cp->set_y(cy);
+  //               if (cs != MUSEUM_SYMBOL_W && cs != MUSEUM_SYMBOL_S) {
+  //                 auto cp = pGRI->add_lstpos();
+  //                 cp->set_x(cx);
+  //                 cp->set_y(cy);
 
-                  setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                                 MUSEUM_HEIGHT>(&tmp, cx, cy, -1);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  //                 setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                MUSEUM_HEIGHT>(&tmp, cx, cy, -1);
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  MoneyType procWildBomb(MoneyType bet, const ::natashapb::MuseumRTPConfig& cfg,
-                         const ::natashapb::UserGameModInfo* pUser,
-                         ::natashapb::SpinResult* pSpinResult) {
-    if (pSpinResult->specialtriggered() > 0) {
-      ::natashapb::SymbolBlock3X5 tmp;
-      auto sb3x5 = pSpinResult->symbolblock().sb3x5();
-      auto pGRI = pSpinResult->add_lstgri();
+  // MoneyType procWildBomb(MoneyType bet, const ::natashapb::MuseumRTPConfig&
+  // cfg,
+  //                        const ::natashapb::UserGameModInfo* pUser,
+  //                        ::natashapb::SpinResult* pSpinResult) {
+  //   if (pSpinResult->specialtriggered() > 0) {
+  //     ::natashapb::SymbolBlock3X5 tmp;
+  //     auto sb3x5 = pSpinResult->symbolblock().sb3x5();
+  //     auto pGRI = pSpinResult->add_lstgri();
 
-      removeBlock3X5WithGameResult(&tmp, pSpinResult);
+  //     removeBlock3X5WithGameResult(&tmp, pSpinResult);
 
-      for (int y = 0; y < MUSEUM_HEIGHT; ++y) {
-        for (int x = 1; x < MUSEUM_WIDTH; ++x) {
-          auto ctmps = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                                      MUSEUM_HEIGHT>(&tmp, x, y);
-          auto cs = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
-                                   MUSEUM_HEIGHT>(&sb3x5, x, y);
-          if (cs == MUSEUM_SYMBOL_W) {
-            bomb(tmp, sb3x5, x, y, pGRI);
-          }
-        }
-      }
+  //     for (int y = 0; y < MUSEUM_HEIGHT; ++y) {
+  //       for (int x = 1; x < MUSEUM_WIDTH; ++x) {
+  //         auto ctmps = getSymbolBlock<::natashapb::SymbolBlock3X5,
+  //         MUSEUM_WIDTH,
+  //                                     MUSEUM_HEIGHT>(&tmp, x, y);
+  //         auto cs = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                  MUSEUM_HEIGHT>(&sb3x5, x, y);
+  //         if (cs == MUSEUM_SYMBOL_W) {
+  //           bomb(tmp, sb3x5, x, y, pGRI);
+  //         }
+  //       }
+  //     }
 
-      if (pGRI->lstpos_size() > 0) {
-        auto turnnums = pUser->cascadinginfo().turnnums();
+  //     if (pGRI->lstpos_size() > 0) {
+  //       auto turnnums = pUser->cascadinginfo().turnnums();
 
-        if (turnnums >= cfg.bgbonusprize_size()) {
-          turnnums = cfg.bgbonusprize_size() - 1;
-        }
+  //       if (turnnums >= cfg.bgbonusprize_size()) {
+  //         turnnums = cfg.bgbonusprize_size() - 1;
+  //       }
 
-        pGRI->set_mul(cfg.bgbonusprize(turnnums));
-        pGRI->set_typegameresult(::natashapb::SPECIAL);
-        pGRI->set_win(bet * pGRI->mul() * pGRI->lstpos_size());
-        pGRI->set_realwin(pGRI->win());
+  //       pGRI->set_mul(cfg.bgbonusprize(turnnums));
+  //       pGRI->set_typegameresult(::natashapb::SPECIAL);
+  //       pGRI->set_win(bet * pGRI->mul() * pGRI->lstpos_size());
+  //       pGRI->set_realwin(pGRI->win());
 
-        return pGRI->realwin();
-      } else {
-        pSpinResult->mutable_lstgri()->RemoveLast();
-      }
-    }
+  //       return pGRI->realwin();
+  //     } else {
+  //       pSpinResult->mutable_lstgri()->RemoveLast();
+  //     }
+  //   }
 
-    return 0;
-  }
+  //   return 0;
+  // }
 
  protected:
   NormalReels3X5& m_reels;
