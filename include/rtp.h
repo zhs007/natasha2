@@ -155,7 +155,7 @@ struct RTP {
   }
 
   void output() {
-    printf("RTP is %.2f(%lld / %lld)\n",
+    printf("RTP is %.4f(%lld / %lld)\n",
            100.f * rtp.totalwin() / rtp.totalbet(), rtp.totalwin(),
            rtp.totalbet());
 
@@ -192,7 +192,7 @@ struct RTP {
     auto gamemodules = rtp.mutable_gamemodules();
     auto gmit = gamemodules->find(gmname);
     if (gmit != gamemodules->end()) {
-      printf("%s RTP is %.2f(%lld / %lld)\n", gmname,
+      printf("%s RTP is %.4f(%lld / %lld)\n", gmname,
              100.f * gmit->second.totalwin() / rtp.totalbet(),
              gmit->second.totalwin(), rtp.totalbet());
 
@@ -204,7 +204,7 @@ struct RTP {
         for (int i = 0; i < cs.lst_size(); ++i) {
           auto curs = cs.lst(i);
 
-          printf("%.2f ", 100.f * curs.totalwin() / rtp.totalbet());
+          printf("%.4f ", 100.f * curs.totalwin() / rtp.totalbet());
         }
 
         printf("\n");
@@ -217,16 +217,16 @@ struct RTP {
         for (int i = 0; i < curbonus.lst_size(); ++i) {
           auto curs = curbonus.lst(i);
 
-          printf("%.2f ", 100.f * curs.totalwin() / rtp.totalbet());
+          printf("%.4f ", 100.f * curs.totalwin() / rtp.totalbet());
         }
 
         printf("\n");
 
         if (module > ::natashapb::BASE_GAME && gmit->second.innums() > 0) {
-          printf("ingame nums is %lld(%.2f)\n", gmit->second.innums(),
+          printf("ingame nums is %lld(%.4f)\n", gmit->second.innums(),
                  1.f * rtp.spinnums() / gmit->second.innums());
 
-          printf("average number of times is %.2f\n",
+          printf("average number of times is %.4f\n",
                  1.f * gmit->second.spinnums() / gmit->second.innums());
         }
       }

@@ -152,6 +152,8 @@ class MuseumBaseGame : public SlotsGameMod {
       auto pCurGRI = pSpinResult->add_lstgri();
       pCurGRI->CopyFrom(gri);
       pSpinResult->set_fgnums(pCfg->fgnums());
+
+      pSpinResult->set_win(pSpinResult->win() + pCurGRI->win());
     }
 
     // check all line payout
