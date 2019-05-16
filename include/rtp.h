@@ -76,6 +76,7 @@ struct RTP {
       // printf("addBonusPayout %s\n", bonusName);
       if (bonusit != gmit->second.mutable_bonus()->end()) {
         // printf("addBonusPayout %s OK\n", bonusName);
+        // printf("addBonusPayout %d OK\n", bonusIndex);
         assert(bonusIndex >= 0 && bonusIndex < bonusit->second.lst_size());
 
         auto currtp = bonusit->second.mutable_lst(bonusIndex);

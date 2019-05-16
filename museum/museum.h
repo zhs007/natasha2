@@ -31,6 +31,8 @@ class Museum : public GameLogic {
   virtual void onInitRTP() {
     addRTPModule(::natashapb::BASE_GAME, MeseumMaxPayoutNums, MeseumMaxSymbols);
     addRTPModuleBonus(::natashapb::BASE_GAME, "wildbomb", 6);
+    addRTPModule(::natashapb::FREE_GAME, MeseumMaxPayoutNums, MeseumMaxSymbols);
+    addRTPModuleBonus(::natashapb::FREE_GAME, "wildbomb", 6);
   }
 
   virtual void onRTPAddPayoutGRI(::natashapb::GAMEMODTYPE module,

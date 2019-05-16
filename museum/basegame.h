@@ -170,6 +170,14 @@ class MuseumBaseGame : public SlotsGameMod {
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul() +
                              bonuswin);
 
+    if (pSpinResult->lstgri_size() == 0 &&
+        pUser->fgcache().fgnums() + pSpinResult->fgnums() > 0) {
+      pSpinResult->set_realfgnums(pUser->fgcache().fgnums() +
+                                  pSpinResult->fgnums());
+
+      // printf("realfgnums %d\n", pSpinResult->realfgnums());
+    }
+
 #ifdef NATASHA_DEBUG
     printSpinResult("countSpinResult", pSpinResult, MUSEUM_SYMBOL_MAPPING);
 #endif  // NATASHA_DEBUG
@@ -193,38 +201,12 @@ class MuseumBaseGame : public SlotsGameMod {
     if (pSpinResult->fgnums() > 0) {
       auto fgcache = pUser->mutable_fgcache();
       fgcache->set_fgnums(fgcache->fgnums() + pSpinResult->fgnums());
-    }
 
-    // if need start free game
-    if (pSpinResult->realfgnums() > 0) {
-      this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
-
-      ::natashapb::StartGameMod sp;
-
-      auto parentctrlid = sp.mutable_parentctrlid();
-      parentctrlid->CopyFrom(pUser->gamectrlid());
-      // parentctrlid->set_baseid();
-
-      auto fg = sp.mutable_freegame();
-      fg->set_bet(pGameCtrl->spin().bet());
-      fg->set_lines(MUSEUM_DEFAULT_PAY_LINES);
-      fg->set_times(MUSEUM_DEFAULT_TIMES);
-      fg->set_freenums(MUSEUM_DEFAULT_FREENUMS);
-
-      auto code = m_logic.startGameMod(::natashapb::FREE_GAME, &sp, pLogicUser);
-      if (code != ::natashapb::OK) {
-        return code;
-      }
-
-      pUser->mutable_cascadinginfo()->set_isend(true);
-      this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
-                             pSpinResult->awardmul(), true);
-
-      return ::natashapb::OK;
+      // printf("fgnums %d\n", fgcache->fgnums());
     }
 
     // if respin
-    if (pSpinResult->realwin() > 0) {
+    if (pSpinResult->lstgri_size() > 0) {
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
       pUser->mutable_cascadinginfo()->set_turnwin(
@@ -242,6 +224,30 @@ class MuseumBaseGame : public SlotsGameMod {
     this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
                            pSpinResult->awardmul(), false);
 
+    // if need start free game
+    if (pSpinResult->realfgnums() > 0) {
+      this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
+
+      ::natashapb::StartGameMod sp;
+
+      auto parentctrlid = sp.mutable_parentctrlid();
+      parentctrlid->CopyFrom(pUser->gamectrlid());
+      // parentctrlid->set_baseid();
+
+      auto fg = sp.mutable_freegame();
+      fg->set_bet(pGameCtrl->spin().bet());
+      fg->set_lines(MUSEUM_DEFAULT_PAY_LINES);
+      fg->set_times(MUSEUM_DEFAULT_TIMES);
+      fg->set_freenums(pSpinResult->realfgnums());
+
+      auto code = m_logic.startGameMod(::natashapb::FREE_GAME, &sp, pLogicUser);
+      if (code != ::natashapb::OK) {
+        return code;
+      }
+
+      // printf("start FG\n");
+    }
+
     return ::natashapb::OK;
   }
 
@@ -253,6 +259,8 @@ class MuseumBaseGame : public SlotsGameMod {
     if (pUser->cascadinginfo().isend()) {
       pUser->mutable_cascadinginfo()->set_turnnums(0);
       pUser->mutable_cascadinginfo()->set_turnwin(0);
+
+      pUser->mutable_fgcache()->set_fgnums(0);
 
       this->clearRespinHistory(pUser);
     }

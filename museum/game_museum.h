@@ -15,7 +15,7 @@ const int MUSEUM_DEFAULT_LINES = 243;
 const int MUSEUM_DEFAULT_PAY_LINES = 30;
 const int MUSEUM_DEFAULT_TIMES = 1;
 
-const int MUSEUM_DEFAULT_FREENUMS = 10;
+// const int MUSEUM_DEFAULT_FREENUMS = 10;
 
 const SymbolType MUSEUM_SYMBOL_W = 0;
 const SymbolType MUSEUM_SYMBOL_S = 10;

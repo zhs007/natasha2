@@ -205,7 +205,7 @@ GameMod* Museum::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
   assert(pUserFG != NULL);
 
   if (pFG->isIn(pUserFG)) {
-    // printf("TLOD FG\n");
+    // printf("Museum FG\n");
 
     return pFG;
   }
@@ -241,7 +241,7 @@ void countRTP_museum() {
   auto pGameCtrl = new ::natashapb::GameCtrl();
   int64_t ctrlid = 1;
 
-  for (int i = 0; i <= 1000000; ++ctrlid) {
+  for (int i = 0; i < 100000000; ++ctrlid) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {

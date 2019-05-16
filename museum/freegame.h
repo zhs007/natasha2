@@ -33,7 +33,7 @@ class MuseumFreeGame : public SlotsGameMod {
     assert(pStart->has_freegame());
     assert(pStart->has_parentctrlid());
 
-    if (pStart->freegame().freenums() != MUSEUM_DEFAULT_FREENUMS) {
+    if (pStart->freegame().freenums() <= 0) {
       return ::natashapb::INVALID_START_FREEGAME_NUMS;
     }
 
@@ -157,11 +157,11 @@ class MuseumFreeGame : public SlotsGameMod {
       const ::natashapb::UserGameLogicInfo* pLogicUser) {
     auto turnnums = pUser->cascadinginfo().turnnums();
     auto pCfg = getUserConfig(pLogicUser);
-    if (turnnums >= pCfg->bgmysterywild_size()) {
-      turnnums = pCfg->bgmysterywild_size() - 1;
+    if (turnnums >= pCfg->fgmysterywild_size()) {
+      turnnums = pCfg->fgmysterywild_size() - 1;
     }
 
-    auto mwweight = pCfg->bgmysterywild(turnnums);
+    auto mwweight = pCfg->fgmysterywild(turnnums);
 
     FuncOnFillReels f =
         std::bind(museum_onfill, std::placeholders::_1, std::placeholders::_2,
@@ -207,17 +207,17 @@ class MuseumFreeGame : public SlotsGameMod {
 
     // check all line payout
     MuseumCountWays(*pSpinResult, pSpinResult->symbolblock().sb3x5(),
-                    m_paytables, pGameCtrl->spin().bet());
+                    m_paytables, pGameCtrl->freespin().bet());
 
     auto bonuswin = museum_procWildBomb<::natashapb::FREE_GAME>(
-        pGameCtrl->spin().bet(), *pCfg, pUser, pSpinResult);
+        pGameCtrl->freespin().bet(), *pCfg, pUser, pSpinResult);
 
     auto turnnums = pUser->cascadinginfo().turnnums();
-    if (turnnums >= pCfg->bgmultipliers_size()) {
-      turnnums = pCfg->bgmultipliers_size() - 1;
+    if (turnnums >= pCfg->fgmultipliers_size()) {
+      turnnums = pCfg->fgmultipliers_size() - 1;
     }
 
-    pSpinResult->set_awardmul(pCfg->bgmultipliers(turnnums));
+    pSpinResult->set_awardmul(pCfg->fgmultipliers(turnnums));
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul() +
                              bonuswin);
 
@@ -242,19 +242,19 @@ class MuseumFreeGame : public SlotsGameMod {
     assert(pLogicUser != NULL);
 
     // if need start free game
-    if (pSpinResult->realfgnums() > 0) {
+    if (pSpinResult->fgnums() > 0) {
       auto fi = pUser->mutable_freeinfo();
-      fi->set_lastnums(fi->lastnums() + pSpinResult->realfgnums());
+      fi->set_lastnums(fi->lastnums() + pSpinResult->fgnums());
     }
 
     // if respin
-    if (pSpinResult->realwin() > 0) {
+    if (pSpinResult->lstgri_size() > 0) {
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
       pUser->mutable_cascadinginfo()->set_turnwin(
           pUser->cascadinginfo().turnwin() + pSpinResult->realwin());
 
-      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->spin().bet());
+      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->freespin().bet());
       pUser->mutable_cascadinginfo()->set_turnnums(
           pUser->cascadinginfo().turnnums() + 1);
       pUser->mutable_cascadinginfo()->set_isend(false);
@@ -318,7 +318,7 @@ class MuseumFreeGame : public SlotsGameMod {
     assert(pLogicUser != NULL);
 
 #ifdef NATASHA_SERVER
-    pSpinResult->mutable_spin()->CopyFrom(pGameCtrl->spin());
+    pSpinResult->mutable_freespin()->CopyFrom(pGameCtrl->freespin());
 #endif  // NATASHA_SERVER
 
     if (pSpinResult->lstgri_size() > 0) {

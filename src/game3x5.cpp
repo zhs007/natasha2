@@ -188,8 +188,9 @@ void _randomNewReels3x5(const NormalReels3X5& reels,
   auto sb3x5 = sb->mutable_sb3x5();
 
   for (int x = 0; x < 5; ++x) {
-    uint32_t cr = rand() % reels.getReelsLength(
-                               x);  // randomScale(reels.getReelsLength(x));
+    // uint32_t cr = rand() % reels.getReelsLength(
+    //                            x);  // randomScale(reels.getReelsLength(x));
+    uint32_t cr = randomScale(reels.getReelsLength(x));
     pNRRR->add_reelsindex(cr);
   }
 
