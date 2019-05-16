@@ -105,6 +105,10 @@ class GameLogic {
     m_rtp.initModuleBonus(module, bonusName, maxNums);
   }
 
+  void addRTPSpecialSpinNums(::natashapb::GAMEMODTYPE module) {
+    m_rtp.addSpecialSpinNums(module);
+  }
+
   void outputRTP() { m_rtp.output(); }
 
   const RTP& getRTP() const { return m_rtp; }

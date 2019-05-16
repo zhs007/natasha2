@@ -493,6 +493,7 @@ message GameModuleRTP {
     int64 totalWin = 2;
     int64 spinNums = 3;
     int64 winNums = 4;
+    int64 inNums = 5;
 
     repeated SymbolRTPList symbols = 100;
     map<string, BonusRTPList> bonus = 101;

@@ -4761,6 +4761,12 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int64 winnums() const;
   void set_winnums(::google::protobuf::int64 value);
 
+  // int64 inNums = 5;
+  void clear_innums();
+  static const int kInNumsFieldNumber = 5;
+  ::google::protobuf::int64 innums() const;
+  void set_innums(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:natashapb.GameModuleRTP)
  private:
 
@@ -4776,6 +4782,7 @@ class GameModuleRTP : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int64 totalwin_;
   ::google::protobuf::int64 spinnums_;
   ::google::protobuf::int64 winnums_;
+  ::google::protobuf::int64 innums_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsGameModuleRTPImpl();
@@ -9289,6 +9296,20 @@ inline void GameModuleRTP::set_winnums(::google::protobuf::int64 value) {
   
   winnums_ = value;
   // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.winNums)
+}
+
+// int64 inNums = 5;
+inline void GameModuleRTP::clear_innums() {
+  innums_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GameModuleRTP::innums() const {
+  // @@protoc_insertion_point(field_get:natashapb.GameModuleRTP.inNums)
+  return innums_;
+}
+inline void GameModuleRTP::set_innums(::google::protobuf::int64 value) {
+  
+  innums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.GameModuleRTP.inNums)
 }
 
 // repeated .natashapb.SymbolRTPList symbols = 100;

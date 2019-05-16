@@ -299,6 +299,10 @@ class MuseumFreeGame : public SlotsGameMod {
       auto fi = pUser->mutable_freeinfo();
       fi->set_lastnums(fi->lastnums() - 1);
       fi->set_curnums(fi->curnums() + 1);
+
+#ifdef NATASHA_COUNTRTP
+      m_logic.addRTPSpecialSpinNums(m_gmt);
+#endif  // NATASHA_COUNTRTP
     }
 
     return ::natashapb::OK;

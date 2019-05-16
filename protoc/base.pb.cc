@@ -1460,6 +1460,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameModuleRTP, totalwin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameModuleRTP, spinnums_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameModuleRTP, winnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameModuleRTP, innums_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameModuleRTP, symbols_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameModuleRTP, bonus_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::RTP_GameModulesEntry_DoNotUse, _has_bits_),
@@ -1572,15 +1573,15 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 288, -1, sizeof(::natashapb::BonusRTPList)},
   { 294, 301, sizeof(::natashapb::GameModuleRTP_BonusEntry_DoNotUse)},
   { 303, -1, sizeof(::natashapb::GameModuleRTP)},
-  { 314, 321, sizeof(::natashapb::RTP_GameModulesEntry_DoNotUse)},
-  { 323, -1, sizeof(::natashapb::RTP)},
-  { 332, -1, sizeof(::natashapb::NormalReelstriptConfig)},
-  { 338, -1, sizeof(::natashapb::ReelstriptConfig)},
-  { 344, -1, sizeof(::natashapb::WeightConfig)},
-  { 351, -1, sizeof(::natashapb::MuseumRTPConfig)},
-  { 365, 372, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
-  { 374, 381, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
-  { 383, -1, sizeof(::natashapb::MuseumConfig)},
+  { 315, 322, sizeof(::natashapb::RTP_GameModulesEntry_DoNotUse)},
+  { 324, -1, sizeof(::natashapb::RTP)},
+  { 333, -1, sizeof(::natashapb::NormalReelstriptConfig)},
+  { 339, -1, sizeof(::natashapb::ReelstriptConfig)},
+  { 345, -1, sizeof(::natashapb::WeightConfig)},
+  { 352, -1, sizeof(::natashapb::MuseumRTPConfig)},
+  { 366, 373, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
+  { 375, 382, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
+  { 384, -1, sizeof(::natashapb::MuseumConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1758,68 +1759,69 @@ void AddDescriptorsImpl() {
       "\0132\024.natashapb.SymbolRTP\">\n\010BonusRTP\022\020\n\010t"
       "otalWin\030\001 \001(\003\022\017\n\007winNums\030\002 \001(\003\022\017\n\007realWi"
       "n\030\003 \001(\003\"0\n\014BonusRTPList\022 \n\003lst\030\001 \003(\0132\023.n"
-      "atashapb.BonusRTP\"\374\001\n\rGameModuleRTP\022\020\n\010t"
+      "atashapb.BonusRTP\"\214\002\n\rGameModuleRTP\022\020\n\010t"
       "otalBet\030\001 \001(\003\022\020\n\010totalWin\030\002 \001(\003\022\020\n\010spinN"
-      "ums\030\003 \001(\003\022\017\n\007winNums\030\004 \001(\003\022)\n\007symbols\030d "
-      "\003(\0132\030.natashapb.SymbolRTPList\0222\n\005bonus\030e"
-      " \003(\0132#.natashapb.GameModuleRTP.BonusEntr"
-      "y\032E\n\nBonusEntry\022\013\n\003key\030\001 \001(\t\022&\n\005value\030\002 "
-      "\001(\0132\027.natashapb.BonusRTPList:\0028\001\"\277\001\n\003RTP"
-      "\022\020\n\010totalBet\030\001 \001(\003\022\020\n\010totalWin\030\002 \001(\003\022\020\n\010"
-      "spinNums\030\003 \001(\003\0224\n\013gameModules\030d \003(\0132\037.na"
-      "tashapb.RTP.GameModulesEntry\032L\n\020GameModu"
-      "lesEntry\022\013\n\003key\030\001 \001(\t\022\'\n\005value\030\002 \001(\0132\030.n"
-      "atashapb.GameModuleRTP:\0028\001\"*\n\026NormalReel"
-      "striptConfig\022\020\n\010filename\030\001 \001(\t\"E\n\020Reelst"
-      "riptConfig\0221\n\006normal\030\001 \001(\0132!.natashapb.N"
-      "ormalReelstriptConfig\"4\n\014WeightConfig\022\017\n"
-      "\007weights\030\001 \003(\005\022\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017"
-      "MuseumRTPConfig\022\024\n\014bgReelstrips\030d \001(\t\022\024\n"
-      "\014bgBonusPrize\030e \003(\005\022\025\n\rbgMultipliers\030f \003"
-      "(\005\022.\n\rbgMysteryWild\030g \003(\0132\027.natashapb.We"
-      "ightConfig\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstr"
-      "ips\030\254\002 \001(\t\022\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026\n\rfgM"
-      "ultipliers\030\256\002 \003(\005\022/\n\rfgMysteryWild\030\257\002 \003("
-      "\0132\027.natashapb.WeightConfig\"\225\002\n\014MuseumCon"
-      "fig\022=\n\013reelstripts\030\001 \003(\0132(.natashapb.Mus"
-      "eumConfig.ReelstriptsEntry\022-\n\003rtp\030\002 \003(\0132"
-      " .natashapb.MuseumConfig.RtpEntry\032O\n\020Ree"
-      "lstriptsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001("
-      "\0132\033.natashapb.ReelstriptConfig:\0028\001\032F\n\010Rt"
-      "pEntry\022\013\n\003key\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.nat"
-      "ashapb.MuseumRTPConfig:\0028\001*\335\004\n\004CODE\022\006\n\002O"
-      "K\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220N\022\026\n\021INVAL"
-      "ID_LINES_CFG\020\221N\022\026\n\021INVALID_REELS_CFG\020\222N\022"
-      "$\n\036INVALID_START_GAMEMOD_TO_START\020\240\234\001\022!\n"
-      "\033INVALID_START_FREEGAME_NUMS\020\241\234\001\022\027\n\021INVA"
-      "LID_START_BET\020\242\234\001\022\031\n\023INVALID_START_LINES"
-      "\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234\001\022\031\n\023ALREA"
-      "DY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_PARENTID\020\246"
-      "\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247\234\001\022\021\n\013INVA"
-      "LID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001\022\023\n\rINVA"
-      "LID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMECTRL_GAMEMO"
-      "D\020\263\352\001\022!\n\033INVALID_CASCADING_FREESTATE\020\300\270\002"
-      "\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020\320\206\003\022!\n\033ERR"
-      "_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033\n\025ERR_INVA"
-      "LID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBUF_PARSE\020"
-      "\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT\020\223\277\005*\263\001\n\016G"
-      "AMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LEFT\020\001"
-      "\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021\n\rSC"
-      "ATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022\023\n\017SCA"
-      "TTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r\n\tWAY_RIGH"
-      "T\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAMEMODTYPE\022\014\n\010NULL_"
-      "MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020\002\022\016\n\nB"
-      "ONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023COMMON_"
-      "JACKPOT_GAME\020\005*L\n\022CASCADINGFREESTATE\022\017\n\013"
-      "NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME\020\001\022\020\n\014EN"
-      "D_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n\010NO_DEBUG\020"
-      "\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN\020\002\022\013\n\007BIG_"
-      "WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FREEGAME\020\005\022\017"
-      "\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMONJACKPOT\020\007"
-      "\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
+      "ums\030\003 \001(\003\022\017\n\007winNums\030\004 \001(\003\022\016\n\006inNums\030\005 \001"
+      "(\003\022)\n\007symbols\030d \003(\0132\030.natashapb.SymbolRT"
+      "PList\0222\n\005bonus\030e \003(\0132#.natashapb.GameMod"
+      "uleRTP.BonusEntry\032E\n\nBonusEntry\022\013\n\003key\030\001"
+      " \001(\t\022&\n\005value\030\002 \001(\0132\027.natashapb.BonusRTP"
+      "List:\0028\001\"\277\001\n\003RTP\022\020\n\010totalBet\030\001 \001(\003\022\020\n\010to"
+      "talWin\030\002 \001(\003\022\020\n\010spinNums\030\003 \001(\003\0224\n\013gameMo"
+      "dules\030d \003(\0132\037.natashapb.RTP.GameModulesE"
+      "ntry\032L\n\020GameModulesEntry\022\013\n\003key\030\001 \001(\t\022\'\n"
+      "\005value\030\002 \001(\0132\030.natashapb.GameModuleRTP:\002"
+      "8\001\"*\n\026NormalReelstriptConfig\022\020\n\010filename"
+      "\030\001 \001(\t\"E\n\020ReelstriptConfig\0221\n\006normal\030\001 \001"
+      "(\0132!.natashapb.NormalReelstriptConfig\"4\n"
+      "\014WeightConfig\022\017\n\007weights\030\001 \003(\005\022\023\n\013totalW"
+      "eight\030\002 \001(\005\"\214\002\n\017MuseumRTPConfig\022\024\n\014bgRee"
+      "lstrips\030d \001(\t\022\024\n\014bgBonusPrize\030e \003(\005\022\025\n\rb"
+      "gMultipliers\030f \003(\005\022.\n\rbgMysteryWild\030g \003("
+      "\0132\027.natashapb.WeightConfig\022\017\n\006fgNums\030\310\001 "
+      "\001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022\025\n\014fgBonusPri"
+      "ze\030\255\002 \003(\005\022\026\n\rfgMultipliers\030\256\002 \003(\005\022/\n\rfgM"
+      "ysteryWild\030\257\002 \003(\0132\027.natashapb.WeightConf"
+      "ig\"\225\002\n\014MuseumConfig\022=\n\013reelstripts\030\001 \003(\013"
+      "2(.natashapb.MuseumConfig.ReelstriptsEnt"
+      "ry\022-\n\003rtp\030\002 \003(\0132 .natashapb.MuseumConfig"
+      ".RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001"
+      "(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reelstript"
+      "Config:\0028\001\032F\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022)\n\005v"
+      "alue\030\002 \001(\0132\032.natashapb.MuseumRTPConfig:\002"
+      "8\001*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES"
+      "_CFG\020\220N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVAL"
+      "ID_REELS_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD"
+      "_TO_START\020\240\234\001\022!\n\033INVALID_START_FREEGAME_"
+      "NUMS\020\241\234\001\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INV"
+      "ALID_START_LINES\020\243\234\001\022\031\n\023INVALID_START_TI"
+      "MES\020\244\234\001\022\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020IN"
+      "VALID_PARENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAM"
+      "EMOD\020\247\234\001\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_L"
+      "INES\020\261\352\001\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID"
+      "_GAMECTRL_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADI"
+      "NG_FREESTATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCE"
+      "NARIO\020\320\206\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE"
+      "\020\220\277\005\022\033\n\025ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR"
+      "_PROTOBUF_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_"
+      "OBJECT\020\223\277\005*\263\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020"
+      "\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCAT"
+      "TER_LEFT\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTER"
+      "EX_LEFT\020\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LE"
+      "FT\020\007\022\r\n\tWAY_RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAME"
+      "MODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\t"
+      "FREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_G"
+      "AME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020\005*L\n\022CASCAD"
+      "INGFREESTATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_"
+      "FREEGAME\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nDEBUGST"
+      "ATE\022\014\n\010NO_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDI"
+      "UM_WIN\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DE"
+      "BUG_FREEGAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG"
+      "_COMMONJACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006prot"
+      "o3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6706);
+      descriptor, 6722);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -13915,6 +13917,7 @@ const int GameModuleRTP::kTotalBetFieldNumber;
 const int GameModuleRTP::kTotalWinFieldNumber;
 const int GameModuleRTP::kSpinNumsFieldNumber;
 const int GameModuleRTP::kWinNumsFieldNumber;
+const int GameModuleRTP::kInNumsFieldNumber;
 const int GameModuleRTP::kSymbolsFieldNumber;
 const int GameModuleRTP::kBonusFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -13935,15 +13938,15 @@ GameModuleRTP::GameModuleRTP(const GameModuleRTP& from)
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   bonus_.MergeFrom(from.bonus_);
   ::memcpy(&totalbet_, &from.totalbet_,
-    static_cast<size_t>(reinterpret_cast<char*>(&winnums_) -
-    reinterpret_cast<char*>(&totalbet_)) + sizeof(winnums_));
+    static_cast<size_t>(reinterpret_cast<char*>(&innums_) -
+    reinterpret_cast<char*>(&totalbet_)) + sizeof(innums_));
   // @@protoc_insertion_point(copy_constructor:natashapb.GameModuleRTP)
 }
 
 void GameModuleRTP::SharedCtor() {
   ::memset(&totalbet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&winnums_) -
-      reinterpret_cast<char*>(&totalbet_)) + sizeof(winnums_));
+      reinterpret_cast<char*>(&innums_) -
+      reinterpret_cast<char*>(&totalbet_)) + sizeof(innums_));
   _cached_size_ = 0;
 }
 
@@ -13980,8 +13983,8 @@ void GameModuleRTP::Clear() {
   symbols_.Clear();
   bonus_.Clear();
   ::memset(&totalbet_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&winnums_) -
-      reinterpret_cast<char*>(&totalbet_)) + sizeof(winnums_));
+      reinterpret_cast<char*>(&innums_) -
+      reinterpret_cast<char*>(&totalbet_)) + sizeof(innums_));
   _internal_metadata_.Clear();
 }
 
@@ -14045,6 +14048,20 @@ bool GameModuleRTP::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &winnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 inNums = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &innums_)));
         } else {
           goto handle_unusual;
         }
@@ -14130,6 +14147,11 @@ void GameModuleRTP::SerializeWithCachedSizes(
   // int64 winNums = 4;
   if (this->winnums() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->winnums(), output);
+  }
+
+  // int64 inNums = 5;
+  if (this->innums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->innums(), output);
   }
 
   // repeated .natashapb.SymbolRTPList symbols = 100;
@@ -14222,6 +14244,11 @@ void GameModuleRTP::SerializeWithCachedSizes(
   // int64 winNums = 4;
   if (this->winnums() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->winnums(), target);
+  }
+
+  // int64 inNums = 5;
+  if (this->innums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->innums(), target);
   }
 
   // repeated .natashapb.SymbolRTPList symbols = 100;
@@ -14355,6 +14382,13 @@ size_t GameModuleRTP::ByteSizeLong() const {
         this->winnums());
   }
 
+  // int64 inNums = 5;
+  if (this->innums() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->innums());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -14398,6 +14432,9 @@ void GameModuleRTP::MergeFrom(const GameModuleRTP& from) {
   if (from.winnums() != 0) {
     set_winnums(from.winnums());
   }
+  if (from.innums() != 0) {
+    set_innums(from.innums());
+  }
 }
 
 void GameModuleRTP::CopyFrom(const ::google::protobuf::Message& from) {
@@ -14430,6 +14467,7 @@ void GameModuleRTP::InternalSwap(GameModuleRTP* other) {
   swap(totalwin_, other->totalwin_);
   swap(spinnums_, other->spinnums_);
   swap(winnums_, other->winnums_);
+  swap(innums_, other->innums_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

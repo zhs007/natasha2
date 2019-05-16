@@ -106,6 +106,10 @@ GameLogic::~GameLogic() {}
   auto it = m_mapGameMod.find(gmt);
   assert(it != m_mapGameMod.end());
 
+#ifdef NATASHA_COUNTRTP
+  m_rtp.addInGameModule(gmt);
+#endif  // NATASHA_COUNTRTP
+
   return it->second->start(pLogicUser->mutable_freegame(), pStart);
 }
 
