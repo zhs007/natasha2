@@ -97,17 +97,108 @@ void loadStaticCascadingReels3X5(FileNameList& lstfn,
   }
 }
 
-// randomNew - random with NormalReels
-void randomNew(const NormalReels3X5& reels,
-               ::natashapb::NormalReelsRandomResult3X5* pNRRR) {
+// loadNormalReels - reelstrips.csv
+void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
+  scr.clear();
+
+  CSVFile csv;
+
+  if (csv.load(fn)) {
+#ifdef NATASHA_DEBUG
+    printf("loadNormalReels3X5 %d\n", csv.getLength());
+#endif  // NATASHA_DEBUG
+
+    int len[] = {0, 0, 0, 0, 0};
+
+    for (int i = 0; i < csv.getLength(); ++i) {
+      int p1 = std::stoi(csv.get(i, "R1"));
+      int p2 = std::stoi(csv.get(i, "R2"));
+      int p3 = std::stoi(csv.get(i, "R3"));
+      int p4 = std::stoi(csv.get(i, "R4"));
+      int p5 = std::stoi(csv.get(i, "R5"));
+
+      if (p1 < 0 && len[0] == 0) {
+        len[0] = i;
+      }
+
+      if (p2 < 0 && len[1] == 0) {
+        len[1] = i;
+      }
+
+      if (p3 < 0 && len[2] == 0) {
+        len[2] = i;
+      }
+
+      if (p4 < 0 && len[3] == 0) {
+        len[3] = i;
+      }
+
+      if (p5 < 0 && len[4] == 0) {
+        len[4] = i;
+      }
+    }
+
+    for (int i = 0; i < 5; ++i) {
+      if (len[i] == 0) {
+        len[i] = csv.getLength();
+      }
+
+#ifdef NATASHA_DEBUG
+      printf("loadNormalReels3X5 reel%d is %d\n", i, len[i]);
+#endif  // NATASHA_DEBUG
+
+      scr.resetReelsLength(i, len[i]);
+    }
+
+    for (int i = 0; i < csv.getLength(); ++i) {
+      int p1 = std::stoi(csv.get(i, "R1"));
+      int p2 = std::stoi(csv.get(i, "R2"));
+      int p3 = std::stoi(csv.get(i, "R3"));
+      int p4 = std::stoi(csv.get(i, "R4"));
+      int p5 = std::stoi(csv.get(i, "R5"));
+
+      if (p1 >= 0 && i < len[0]) {
+        scr.setReels(0, i, p1);
+      }
+
+      if (p2 >= 0 && i < len[1]) {
+        scr.setReels(1, i, p2);
+      }
+
+      if (p3 >= 0 && i < len[2]) {
+        scr.setReels(2, i, p3);
+      }
+
+      if (p4 >= 0 && i < len[3]) {
+        scr.setReels(3, i, p4);
+      }
+
+      if (p5 >= 0 && i < len[4]) {
+        scr.setReels(4, i, p5);
+      }
+    }
+  }
+}
+
+// _randomNewReels3x5 - random with NormalReels
+void _randomNewReels3x5(const NormalReels3X5& reels,
+                        ::natashapb::NormalReelsRandomResult3X5* pNRRR) {
   pNRRR->clear_reelsindex();
   auto sb = pNRRR->mutable_symbolblock();
   auto sb3x5 = sb->mutable_sb3x5();
 
   for (int x = 0; x < 5; ++x) {
+    // uint32_t cr = rand() % reels.getReelsLength(
+    //                            x);  // randomScale(reels.getReelsLength(x));
     uint32_t cr = randomScale(reels.getReelsLength(x));
     pNRRR->add_reelsindex(cr);
   }
+
+#ifdef NATASHA_DEBUG
+  printf("_randomNewReels3x5 index: \n %d %d %d %d %d\n", pNRRR->reelsindex(0),
+         pNRRR->reelsindex(1), pNRRR->reelsindex(2), pNRRR->reelsindex(3),
+         pNRRR->reelsindex(4));
+#endif  // NATASHA_DEBUG
 
   sb3x5->set_dat0_0(reels.getSymbol(0, pNRRR->reelsindex(0)));
   sb3x5->set_dat0_1(reels.getSymbol(1, pNRRR->reelsindex(1)));
@@ -125,7 +216,86 @@ void randomNew(const NormalReels3X5& reels,
   sb3x5->set_dat2_1(reels.getSymbol(1, pNRRR->reelsindex(1) + 2));
   sb3x5->set_dat2_2(reels.getSymbol(2, pNRRR->reelsindex(2) + 2));
   sb3x5->set_dat2_3(reels.getSymbol(3, pNRRR->reelsindex(3) + 2));
-  sb3x5->set_dat2_4(reels.getSymbol(4, pNRRR->reelsindex(4) + 2));    
+  sb3x5->set_dat2_4(reels.getSymbol(4, pNRRR->reelsindex(4) + 2));
+}
+
+// _fillReels3x5 - fill with NormalReels
+void _fillReels3x5(const NormalReels3X5& reels,
+                   const ::natashapb::SymbolBlock3X5& last3x5,
+                   ::natashapb::NormalReelsRandomResult3X5* pNRRR,
+                   FuncOnFillReels onfillreels) {
+  assert(pNRRR->reelsindex_size() == 5);
+
+  ::natashapb::SymbolBlock* pSB = pNRRR->mutable_symbolblock();
+  ::natashapb::SymbolBlock3X5* pSB35 = pSB->mutable_sb3x5();
+
+#ifdef NATASHA_DEBUG
+  printf("_fillReels3x5 start index: \n %d %d %d %d %d\n", pNRRR->reelsindex(0),
+         pNRRR->reelsindex(1), pNRRR->reelsindex(2), pNRRR->reelsindex(3),
+         pNRRR->reelsindex(4));
+#endif  // NATASHA_DEBUG
+
+  for (int y = 2; y >= 0; --y) {
+    for (int x = 0; x < 5; ++x) {
+      auto curs = getSymbolBlock3X5(&last3x5, x, y);
+      if (curs == -1) {
+        auto ci = pNRRR->reelsindex(x) - 1;
+        auto cs = reels.getSymbolEx(x, ci);
+
+        cs = onfillreels(x, y, cs);
+
+        setSymbolBlock3X5(pSB35, x, y, cs);
+
+        pNRRR->set_reelsindex(x, ci);
+      } else {
+        setSymbolBlock3X5(pSB35, x, y, curs);
+      }
+    }
+  }
+
+#ifdef NATASHA_DEBUG
+  printf("_fillReels3x5 start index: \n %d %d %d %d %d\n", pNRRR->reelsindex(0),
+         pNRRR->reelsindex(1), pNRRR->reelsindex(2), pNRRR->reelsindex(3),
+         pNRRR->reelsindex(4));
+#endif  // NATASHA_DEBUG
+}
+
+// randomReels3x5 - random normal reels
+void randomReels3x5(const NormalReels3X5& reels,
+                    ::natashapb::RandomResult* pRandomResult,
+                    const ::natashapb::UserGameModInfo* pUGMI,
+                    FuncOnFillReels onfillreels) {
+  assert(pRandomResult != NULL);
+
+  if (pUGMI->cascadinginfo().isend()) {
+    ::natashapb::NormalReelsRandomResult3X5* pNRRR =
+        pRandomResult->mutable_nrrr3x5();
+
+    _randomNewReels3x5(reels, pNRRR);
+
+    return;
+  }
+
+  if (!pRandomResult->has_nrrr3x5()) {
+    ::natashapb::NormalReelsRandomResult3X5* pNRRR =
+        pRandomResult->mutable_nrrr3x5();
+
+    _randomNewReels3x5(reels, pNRRR);
+  } else {
+    const ::natashapb::NormalReelsRandomResult3X5& nrrr =
+        pRandomResult->nrrr3x5();
+    if (nrrr.reelsindex_size() != 5) {
+      ::natashapb::NormalReelsRandomResult3X5* pNRRR =
+          pRandomResult->mutable_nrrr3x5();
+
+      _randomNewReels3x5(reels, pNRRR);
+    } else {
+      ::natashapb::NormalReelsRandomResult3X5* pNRRR =
+          pRandomResult->mutable_nrrr3x5();
+
+      _fillReels3x5(reels, pUGMI->symbolblock().sb3x5(), pNRRR, onfillreels);
+    }
+  }
 }
 
 }  // namespace natasha

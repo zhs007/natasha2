@@ -155,6 +155,12 @@ enum GAMERESULTTYPE {
     SCATTEREX_LEFT = 5;
     // scatterex from right to left
     SCATTEREX_RIGHT = 6;
+    // way from left to right
+    WAY_LEFT = 7;
+    // way from right to left
+    WAY_RIGHT = 8;
+    // special
+    SPECIAL = 9;
 };
 
 // GameResultInfo - game result info
@@ -212,6 +218,8 @@ message SpinResult {
     // realFGNums - real freegame nums
     //            - 该局结束后，需要进免费游戏，且这个是免费游戏实际的免费次数
     int32 realFGNums = 11;
+    // specialTriggered - 特殊效果是否触发，部分游戏用
+    int32 specialTriggered = 12;
 
     // symbolblock - symbol block
     SymbolBlock symbolblock = 100;
@@ -268,6 +276,11 @@ message BaseCascadingInfo {
     SymbolBlock symbolblock = 100;
 }
 
+// FGCache - freegame cache
+message FGCache {
+    int32 fgNums = 1;
+}
+
 // BaseFGInfo - basic free game data
 message BaseFreeInfo {
     int64 curBet = 1;
@@ -301,6 +314,7 @@ message UserGameModInfo {
     BaseCascadingInfo cascadingInfo = 13;
     RespinHistoryList lstHistory = 14;
     BaseFreeInfo freeInfo = 15;
+    FGCache fgCache = 16;
 
     SymbolBlock symbolblock = 100;
 
@@ -322,6 +336,8 @@ message UserGameLogicInfo {
     int64 curBet = 31;
     // realWin - 这一次的总赢得
     int64 realWin = 32;
+
+    string configName = 50;
 
     GAMEMODTYPE curGameModType = 100;
     GAMEMODTYPE nextGameModType = 101;
@@ -445,4 +461,83 @@ message StartGameMod {
 
     // Extended data reserved for the game
     google.protobuf.Any exDat = 1000;
+}
+
+// SymbolRTP - RTP for the symbol
+message SymbolRTP {
+    int64 totalWin = 1;
+    int64 winNums = 2;
+    int64 realWin = 3;
+}
+
+// SymbolRTPList - RTP for the symbol
+message SymbolRTPList {
+    repeated SymbolRTP lst = 1;
+}
+
+// BonusRTP - RTP for the bonus
+message BonusRTP {
+    int64 totalWin = 1;
+    int64 winNums = 2;
+    int64 realWin = 3;
+}
+
+// BonusRTPList - RTP for the bonus
+message BonusRTPList {
+    repeated BonusRTP lst = 1;
+}
+
+// GameModuleRTP - RTP for the game module
+message GameModuleRTP {
+    int64 totalBet = 1;
+    int64 totalWin = 2;
+    int64 spinNums = 3;
+    int64 winNums = 4;
+    int64 inNums = 5;
+
+    repeated SymbolRTPList symbols = 100;
+    map<string, BonusRTPList> bonus = 101;
+}
+
+// RTP - RTP
+message RTP {
+    int64 totalBet = 1;
+    int64 totalWin = 2;
+    int64 spinNums = 3;
+
+    map<string, GameModuleRTP> gameModules = 100;
+}
+
+// NormalReelstriptConfig - normal reelstript config
+message NormalReelstriptConfig {
+    string filename = 1;
+}
+
+// ReelstriptConfig - reelstript config
+message ReelstriptConfig {
+    NormalReelstriptConfig normal = 1;
+}
+
+message WeightConfig {
+    repeated int32 weights = 1;
+    int32 totalWeight = 2;
+}
+
+message MuseumRTPConfig {
+    string bgReelstrips = 100;
+    repeated int32 bgBonusPrize = 101;
+    repeated int32 bgMultipliers = 102;
+    repeated WeightConfig bgMysteryWild = 103;
+
+    int32 fgNums = 200;
+
+    string fgReelstrips = 300;
+    repeated int32 fgBonusPrize = 301;
+    repeated int32 fgMultipliers = 302;
+    repeated WeightConfig fgMysteryWild = 303;
+}
+
+message MuseumConfig {
+    map<string, ReelstriptConfig> reelstripts = 1;
+    map<string, MuseumRTPConfig> rtp = 2;
 }

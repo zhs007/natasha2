@@ -13,7 +13,11 @@ template <typename SymbolType, GameCode gamecode>
 struct GameCfg {
   static bool isSameSymbol_OnLine(SymbolType s0, SymbolType s1);
 
+  static bool isSameSymbol_wild_OnLine(SymbolType s0, SymbolType& curs);
+
   static bool isScatter(SymbolType s);
+
+  static bool isWild(SymbolType s);
 
   static int getMaxScstterNums(SymbolType s);
 };

@@ -22,10 +22,6 @@ class GameLogic {
   typedef std::map< ::natashapb::GAMEMODTYPE, GameMod*> MapGameMod;
   typedef MapGameMod::const_iterator ConstMapGameModIter;
 
-#ifdef NATASHA_COUNTRTP
-  typedef RTP<MoneyType, SymbolType> _RTP;
-#endif  // NATASHA_COUNTRTP
-
  public:
   GameLogic();
   virtual ~GameLogic();
@@ -83,11 +79,20 @@ class GameLogic {
  public:
   virtual void onInitRTP() = 0;
 
-  void onRTPAddBet(MoneyType bet) { m_rtp.addBet(bet); }
+  void onRTPAddBet(::natashapb::GAMEMODTYPE module, MoneyType bet) {
+    m_rtp.addBet(module, bet);
+  }
 
-  void onRTPAddPayout(::natashapb::GAMEMODTYPE module, SymbolType s, int nums,
-                      MoneyType payout) {
-    m_rtp.addPayout(module, s, nums, payout);
+  void onRTPAddPayout(::natashapb::GAMEMODTYPE module, MoneyType payout) {
+    m_rtp.addPayout(module, payout);
+  }
+
+  virtual void onRTPAddPayoutGRI(::natashapb::GAMEMODTYPE module,
+                                 const ::natashapb::SpinResult& spinret,
+                                 const ::natashapb::GameResultInfo& gri,
+                                 const ::natashapb::UserGameModInfo* pUser) {
+    m_rtp.addSymbolPayout(module, gri.symbol(), gri.lstsymbol_size(),
+                          gri.realwin());
   }
 
   void addRTPModule(::natashapb::GAMEMODTYPE module, int maxNums,
@@ -95,7 +100,18 @@ class GameLogic {
     m_rtp.addModule(module, maxNums, maxSymbol);
   }
 
+  void addRTPModuleBonus(::natashapb::GAMEMODTYPE module, const char* bonusName,
+                         int maxNums) {
+    m_rtp.initModuleBonus(module, bonusName, maxNums);
+  }
+
+  void addRTPSpecialSpinNums(::natashapb::GAMEMODTYPE module) {
+    m_rtp.addSpecialSpinNums(module);
+  }
+
   void outputRTP() { m_rtp.output(); }
+
+  const RTP& getRTP() const { return m_rtp; }
 #endif  // NATASHA_COUNTRTP
 
  protected:
@@ -103,7 +119,7 @@ class GameLogic {
   FuncProcGameCtrlResult m_funcProcGameCtrlResult;
 
 #ifdef NATASHA_COUNTRTP
-  _RTP m_rtp;
+  RTP m_rtp;
 #endif  // NATASHA_COUNTRTP
 };
 

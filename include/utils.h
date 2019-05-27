@@ -21,7 +21,7 @@ typedef float MoneyType;
 
 typedef int64_t CtrlID;
 
-const char SYMBOL_MAPPING[] = " abcdefghijklmnopqrstuvwxyz";
+const char SYMBOL_MAPPING[] = " wabcdefghijklmnopqrstuvxyz";
 
 template <typename SrcValueType, typename DestValueType>
 class Mapping {
@@ -95,6 +95,9 @@ void printGameCtrlID(const char* str, const ::natashapb::GameCtrlID& gcid);
 
 // pathAppend
 std::string pathAppend(const std::string& p1, const std::string& p2);
+
+// getGameModuleName
+const char* getGameModuleName(::natashapb::GAMEMODTYPE module);
 
 }  // namespace natasha
 

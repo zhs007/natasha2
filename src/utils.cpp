@@ -41,6 +41,21 @@ void printSymbolBlock3X5(const char* str,
                          const char* strMapping) {
   assert(pSB != NULL);
   assert(strMapping != NULL);
+  assert(pSB->dat0_0() + 1 >= 0 && pSB->dat0_0() + 1 < strlen(strMapping));
+  assert(pSB->dat0_1() + 1 >= 0 && pSB->dat0_1() + 1 < strlen(strMapping));
+  assert(pSB->dat0_2() + 1 >= 0 && pSB->dat0_2() + 1 < strlen(strMapping));
+  assert(pSB->dat0_3() + 1 >= 0 && pSB->dat0_3() + 1 < strlen(strMapping));
+  assert(pSB->dat0_4() + 1 >= 0 && pSB->dat0_4() + 1 < strlen(strMapping));
+  assert(pSB->dat1_0() + 1 >= 0 && pSB->dat1_0() + 1 < strlen(strMapping));
+  assert(pSB->dat1_1() + 1 >= 0 && pSB->dat1_1() + 1 < strlen(strMapping));
+  assert(pSB->dat1_2() + 1 >= 0 && pSB->dat1_2() + 1 < strlen(strMapping));
+  assert(pSB->dat1_3() + 1 >= 0 && pSB->dat1_3() + 1 < strlen(strMapping));
+  assert(pSB->dat1_4() + 1 >= 0 && pSB->dat1_4() + 1 < strlen(strMapping));
+  assert(pSB->dat2_0() + 1 >= 0 && pSB->dat2_0() + 1 < strlen(strMapping));
+  assert(pSB->dat2_1() + 1 >= 0 && pSB->dat2_1() + 1 < strlen(strMapping));
+  assert(pSB->dat2_2() + 1 >= 0 && pSB->dat2_2() + 1 < strlen(strMapping));
+  assert(pSB->dat2_3() + 1 >= 0 && pSB->dat2_3() + 1 < strlen(strMapping));
+  assert(pSB->dat2_4() + 1 >= 0 && pSB->dat2_4() + 1 < strlen(strMapping));
 
   if (str != NULL) {
     printf("%s\n", str);
@@ -74,6 +89,16 @@ void printRandomResult(const char* str,
         printSymbolBlock3X5(str, &sb3x5, strMapping);
       }
     }
+  } else if (pRandomResult->has_nrrr3x5()) {
+    auto rsc = pRandomResult->nrrr3x5();
+    if (rsc.has_symbolblock()) {
+      auto sb = rsc.symbolblock();
+      if (sb.has_sb3x5()) {
+        auto sb3x5 = sb.sb3x5();
+
+        printSymbolBlock3X5(str, &sb3x5, strMapping);
+      }
+    }
   }
 }
 
@@ -88,8 +113,9 @@ void printSpinResult(const char* str,
     printf("%s\n", str);
   }
 
-  printf("symbol win is %lld, real win is %lld\n", pSpinResult->win(),
-         pSpinResult->realwin());
+  printf("symbol win is %lld, real win is %lld, win nums is %d\n",
+         pSpinResult->win(), pSpinResult->realwin(),
+         pSpinResult->lstgri_size());
 
   for (int i = 0; i < pSpinResult->lstgri_size(); ++i) {
     auto gri = pSpinResult->lstgri(i);
@@ -103,8 +129,10 @@ void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
   assert(pGameResultInfo != NULL);
   assert(strMapping != NULL);
 
-  printf("symbol %d payout is %lld line is %d\n", pGameResultInfo->symbol(),
-         pGameResultInfo->mul(), pGameResultInfo->lineindex());
+  printf("%d symbol %d payout is %lld(%lld) line is %d\n",
+         pGameResultInfo->typegameresult(), pGameResultInfo->symbol(),
+         pGameResultInfo->realwin(), pGameResultInfo->mul(),
+         pGameResultInfo->lineindex());
 
   for (int i = 0; i < pGameResultInfo->lstsymbol_size(); ++i) {
     printf("%c ", strMapping[pGameResultInfo->lstsymbol(i) + 1]);
@@ -151,8 +179,18 @@ std::string pathAppend(const std::string& p1, const std::string& p2) {
   if (p1[p1.length()] != sep) {
     tmp += sep;
     return (tmp + p2);
-  } else
-    return (p1 + p2);
+  }
+
+  return (p1 + p2);
+}
+
+// getGameModuleName
+const char* getGameModuleName(::natashapb::GAMEMODTYPE module) {
+  const char* name[] = {
+      "null", "basegame", "freegame", "bonus", "jackpot", "commonjackpot",
+  };
+
+  return name[(int)module];
 }
 
 }  // namespace natasha

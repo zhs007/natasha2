@@ -1,26 +1,27 @@
-#ifndef __NATASHA_TLOD_FREEGAME_H__
-#define __NATASHA_TLOD_FREEGAME_H__
+#ifndef __NATASHA_MUSEUM_FREEGAME_H__
+#define __NATASHA_MUSEUM_FREEGAME_H__
 
 #include <assert.h>
 #include <vector>
 #include "../include/game3x5.h"
 #include "../include/gamelogic.h"
-#include "game_tlod.h"
+#include "game_museum.h"
 
 namespace natasha {
 
-const int32_t TLOD_FG_UGMI_VER = 1;
+const int32_t MUSEUM_FG_UGMI_VER = 1;
 
-class TLODFreeGame : public SlotsGameMod {
+class MuseumFreeGame : public SlotsGameMod {
  public:
-  TLODFreeGame(GameLogic& logic, StaticCascadingReels3X5& reels,
-               Paytables3X5& paytables, Lines3X5& lines, BetList& lstBet)
+  MuseumFreeGame(GameLogic& logic, NormalReels3X5& reels,
+                 Paytables3X5& paytables, BetList& lstBet,
+                 ::natashapb::MuseumConfig& cfg)
       : SlotsGameMod(logic, ::natashapb::FREE_GAME),
         m_reels(reels),
         m_paytables(paytables),
-        m_lines(lines),
-        m_lstBet(lstBet) {}
-  virtual ~TLODFreeGame() {}
+        m_lstBet(lstBet),
+        m_cfg(cfg) {}
+  virtual ~MuseumFreeGame() {}
 
  public:
   virtual ::natashapb::CODE init() { return ::natashapb::OK; }
@@ -32,15 +33,15 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pStart->has_freegame());
     assert(pStart->has_parentctrlid());
 
-    if (pStart->freegame().freenums() != TLOD_DEFAULT_FREENUMS) {
+    if (pStart->freegame().freenums() <= 0) {
       return ::natashapb::INVALID_START_FREEGAME_NUMS;
     }
 
-    if (pStart->freegame().lines() != TLOD_DEFAULT_PAY_LINES) {
+    if (pStart->freegame().lines() != MUSEUM_DEFAULT_PAY_LINES) {
       return ::natashapb::INVALID_START_LINES;
     }
 
-    if (pStart->freegame().times() != TLOD_DEFAULT_TIMES) {
+    if (pStart->freegame().times() != MUSEUM_DEFAULT_TIMES) {
       return ::natashapb::INVALID_START_TIMES;
     }
 
@@ -90,7 +91,7 @@ class TLODFreeGame : public SlotsGameMod {
 
     // 版本号用来区分数据版本
     // 版本号也可以用于判断数据是否已经初始化
-    if (pUser->ver() != TLOD_FG_UGMI_VER) {
+    if (pUser->ver() != MUSEUM_FG_UGMI_VER) {
       auto code = this->clearUGMI(pUser);
       if (code != ::natashapb::OK) {
         return code;
@@ -134,9 +135,10 @@ class TLODFreeGame : public SlotsGameMod {
 
     auto spinctrl = pGameCtrl->mutable_freespin();
     spinctrl->set_bet(pUser->freeinfo().curbet());
-    spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
-    spinctrl->set_times(TLOD_DEFAULT_TIMES);
-    spinctrl->set_totalbet(pUser->freeinfo().curbet() * TLOD_DEFAULT_PAY_LINES);
+    spinctrl->set_lines(MUSEUM_DEFAULT_PAY_LINES);
+    spinctrl->set_times(MUSEUM_DEFAULT_TIMES);
+    spinctrl->set_totalbet(pUser->freeinfo().curbet() *
+                           MUSEUM_DEFAULT_PAY_LINES);
     spinctrl->set_realbet(0);
 
     auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
@@ -153,7 +155,19 @@ class TLODFreeGame : public SlotsGameMod {
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::UserGameLogicInfo* pLogicUser) {
-    m_reels.random(pRandomResult, pUser);
+    auto turnnums = pUser->cascadinginfo().turnnums();
+    auto pCfg = getUserConfig(pLogicUser);
+    if (turnnums >= pCfg->fgmysterywild_size()) {
+      turnnums = pCfg->fgmysterywild_size() - 1;
+    }
+
+    auto mwweight = pCfg->fgmysterywild(turnnums);
+
+    FuncOnFillReels f =
+        std::bind(museum_onfill, std::placeholders::_1, std::placeholders::_2,
+                  std::placeholders::_3, mwweight);
+
+    randomReels3x5(m_reels, pRandomResult, pUser, f);
 
     return ::natashapb::OK;
   }
@@ -170,54 +184,48 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pRandomResult != NULL);
     assert(pUser != NULL);
 
+    auto pCfg = getUserConfig(pLogicUser);
+
+#ifdef NATASHA_DEBUG
+    printRandomResult("countSpinResult", pRandomResult, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
+
     pSpinResult->Clear();
 
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
-                                     pRandomResult, pLogicUser, NULL);
+                                     pRandomResult, pLogicUser, pCfg);
 
     // First check free
     ::natashapb::GameResultInfo gri;
-    TLODCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
-                     TLOD_SYMBOL_S,
-                     pGameCtrl->freespin().bet() * TLOD_DEFAULT_PAY_LINES);
+    MuseumCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
+                       MUSEUM_SYMBOL_S, pGameCtrl->freespin().totalbet());
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
-      gri.set_win(0);
-      gri.set_realwin(0);
-
       pCurGRI->CopyFrom(gri);
+      pSpinResult->set_fgnums(pCfg->fgnums());
 
-      pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
-      pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
-
-      // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
-
-      // if (pUser->cascadinginfo().freestate() == ::natashapb::NO_FREEGAME) {
-      //   pCurGRI->set_typegameresult(::natashapb::SCATTEREX_LEFT);
-      //   pCurGRI->set_win(0);
-      //   pCurGRI->set_realwin(0);
-
-      //   pSpinResult->set_infg(true);
-      //   pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
-      //   pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
-
-      //   return ::natashapb::OK;
-
-      // } else if (pUser->cascadinginfo().freestate() ==
-      //            ::natashapb::END_FREEGAME) {
-      //   pSpinResult->set_win(pSpinResult->win() + gri.win());
-      //   pSpinResult->set_realwin(pSpinResult->realwin() + gri.realwin());
-      // } else {
-      //   return ::natashapb::INVALID_CASCADING_FREESTATE;
-      // }
+      pSpinResult->set_win(pSpinResult->win() + pCurGRI->win());
     }
 
     // check all line payout
-    TLODCountAllLine(*pSpinResult, pSpinResult->symbolblock().sb3x5(), m_lines,
-                     m_paytables, pGameCtrl->freespin().bet());
+    MuseumCountWays(*pSpinResult, pSpinResult->symbolblock().sb3x5(),
+                    m_paytables, pGameCtrl->freespin().bet());
 
-    pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 3);
-    pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
+    auto bonuswin = museum_procWildBomb<::natashapb::FREE_GAME>(
+        pGameCtrl->freespin().bet(), *pCfg, pUser, pSpinResult);
+
+    auto turnnums = pUser->cascadinginfo().turnnums();
+    if (turnnums >= pCfg->fgmultipliers_size()) {
+      turnnums = pCfg->fgmultipliers_size() - 1;
+    }
+
+    pSpinResult->set_awardmul(pCfg->fgmultipliers(turnnums));
+    pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul() +
+                             bonuswin);
+
+#ifdef NATASHA_DEBUG
+    printSpinResult("countSpinResult", pSpinResult, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
 
     return ::natashapb::OK;
   }
@@ -236,27 +244,23 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pLogicUser != NULL);
 
     // if need start free game
-    if (pSpinResult->realfgnums() > 0) {
+    if (pSpinResult->fgnums() > 0) {
       auto fi = pUser->mutable_freeinfo();
-      fi->set_lastnums(fi->lastnums() + pSpinResult->realfgnums());
+      fi->set_lastnums(fi->lastnums() + pSpinResult->fgnums());
     }
 
     // if respin
-    if (pSpinResult->realwin() > 0) {
-      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->spin().bet());
+    if (pSpinResult->lstgri_size() > 0) {
+      this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
+
       pUser->mutable_cascadinginfo()->set_turnwin(
           pUser->cascadinginfo().turnwin() + pSpinResult->realwin());
+
+      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->freespin().bet());
       pUser->mutable_cascadinginfo()->set_turnnums(
           pUser->cascadinginfo().turnnums() + 1);
       pUser->mutable_cascadinginfo()->set_isend(false);
-
-      pUser->mutable_freeinfo()->set_totalwin(pUser->freeinfo().totalwin() +
-                                              pSpinResult->realwin());
-
-      // auto gamectrlid = pUser->mutable_gamectrlid();
-      // if (gamectrlid->baseid() > 0) {
-      //   return ::natashapb::OK;
-      // }
+      // printGameCtrlID("tlod basegame", pUser->gamectrlid());
     } else {
       pUser->mutable_cascadinginfo()->set_isend(true);
     }
@@ -297,6 +301,10 @@ class TLODFreeGame : public SlotsGameMod {
       auto fi = pUser->mutable_freeinfo();
       fi->set_lastnums(fi->lastnums() - 1);
       fi->set_curnums(fi->curnums() + 1);
+
+#ifdef NATASHA_COUNTRTP
+      m_logic.addRTPSpecialSpinNums(m_gmt);
+#endif  // NATASHA_COUNTRTP
     }
 
     return ::natashapb::OK;
@@ -316,7 +324,7 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pLogicUser != NULL);
 
 #ifdef NATASHA_SERVER
-    pSpinResult->mutable_spin()->CopyFrom(pGameCtrl->freespin());
+    pSpinResult->mutable_freespin()->CopyFrom(pGameCtrl->freespin());
 #endif  // NATASHA_SERVER
 
     if (pSpinResult->lstgri_size() > 0) {
@@ -327,10 +335,12 @@ class TLODFreeGame : public SlotsGameMod {
       removeBlock3X5WithGameResult(sb3x5, pSpinResult);
       cascadeBlock3X5(sb3x5);
 
-      // printSymbolBlock3X5("onSpinEnd", sb3x5, TLOD_SYMBOL_MAPPING);
+#ifdef NATASHA_DEBUG
+      printSymbolBlock3X5("onSpinEnd", sb3x5, MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
     } else {
-      auto scrr = pRandomResult->mutable_scrr3x5();
-      scrr->set_reelsindex(-1);
+      auto nrrr = pRandomResult->mutable_nrrr3x5();
+      // nrrr->set_reelsindex(-1);
     }
 
     return ::natashapb::OK;
@@ -351,7 +361,32 @@ class TLODFreeGame : public SlotsGameMod {
 
     auto sb = pSpinResult->mutable_symbolblock();
     auto sb3x5 = sb->mutable_sb3x5();
-    sb3x5->CopyFrom(pRandomResult->scrr3x5().symbolblock().sb3x5());
+
+    auto cfg = (const ::natashapb::MuseumRTPConfig*)pCfg;
+    if (cfg != NULL) {
+      auto turnnums = pUser->cascadinginfo().turnnums();
+#ifdef NATASHA_DEBUG
+      printf("buildSpinResultSymbolBlock %d\n", turnnums);
+      printSymbolBlock3X5("buildSpinResultSymbolBlock first",
+                          &(pRandomResult->nrrr3x5().symbolblock().sb3x5()),
+                          MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
+
+      if (turnnums == 0) {
+        auto spTriggered = museum_randWArr<::natashapb::FREE_GAME>(
+            *cfg, pRandomResult->nrrr3x5().symbolblock().sb3x5(), sb3x5);
+
+        pSpinResult->set_specialtriggered(spTriggered);
+      } else {
+        pSpinResult->set_specialtriggered(1);
+        sb3x5->CopyFrom(pRandomResult->nrrr3x5().symbolblock().sb3x5());
+      }
+
+#ifdef NATASHA_DEBUG
+      printSymbolBlock3X5("buildSpinResultSymbolBlock", sb3x5,
+                          MUSEUM_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
+    }
 
     return ::natashapb::OK;
   }
@@ -360,11 +395,11 @@ class TLODFreeGame : public SlotsGameMod {
   //           - 初始化用户游戏模块数据
   virtual ::natashapb::CODE clearUGMI(::natashapb::UserGameModInfo* pUser) {
     clearUGMI_BaseCascadingInfo(*pUser->mutable_cascadinginfo(),
-                                TLOD_DEFAULT_PAY_LINES, TLOD_DEFAULT_TIMES);
+                                MUSEUM_DEFAULT_PAY_LINES, MUSEUM_DEFAULT_TIMES);
 
     clearUGMI_GameCtrlID(*pUser->mutable_gamectrlid());
 
-    pUser->set_ver(TLOD_FG_UGMI_VER);
+    pUser->set_ver(MUSEUM_FG_UGMI_VER);
 
     return ::natashapb::OK;
   }
@@ -379,13 +414,109 @@ class TLODFreeGame : public SlotsGameMod {
     return true;
   }
 
+ public:
+  const ::natashapb::MuseumRTPConfig* getUserConfig(
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+    auto rtpcfg = m_cfg.rtp().find(pLogicUser->configname());
+    if (rtpcfg != m_cfg.rtp().end()) {
+      return &rtpcfg->second;
+    }
+
+    return NULL;
+  }
+
+  // void bomb(::natashapb::SymbolBlock3X5& tmp,
+  //           const ::natashapb::SymbolBlock3X5& sb3x5, int x, int y,
+  //           ::natashapb::GameResultInfo* pGRI) {
+  //   // printf("bomb %d %d\n", x, y);
+  //   for (int cy = y - 1; cy <= y + 1; ++cy) {
+  //     if (cy >= 0 && cy < MUSEUM_HEIGHT) {
+  //       for (int cx = x - 1; cx <= x + 1; ++cx) {
+  //         if (cx >= 0 && cx < MUSEUM_WIDTH) {
+  //           auto ctmps =
+  //               getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                              MUSEUM_HEIGHT>(&tmp, cx, cy);
+  //           if (ctmps == 0) {
+  //             if (cx == x && cy == y) {
+  //               auto cp = pGRI->add_lstpos();
+  //               cp->set_x(cx);
+  //               cp->set_y(cy);
+
+  //               setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                              MUSEUM_HEIGHT>(&tmp, cx, cy, -1);
+  //             } else {
+  //               auto cs =
+  //                   getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                  MUSEUM_HEIGHT>(&sb3x5, cx, cy);
+
+  //               if (cs != MUSEUM_SYMBOL_W && cs != MUSEUM_SYMBOL_S) {
+  //                 auto cp = pGRI->add_lstpos();
+  //                 cp->set_x(cx);
+  //                 cp->set_y(cy);
+
+  //                 setSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                MUSEUM_HEIGHT>(&tmp, cx, cy, -1);
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // MoneyType procWildBomb(MoneyType bet, const ::natashapb::MuseumRTPConfig&
+  // cfg,
+  //                        const ::natashapb::UserGameModInfo* pUser,
+  //                        ::natashapb::SpinResult* pSpinResult) {
+  //   if (pSpinResult->specialtriggered() > 0) {
+  //     ::natashapb::SymbolBlock3X5 tmp;
+  //     auto sb3x5 = pSpinResult->symbolblock().sb3x5();
+  //     auto pGRI = pSpinResult->add_lstgri();
+
+  //     removeBlock3X5WithGameResult(&tmp, pSpinResult);
+
+  //     for (int y = 0; y < MUSEUM_HEIGHT; ++y) {
+  //       for (int x = 1; x < MUSEUM_WIDTH; ++x) {
+  //         auto ctmps = getSymbolBlock<::natashapb::SymbolBlock3X5,
+  //         MUSEUM_WIDTH,
+  //                                     MUSEUM_HEIGHT>(&tmp, x, y);
+  //         auto cs = getSymbolBlock<::natashapb::SymbolBlock3X5, MUSEUM_WIDTH,
+  //                                  MUSEUM_HEIGHT>(&sb3x5, x, y);
+  //         if (cs == MUSEUM_SYMBOL_W) {
+  //           bomb(tmp, sb3x5, x, y, pGRI);
+  //         }
+  //       }
+  //     }
+
+  //     if (pGRI->lstpos_size() > 0) {
+  //       auto turnnums = pUser->cascadinginfo().turnnums();
+
+  //       if (turnnums >= cfg.fgbonusprize_size()) {
+  //         turnnums = cfg.fgbonusprize_size() - 1;
+  //       }
+
+  //       pGRI->set_mul(cfg.fgbonusprize(turnnums));
+  //       pGRI->set_typegameresult(::natashapb::SPECIAL);
+  //       pGRI->set_win(bet * pGRI->mul() * pGRI->lstpos_size());
+  //       pGRI->set_realwin(pGRI->win());
+
+  //       return pGRI->realwin();
+  //     } else {
+  //       pSpinResult->mutable_lstgri()->RemoveLast();
+  //     }
+  //   }
+
+  //   return 0;
+  // }
+
  protected:
-  StaticCascadingReels3X5& m_reels;
+  NormalReels3X5& m_reels;
   Paytables3X5& m_paytables;
-  Lines3X5& m_lines;
   BetList& m_lstBet;
+  ::natashapb::MuseumConfig& m_cfg;
 };
 
 }  // namespace natasha
 
-#endif  // __NATASHA_TLOD_FREEGAME_H__
+#endif  // __NATASHA_MUSEUM_FREEGAME_H__

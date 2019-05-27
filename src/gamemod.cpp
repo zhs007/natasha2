@@ -29,8 +29,8 @@ namespace natasha {
 
   for (int i = 0; i < MAX_NUMS_MAKEINITIALSCENARIO; ++i) {
     pUGMI->clear_randomresult();
-    auto code =
-        this->randomReels(pUGMI->mutable_randomresult(), pGameCtrl, pUGMI);
+    auto code = this->randomReels(pUGMI->mutable_randomresult(), pGameCtrl,
+                                  pUGMI, pLogicUser);
     if (code != ::natashapb::OK) {
       return code;
     }
@@ -44,6 +44,10 @@ namespace natasha {
     }
 
     if (pUGMI->spinresult().lstgri_size() == 0) {
+#ifdef NATASHA_DEBUG
+      printf("makeInitScenario OK (%d)\n", i);
+#endif  // NATASHA_DEBUG
+
       return ::natashapb::OK;
     }
   }

@@ -57,17 +57,24 @@ GameLogic::~GameLogic() {}
 
 #ifdef NATASHA_COUNTRTP
   if (pGameCtrl->has_spin()) {
+    // printf("gamectrl.spin.realbet %lld\n", pGameCtrl->spin().realbet());
+
     if (pGameCtrl->spin().realbet() > 0) {
-      onRTPAddBet(pGameCtrl->spin().realbet());
+      onRTPAddBet(curmod->getGameModType(), pGameCtrl->spin().realbet());
     }
   }
 
   if (curugmi->has_spinresult()) {
+    auto spinret = curugmi->spinresult();
+
     for (auto i = 0; i < curugmi->spinresult().lstgri_size(); ++i) {
       auto curgri = curugmi->spinresult().lstgri(i);
-      onRTPAddPayout(curmod->getGameModType(), curgri.symbol(),
-                     curgri.lstsymbol_size(), curgri.realwin());
+      onRTPAddPayoutGRI(
+          curmod->getGameModType(), spinret, curgri,
+          getUserGameModInfo(pLogicUser, curmod->getGameModType()));
     }
+
+    onRTPAddPayout(curmod->getGameModType(), spinret.realwin());
   }
 #endif  // NATASHA_COUNTRTP
 
@@ -98,6 +105,10 @@ GameLogic::~GameLogic() {}
     ::natashapb::UserGameLogicInfo* pLogicUser) {
   auto it = m_mapGameMod.find(gmt);
   assert(it != m_mapGameMod.end());
+
+#ifdef NATASHA_COUNTRTP
+  m_rtp.addInGameModule(gmt);
+#endif  // NATASHA_COUNTRTP
 
   return it->second->start(pLogicUser->mutable_freegame(), pStart);
 }

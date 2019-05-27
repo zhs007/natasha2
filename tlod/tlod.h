@@ -29,7 +29,7 @@ class TLOD : public GameLogic {
 #ifdef NATASHA_COUNTRTP
  public:
   virtual void onInitRTP() {
-    addRTPModule(::natashapb::BASE_GAME, MaxSymbols, MaxPayoutNums);
+    addRTPModule(::natashapb::BASE_GAME, TLODMaxSymbols, TLODMaxPayoutNums);
   }
 #endif  // NATASHA_COUNTRTP
  protected:

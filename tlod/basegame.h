@@ -74,7 +74,7 @@ class TLODBaseGame : public SlotsGameMod {
     auto spinctrl = pGameCtrl->mutable_spin();
 
     // if respin
-    if (pUser->cascadinginfo().turnnums() > 0) {
+    if (!pUser->cascadinginfo().isend()) {
       spinctrl->set_bet(pUser->cascadinginfo().curbet());
       spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
       spinctrl->set_times(TLOD_DEFAULT_TIMES);
@@ -101,7 +101,8 @@ class TLODBaseGame : public SlotsGameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser) {
+      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameLogicInfo* pLogicUser) {
     m_reels.random(pRandomResult, pUser);
 
     return ::natashapb::OK;
@@ -122,7 +123,7 @@ class TLODBaseGame : public SlotsGameMod {
     pSpinResult->Clear();
 
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
-                                     pRandomResult, pLogicUser);
+                                     pRandomResult, pLogicUser, NULL);
 
     // printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 
@@ -299,7 +300,7 @@ class TLODBaseGame : public SlotsGameMod {
       const ::natashapb::UserGameModInfo* pUser,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+      const ::natashapb::UserGameLogicInfo* pLogicUser, const void* pCfg) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);

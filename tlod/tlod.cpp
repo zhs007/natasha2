@@ -3,15 +3,15 @@
 
 namespace natasha {
 
-void outputReels(StaticCascadingReels3X5* pReels) {
-  for (int y = 0; y < pReels->getLength(); ++y) {
-    printf("outputReels y - %d\n", y);
-    for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
-      printf("outputReels x - %d\n", x);
-      printSymbolBlock3X5(NULL, pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
-    }
-  }
-}
+// void outputReels(StaticCascadingReels3X5* pReels) {
+//   for (int y = 0; y < pReels->getLength(); ++y) {
+//     printf("outputReels y - %d\n", y);
+//     for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
+//       printf("outputReels x - %d\n", x);
+//       printSymbolBlock3X5(NULL, pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
+//     }
+//   }
+// }
 
 ::natashapb::CODE TLOD::init(const char* cfgpath) {
   FileNameList lst;
