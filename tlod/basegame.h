@@ -39,6 +39,7 @@ class TLODBaseGame : public SlotsGameMod {
         return code;
       }
 
+      // why?
       pUser->mutable_cascadinginfo()->set_isend(true);
 
       auto pGameCtrl = new ::natashapb::GameCtrl();
@@ -66,6 +67,8 @@ class TLODBaseGame : public SlotsGameMod {
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
     assert(pUser->has_cascadinginfo());
+    assert(!pGameCtrl->has_freespin());
+    assert(pGameCtrl->has_spin());
 
     if (!pGameCtrl->has_spin()) {
       return ::natashapb::INVALID_GAMECTRL_GAMEMOD;
@@ -125,6 +128,9 @@ class TLODBaseGame : public SlotsGameMod {
     this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
                                      pRandomResult, pLogicUser, NULL);
 
+#ifdef NATASHA_DEBUG
+    printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
     // printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 
     // printf("start TLODCountScatter");
@@ -175,6 +181,9 @@ class TLODBaseGame : public SlotsGameMod {
     pSpinResult->set_awardmul(pUser->cascadinginfo().turnnums() + 1);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
 
+#ifdef NATASHA_DEBUG
+    printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
     // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
     return ::natashapb::OK;
@@ -195,6 +204,8 @@ class TLODBaseGame : public SlotsGameMod {
 
     // if need start free game
     if (pSpinResult->realfgnums() > 0) {
+      pUser->mutable_cascadinginfo()->set_freestate(::natashapb::CHG_TO_FREEGAME);
+
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
       // printGameCtrlID("tlod basegame", pUser->gamectrlid());
@@ -216,7 +227,7 @@ class TLODBaseGame : public SlotsGameMod {
         return code;
       }
 
-      pUser->mutable_cascadinginfo()->set_isend(true);
+      // pUser->mutable_cascadinginfo()->set_isend(true);
       this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
                              pSpinResult->awardmul(), true);
 
@@ -224,7 +235,7 @@ class TLODBaseGame : public SlotsGameMod {
     }
 
     // if respin
-    if (pSpinResult->realwin() > 0) {
+    if (pSpinResult->lstgri_size() > 0) {
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
       pUser->mutable_cascadinginfo()->set_turnwin(
@@ -253,6 +264,7 @@ class TLODBaseGame : public SlotsGameMod {
     if (pUser->cascadinginfo().isend()) {
       pUser->mutable_cascadinginfo()->set_turnnums(0);
       pUser->mutable_cascadinginfo()->set_turnwin(0);
+      pUser->mutable_cascadinginfo()->set_freestate(::natashapb::NO_FREEGAME);
 
       this->clearRespinHistory(pUser);
     }
@@ -276,6 +288,13 @@ class TLODBaseGame : public SlotsGameMod {
 #ifdef NATASHA_SERVER
     pSpinResult->mutable_spin()->CopyFrom(pGameCtrl->spin());
 #endif  // NATASHA_SERVER
+
+    // 中途进FG
+    if (pSpinResult->realfgnums() > 0) {
+      // pUser->mutable_cascadinginfo()->set_freestate(::natashapb::END_FREEGAME);
+
+      return ::natashapb::OK;
+    }
 
     if (pSpinResult->lstgri_size() > 0) {
       auto sb = pUser->mutable_symbolblock();
