@@ -81,6 +81,9 @@ void printRandomResult(const char* str,
 
   if (pRandomResult->has_scrr3x5()) {
     auto rsc = pRandomResult->scrr3x5();
+    printf("printRandomResult.scrr3x5 %d %d\n", rsc.reelsindex(),
+           rsc.downnums());
+
     if (rsc.has_symbolblock()) {
       auto sb = rsc.symbolblock();
       if (sb.has_sb3x5()) {

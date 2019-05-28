@@ -16,13 +16,13 @@ namespace natasha {
 ::natashapb::CODE TLOD::init(const char* cfgpath) {
   FileNameList lst;
 
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_0.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_1.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_2.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_3.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_4.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_5.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116e_payout95_6.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_0.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_1.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_2.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_3.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_4.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_5.csv"));
+  lst.push_back(pathAppend(cfgpath, "game116_payout95_6.csv"));
 
   loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
@@ -96,39 +96,60 @@ void countRTP_tlod() {
   int64_t totalbet = 0;
   int64_t totalpay = 0;
 
-  auto pGameCtrl = new ::natashapb::GameCtrl();
-  int64_t ctrlid = 1;
+  auto pGameCtrlBG = new ::natashapb::GameCtrl();
+  auto spin = pGameCtrlBG->mutable_spin();
+  spin->set_bet(1);
+  spin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
+  spin->set_times(natasha::TLOD_DEFAULT_TIMES);
 
-  for (int i = 0; i <= 1000000; ++ctrlid, ++i) {
+  auto pGameCtrlFG = new ::natashapb::GameCtrl();
+  auto freespin = pGameCtrlFG->mutable_freespin();
+  freespin->set_bet(1);
+  freespin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
+  freespin->set_times(natasha::TLOD_DEFAULT_TIMES);
+
+  int64_t ctrlid = 1;
+  bool fg = false;
+
+  for (int i = 0; i <= 1000; ++ctrlid) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
-      auto spin = pGameCtrl->mutable_spin();
-      spin->set_bet(1);
-      spin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
-      spin->set_times(natasha::TLOD_DEFAULT_TIMES);
+      pGameCtrlBG->set_ctrlid(ctrlid);
+
+      c = tlod.gameCtrl(pGameCtrlBG, pUGI);
+      if (c != natashapb::OK) {
+        printf("gameCtrl fail(%d)!\n", c);
+      }
+
     } else if (pUGI->nextgamemodtype() == natashapb::FREE_GAME) {
-      auto freespin = pGameCtrl->mutable_freespin();
-      freespin->set_bet(1);
-      freespin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
-      freespin->set_times(natasha::TLOD_DEFAULT_TIMES);
-    }
+      fg = true;
 
-    pGameCtrl->set_ctrlid(ctrlid);
+      printf("FG\n");
 
-    c = tlod.gameCtrl(pGameCtrl, pUGI);
-    if (c != natashapb::OK) {
-      printf("gameCtrl fail(%d)!\n", c);
+      pGameCtrlFG->set_ctrlid(ctrlid);
+
+      c = tlod.gameCtrl(pGameCtrlFG, pUGI);
+      if (c != natashapb::OK) {
+        printf("gameCtrl fail(%d)!\n", c);
+      }
     }
 
     if (pUGI->iscompleted()) {
+      printf("totalbet is %d %lld\n", i * 30, tlod.getRTP().rtp.totalbet());
+
       ++i;
+
+      if (fg) {
+        break;
+      }
     }
   }
 
   tlod.outputRTP();
 
-  delete pGameCtrl;
+  delete pGameCtrlBG;
+  delete pGameCtrlFG;
 
   printf("%ld\n", time(NULL));
 

@@ -126,6 +126,7 @@ class TLODFreeGame : public SlotsGameMod {
       ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::UserGameModInfo* pUser) {
     assert(pUser->has_cascadinginfo());
+    assert(!pGameCtrl->has_spin());
     assert(pUser->has_freeinfo());
 
     if (!pGameCtrl->has_freespin()) {
@@ -189,27 +190,6 @@ class TLODFreeGame : public SlotsGameMod {
 
       pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
       pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
-
-      // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
-
-      // if (pUser->cascadinginfo().freestate() == ::natashapb::NO_FREEGAME) {
-      //   pCurGRI->set_typegameresult(::natashapb::SCATTEREX_LEFT);
-      //   pCurGRI->set_win(0);
-      //   pCurGRI->set_realwin(0);
-
-      //   pSpinResult->set_infg(true);
-      //   pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
-      //   pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
-
-      //   return ::natashapb::OK;
-
-      // } else if (pUser->cascadinginfo().freestate() ==
-      //            ::natashapb::END_FREEGAME) {
-      //   pSpinResult->set_win(pSpinResult->win() + gri.win());
-      //   pSpinResult->set_realwin(pSpinResult->realwin() + gri.realwin());
-      // } else {
-      //   return ::natashapb::INVALID_CASCADING_FREESTATE;
-      // }
     }
 
     // check all line payout
