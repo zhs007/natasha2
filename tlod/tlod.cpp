@@ -111,7 +111,7 @@ void countRTP_tlod() {
   int64_t ctrlid = 1;
   bool fg = false;
 
-  for (int i = 0; i <= 1000; ++ctrlid) {
+  for (int i = 0; i <= 1000000; ++ctrlid) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
@@ -125,7 +125,7 @@ void countRTP_tlod() {
     } else if (pUGI->nextgamemodtype() == natashapb::FREE_GAME) {
       fg = true;
 
-      printf("FG\n");
+      // printf("FG\n");
 
       pGameCtrlFG->set_ctrlid(ctrlid);
 
@@ -136,13 +136,13 @@ void countRTP_tlod() {
     }
 
     if (pUGI->iscompleted()) {
-      printf("totalbet is %d %lld\n", i * 30, tlod.getRTP().rtp.totalbet());
+      // printf("totalbet is %d %lld\n", i * 30, tlod.getRTP().rtp.totalbet());
 
       ++i;
 
-      if (fg) {
-        break;
-      }
+      // if (fg) {
+      //   break;
+      // }
     }
   }
 

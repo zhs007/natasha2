@@ -55,6 +55,11 @@ void StaticCascadingReels3X5::random(
   assert(pRandomResult != NULL);
   // assert(pUGMI->symbolblock().has_sb3x5());
 
+  // 如果FG是中间进入的，这里需要跳过一回合
+  if (pUGMI->cascadinginfo().freestate() == ::natashapb::END_FREEGAME) {
+    return;
+  }
+
   if (pUGMI->cascadinginfo().isend()) {
     ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
         pRandomResult->mutable_scrr3x5();

@@ -57,7 +57,7 @@ GameLogic::~GameLogic() {}
 
 #ifdef NATASHA_COUNTRTP
   if (pGameCtrl->has_spin()) {
-    printf("gamectrl.spin.realbet %lld\n", pGameCtrl->spin().realbet());
+    // printf("gamectrl.spin.realbet %lld\n", pGameCtrl->spin().realbet());
 
     if (pGameCtrl->spin().realbet() > 0) {
       onRTPAddBet(curmod->getGameModType(), pGameCtrl->spin().realbet());

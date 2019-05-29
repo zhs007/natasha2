@@ -204,7 +204,10 @@ class TLODBaseGame : public SlotsGameMod {
 
     // if need start free game
     if (pSpinResult->realfgnums() > 0) {
-      pUser->mutable_cascadinginfo()->set_freestate(::natashapb::CHG_TO_FREEGAME);
+      pUser->mutable_cascadinginfo()->set_freestate(
+          ::natashapb::CHG_TO_FREEGAME);
+
+      pUser->mutable_cascadinginfo()->set_isend(false);
 
       this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
 
@@ -291,9 +294,22 @@ class TLODBaseGame : public SlotsGameMod {
 
     // 中途进FG
     if (pSpinResult->realfgnums() > 0) {
-      // pUser->mutable_cascadinginfo()->set_freestate(::natashapb::END_FREEGAME);
+      auto sb = pUser->mutable_symbolblock();
+      auto sb3x5 = sb->mutable_sb3x5();
+
+      sb3x5->CopyFrom(pSpinResult->symbolblock().sb3x5());
+
+      pUser->mutable_cascadinginfo()->set_freestate(::natashapb::END_FREEGAME);
+
+#ifdef NATASHA_DEBUG
+      printUserGameModInfo("BG in FG", pUser, TLOD_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
 
       return ::natashapb::OK;
+    }
+
+    if (pUser->cascadinginfo().freestate() == ::natashapb::END_FREEGAME) {
+      pUser->mutable_cascadinginfo()->set_freestate(::natashapb::NO_FREEGAME);
     }
 
     if (pSpinResult->lstgri_size() > 0) {

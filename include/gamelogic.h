@@ -70,6 +70,11 @@ class GameLogic {
                                  const ::natashapb::StartGameMod* pStart,
                                  ::natashapb::UserGameLogicInfo* pLogicUser);
 
+  // // onEndGameMod - end game module for user
+  // //   Only for gamectrl
+  // ::natashapb::CODE onEndGameMod(::natashapb::GAMEMODTYPE gmt,
+  //                                ::natashapb::UserGameLogicInfo* pLogicUser);
+
   // setFuncProcGameCtrlResult - set FuncProcGameCtrlResult
   void setFuncProcGameCtrlResult(FuncProcGameCtrlResult func) {
     m_funcProcGameCtrlResult = func;
