@@ -513,9 +513,19 @@ message NormalReelstriptConfig {
     string filename = 1;
 }
 
+message StaticSymbols {
+    repeated int32 symbols = 1;
+}
+
+message StaticCascadingReels {
+    repeated StaticSymbols scenarios = 1;
+    repeated int32 weights = 2;
+}
+
 // ReelstriptConfig - reelstript config
 message ReelstriptConfig {
     NormalReelstriptConfig normal = 1;
+    StaticCascadingReels static = 2;
 }
 
 message WeightConfig {
@@ -540,4 +550,17 @@ message MuseumRTPConfig {
 message MuseumConfig {
     map<string, ReelstriptConfig> reelstripts = 1;
     map<string, MuseumRTPConfig> rtp = 2;
+}
+
+message TLODRTPConfig {
+    string bgReelstrips = 100;
+
+    int32 fgNums = 200;
+
+    string fgReelstrips = 300;
+}
+
+message TLODConfig {
+    map<string, ReelstriptConfig> reelstripts = 1;
+    map<string, TLODRTPConfig> rtp = 2;
 }

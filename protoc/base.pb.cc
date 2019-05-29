@@ -207,6 +207,16 @@ class NormalReelstriptConfigDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<NormalReelstriptConfig>
       _instance;
 } _NormalReelstriptConfig_default_instance_;
+class StaticSymbolsDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StaticSymbols>
+      _instance;
+} _StaticSymbols_default_instance_;
+class StaticCascadingReelsDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StaticCascadingReels>
+      _instance;
+} _StaticCascadingReels_default_instance_;
 class ReelstriptConfigDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ReelstriptConfig>
@@ -237,6 +247,26 @@ class MuseumConfigDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<MuseumConfig>
       _instance;
 } _MuseumConfig_default_instance_;
+class TLODRTPConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<TLODRTPConfig>
+      _instance;
+} _TLODRTPConfig_default_instance_;
+class TLODConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<TLODConfig_ReelstriptsEntry_DoNotUse>
+      _instance;
+} _TLODConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+class TLODConfig_RtpEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<TLODConfig_RtpEntry_DoNotUse>
+      _instance;
+} _TLODConfig_RtpEntry_DoNotUse_default_instance_;
+class TLODConfigDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<TLODConfig>
+      _instance;
+} _TLODConfig_default_instance_;
 }  // namespace natashapb
 namespace protobuf_base_2eproto {
 void InitDefaultsSymbolBlock3X5Impl() {
@@ -1014,6 +1044,49 @@ void InitDefaultsNormalReelstriptConfig() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsNormalReelstriptConfigImpl);
 }
 
+void InitDefaultsStaticSymbolsImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::natashapb::_StaticSymbols_default_instance_;
+    new (ptr) ::natashapb::StaticSymbols();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::StaticSymbols::InitAsDefaultInstance();
+}
+
+void InitDefaultsStaticSymbols() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsStaticSymbolsImpl);
+}
+
+void InitDefaultsStaticCascadingReelsImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsStaticSymbols();
+  {
+    void* ptr = &::natashapb::_StaticCascadingReels_default_instance_;
+    new (ptr) ::natashapb::StaticCascadingReels();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::StaticCascadingReels::InitAsDefaultInstance();
+}
+
+void InitDefaultsStaticCascadingReels() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsStaticCascadingReelsImpl);
+}
+
 void InitDefaultsReelstriptConfigImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -1023,6 +1096,7 @@ void InitDefaultsReelstriptConfigImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsNormalReelstriptConfig();
+  protobuf_base_2eproto::InitDefaultsStaticCascadingReels();
   {
     void* ptr = &::natashapb::_ReelstriptConfig_default_instance_;
     new (ptr) ::natashapb::ReelstriptConfig();
@@ -1144,7 +1218,93 @@ void InitDefaultsMuseumConfig() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsMuseumConfigImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[41];
+void InitDefaultsTLODRTPConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::natashapb::_TLODRTPConfig_default_instance_;
+    new (ptr) ::natashapb::TLODRTPConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::TLODRTPConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsTLODRTPConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsTLODRTPConfigImpl);
+}
+
+void InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsReelstriptConfig();
+  {
+    void* ptr = &::natashapb::_TLODConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+    new (ptr) ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse();
+  }
+  ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+void InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUseImpl);
+}
+
+void InitDefaultsTLODConfig_RtpEntry_DoNotUseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsTLODRTPConfig();
+  {
+    void* ptr = &::natashapb::_TLODConfig_RtpEntry_DoNotUse_default_instance_;
+    new (ptr) ::natashapb::TLODConfig_RtpEntry_DoNotUse();
+  }
+  ::natashapb::TLODConfig_RtpEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+void InitDefaultsTLODConfig_RtpEntry_DoNotUse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsTLODConfig_RtpEntry_DoNotUseImpl);
+}
+
+void InitDefaultsTLODConfigImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUse();
+  protobuf_base_2eproto::InitDefaultsTLODConfig_RtpEntry_DoNotUse();
+  {
+    void* ptr = &::natashapb::_TLODConfig_default_instance_;
+    new (ptr) ::natashapb::TLODConfig();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::TLODConfig::InitAsDefaultInstance();
+}
+
+void InitDefaultsTLODConfig() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsTLODConfigImpl);
+}
+
+::google::protobuf::Metadata file_level_metadata[47];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -1488,11 +1648,25 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::NormalReelstriptConfig, filename_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticSymbols, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticSymbols, symbols_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticCascadingReels, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticCascadingReels, scenarios_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticCascadingReels, weights_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, normal_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, static__),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1539,6 +1713,39 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig, reelstripts_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::MuseumConfig, rtp_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODRTPConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODRTPConfig, bgreelstrips_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODRTPConfig, fgnums_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODRTPConfig, fgreelstrips_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse, value_),
+  0,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_RtpEntry_DoNotUse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_RtpEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_RtpEntry_DoNotUse, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig_RtpEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig, reelstripts_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::TLODConfig, rtp_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::natashapb::SymbolBlock3X5)},
@@ -1576,12 +1783,18 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 315, 322, sizeof(::natashapb::RTP_GameModulesEntry_DoNotUse)},
   { 324, -1, sizeof(::natashapb::RTP)},
   { 333, -1, sizeof(::natashapb::NormalReelstriptConfig)},
-  { 339, -1, sizeof(::natashapb::ReelstriptConfig)},
-  { 345, -1, sizeof(::natashapb::WeightConfig)},
-  { 352, -1, sizeof(::natashapb::MuseumRTPConfig)},
-  { 366, 373, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
-  { 375, 382, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
-  { 384, -1, sizeof(::natashapb::MuseumConfig)},
+  { 339, -1, sizeof(::natashapb::StaticSymbols)},
+  { 345, -1, sizeof(::natashapb::StaticCascadingReels)},
+  { 352, -1, sizeof(::natashapb::ReelstriptConfig)},
+  { 359, -1, sizeof(::natashapb::WeightConfig)},
+  { 366, -1, sizeof(::natashapb::MuseumRTPConfig)},
+  { 380, 387, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
+  { 389, 396, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
+  { 398, -1, sizeof(::natashapb::MuseumConfig)},
+  { 405, -1, sizeof(::natashapb::TLODRTPConfig)},
+  { 413, 420, sizeof(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse)},
+  { 422, 429, sizeof(::natashapb::TLODConfig_RtpEntry_DoNotUse)},
+  { 431, -1, sizeof(::natashapb::TLODConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1620,12 +1833,18 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_RTP_GameModulesEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_RTP_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_NormalReelstriptConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticSymbols_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticCascadingReels_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_ReelstriptConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_WeightConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumRTPConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_ReelstriptsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_RtpEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_TLODRTPConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_TLODConfig_ReelstriptsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_TLODConfig_RtpEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_TLODConfig_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -1644,7 +1863,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 41);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 47);
 }
 
 void AddDescriptorsImpl() {
@@ -1772,23 +1991,36 @@ void AddDescriptorsImpl() {
       "ntry\032L\n\020GameModulesEntry\022\013\n\003key\030\001 \001(\t\022\'\n"
       "\005value\030\002 \001(\0132\030.natashapb.GameModuleRTP:\002"
       "8\001\"*\n\026NormalReelstriptConfig\022\020\n\010filename"
-      "\030\001 \001(\t\"E\n\020ReelstriptConfig\0221\n\006normal\030\001 \001"
-      "(\0132!.natashapb.NormalReelstriptConfig\"4\n"
-      "\014WeightConfig\022\017\n\007weights\030\001 \003(\005\022\023\n\013totalW"
-      "eight\030\002 \001(\005\"\214\002\n\017MuseumRTPConfig\022\024\n\014bgRee"
-      "lstrips\030d \001(\t\022\024\n\014bgBonusPrize\030e \003(\005\022\025\n\rb"
-      "gMultipliers\030f \003(\005\022.\n\rbgMysteryWild\030g \003("
-      "\0132\027.natashapb.WeightConfig\022\017\n\006fgNums\030\310\001 "
-      "\001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022\025\n\014fgBonusPri"
-      "ze\030\255\002 \003(\005\022\026\n\rfgMultipliers\030\256\002 \003(\005\022/\n\rfgM"
-      "ysteryWild\030\257\002 \003(\0132\027.natashapb.WeightConf"
-      "ig\"\225\002\n\014MuseumConfig\022=\n\013reelstripts\030\001 \003(\013"
-      "2(.natashapb.MuseumConfig.ReelstriptsEnt"
-      "ry\022-\n\003rtp\030\002 \003(\0132 .natashapb.MuseumConfig"
-      ".RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001"
-      "(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reelstript"
-      "Config:\0028\001\032F\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022)\n\005v"
-      "alue\030\002 \001(\0132\032.natashapb.MuseumRTPConfig:\002"
+      "\030\001 \001(\t\" \n\rStaticSymbols\022\017\n\007symbols\030\001 \003(\005"
+      "\"T\n\024StaticCascadingReels\022+\n\tscenarios\030\001 "
+      "\003(\0132\030.natashapb.StaticSymbols\022\017\n\007weights"
+      "\030\002 \003(\005\"v\n\020ReelstriptConfig\0221\n\006normal\030\001 \001"
+      "(\0132!.natashapb.NormalReelstriptConfig\022/\n"
+      "\006static\030\002 \001(\0132\037.natashapb.StaticCascadin"
+      "gReels\"4\n\014WeightConfig\022\017\n\007weights\030\001 \003(\005\022"
+      "\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017MuseumRTPConfig"
+      "\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBonusPrize\030e"
+      " \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n\rbgMystery"
+      "Wild\030g \003(\0132\027.natashapb.WeightConfig\022\017\n\006f"
+      "gNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022\025\n\014f"
+      "gBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultipliers\030\256\002 \003"
+      "(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.natashapb.W"
+      "eightConfig\"\225\002\n\014MuseumConfig\022=\n\013reelstri"
+      "pts\030\001 \003(\0132(.natashapb.MuseumConfig.Reels"
+      "triptsEntry\022-\n\003rtp\030\002 \003(\0132 .natashapb.Mus"
+      "eumConfig.RtpEntry\032O\n\020ReelstriptsEntry\022\013"
+      "\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.R"
+      "eelstriptConfig:\0028\001\032F\n\010RtpEntry\022\013\n\003key\030\001"
+      " \001(\t\022)\n\005value\030\002 \001(\0132\032.natashapb.MuseumRT"
+      "PConfig:\0028\001\"M\n\rTLODRTPConfig\022\024\n\014bgReelst"
+      "rips\030d \001(\t\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstr"
+      "ips\030\254\002 \001(\t\"\215\002\n\nTLODConfig\022;\n\013reelstripts"
+      "\030\001 \003(\0132&.natashapb.TLODConfig.Reelstript"
+      "sEntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.TLODConf"
+      "ig.RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001"
+      " \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reelstri"
+      "ptConfig:\0028\001\032D\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022\'\n"
+      "\005value\030\002 \001(\0132\030.natashapb.TLODRTPConfig:\002"
       "8\001*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES"
       "_CFG\020\220N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVAL"
       "ID_REELS_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD"
@@ -1821,7 +2053,7 @@ void AddDescriptorsImpl() {
       "o3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6722);
+      descriptor, 7242);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -15199,12 +15431,572 @@ void NormalReelstriptConfig::InternalSwap(NormalReelstriptConfig* other) {
 
 // ===================================================================
 
+void StaticSymbols::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int StaticSymbols::kSymbolsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+StaticSymbols::StaticSymbols()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsStaticSymbols();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.StaticSymbols)
+}
+StaticSymbols::StaticSymbols(const StaticSymbols& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      symbols_(from.symbols_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.StaticSymbols)
+}
+
+void StaticSymbols::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+StaticSymbols::~StaticSymbols() {
+  // @@protoc_insertion_point(destructor:natashapb.StaticSymbols)
+  SharedDtor();
+}
+
+void StaticSymbols::SharedDtor() {
+}
+
+void StaticSymbols::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* StaticSymbols::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const StaticSymbols& StaticSymbols::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsStaticSymbols();
+  return *internal_default_instance();
+}
+
+
+void StaticSymbols::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.StaticSymbols)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  symbols_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool StaticSymbols::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.StaticSymbols)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated int32 symbols = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_symbols())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 10u, input, this->mutable_symbols())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.StaticSymbols)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.StaticSymbols)
+  return false;
+#undef DO_
+}
+
+void StaticSymbols::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.StaticSymbols)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 symbols = 1;
+  if (this->symbols_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _symbols_cached_byte_size_));
+  }
+  for (int i = 0, n = this->symbols_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->symbols(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.StaticSymbols)
+}
+
+::google::protobuf::uint8* StaticSymbols::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.StaticSymbols)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 symbols = 1;
+  if (this->symbols_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _symbols_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->symbols_, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.StaticSymbols)
+  return target;
+}
+
+size_t StaticSymbols::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.StaticSymbols)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated int32 symbols = 1;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->symbols_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _symbols_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void StaticSymbols::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.StaticSymbols)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StaticSymbols* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const StaticSymbols>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.StaticSymbols)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.StaticSymbols)
+    MergeFrom(*source);
+  }
+}
+
+void StaticSymbols::MergeFrom(const StaticSymbols& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.StaticSymbols)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  symbols_.MergeFrom(from.symbols_);
+}
+
+void StaticSymbols::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.StaticSymbols)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StaticSymbols::CopyFrom(const StaticSymbols& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.StaticSymbols)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StaticSymbols::IsInitialized() const {
+  return true;
+}
+
+void StaticSymbols::Swap(StaticSymbols* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void StaticSymbols::InternalSwap(StaticSymbols* other) {
+  using std::swap;
+  symbols_.InternalSwap(&other->symbols_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata StaticSymbols::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void StaticCascadingReels::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int StaticCascadingReels::kScenariosFieldNumber;
+const int StaticCascadingReels::kWeightsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+StaticCascadingReels::StaticCascadingReels()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsStaticCascadingReels();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.StaticCascadingReels)
+}
+StaticCascadingReels::StaticCascadingReels(const StaticCascadingReels& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      scenarios_(from.scenarios_),
+      weights_(from.weights_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.StaticCascadingReels)
+}
+
+void StaticCascadingReels::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+StaticCascadingReels::~StaticCascadingReels() {
+  // @@protoc_insertion_point(destructor:natashapb.StaticCascadingReels)
+  SharedDtor();
+}
+
+void StaticCascadingReels::SharedDtor() {
+}
+
+void StaticCascadingReels::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* StaticCascadingReels::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const StaticCascadingReels& StaticCascadingReels::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsStaticCascadingReels();
+  return *internal_default_instance();
+}
+
+
+void StaticCascadingReels::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.StaticCascadingReels)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  scenarios_.Clear();
+  weights_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool StaticCascadingReels::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.StaticCascadingReels)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .natashapb.StaticSymbols scenarios = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_scenarios()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 weights = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_weights())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 18u, input, this->mutable_weights())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.StaticCascadingReels)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.StaticCascadingReels)
+  return false;
+#undef DO_
+}
+
+void StaticCascadingReels::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.StaticCascadingReels)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->scenarios_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1,
+      this->scenarios(static_cast<int>(i)),
+      output);
+  }
+
+  // repeated int32 weights = 2;
+  if (this->weights_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _weights_cached_byte_size_));
+  }
+  for (int i = 0, n = this->weights_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->weights(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.StaticCascadingReels)
+}
+
+::google::protobuf::uint8* StaticCascadingReels::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.StaticCascadingReels)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->scenarios_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->scenarios(static_cast<int>(i)), deterministic, target);
+  }
+
+  // repeated int32 weights = 2;
+  if (this->weights_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      2,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _weights_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->weights_, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.StaticCascadingReels)
+  return target;
+}
+
+size_t StaticCascadingReels::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.StaticCascadingReels)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->scenarios_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->scenarios(static_cast<int>(i)));
+    }
+  }
+
+  // repeated int32 weights = 2;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->weights_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _weights_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void StaticCascadingReels::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.StaticCascadingReels)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StaticCascadingReels* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const StaticCascadingReels>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.StaticCascadingReels)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.StaticCascadingReels)
+    MergeFrom(*source);
+  }
+}
+
+void StaticCascadingReels::MergeFrom(const StaticCascadingReels& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.StaticCascadingReels)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  scenarios_.MergeFrom(from.scenarios_);
+  weights_.MergeFrom(from.weights_);
+}
+
+void StaticCascadingReels::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.StaticCascadingReels)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StaticCascadingReels::CopyFrom(const StaticCascadingReels& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.StaticCascadingReels)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StaticCascadingReels::IsInitialized() const {
+  return true;
+}
+
+void StaticCascadingReels::Swap(StaticCascadingReels* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void StaticCascadingReels::InternalSwap(StaticCascadingReels* other) {
+  using std::swap;
+  CastToBase(&scenarios_)->InternalSwap(CastToBase(&other->scenarios_));
+  weights_.InternalSwap(&other->weights_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata StaticCascadingReels::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void ReelstriptConfig::InitAsDefaultInstance() {
   ::natashapb::_ReelstriptConfig_default_instance_._instance.get_mutable()->normal_ = const_cast< ::natashapb::NormalReelstriptConfig*>(
       ::natashapb::NormalReelstriptConfig::internal_default_instance());
+  ::natashapb::_ReelstriptConfig_default_instance_._instance.get_mutable()->static__ = const_cast< ::natashapb::StaticCascadingReels*>(
+      ::natashapb::StaticCascadingReels::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ReelstriptConfig::kNormalFieldNumber;
+const int ReelstriptConfig::kStaticFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ReelstriptConfig::ReelstriptConfig()
@@ -15225,11 +16017,18 @@ ReelstriptConfig::ReelstriptConfig(const ReelstriptConfig& from)
   } else {
     normal_ = NULL;
   }
+  if (from.has_static_()) {
+    static__ = new ::natashapb::StaticCascadingReels(*from.static__);
+  } else {
+    static__ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:natashapb.ReelstriptConfig)
 }
 
 void ReelstriptConfig::SharedCtor() {
-  normal_ = NULL;
+  ::memset(&normal_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&static__) -
+      reinterpret_cast<char*>(&normal_)) + sizeof(static__));
   _cached_size_ = 0;
 }
 
@@ -15240,6 +16039,7 @@ ReelstriptConfig::~ReelstriptConfig() {
 
 void ReelstriptConfig::SharedDtor() {
   if (this != internal_default_instance()) delete normal_;
+  if (this != internal_default_instance()) delete static__;
 }
 
 void ReelstriptConfig::SetCachedSize(int size) const {
@@ -15268,6 +16068,10 @@ void ReelstriptConfig::Clear() {
     delete normal_;
   }
   normal_ = NULL;
+  if (GetArenaNoVirtual() == NULL && static__ != NULL) {
+    delete static__;
+  }
+  static__ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -15287,6 +16091,18 @@ bool ReelstriptConfig::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_normal()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .natashapb.StaticCascadingReels static = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_static_()));
         } else {
           goto handle_unusual;
         }
@@ -15325,6 +16141,12 @@ void ReelstriptConfig::SerializeWithCachedSizes(
       1, *normal_, output);
   }
 
+  // .natashapb.StaticCascadingReels static = 2;
+  if (this->has_static_()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *static__, output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -15344,6 +16166,13 @@ void ReelstriptConfig::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         1, *normal_, deterministic, target);
+  }
+
+  // .natashapb.StaticCascadingReels static = 2;
+  if (this->has_static_()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, *static__, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -15368,6 +16197,13 @@ size_t ReelstriptConfig::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *normal_);
+  }
+
+  // .natashapb.StaticCascadingReels static = 2;
+  if (this->has_static_()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *static__);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -15402,6 +16238,9 @@ void ReelstriptConfig::MergeFrom(const ReelstriptConfig& from) {
   if (from.has_normal()) {
     mutable_normal()->::natashapb::NormalReelstriptConfig::MergeFrom(from.normal());
   }
+  if (from.has_static_()) {
+    mutable_static_()->::natashapb::StaticCascadingReels::MergeFrom(from.static_());
+  }
 }
 
 void ReelstriptConfig::CopyFrom(const ::google::protobuf::Message& from) {
@@ -15429,6 +16268,7 @@ void ReelstriptConfig::Swap(ReelstriptConfig* other) {
 void ReelstriptConfig::InternalSwap(ReelstriptConfig* other) {
   using std::swap;
   swap(normal_, other->normal_);
+  swap(static__, other->static__);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -16434,7 +17274,7 @@ void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const MuseumConfig_Reelst
 }
 ::google::protobuf::Metadata MuseumConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[38];
+  return ::protobuf_base_2eproto::file_level_metadata[40];
 }
 void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -16451,7 +17291,7 @@ void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(const MuseumConfig_RtpEntry_DoNot
 }
 ::google::protobuf::Metadata MuseumConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[39];
+  return ::protobuf_base_2eproto::file_level_metadata[41];
 }
 void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -16939,6 +17779,865 @@ void MuseumConfig::InternalSwap(MuseumConfig* other) {
 }
 
 
+// ===================================================================
+
+void TLODRTPConfig::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int TLODRTPConfig::kBgReelstripsFieldNumber;
+const int TLODRTPConfig::kFgNumsFieldNumber;
+const int TLODRTPConfig::kFgReelstripsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+TLODRTPConfig::TLODRTPConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsTLODRTPConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.TLODRTPConfig)
+}
+TLODRTPConfig::TLODRTPConfig(const TLODRTPConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  bgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.bgreelstrips().size() > 0) {
+    bgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bgreelstrips_);
+  }
+  fgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.fgreelstrips().size() > 0) {
+    fgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fgreelstrips_);
+  }
+  fgnums_ = from.fgnums_;
+  // @@protoc_insertion_point(copy_constructor:natashapb.TLODRTPConfig)
+}
+
+void TLODRTPConfig::SharedCtor() {
+  bgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgreelstrips_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgnums_ = 0;
+  _cached_size_ = 0;
+}
+
+TLODRTPConfig::~TLODRTPConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.TLODRTPConfig)
+  SharedDtor();
+}
+
+void TLODRTPConfig::SharedDtor() {
+  bgreelstrips_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgreelstrips_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void TLODRTPConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TLODRTPConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const TLODRTPConfig& TLODRTPConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsTLODRTPConfig();
+  return *internal_default_instance();
+}
+
+
+void TLODRTPConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.TLODRTPConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  bgreelstrips_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgreelstrips_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fgnums_ = 0;
+  _internal_metadata_.Clear();
+}
+
+bool TLODRTPConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.TLODRTPConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string bgReelstrips = 100;
+      case 100: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 802 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_bgreelstrips()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->bgreelstrips().data(), static_cast<int>(this->bgreelstrips().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.TLODRTPConfig.bgReelstrips"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 fgNums = 200;
+      case 200: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 1600 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fgnums_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string fgReelstrips = 300;
+      case 300: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(98u /* 2402 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fgreelstrips()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->fgreelstrips().data(), static_cast<int>(this->fgreelstrips().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.TLODRTPConfig.fgReelstrips"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.TLODRTPConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.TLODRTPConfig)
+  return false;
+#undef DO_
+}
+
+void TLODRTPConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.TLODRTPConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string bgReelstrips = 100;
+  if (this->bgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->bgreelstrips().data(), static_cast<int>(this->bgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.TLODRTPConfig.bgReelstrips");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      100, this->bgreelstrips(), output);
+  }
+
+  // int32 fgNums = 200;
+  if (this->fgnums() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(200, this->fgnums(), output);
+  }
+
+  // string fgReelstrips = 300;
+  if (this->fgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fgreelstrips().data(), static_cast<int>(this->fgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.TLODRTPConfig.fgReelstrips");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      300, this->fgreelstrips(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.TLODRTPConfig)
+}
+
+::google::protobuf::uint8* TLODRTPConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.TLODRTPConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string bgReelstrips = 100;
+  if (this->bgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->bgreelstrips().data(), static_cast<int>(this->bgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.TLODRTPConfig.bgReelstrips");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        100, this->bgreelstrips(), target);
+  }
+
+  // int32 fgNums = 200;
+  if (this->fgnums() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(200, this->fgnums(), target);
+  }
+
+  // string fgReelstrips = 300;
+  if (this->fgreelstrips().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fgreelstrips().data(), static_cast<int>(this->fgreelstrips().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "natashapb.TLODRTPConfig.fgReelstrips");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        300, this->fgreelstrips(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.TLODRTPConfig)
+  return target;
+}
+
+size_t TLODRTPConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.TLODRTPConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // string bgReelstrips = 100;
+  if (this->bgreelstrips().size() > 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->bgreelstrips());
+  }
+
+  // string fgReelstrips = 300;
+  if (this->fgreelstrips().size() > 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fgreelstrips());
+  }
+
+  // int32 fgNums = 200;
+  if (this->fgnums() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->fgnums());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TLODRTPConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.TLODRTPConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const TLODRTPConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const TLODRTPConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.TLODRTPConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.TLODRTPConfig)
+    MergeFrom(*source);
+  }
+}
+
+void TLODRTPConfig::MergeFrom(const TLODRTPConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.TLODRTPConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.bgreelstrips().size() > 0) {
+
+    bgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bgreelstrips_);
+  }
+  if (from.fgreelstrips().size() > 0) {
+
+    fgreelstrips_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fgreelstrips_);
+  }
+  if (from.fgnums() != 0) {
+    set_fgnums(from.fgnums());
+  }
+}
+
+void TLODRTPConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.TLODRTPConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TLODRTPConfig::CopyFrom(const TLODRTPConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.TLODRTPConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TLODRTPConfig::IsInitialized() const {
+  return true;
+}
+
+void TLODRTPConfig::Swap(TLODRTPConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void TLODRTPConfig::InternalSwap(TLODRTPConfig* other) {
+  using std::swap;
+  bgreelstrips_.Swap(&other->bgreelstrips_);
+  fgreelstrips_.Swap(&other->fgreelstrips_);
+  swap(fgnums_, other->fgnums_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata TLODRTPConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+TLODConfig_ReelstriptsEntry_DoNotUse::TLODConfig_ReelstriptsEntry_DoNotUse() {}
+TLODConfig_ReelstriptsEntry_DoNotUse::TLODConfig_ReelstriptsEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+void TLODConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const TLODConfig_ReelstriptsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata TLODConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[44];
+}
+void TLODConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+TLODConfig_RtpEntry_DoNotUse::TLODConfig_RtpEntry_DoNotUse() {}
+TLODConfig_RtpEntry_DoNotUse::TLODConfig_RtpEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+void TLODConfig_RtpEntry_DoNotUse::MergeFrom(const TLODConfig_RtpEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata TLODConfig_RtpEntry_DoNotUse::GetMetadata() const {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[45];
+}
+void TLODConfig_RtpEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+void TLODConfig::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int TLODConfig::kReelstriptsFieldNumber;
+const int TLODConfig::kRtpFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+TLODConfig::TLODConfig()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsTLODConfig();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.TLODConfig)
+}
+TLODConfig::TLODConfig(const TLODConfig& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  reelstripts_.MergeFrom(from.reelstripts_);
+  rtp_.MergeFrom(from.rtp_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.TLODConfig)
+}
+
+void TLODConfig::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+TLODConfig::~TLODConfig() {
+  // @@protoc_insertion_point(destructor:natashapb.TLODConfig)
+  SharedDtor();
+}
+
+void TLODConfig::SharedDtor() {
+}
+
+void TLODConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TLODConfig::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const TLODConfig& TLODConfig::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsTLODConfig();
+  return *internal_default_instance();
+}
+
+
+void TLODConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.TLODConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  reelstripts_.Clear();
+  rtp_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool TLODConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.TLODConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          TLODConfig_ReelstriptsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              TLODConfig_ReelstriptsEntry_DoNotUse,
+              ::std::string, ::natashapb::ReelstriptConfig,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig > > parser(&reelstripts_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.TLODConfig.ReelstriptsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, .natashapb.TLODRTPConfig> rtp = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          TLODConfig_RtpEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              TLODConfig_RtpEntry_DoNotUse,
+              ::std::string, ::natashapb::TLODRTPConfig,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig > > parser(&rtp_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "natashapb.TLODConfig.RtpEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.TLODConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.TLODConfig)
+  return false;
+#undef DO_
+}
+
+void TLODConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.TLODConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  if (!this->reelstripts().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.TLODConfig.ReelstriptsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->reelstripts().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->reelstripts().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<TLODConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            1, *entry, output);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<TLODConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            1, *entry, output);
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  // map<string, .natashapb.TLODRTPConfig> rtp = 2;
+  if (!this->rtp().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.TLODConfig.RtpEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->rtp().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->rtp().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<TLODConfig_RtpEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(rtp_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            2, *entry, output);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<TLODConfig_RtpEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it) {
+        entry.reset(rtp_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            2, *entry, output);
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.TLODConfig)
+}
+
+::google::protobuf::uint8* TLODConfig::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.TLODConfig)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  if (!this->reelstripts().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.TLODConfig.ReelstriptsEntry.key");
+      }
+    };
+
+    if (deterministic &&
+        this->reelstripts().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->reelstripts().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<TLODConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       1, *entry, deterministic, target);
+;
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<TLODConfig_ReelstriptsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+          it = this->reelstripts().begin();
+          it != this->reelstripts().end(); ++it) {
+        entry.reset(reelstripts_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       1, *entry, deterministic, target);
+;
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  // map<string, .natashapb.TLODRTPConfig> rtp = 2;
+  if (!this->rtp().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "natashapb.TLODConfig.RtpEntry.key");
+      }
+    };
+
+    if (deterministic &&
+        this->rtp().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->rtp().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<TLODConfig_RtpEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(rtp_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       2, *entry, deterministic, target);
+;
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<TLODConfig_RtpEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_iterator
+          it = this->rtp().begin();
+          it != this->rtp().end(); ++it) {
+        entry.reset(rtp_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       2, *entry, deterministic, target);
+;
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.TLODConfig)
+  return target;
+}
+
+size_t TLODConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.TLODConfig)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->reelstripts_size());
+  {
+    ::google::protobuf::scoped_ptr<TLODConfig_ReelstriptsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >::const_iterator
+        it = this->reelstripts().begin();
+        it != this->reelstripts().end(); ++it) {
+      entry.reset(reelstripts_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  // map<string, .natashapb.TLODRTPConfig> rtp = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->rtp_size());
+  {
+    ::google::protobuf::scoped_ptr<TLODConfig_RtpEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >::const_iterator
+        it = this->rtp().begin();
+        it != this->rtp().end(); ++it) {
+      entry.reset(rtp_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TLODConfig::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.TLODConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const TLODConfig* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const TLODConfig>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.TLODConfig)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.TLODConfig)
+    MergeFrom(*source);
+  }
+}
+
+void TLODConfig::MergeFrom(const TLODConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.TLODConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  reelstripts_.MergeFrom(from.reelstripts_);
+  rtp_.MergeFrom(from.rtp_);
+}
+
+void TLODConfig::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.TLODConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TLODConfig::CopyFrom(const TLODConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.TLODConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TLODConfig::IsInitialized() const {
+  return true;
+}
+
+void TLODConfig::Swap(TLODConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void TLODConfig::InternalSwap(TLODConfig* other) {
+  using std::swap;
+  reelstripts_.Swap(&other->reelstripts_);
+  rtp_.Swap(&other->rtp_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata TLODConfig::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace natashapb
 namespace google {
@@ -17048,6 +18747,12 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::RTP* Arena::Create< :
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::NormalReelstriptConfig* Arena::Create< ::natashapb::NormalReelstriptConfig >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::NormalReelstriptConfig >(arena);
 }
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::StaticSymbols* Arena::Create< ::natashapb::StaticSymbols >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::StaticSymbols >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::StaticCascadingReels* Arena::Create< ::natashapb::StaticCascadingReels >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::StaticCascadingReels >(arena);
+}
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::ReelstriptConfig* Arena::Create< ::natashapb::ReelstriptConfig >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::ReelstriptConfig >(arena);
 }
@@ -17065,6 +18770,18 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::MuseumConfig_RtpEntry
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::MuseumConfig* Arena::Create< ::natashapb::MuseumConfig >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::MuseumConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::TLODRTPConfig* Arena::Create< ::natashapb::TLODRTPConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::TLODRTPConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::TLODConfig_RtpEntry_DoNotUse* Arena::Create< ::natashapb::TLODConfig_RtpEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::TLODConfig_RtpEntry_DoNotUse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::TLODConfig* Arena::Create< ::natashapb::TLODConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::TLODConfig >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
