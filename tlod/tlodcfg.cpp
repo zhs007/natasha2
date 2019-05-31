@@ -129010,13 +129010,375 @@ void TLOD::initConfig() {
         cs->add_symbols(7);
       }
     }
-
     google::protobuf::MapPair<std::string, natashapb::ReelstriptConfig> p(
         "normal", reels);
-
     cfg->mutable_reelstripts()->insert(p);
-
     loadStaticCascadingReels3X5FromPB(m_reels, scr);
+  }
+  {
+    auto lines = cfg->mutable_lines();
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(1);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(1);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+    }
+    {
+      auto cl = lines->add_lines();
+      cl->add_yarr(2);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(0);
+      cl->add_yarr(2);
+    }
+    loadLines3X5FromPB(m_lines, lines);
+  }
+  {
+    auto paytables = cfg->mutable_paytables();
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(0, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(30);
+      cp.add_payout(500);
+      cp.add_payout(8000);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(1, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(30);
+      cp.add_payout(100);
+      cp.add_payout(500);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(2, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(20);
+      cp.add_payout(60);
+      cp.add_payout(300);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(3, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(10);
+      cp.add_payout(50);
+      cp.add_payout(200);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(4, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(5);
+      cp.add_payout(30);
+      cp.add_payout(100);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(5, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(5);
+      cp.add_payout(30);
+      cp.add_payout(100);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(6, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(5);
+      cp.add_payout(25);
+      cp.add_payout(100);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(7, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(8, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(9, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(10, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(11, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+    {
+      natashapb::SymbolPaytables cp;
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      cp.add_payout(0);
+      google::protobuf::MapPair<google::protobuf::int32,
+                                natashapb::SymbolPaytables>
+          p(12, cp);
+      paytables->mutable_paytables()->insert(p);
+    }
+
+    loadPaytables3X5FromPB(m_paytables, paytables);
   }
 }
 #endif  // NATASHA_RUNINCPP

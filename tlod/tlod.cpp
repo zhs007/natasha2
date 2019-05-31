@@ -24,13 +24,13 @@ namespace natasha {
 
   // outputReels(&m_reels);
 
-  loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
+  // loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
   if (m_lines.isEmpty()) {
     return ::natashapb::INVALID_LINES_CFG;
   }
 
-  loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(),
-                   m_paytables);
+  // loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(),
+  //                  m_paytables);
   if (m_paytables.isEmpty()) {
     return ::natashapb::INVALID_PAYTABLES_CFG;
   }

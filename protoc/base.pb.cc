@@ -227,6 +227,31 @@ class ReelstriptConfigDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<ReelstriptConfig>
       _instance;
 } _ReelstriptConfig_default_instance_;
+class LineInfoDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<LineInfo>
+      _instance;
+} _LineInfo_default_instance_;
+class LinesDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Lines>
+      _instance;
+} _Lines_default_instance_;
+class SymbolPaytablesDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SymbolPaytables>
+      _instance;
+} _SymbolPaytables_default_instance_;
+class Paytables_PaytablesEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Paytables_PaytablesEntry_DoNotUse>
+      _instance;
+} _Paytables_PaytablesEntry_DoNotUse_default_instance_;
+class PaytablesDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Paytables>
+      _instance;
+} _Paytables_default_instance_;
 class WeightConfigDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<WeightConfig>
@@ -1152,6 +1177,113 @@ void InitDefaultsReelstriptConfig() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsReelstriptConfigImpl);
 }
 
+void InitDefaultsLineInfoImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::natashapb::_LineInfo_default_instance_;
+    new (ptr) ::natashapb::LineInfo();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::LineInfo::InitAsDefaultInstance();
+}
+
+void InitDefaultsLineInfo() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsLineInfoImpl);
+}
+
+void InitDefaultsLinesImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsLineInfo();
+  {
+    void* ptr = &::natashapb::_Lines_default_instance_;
+    new (ptr) ::natashapb::Lines();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::Lines::InitAsDefaultInstance();
+}
+
+void InitDefaultsLines() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsLinesImpl);
+}
+
+void InitDefaultsSymbolPaytablesImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::natashapb::_SymbolPaytables_default_instance_;
+    new (ptr) ::natashapb::SymbolPaytables();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::SymbolPaytables::InitAsDefaultInstance();
+}
+
+void InitDefaultsSymbolPaytables() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSymbolPaytablesImpl);
+}
+
+void InitDefaultsPaytables_PaytablesEntry_DoNotUseImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsSymbolPaytables();
+  {
+    void* ptr = &::natashapb::_Paytables_PaytablesEntry_DoNotUse_default_instance_;
+    new (ptr) ::natashapb::Paytables_PaytablesEntry_DoNotUse();
+  }
+  ::natashapb::Paytables_PaytablesEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+void InitDefaultsPaytables_PaytablesEntry_DoNotUse() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsPaytables_PaytablesEntry_DoNotUseImpl);
+}
+
+void InitDefaultsPaytablesImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsPaytables_PaytablesEntry_DoNotUse();
+  {
+    void* ptr = &::natashapb::_Paytables_default_instance_;
+    new (ptr) ::natashapb::Paytables();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::Paytables::InitAsDefaultInstance();
+}
+
+void InitDefaultsPaytables() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsPaytablesImpl);
+}
+
 void InitDefaultsWeightConfigImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -1398,6 +1530,8 @@ void InitDefaultsGameConfigImpl() {
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsGameConfig_ReelstriptsEntry_DoNotUse();
   protobuf_base_2eproto::InitDefaultsGameConfig_RtpEntry_DoNotUse();
+  protobuf_base_2eproto::InitDefaultsLines();
+  protobuf_base_2eproto::InitDefaultsPaytables();
   {
     void* ptr = &::natashapb::_GameConfig_default_instance_;
     new (ptr) ::natashapb::GameConfig();
@@ -1411,7 +1545,7 @@ void InitDefaultsGameConfig() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsGameConfigImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[51];
+::google::protobuf::Metadata file_level_metadata[56];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -1781,6 +1915,39 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, normal_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, staticcr_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::LineInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::LineInfo, yarr_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Lines, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Lines, lines_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SymbolPaytables, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::SymbolPaytables, payout_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Paytables_PaytablesEntry_DoNotUse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Paytables_PaytablesEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Paytables_PaytablesEntry_DoNotUse, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Paytables_PaytablesEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Paytables, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::Paytables, paytables_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1884,6 +2051,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameConfig, reelstripts_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameConfig, rtp_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameConfig, lines_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::GameConfig, paytables_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::natashapb::SymbolBlock3X5)},
@@ -1925,18 +2094,23 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 345, -1, sizeof(::natashapb::StaticCascadingScenarios)},
   { 351, -1, sizeof(::natashapb::StaticCascadingReels)},
   { 358, -1, sizeof(::natashapb::ReelstriptConfig)},
-  { 365, -1, sizeof(::natashapb::WeightConfig)},
-  { 372, -1, sizeof(::natashapb::MuseumRTPConfig)},
-  { 386, 393, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
-  { 395, 402, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
-  { 404, -1, sizeof(::natashapb::MuseumConfig)},
-  { 411, -1, sizeof(::natashapb::TLODRTPConfig)},
-  { 419, 426, sizeof(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse)},
-  { 428, 435, sizeof(::natashapb::TLODConfig_RtpEntry_DoNotUse)},
-  { 437, -1, sizeof(::natashapb::TLODConfig)},
-  { 444, 451, sizeof(::natashapb::GameConfig_ReelstriptsEntry_DoNotUse)},
-  { 453, 460, sizeof(::natashapb::GameConfig_RtpEntry_DoNotUse)},
-  { 462, -1, sizeof(::natashapb::GameConfig)},
+  { 365, -1, sizeof(::natashapb::LineInfo)},
+  { 371, -1, sizeof(::natashapb::Lines)},
+  { 377, -1, sizeof(::natashapb::SymbolPaytables)},
+  { 383, 390, sizeof(::natashapb::Paytables_PaytablesEntry_DoNotUse)},
+  { 392, -1, sizeof(::natashapb::Paytables)},
+  { 398, -1, sizeof(::natashapb::WeightConfig)},
+  { 405, -1, sizeof(::natashapb::MuseumRTPConfig)},
+  { 419, 426, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
+  { 428, 435, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
+  { 437, -1, sizeof(::natashapb::MuseumConfig)},
+  { 444, -1, sizeof(::natashapb::TLODRTPConfig)},
+  { 452, 459, sizeof(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse)},
+  { 461, 468, sizeof(::natashapb::TLODConfig_RtpEntry_DoNotUse)},
+  { 470, -1, sizeof(::natashapb::TLODConfig)},
+  { 477, 484, sizeof(::natashapb::GameConfig_ReelstriptsEntry_DoNotUse)},
+  { 486, 493, sizeof(::natashapb::GameConfig_RtpEntry_DoNotUse)},
+  { 495, -1, sizeof(::natashapb::GameConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1979,6 +2153,11 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticCascadingScenarios_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticCascadingReels_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_ReelstriptConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_LineInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_Lines_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_SymbolPaytables_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_Paytables_PaytablesEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_Paytables_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_WeightConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumRTPConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_MuseumConfig_ReelstriptsEntry_DoNotUse_default_instance_),
@@ -2009,7 +2188,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 51);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 56);
 }
 
 void AddDescriptorsImpl() {
@@ -2145,69 +2324,78 @@ void AddDescriptorsImpl() {
       "ghts\030\002 \003(\005\"x\n\020ReelstriptConfig\0221\n\006normal"
       "\030\001 \001(\0132!.natashapb.NormalReelstriptConfi"
       "g\0221\n\010staticCR\030\002 \001(\0132\037.natashapb.StaticCa"
-      "scadingReels\"4\n\014WeightConfig\022\017\n\007weights\030"
-      "\001 \003(\005\022\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017MuseumRTP"
-      "Config\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBonusP"
-      "rize\030e \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n\rbgM"
-      "ysteryWild\030g \003(\0132\027.natashapb.WeightConfi"
-      "g\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001("
-      "\t\022\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultiplier"
-      "s\030\256\002 \003(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.natas"
-      "hapb.WeightConfig\"\225\002\n\014MuseumConfig\022=\n\013re"
-      "elstripts\030\001 \003(\0132(.natashapb.MuseumConfig"
-      ".ReelstriptsEntry\022-\n\003rtp\030\002 \003(\0132 .natasha"
-      "pb.MuseumConfig.RtpEntry\032O\n\020ReelstriptsE"
-      "ntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natas"
-      "hapb.ReelstriptConfig:\0028\001\032F\n\010RtpEntry\022\013\n"
-      "\003key\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.natashapb.Mu"
-      "seumRTPConfig:\0028\001\"M\n\rTLODRTPConfig\022\024\n\014bg"
-      "Reelstrips\030d \001(\t\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgR"
-      "eelstrips\030\254\002 \001(\t\"\215\002\n\nTLODConfig\022;\n\013reels"
-      "tripts\030\001 \003(\0132&.natashapb.TLODConfig.Reel"
-      "striptsEntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.TL"
-      "ODConfig.RtpEntry\032O\n\020ReelstriptsEntry\022\013\n"
+      "scadingReels\"\030\n\010LineInfo\022\014\n\004yArr\030\001 \003(\005\"+"
+      "\n\005Lines\022\"\n\005lines\030\001 \003(\0132\023.natashapb.LineI"
+      "nfo\"!\n\017SymbolPaytables\022\016\n\006payout\030\001 \003(\005\"\221"
+      "\001\n\tPaytables\0226\n\tpaytables\030\001 \003(\0132#.natash"
+      "apb.Paytables.PaytablesEntry\032L\n\016Paytable"
+      "sEntry\022\013\n\003key\030\001 \001(\005\022)\n\005value\030\002 \001(\0132\032.nat"
+      "ashapb.SymbolPaytables:\0028\001\"4\n\014WeightConf"
+      "ig\022\017\n\007weights\030\001 \003(\005\022\023\n\013totalWeight\030\002 \001(\005"
+      "\"\214\002\n\017MuseumRTPConfig\022\024\n\014bgReelstrips\030d \001"
+      "(\t\022\024\n\014bgBonusPrize\030e \003(\005\022\025\n\rbgMultiplier"
+      "s\030f \003(\005\022.\n\rbgMysteryWild\030g \003(\0132\027.natasha"
+      "pb.WeightConfig\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgRe"
+      "elstrips\030\254\002 \001(\t\022\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026"
+      "\n\rfgMultipliers\030\256\002 \003(\005\022/\n\rfgMysteryWild\030"
+      "\257\002 \003(\0132\027.natashapb.WeightConfig\"\225\002\n\014Muse"
+      "umConfig\022=\n\013reelstripts\030\001 \003(\0132(.natashap"
+      "b.MuseumConfig.ReelstriptsEntry\022-\n\003rtp\030\002"
+      " \003(\0132 .natashapb.MuseumConfig.RtpEntry\032O"
+      "\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005value"
+      "\030\002 \001(\0132\033.natashapb.ReelstriptConfig:\0028\001\032"
+      "F\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022)\n\005value\030\002 \001(\0132"
+      "\032.natashapb.MuseumRTPConfig:\0028\001\"M\n\rTLODR"
+      "TPConfig\022\024\n\014bgReelstrips\030d \001(\t\022\017\n\006fgNums"
+      "\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\"\215\002\n\nTLODC"
+      "onfig\022;\n\013reelstripts\030\001 \003(\0132&.natashapb.T"
+      "LODConfig.ReelstriptsEntry\022+\n\003rtp\030\002 \003(\0132"
+      "\036.natashapb.TLODConfig.RtpEntry\032O\n\020Reels"
+      "triptsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132"
+      "\033.natashapb.ReelstriptConfig:\0028\001\032D\n\010RtpE"
+      "ntry\022\013\n\003key\030\001 \001(\t\022\'\n\005value\030\002 \001(\0132\030.natas"
+      "hapb.TLODRTPConfig:\0028\001\"\323\002\n\nGameConfig\022;\n"
+      "\013reelstripts\030\001 \003(\0132&.natashapb.GameConfi"
+      "g.ReelstriptsEntry\022+\n\003rtp\030\002 \003(\0132\036.natash"
+      "apb.GameConfig.RtpEntry\022\037\n\005lines\030\003 \001(\0132\020"
+      ".natashapb.Lines\022\'\n\tpaytables\030\004 \001(\0132\024.na"
+      "tashapb.Paytables\032O\n\020ReelstriptsEntry\022\013\n"
       "\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Re"
-      "elstriptConfig:\0028\001\032D\n\010RtpEntry\022\013\n\003key\030\001 "
-      "\001(\t\022\'\n\005value\030\002 \001(\0132\030.natashapb.TLODRTPCo"
-      "nfig:\0028\001\"\211\002\n\nGameConfig\022;\n\013reelstripts\030\001"
-      " \003(\0132&.natashapb.GameConfig.ReelstriptsE"
-      "ntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.GameConfig"
-      ".RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001"
-      "(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reelstript"
-      "Config:\0028\001\032@\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022#\n\005v"
-      "alue\030\002 \001(\0132\024.google.protobuf.Any:\0028\001*\335\004\n"
-      "\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220"
-      "N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REE"
-      "LS_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_ST"
-      "ART\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241"
-      "\234\001\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_S"
-      "TART_LINES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234"
-      "\001\022\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_"
-      "PARENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247"
-      "\234\001\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261"
-      "\352\001\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMEC"
-      "TRL_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FRE"
-      "ESTATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020"
-      "\320\206\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033"
-      "\n\025ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTO"
-      "BUF_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT"
-      "\020\223\277\005*\263\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tL"
-      "INE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LE"
-      "FT\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEF"
-      "T\020\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r"
-      "\n\tWAY_RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAMEMODTYP"
-      "E\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_G"
-      "AME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022"
-      "\027\n\023COMMON_JACKPOT_GAME\020\005*L\n\022CASCADINGFRE"
-      "ESTATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGA"
-      "ME\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n"
-      "\010NO_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN"
-      "\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FR"
-      "EEGAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMO"
-      "NJACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
+      "elstriptConfig:\0028\001\032@\n\010RtpEntry\022\013\n\003key\030\001 "
+      "\001(\t\022#\n\005value\030\002 \001(\0132\024.google.protobuf.Any"
+      ":\0028\001*\335\004\n\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABL"
+      "ES_CFG\020\220N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INV"
+      "ALID_REELS_CFG\020\222N\022$\n\036INVALID_START_GAMEM"
+      "OD_TO_START\020\240\234\001\022!\n\033INVALID_START_FREEGAM"
+      "E_NUMS\020\241\234\001\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023I"
+      "NVALID_START_LINES\020\243\234\001\022\031\n\023INVALID_START_"
+      "TIMES\020\244\234\001\022\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020"
+      "INVALID_PARENTID\020\246\234\001\022\034\n\026INVALID_PARENT_G"
+      "AMEMOD\020\247\234\001\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID"
+      "_LINES\020\261\352\001\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVAL"
+      "ID_GAMECTRL_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCA"
+      "DING_FREESTATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_S"
+      "CENARIO\020\320\206\003\022!\n\033ERR_NO_OVERLOADED_INTERFA"
+      "CE\020\220\277\005\022\033\n\025ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022E"
+      "RR_PROTOBUF_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RE"
+      "T_OBJECT\020\223\277\005*\263\001\n\016GAMERESULTTYPE\022\n\n\006NO_WI"
+      "N\020\000\022\r\n\tLINE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SC"
+      "ATTER_LEFT\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATT"
+      "EREX_LEFT\020\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_"
+      "LEFT\020\007\022\r\n\tWAY_RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GA"
+      "MEMODTYPE\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r"
+      "\n\tFREE_GAME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT"
+      "_GAME\020\004\022\027\n\023COMMON_JACKPOT_GAME\020\005*L\n\022CASC"
+      "ADINGFREESTATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_T"
+      "O_FREEGAME\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nDEBUG"
+      "STATE\022\014\n\010NO_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nME"
+      "DIUM_WIN\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016"
+      "DEBUG_FREEGAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEB"
+      "UG_COMMONJACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006pr"
+      "oto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 7596);
+      descriptor, 7924);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -16672,6 +16860,1084 @@ void ReelstriptConfig::InternalSwap(ReelstriptConfig* other) {
 
 // ===================================================================
 
+void LineInfo::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LineInfo::kYArrFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LineInfo::LineInfo()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsLineInfo();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.LineInfo)
+}
+LineInfo::LineInfo(const LineInfo& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      yarr_(from.yarr_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.LineInfo)
+}
+
+void LineInfo::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+LineInfo::~LineInfo() {
+  // @@protoc_insertion_point(destructor:natashapb.LineInfo)
+  SharedDtor();
+}
+
+void LineInfo::SharedDtor() {
+}
+
+void LineInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LineInfo::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const LineInfo& LineInfo::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsLineInfo();
+  return *internal_default_instance();
+}
+
+
+void LineInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.LineInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  yarr_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool LineInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.LineInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated int32 yArr = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_yarr())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 10u, input, this->mutable_yarr())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.LineInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.LineInfo)
+  return false;
+#undef DO_
+}
+
+void LineInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.LineInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 yArr = 1;
+  if (this->yarr_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _yarr_cached_byte_size_));
+  }
+  for (int i = 0, n = this->yarr_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->yarr(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.LineInfo)
+}
+
+::google::protobuf::uint8* LineInfo::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.LineInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 yArr = 1;
+  if (this->yarr_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _yarr_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->yarr_, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.LineInfo)
+  return target;
+}
+
+size_t LineInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.LineInfo)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated int32 yArr = 1;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->yarr_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _yarr_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LineInfo::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.LineInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LineInfo* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const LineInfo>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.LineInfo)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.LineInfo)
+    MergeFrom(*source);
+  }
+}
+
+void LineInfo::MergeFrom(const LineInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.LineInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  yarr_.MergeFrom(from.yarr_);
+}
+
+void LineInfo::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.LineInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LineInfo::CopyFrom(const LineInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.LineInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LineInfo::IsInitialized() const {
+  return true;
+}
+
+void LineInfo::Swap(LineInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LineInfo::InternalSwap(LineInfo* other) {
+  using std::swap;
+  yarr_.InternalSwap(&other->yarr_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata LineInfo::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void Lines::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Lines::kLinesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Lines::Lines()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsLines();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.Lines)
+}
+Lines::Lines(const Lines& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      lines_(from.lines_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.Lines)
+}
+
+void Lines::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+Lines::~Lines() {
+  // @@protoc_insertion_point(destructor:natashapb.Lines)
+  SharedDtor();
+}
+
+void Lines::SharedDtor() {
+}
+
+void Lines::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Lines::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Lines& Lines::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsLines();
+  return *internal_default_instance();
+}
+
+
+void Lines::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.Lines)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  lines_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool Lines::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.Lines)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .natashapb.LineInfo lines = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_lines()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.Lines)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.Lines)
+  return false;
+#undef DO_
+}
+
+void Lines::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.Lines)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .natashapb.LineInfo lines = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->lines_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1,
+      this->lines(static_cast<int>(i)),
+      output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.Lines)
+}
+
+::google::protobuf::uint8* Lines::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.Lines)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .natashapb.LineInfo lines = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->lines_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->lines(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.Lines)
+  return target;
+}
+
+size_t Lines::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.Lines)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .natashapb.LineInfo lines = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->lines_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->lines(static_cast<int>(i)));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Lines::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.Lines)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Lines* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Lines>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.Lines)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.Lines)
+    MergeFrom(*source);
+  }
+}
+
+void Lines::MergeFrom(const Lines& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.Lines)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  lines_.MergeFrom(from.lines_);
+}
+
+void Lines::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.Lines)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Lines::CopyFrom(const Lines& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.Lines)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Lines::IsInitialized() const {
+  return true;
+}
+
+void Lines::Swap(Lines* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Lines::InternalSwap(Lines* other) {
+  using std::swap;
+  CastToBase(&lines_)->InternalSwap(CastToBase(&other->lines_));
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Lines::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SymbolPaytables::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SymbolPaytables::kPayoutFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SymbolPaytables::SymbolPaytables()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsSymbolPaytables();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.SymbolPaytables)
+}
+SymbolPaytables::SymbolPaytables(const SymbolPaytables& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      payout_(from.payout_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.SymbolPaytables)
+}
+
+void SymbolPaytables::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+SymbolPaytables::~SymbolPaytables() {
+  // @@protoc_insertion_point(destructor:natashapb.SymbolPaytables)
+  SharedDtor();
+}
+
+void SymbolPaytables::SharedDtor() {
+}
+
+void SymbolPaytables::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SymbolPaytables::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SymbolPaytables& SymbolPaytables::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsSymbolPaytables();
+  return *internal_default_instance();
+}
+
+
+void SymbolPaytables::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.SymbolPaytables)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  payout_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool SymbolPaytables::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.SymbolPaytables)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated int32 payout = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_payout())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 10u, input, this->mutable_payout())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.SymbolPaytables)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.SymbolPaytables)
+  return false;
+#undef DO_
+}
+
+void SymbolPaytables::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.SymbolPaytables)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 payout = 1;
+  if (this->payout_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _payout_cached_byte_size_));
+  }
+  for (int i = 0, n = this->payout_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->payout(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.SymbolPaytables)
+}
+
+::google::protobuf::uint8* SymbolPaytables::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.SymbolPaytables)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 payout = 1;
+  if (this->payout_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _payout_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->payout_, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.SymbolPaytables)
+  return target;
+}
+
+size_t SymbolPaytables::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.SymbolPaytables)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated int32 payout = 1;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->payout_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _payout_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SymbolPaytables::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.SymbolPaytables)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SymbolPaytables* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SymbolPaytables>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.SymbolPaytables)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.SymbolPaytables)
+    MergeFrom(*source);
+  }
+}
+
+void SymbolPaytables::MergeFrom(const SymbolPaytables& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.SymbolPaytables)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  payout_.MergeFrom(from.payout_);
+}
+
+void SymbolPaytables::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.SymbolPaytables)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SymbolPaytables::CopyFrom(const SymbolPaytables& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.SymbolPaytables)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SymbolPaytables::IsInitialized() const {
+  return true;
+}
+
+void SymbolPaytables::Swap(SymbolPaytables* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SymbolPaytables::InternalSwap(SymbolPaytables* other) {
+  using std::swap;
+  payout_.InternalSwap(&other->payout_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SymbolPaytables::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+Paytables_PaytablesEntry_DoNotUse::Paytables_PaytablesEntry_DoNotUse() {}
+Paytables_PaytablesEntry_DoNotUse::Paytables_PaytablesEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+void Paytables_PaytablesEntry_DoNotUse::MergeFrom(const Paytables_PaytablesEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata Paytables_PaytablesEntry_DoNotUse::GetMetadata() const {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[42];
+}
+void Paytables_PaytablesEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+void Paytables::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Paytables::kPaytablesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Paytables::Paytables()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsPaytables();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.Paytables)
+}
+Paytables::Paytables(const Paytables& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  paytables_.MergeFrom(from.paytables_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.Paytables)
+}
+
+void Paytables::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+Paytables::~Paytables() {
+  // @@protoc_insertion_point(destructor:natashapb.Paytables)
+  SharedDtor();
+}
+
+void Paytables::SharedDtor() {
+}
+
+void Paytables::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Paytables::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Paytables& Paytables::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsPaytables();
+  return *internal_default_instance();
+}
+
+
+void Paytables::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.Paytables)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  paytables_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool Paytables::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.Paytables)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // map<int32, .natashapb.SymbolPaytables> paytables = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          Paytables_PaytablesEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              Paytables_PaytablesEntry_DoNotUse,
+              ::google::protobuf::int32, ::natashapb::SymbolPaytables,
+              ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables > > parser(&paytables_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.Paytables)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.Paytables)
+  return false;
+#undef DO_
+}
+
+void Paytables::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.Paytables)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<int32, .natashapb.SymbolPaytables> paytables = 1;
+  if (!this->paytables().empty()) {
+    typedef ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_pointer
+        ConstPtr;
+    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::int32, ConstPtr > SortItem;
+    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
+
+    if (output->IsSerializationDeterministic() &&
+        this->paytables().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->paytables().size()]);
+      typedef ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_iterator
+          it = this->paytables().begin();
+          it != this->paytables().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<Paytables_PaytablesEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(paytables_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            1, *entry, output);
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<Paytables_PaytablesEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_iterator
+          it = this->paytables().begin();
+          it != this->paytables().end(); ++it) {
+        entry.reset(paytables_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            1, *entry, output);
+      }
+    }
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.Paytables)
+}
+
+::google::protobuf::uint8* Paytables::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.Paytables)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<int32, .natashapb.SymbolPaytables> paytables = 1;
+  if (!this->paytables().empty()) {
+    typedef ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_pointer
+        ConstPtr;
+    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::int32, ConstPtr > SortItem;
+    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
+
+    if (deterministic &&
+        this->paytables().size() > 1) {
+      ::google::protobuf::scoped_array<SortItem> items(
+          new SortItem[this->paytables().size()]);
+      typedef ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_iterator
+          it = this->paytables().begin();
+          it != this->paytables().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::google::protobuf::scoped_ptr<Paytables_PaytablesEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(paytables_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       1, *entry, deterministic, target);
+;
+      }
+    } else {
+      ::google::protobuf::scoped_ptr<Paytables_PaytablesEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_iterator
+          it = this->paytables().begin();
+          it != this->paytables().end(); ++it) {
+        entry.reset(paytables_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       1, *entry, deterministic, target);
+;
+      }
+    }
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.Paytables)
+  return target;
+}
+
+size_t Paytables::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.Paytables)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // map<int32, .natashapb.SymbolPaytables> paytables = 1;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->paytables_size());
+  {
+    ::google::protobuf::scoped_ptr<Paytables_PaytablesEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >::const_iterator
+        it = this->paytables().begin();
+        it != this->paytables().end(); ++it) {
+      entry.reset(paytables_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Paytables::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.Paytables)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Paytables* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Paytables>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.Paytables)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.Paytables)
+    MergeFrom(*source);
+  }
+}
+
+void Paytables::MergeFrom(const Paytables& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.Paytables)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  paytables_.MergeFrom(from.paytables_);
+}
+
+void Paytables::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.Paytables)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Paytables::CopyFrom(const Paytables& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.Paytables)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Paytables::IsInitialized() const {
+  return true;
+}
+
+void Paytables::Swap(Paytables* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Paytables::InternalSwap(Paytables* other) {
+  using std::swap;
+  paytables_.Swap(&other->paytables_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Paytables::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void WeightConfig::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -17665,7 +18931,7 @@ void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const MuseumConfig_Reelst
 }
 ::google::protobuf::Metadata MuseumConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[41];
+  return ::protobuf_base_2eproto::file_level_metadata[46];
 }
 void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -17682,7 +18948,7 @@ void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(const MuseumConfig_RtpEntry_DoNot
 }
 ::google::protobuf::Metadata MuseumConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[42];
+  return ::protobuf_base_2eproto::file_level_metadata[47];
 }
 void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -18524,7 +19790,7 @@ void TLODConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const TLODConfig_Reelstript
 }
 ::google::protobuf::Metadata TLODConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[45];
+  return ::protobuf_base_2eproto::file_level_metadata[50];
 }
 void TLODConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -18541,7 +19807,7 @@ void TLODConfig_RtpEntry_DoNotUse::MergeFrom(const TLODConfig_RtpEntry_DoNotUse&
 }
 ::google::protobuf::Metadata TLODConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[46];
+  return ::protobuf_base_2eproto::file_level_metadata[51];
 }
 void TLODConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -19038,7 +20304,7 @@ void GameConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const GameConfig_Reelstript
 }
 ::google::protobuf::Metadata GameConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[48];
+  return ::protobuf_base_2eproto::file_level_metadata[53];
 }
 void GameConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -19055,7 +20321,7 @@ void GameConfig_RtpEntry_DoNotUse::MergeFrom(const GameConfig_RtpEntry_DoNotUse&
 }
 ::google::protobuf::Metadata GameConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[49];
+  return ::protobuf_base_2eproto::file_level_metadata[54];
 }
 void GameConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -19066,6 +20332,10 @@ void GameConfig_RtpEntry_DoNotUse::MergeFrom(
 // ===================================================================
 
 void GameConfig::InitAsDefaultInstance() {
+  ::natashapb::_GameConfig_default_instance_._instance.get_mutable()->lines_ = const_cast< ::natashapb::Lines*>(
+      ::natashapb::Lines::internal_default_instance());
+  ::natashapb::_GameConfig_default_instance_._instance.get_mutable()->paytables_ = const_cast< ::natashapb::Paytables*>(
+      ::natashapb::Paytables::internal_default_instance());
 }
 void GameConfig::clear_rtp() {
   rtp_.Clear();
@@ -19073,6 +20343,8 @@ void GameConfig::clear_rtp() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GameConfig::kReelstriptsFieldNumber;
 const int GameConfig::kRtpFieldNumber;
+const int GameConfig::kLinesFieldNumber;
+const int GameConfig::kPaytablesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GameConfig::GameConfig()
@@ -19090,10 +20362,23 @@ GameConfig::GameConfig(const GameConfig& from)
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   reelstripts_.MergeFrom(from.reelstripts_);
   rtp_.MergeFrom(from.rtp_);
+  if (from.has_lines()) {
+    lines_ = new ::natashapb::Lines(*from.lines_);
+  } else {
+    lines_ = NULL;
+  }
+  if (from.has_paytables()) {
+    paytables_ = new ::natashapb::Paytables(*from.paytables_);
+  } else {
+    paytables_ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:natashapb.GameConfig)
 }
 
 void GameConfig::SharedCtor() {
+  ::memset(&lines_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&paytables_) -
+      reinterpret_cast<char*>(&lines_)) + sizeof(paytables_));
   _cached_size_ = 0;
 }
 
@@ -19103,6 +20388,8 @@ GameConfig::~GameConfig() {
 }
 
 void GameConfig::SharedDtor() {
+  if (this != internal_default_instance()) delete lines_;
+  if (this != internal_default_instance()) delete paytables_;
 }
 
 void GameConfig::SetCachedSize(int size) const {
@@ -19129,6 +20416,14 @@ void GameConfig::Clear() {
 
   reelstripts_.Clear();
   rtp_.Clear();
+  if (GetArenaNoVirtual() == NULL && lines_ != NULL) {
+    delete lines_;
+  }
+  lines_ = NULL;
+  if (GetArenaNoVirtual() == NULL && paytables_ != NULL) {
+    delete paytables_;
+  }
+  paytables_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -19182,6 +20477,30 @@ bool GameConfig::MergePartialFromCodedStream(
             parser.key().data(), static_cast<int>(parser.key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "natashapb.GameConfig.RtpEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .natashapb.Lines lines = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_lines()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .natashapb.Paytables paytables = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_paytables()));
         } else {
           goto handle_unusual;
         }
@@ -19312,6 +20631,18 @@ void GameConfig::SerializeWithCachedSizes(
     }
   }
 
+  // .natashapb.Lines lines = 3;
+  if (this->has_lines()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *lines_, output);
+  }
+
+  // .natashapb.Paytables paytables = 4;
+  if (this->has_paytables()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *paytables_, output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -19432,6 +20763,20 @@ void GameConfig::SerializeWithCachedSizes(
     }
   }
 
+  // .natashapb.Lines lines = 3;
+  if (this->has_lines()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, *lines_, deterministic, target);
+  }
+
+  // .natashapb.Paytables paytables = 4;
+  if (this->has_paytables()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, *paytables_, deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -19477,6 +20822,20 @@ size_t GameConfig::ByteSizeLong() const {
     }
   }
 
+  // .natashapb.Lines lines = 3;
+  if (this->has_lines()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *lines_);
+  }
+
+  // .natashapb.Paytables paytables = 4;
+  if (this->has_paytables()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *paytables_);
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -19508,6 +20867,12 @@ void GameConfig::MergeFrom(const GameConfig& from) {
 
   reelstripts_.MergeFrom(from.reelstripts_);
   rtp_.MergeFrom(from.rtp_);
+  if (from.has_lines()) {
+    mutable_lines()->::natashapb::Lines::MergeFrom(from.lines());
+  }
+  if (from.has_paytables()) {
+    mutable_paytables()->::natashapb::Paytables::MergeFrom(from.paytables());
+  }
 }
 
 void GameConfig::CopyFrom(const ::google::protobuf::Message& from) {
@@ -19536,6 +20901,8 @@ void GameConfig::InternalSwap(GameConfig* other) {
   using std::swap;
   reelstripts_.Swap(&other->reelstripts_);
   rtp_.Swap(&other->rtp_);
+  swap(lines_, other->lines_);
+  swap(paytables_, other->paytables_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -19666,6 +21033,21 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::StaticCascadingReels*
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::ReelstriptConfig* Arena::Create< ::natashapb::ReelstriptConfig >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::ReelstriptConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::LineInfo* Arena::Create< ::natashapb::LineInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::LineInfo >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::Lines* Arena::Create< ::natashapb::Lines >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::Lines >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::SymbolPaytables* Arena::Create< ::natashapb::SymbolPaytables >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::SymbolPaytables >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::Paytables_PaytablesEntry_DoNotUse* Arena::Create< ::natashapb::Paytables_PaytablesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::Paytables_PaytablesEntry_DoNotUse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::Paytables* Arena::Create< ::natashapb::Paytables >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::Paytables >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::WeightConfig* Arena::Create< ::natashapb::WeightConfig >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::WeightConfig >(arena);
