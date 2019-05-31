@@ -129369,9 +129369,9 @@ void TLOD::initConfig() {
       natashapb::SymbolPaytables cp;
       cp.add_payout(0);
       cp.add_payout(0);
-      cp.add_payout(0);
-      cp.add_payout(0);
-      cp.add_payout(0);
+      cp.add_payout(1);
+      cp.add_payout(1);
+      cp.add_payout(1);
       google::protobuf::MapPair<google::protobuf::int32,
                                 natashapb::SymbolPaytables>
           p(12, cp);
