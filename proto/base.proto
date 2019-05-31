@@ -517,8 +517,12 @@ message StaticSymbols {
     repeated int32 symbols = 1;
 }
 
-message StaticCascadingReels {
+message StaticCascadingScenarios {
     repeated StaticSymbols scenarios = 1;
+}
+
+message StaticCascadingReels {
+    repeated StaticCascadingScenarios scenarios = 1;
     repeated int32 weights = 2;
 }
 

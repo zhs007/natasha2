@@ -41,7 +41,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[50];
+  static const ::google::protobuf::internal::ParseTable schema[51];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -119,6 +119,8 @@ void InitDefaultsNormalReelstriptConfigImpl();
 void InitDefaultsNormalReelstriptConfig();
 void InitDefaultsStaticSymbolsImpl();
 void InitDefaultsStaticSymbols();
+void InitDefaultsStaticCascadingScenariosImpl();
+void InitDefaultsStaticCascadingScenarios();
 void InitDefaultsStaticCascadingReelsImpl();
 void InitDefaultsStaticCascadingReels();
 void InitDefaultsReelstriptConfigImpl();
@@ -184,6 +186,7 @@ inline void InitDefaults() {
   InitDefaultsRTP();
   InitDefaultsNormalReelstriptConfig();
   InitDefaultsStaticSymbols();
+  InitDefaultsStaticCascadingScenarios();
   InitDefaultsStaticCascadingReels();
   InitDefaultsReelstriptConfig();
   InitDefaultsWeightConfig();
@@ -315,6 +318,9 @@ extern StaticCascadingRandomResult3X5DefaultTypeInternal _StaticCascadingRandomR
 class StaticCascadingReels;
 class StaticCascadingReelsDefaultTypeInternal;
 extern StaticCascadingReelsDefaultTypeInternal _StaticCascadingReels_default_instance_;
+class StaticCascadingScenarios;
+class StaticCascadingScenariosDefaultTypeInternal;
+extern StaticCascadingScenariosDefaultTypeInternal _StaticCascadingScenarios_default_instance_;
 class StaticSymbols;
 class StaticSymbolsDefaultTypeInternal;
 extern StaticSymbolsDefaultTypeInternal _StaticSymbols_default_instance_;
@@ -392,6 +398,7 @@ template<> ::natashapb::StartFreeGame* Arena::Create< ::natashapb::StartFreeGame
 template<> ::natashapb::StartGameMod* Arena::Create< ::natashapb::StartGameMod>(Arena*);
 template<> ::natashapb::StaticCascadingRandomResult3X5* Arena::Create< ::natashapb::StaticCascadingRandomResult3X5>(Arena*);
 template<> ::natashapb::StaticCascadingReels* Arena::Create< ::natashapb::StaticCascadingReels>(Arena*);
+template<> ::natashapb::StaticCascadingScenarios* Arena::Create< ::natashapb::StaticCascadingScenarios>(Arena*);
 template<> ::natashapb::StaticSymbols* Arena::Create< ::natashapb::StaticSymbols>(Arena*);
 template<> ::natashapb::SymbolBlock* Arena::Create< ::natashapb::SymbolBlock>(Arena*);
 template<> ::natashapb::SymbolBlock3X5* Arena::Create< ::natashapb::SymbolBlock3X5>(Arena*);
@@ -5227,6 +5234,115 @@ class StaticSymbols : public ::google::protobuf::Message /* @@protoc_insertion_p
 };
 // -------------------------------------------------------------------
 
+class StaticCascadingScenarios : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingScenarios) */ {
+ public:
+  StaticCascadingScenarios();
+  virtual ~StaticCascadingScenarios();
+
+  StaticCascadingScenarios(const StaticCascadingScenarios& from);
+
+  inline StaticCascadingScenarios& operator=(const StaticCascadingScenarios& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StaticCascadingScenarios(StaticCascadingScenarios&& from) noexcept
+    : StaticCascadingScenarios() {
+    *this = ::std::move(from);
+  }
+
+  inline StaticCascadingScenarios& operator=(StaticCascadingScenarios&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StaticCascadingScenarios& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StaticCascadingScenarios* internal_default_instance() {
+    return reinterpret_cast<const StaticCascadingScenarios*>(
+               &_StaticCascadingScenarios_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    36;
+
+  void Swap(StaticCascadingScenarios* other);
+  friend void swap(StaticCascadingScenarios& a, StaticCascadingScenarios& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StaticCascadingScenarios* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingScenarios>(NULL);
+  }
+
+  StaticCascadingScenarios* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingScenarios>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const StaticCascadingScenarios& from);
+  void MergeFrom(const StaticCascadingScenarios& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(StaticCascadingScenarios* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  int scenarios_size() const;
+  void clear_scenarios();
+  static const int kScenariosFieldNumber = 1;
+  ::natashapb::StaticSymbols* mutable_scenarios(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >*
+      mutable_scenarios();
+  const ::natashapb::StaticSymbols& scenarios(int index) const;
+  ::natashapb::StaticSymbols* add_scenarios();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >&
+      scenarios() const;
+
+  // @@protoc_insertion_point(class_scope:natashapb.StaticCascadingScenarios)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols > scenarios_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsStaticCascadingScenariosImpl();
+};
+// -------------------------------------------------------------------
+
 class StaticCascadingReels : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingReels) */ {
  public:
   StaticCascadingReels();
@@ -5262,7 +5378,7 @@ class StaticCascadingReels : public ::google::protobuf::Message /* @@protoc_inse
                &_StaticCascadingReels_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    36;
+    37;
 
   void Swap(StaticCascadingReels* other);
   friend void swap(StaticCascadingReels& a, StaticCascadingReels& b) {
@@ -5313,16 +5429,16 @@ class StaticCascadingReels : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // repeated .natashapb.StaticSymbols scenarios = 1;
+  // repeated .natashapb.StaticCascadingScenarios scenarios = 1;
   int scenarios_size() const;
   void clear_scenarios();
   static const int kScenariosFieldNumber = 1;
-  ::natashapb::StaticSymbols* mutable_scenarios(int index);
-  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >*
+  ::natashapb::StaticCascadingScenarios* mutable_scenarios(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >*
       mutable_scenarios();
-  const ::natashapb::StaticSymbols& scenarios(int index) const;
-  ::natashapb::StaticSymbols* add_scenarios();
-  const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >&
+  const ::natashapb::StaticCascadingScenarios& scenarios(int index) const;
+  ::natashapb::StaticCascadingScenarios* add_scenarios();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >&
       scenarios() const;
 
   // repeated int32 weights = 2;
@@ -5341,7 +5457,7 @@ class StaticCascadingReels : public ::google::protobuf::Message /* @@protoc_inse
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols > scenarios_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios > scenarios_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > weights_;
   mutable int _weights_cached_byte_size_;
   mutable int _cached_size_;
@@ -5385,7 +5501,7 @@ class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertio
                &_ReelstriptConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    37;
+    38;
 
   void Swap(ReelstriptConfig* other);
   friend void swap(ReelstriptConfig& a, ReelstriptConfig& b) {
@@ -5501,7 +5617,7 @@ class WeightConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_WeightConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    38;
+    39;
 
   void Swap(WeightConfig* other);
   friend void swap(WeightConfig& a, WeightConfig& b) {
@@ -5618,7 +5734,7 @@ class MuseumRTPConfig : public ::google::protobuf::Message /* @@protoc_insertion
                &_MuseumRTPConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    39;
+    40;
 
   void Swap(MuseumRTPConfig* other);
   friend void swap(MuseumRTPConfig& a, MuseumRTPConfig& b) {
@@ -5875,7 +5991,7 @@ class MuseumConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_MuseumConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    42;
+    43;
 
   void Swap(MuseumConfig* other);
   friend void swap(MuseumConfig& a, MuseumConfig& b) {
@@ -6002,7 +6118,7 @@ class TLODRTPConfig : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_TLODRTPConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    43;
+    44;
 
   void Swap(TLODRTPConfig* other);
   friend void swap(TLODRTPConfig& a, TLODRTPConfig& b) {
@@ -6177,7 +6293,7 @@ class TLODConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_TLODConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    46;
+    47;
 
   void Swap(TLODConfig* other);
   friend void swap(TLODConfig& a, TLODConfig& b) {
@@ -6346,7 +6462,7 @@ class GameConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_GameConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    49;
+    50;
 
   void Swap(GameConfig* other);
   friend void swap(GameConfig& a, GameConfig& b) {
@@ -10296,33 +10412,67 @@ StaticSymbols::mutable_symbols() {
 
 // -------------------------------------------------------------------
 
-// StaticCascadingReels
+// StaticCascadingScenarios
 
 // repeated .natashapb.StaticSymbols scenarios = 1;
+inline int StaticCascadingScenarios::scenarios_size() const {
+  return scenarios_.size();
+}
+inline void StaticCascadingScenarios::clear_scenarios() {
+  scenarios_.Clear();
+}
+inline ::natashapb::StaticSymbols* StaticCascadingScenarios::mutable_scenarios(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >*
+StaticCascadingScenarios::mutable_scenarios() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.StaticCascadingScenarios.scenarios)
+  return &scenarios_;
+}
+inline const ::natashapb::StaticSymbols& StaticCascadingScenarios::scenarios(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_.Get(index);
+}
+inline ::natashapb::StaticSymbols* StaticCascadingScenarios::add_scenarios() {
+  // @@protoc_insertion_point(field_add:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >&
+StaticCascadingScenarios::scenarios() const {
+  // @@protoc_insertion_point(field_list:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_;
+}
+
+// -------------------------------------------------------------------
+
+// StaticCascadingReels
+
+// repeated .natashapb.StaticCascadingScenarios scenarios = 1;
 inline int StaticCascadingReels::scenarios_size() const {
   return scenarios_.size();
 }
 inline void StaticCascadingReels::clear_scenarios() {
   scenarios_.Clear();
 }
-inline ::natashapb::StaticSymbols* StaticCascadingReels::mutable_scenarios(int index) {
+inline ::natashapb::StaticCascadingScenarios* StaticCascadingReels::mutable_scenarios(int index) {
   // @@protoc_insertion_point(field_mutable:natashapb.StaticCascadingReels.scenarios)
   return scenarios_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >*
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >*
 StaticCascadingReels::mutable_scenarios() {
   // @@protoc_insertion_point(field_mutable_list:natashapb.StaticCascadingReels.scenarios)
   return &scenarios_;
 }
-inline const ::natashapb::StaticSymbols& StaticCascadingReels::scenarios(int index) const {
+inline const ::natashapb::StaticCascadingScenarios& StaticCascadingReels::scenarios(int index) const {
   // @@protoc_insertion_point(field_get:natashapb.StaticCascadingReels.scenarios)
   return scenarios_.Get(index);
 }
-inline ::natashapb::StaticSymbols* StaticCascadingReels::add_scenarios() {
+inline ::natashapb::StaticCascadingScenarios* StaticCascadingReels::add_scenarios() {
   // @@protoc_insertion_point(field_add:natashapb.StaticCascadingReels.scenarios)
   return scenarios_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >&
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >&
 StaticCascadingReels::scenarios() const {
   // @@protoc_insertion_point(field_list:natashapb.StaticCascadingReels.scenarios)
   return scenarios_;
@@ -11072,6 +11222,8 @@ GameConfig::mutable_rtp() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

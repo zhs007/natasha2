@@ -52,6 +52,10 @@ void loadLines3X5(const char* fn, Lines3X5& lines);
 void loadStaticCascadingReels3X5(FileNameList& lstfn,
                                  StaticCascadingReels3X5& scr);
 
+// loadStaticCascadingReels3X5FromPB - load from protobuf
+void loadStaticCascadingReels3X5FromPB(
+    StaticCascadingReels3X5& scr, const natashapb::StaticCascadingReels* pSCR);
+
 // loadNormalReels - reelstrips.csv
 void loadNormalReels3X5(const char* fn, NormalReels3X5& scr);
 

@@ -212,6 +212,11 @@ class StaticSymbolsDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<StaticSymbols>
       _instance;
 } _StaticSymbols_default_instance_;
+class StaticCascadingScenariosDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StaticCascadingScenarios>
+      _instance;
+} _StaticCascadingScenarios_default_instance_;
 class StaticCascadingReelsDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StaticCascadingReels>
@@ -1080,7 +1085,7 @@ void InitDefaultsStaticSymbols() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsStaticSymbolsImpl);
 }
 
-void InitDefaultsStaticCascadingReelsImpl() {
+void InitDefaultsStaticCascadingScenariosImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -1089,6 +1094,28 @@ void InitDefaultsStaticCascadingReelsImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_base_2eproto::InitDefaultsStaticSymbols();
+  {
+    void* ptr = &::natashapb::_StaticCascadingScenarios_default_instance_;
+    new (ptr) ::natashapb::StaticCascadingScenarios();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::natashapb::StaticCascadingScenarios::InitAsDefaultInstance();
+}
+
+void InitDefaultsStaticCascadingScenarios() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsStaticCascadingScenariosImpl);
+}
+
+void InitDefaultsStaticCascadingReelsImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_base_2eproto::InitDefaultsStaticCascadingScenarios();
   {
     void* ptr = &::natashapb::_StaticCascadingReels_default_instance_;
     new (ptr) ::natashapb::StaticCascadingReels();
@@ -1384,7 +1411,7 @@ void InitDefaultsGameConfig() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsGameConfigImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[50];
+::google::protobuf::Metadata file_level_metadata[51];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -1734,6 +1761,12 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticSymbols, symbols_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticCascadingScenarios, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticCascadingScenarios, scenarios_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::StaticCascadingReels, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1889,20 +1922,21 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 324, -1, sizeof(::natashapb::RTP)},
   { 333, -1, sizeof(::natashapb::NormalReelstriptConfig)},
   { 339, -1, sizeof(::natashapb::StaticSymbols)},
-  { 345, -1, sizeof(::natashapb::StaticCascadingReels)},
-  { 352, -1, sizeof(::natashapb::ReelstriptConfig)},
-  { 359, -1, sizeof(::natashapb::WeightConfig)},
-  { 366, -1, sizeof(::natashapb::MuseumRTPConfig)},
-  { 380, 387, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
-  { 389, 396, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
-  { 398, -1, sizeof(::natashapb::MuseumConfig)},
-  { 405, -1, sizeof(::natashapb::TLODRTPConfig)},
-  { 413, 420, sizeof(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse)},
-  { 422, 429, sizeof(::natashapb::TLODConfig_RtpEntry_DoNotUse)},
-  { 431, -1, sizeof(::natashapb::TLODConfig)},
-  { 438, 445, sizeof(::natashapb::GameConfig_ReelstriptsEntry_DoNotUse)},
-  { 447, 454, sizeof(::natashapb::GameConfig_RtpEntry_DoNotUse)},
-  { 456, -1, sizeof(::natashapb::GameConfig)},
+  { 345, -1, sizeof(::natashapb::StaticCascadingScenarios)},
+  { 351, -1, sizeof(::natashapb::StaticCascadingReels)},
+  { 358, -1, sizeof(::natashapb::ReelstriptConfig)},
+  { 365, -1, sizeof(::natashapb::WeightConfig)},
+  { 372, -1, sizeof(::natashapb::MuseumRTPConfig)},
+  { 386, 393, sizeof(::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse)},
+  { 395, 402, sizeof(::natashapb::MuseumConfig_RtpEntry_DoNotUse)},
+  { 404, -1, sizeof(::natashapb::MuseumConfig)},
+  { 411, -1, sizeof(::natashapb::TLODRTPConfig)},
+  { 419, 426, sizeof(::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse)},
+  { 428, 435, sizeof(::natashapb::TLODConfig_RtpEntry_DoNotUse)},
+  { 437, -1, sizeof(::natashapb::TLODConfig)},
+  { 444, 451, sizeof(::natashapb::GameConfig_ReelstriptsEntry_DoNotUse)},
+  { 453, 460, sizeof(::natashapb::GameConfig_RtpEntry_DoNotUse)},
+  { 462, -1, sizeof(::natashapb::GameConfig)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1942,6 +1976,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_RTP_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_NormalReelstriptConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticSymbols_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticCascadingScenarios_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_StaticCascadingReels_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_ReelstriptConfig_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::natashapb::_WeightConfig_default_instance_),
@@ -1974,7 +2009,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 50);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 51);
 }
 
 void AddDescriptorsImpl() {
@@ -2103,74 +2138,76 @@ void AddDescriptorsImpl() {
       "\005value\030\002 \001(\0132\030.natashapb.GameModuleRTP:\002"
       "8\001\"*\n\026NormalReelstriptConfig\022\020\n\010filename"
       "\030\001 \001(\t\" \n\rStaticSymbols\022\017\n\007symbols\030\001 \003(\005"
-      "\"T\n\024StaticCascadingReels\022+\n\tscenarios\030\001 "
-      "\003(\0132\030.natashapb.StaticSymbols\022\017\n\007weights"
-      "\030\002 \003(\005\"v\n\020ReelstriptConfig\0221\n\006normal\030\001 \001"
-      "(\0132!.natashapb.NormalReelstriptConfig\022/\n"
-      "\006static\030\002 \001(\0132\037.natashapb.StaticCascadin"
-      "gReels\"4\n\014WeightConfig\022\017\n\007weights\030\001 \003(\005\022"
-      "\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017MuseumRTPConfig"
-      "\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBonusPrize\030e"
-      " \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n\rbgMystery"
-      "Wild\030g \003(\0132\027.natashapb.WeightConfig\022\017\n\006f"
-      "gNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022\025\n\014f"
-      "gBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultipliers\030\256\002 \003"
-      "(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.natashapb.W"
-      "eightConfig\"\225\002\n\014MuseumConfig\022=\n\013reelstri"
-      "pts\030\001 \003(\0132(.natashapb.MuseumConfig.Reels"
-      "triptsEntry\022-\n\003rtp\030\002 \003(\0132 .natashapb.Mus"
-      "eumConfig.RtpEntry\032O\n\020ReelstriptsEntry\022\013"
-      "\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.R"
-      "eelstriptConfig:\0028\001\032F\n\010RtpEntry\022\013\n\003key\030\001"
-      " \001(\t\022)\n\005value\030\002 \001(\0132\032.natashapb.MuseumRT"
-      "PConfig:\0028\001\"M\n\rTLODRTPConfig\022\024\n\014bgReelst"
-      "rips\030d \001(\t\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstr"
-      "ips\030\254\002 \001(\t\"\215\002\n\nTLODConfig\022;\n\013reelstripts"
-      "\030\001 \003(\0132&.natashapb.TLODConfig.Reelstript"
-      "sEntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.TLODConf"
-      "ig.RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001"
-      " \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reelstri"
-      "ptConfig:\0028\001\032D\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022\'\n"
-      "\005value\030\002 \001(\0132\030.natashapb.TLODRTPConfig:\002"
-      "8\001\"\211\002\n\nGameConfig\022;\n\013reelstripts\030\001 \003(\0132&"
-      ".natashapb.GameConfig.ReelstriptsEntry\022+"
-      "\n\003rtp\030\002 \003(\0132\036.natashapb.GameConfig.RtpEn"
-      "try\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005"
-      "value\030\002 \001(\0132\033.natashapb.ReelstriptConfig"
-      ":\0028\001\032@\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022#\n\005value\030\002"
-      " \001(\0132\024.google.protobuf.Any:\0028\001*\335\004\n\004CODE\022"
-      "\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220N\022\026\n\021I"
-      "NVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REELS_CFG"
-      "\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_START\020\240\234"
-      "\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241\234\001\022\027\n\021"
-      "INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_START_L"
-      "INES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234\001\022\031\n\023A"
-      "LREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_PARENT"
-      "ID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247\234\001\022\021\n\013"
-      "INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001\022\023\n\r"
-      "INVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMECTRL_GA"
-      "MEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FREESTATE"
-      "\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020\320\206\003\022!\n"
-      "\033ERR_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033\n\025ERR_"
-      "INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBUF_PA"
-      "RSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT\020\223\277\005*\263"
-      "\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLINE_LE"
-      "FT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT\020\003\022\021"
-      "\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020\005\022\023\n"
-      "\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r\n\tWAY_"
-      "RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAMEMODTYPE\022\014\n\010N"
-      "ULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAME\020\002\022"
-      "\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n\023COM"
-      "MON_JACKPOT_GAME\020\005*L\n\022CASCADINGFREESTATE"
-      "\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME\020\001\022\020"
-      "\n\014END_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n\010NO_DE"
-      "BUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN\020\002\022\013\n\007"
-      "BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FREEGAME"
-      "\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMONJACKP"
-      "OT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
+      "\"G\n\030StaticCascadingScenarios\022+\n\tscenario"
+      "s\030\001 \003(\0132\030.natashapb.StaticSymbols\"_\n\024Sta"
+      "ticCascadingReels\0226\n\tscenarios\030\001 \003(\0132#.n"
+      "atashapb.StaticCascadingScenarios\022\017\n\007wei"
+      "ghts\030\002 \003(\005\"v\n\020ReelstriptConfig\0221\n\006normal"
+      "\030\001 \001(\0132!.natashapb.NormalReelstriptConfi"
+      "g\022/\n\006static\030\002 \001(\0132\037.natashapb.StaticCasc"
+      "adingReels\"4\n\014WeightConfig\022\017\n\007weights\030\001 "
+      "\003(\005\022\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017MuseumRTPCo"
+      "nfig\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBonusPri"
+      "ze\030e \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n\rbgMys"
+      "teryWild\030g \003(\0132\027.natashapb.WeightConfig\022"
+      "\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022"
+      "\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultipliers\030"
+      "\256\002 \003(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.natasha"
+      "pb.WeightConfig\"\225\002\n\014MuseumConfig\022=\n\013reel"
+      "stripts\030\001 \003(\0132(.natashapb.MuseumConfig.R"
+      "eelstriptsEntry\022-\n\003rtp\030\002 \003(\0132 .natashapb"
+      ".MuseumConfig.RtpEntry\032O\n\020ReelstriptsEnt"
+      "ry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natasha"
+      "pb.ReelstriptConfig:\0028\001\032F\n\010RtpEntry\022\013\n\003k"
+      "ey\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.natashapb.Muse"
+      "umRTPConfig:\0028\001\"M\n\rTLODRTPConfig\022\024\n\014bgRe"
+      "elstrips\030d \001(\t\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgRee"
+      "lstrips\030\254\002 \001(\t\"\215\002\n\nTLODConfig\022;\n\013reelstr"
+      "ipts\030\001 \003(\0132&.natashapb.TLODConfig.Reelst"
+      "riptsEntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.TLOD"
+      "Config.RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003k"
+      "ey\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reel"
+      "striptConfig:\0028\001\032D\n\010RtpEntry\022\013\n\003key\030\001 \001("
+      "\t\022\'\n\005value\030\002 \001(\0132\030.natashapb.TLODRTPConf"
+      "ig:\0028\001\"\211\002\n\nGameConfig\022;\n\013reelstripts\030\001 \003"
+      "(\0132&.natashapb.GameConfig.ReelstriptsEnt"
+      "ry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.GameConfig.R"
+      "tpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001(\t"
+      "\022*\n\005value\030\002 \001(\0132\033.natashapb.ReelstriptCo"
+      "nfig:\0028\001\032@\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022#\n\005val"
+      "ue\030\002 \001(\0132\024.google.protobuf.Any:\0028\001*\335\004\n\004C"
+      "ODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220N\022"
+      "\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REELS"
+      "_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_STAR"
+      "T\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241\234\001"
+      "\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_STA"
+      "RT_LINES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234\001\022"
+      "\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_PA"
+      "RENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247\234\001"
+      "\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001"
+      "\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMECTR"
+      "L_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FREES"
+      "TATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020\320\206"
+      "\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033\n\025"
+      "ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBU"
+      "F_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT\020\223"
+      "\277\005*\263\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLIN"
+      "E_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT"
+      "\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020"
+      "\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r\n\t"
+      "WAY_RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAMEMODTYPE\022"
+      "\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAM"
+      "E\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n"
+      "\023COMMON_JACKPOT_GAME\020\005*L\n\022CASCADINGFREES"
+      "TATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME"
+      "\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n\010N"
+      "O_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN\020\002"
+      "\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FREE"
+      "GAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMONJ"
+      "ACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 7510);
+      descriptor, 7594);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -15804,6 +15841,243 @@ void StaticSymbols::InternalSwap(StaticSymbols* other) {
 
 // ===================================================================
 
+void StaticCascadingScenarios::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int StaticCascadingScenarios::kScenariosFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+StaticCascadingScenarios::StaticCascadingScenarios()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_base_2eproto::InitDefaultsStaticCascadingScenarios();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:natashapb.StaticCascadingScenarios)
+}
+StaticCascadingScenarios::StaticCascadingScenarios(const StaticCascadingScenarios& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      scenarios_(from.scenarios_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:natashapb.StaticCascadingScenarios)
+}
+
+void StaticCascadingScenarios::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+StaticCascadingScenarios::~StaticCascadingScenarios() {
+  // @@protoc_insertion_point(destructor:natashapb.StaticCascadingScenarios)
+  SharedDtor();
+}
+
+void StaticCascadingScenarios::SharedDtor() {
+}
+
+void StaticCascadingScenarios::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* StaticCascadingScenarios::descriptor() {
+  ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const StaticCascadingScenarios& StaticCascadingScenarios::default_instance() {
+  ::protobuf_base_2eproto::InitDefaultsStaticCascadingScenarios();
+  return *internal_default_instance();
+}
+
+
+void StaticCascadingScenarios::Clear() {
+// @@protoc_insertion_point(message_clear_start:natashapb.StaticCascadingScenarios)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  scenarios_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool StaticCascadingScenarios::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:natashapb.StaticCascadingScenarios)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .natashapb.StaticSymbols scenarios = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_scenarios()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:natashapb.StaticCascadingScenarios)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:natashapb.StaticCascadingScenarios)
+  return false;
+#undef DO_
+}
+
+void StaticCascadingScenarios::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:natashapb.StaticCascadingScenarios)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->scenarios_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1,
+      this->scenarios(static_cast<int>(i)),
+      output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:natashapb.StaticCascadingScenarios)
+}
+
+::google::protobuf::uint8* StaticCascadingScenarios::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:natashapb.StaticCascadingScenarios)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->scenarios_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->scenarios(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:natashapb.StaticCascadingScenarios)
+  return target;
+}
+
+size_t StaticCascadingScenarios::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:natashapb.StaticCascadingScenarios)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->scenarios_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->scenarios(static_cast<int>(i)));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void StaticCascadingScenarios::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:natashapb.StaticCascadingScenarios)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StaticCascadingScenarios* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const StaticCascadingScenarios>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:natashapb.StaticCascadingScenarios)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:natashapb.StaticCascadingScenarios)
+    MergeFrom(*source);
+  }
+}
+
+void StaticCascadingScenarios::MergeFrom(const StaticCascadingScenarios& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:natashapb.StaticCascadingScenarios)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  scenarios_.MergeFrom(from.scenarios_);
+}
+
+void StaticCascadingScenarios::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:natashapb.StaticCascadingScenarios)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StaticCascadingScenarios::CopyFrom(const StaticCascadingScenarios& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:natashapb.StaticCascadingScenarios)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StaticCascadingScenarios::IsInitialized() const {
+  return true;
+}
+
+void StaticCascadingScenarios::Swap(StaticCascadingScenarios* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void StaticCascadingScenarios::InternalSwap(StaticCascadingScenarios* other) {
+  using std::swap;
+  CastToBase(&scenarios_)->InternalSwap(CastToBase(&other->scenarios_));
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata StaticCascadingScenarios::GetMetadata() const {
+  protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_base_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void StaticCascadingReels::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -15878,7 +16152,7 @@ bool StaticCascadingReels::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .natashapb.StaticSymbols scenarios = 1;
+      // repeated .natashapb.StaticCascadingScenarios scenarios = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
@@ -15935,7 +16209,7 @@ void StaticCascadingReels::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .natashapb.StaticSymbols scenarios = 1;
+  // repeated .natashapb.StaticCascadingScenarios scenarios = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->scenarios_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -15969,7 +16243,7 @@ void StaticCascadingReels::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .natashapb.StaticSymbols scenarios = 1;
+  // repeated .natashapb.StaticCascadingScenarios scenarios = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->scenarios_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -16007,7 +16281,7 @@ size_t StaticCascadingReels::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .natashapb.StaticSymbols scenarios = 1;
+  // repeated .natashapb.StaticCascadingScenarios scenarios = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->scenarios_size());
     total_size += 1UL * count;
@@ -17391,7 +17665,7 @@ void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const MuseumConfig_Reelst
 }
 ::google::protobuf::Metadata MuseumConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[40];
+  return ::protobuf_base_2eproto::file_level_metadata[41];
 }
 void MuseumConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -17408,7 +17682,7 @@ void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(const MuseumConfig_RtpEntry_DoNot
 }
 ::google::protobuf::Metadata MuseumConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[41];
+  return ::protobuf_base_2eproto::file_level_metadata[42];
 }
 void MuseumConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -18250,7 +18524,7 @@ void TLODConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const TLODConfig_Reelstript
 }
 ::google::protobuf::Metadata TLODConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[44];
+  return ::protobuf_base_2eproto::file_level_metadata[45];
 }
 void TLODConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -18267,7 +18541,7 @@ void TLODConfig_RtpEntry_DoNotUse::MergeFrom(const TLODConfig_RtpEntry_DoNotUse&
 }
 ::google::protobuf::Metadata TLODConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[45];
+  return ::protobuf_base_2eproto::file_level_metadata[46];
 }
 void TLODConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -18764,7 +19038,7 @@ void GameConfig_ReelstriptsEntry_DoNotUse::MergeFrom(const GameConfig_Reelstript
 }
 ::google::protobuf::Metadata GameConfig_ReelstriptsEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[47];
+  return ::protobuf_base_2eproto::file_level_metadata[48];
 }
 void GameConfig_ReelstriptsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -18781,7 +19055,7 @@ void GameConfig_RtpEntry_DoNotUse::MergeFrom(const GameConfig_RtpEntry_DoNotUse&
 }
 ::google::protobuf::Metadata GameConfig_RtpEntry_DoNotUse::GetMetadata() const {
   ::protobuf_base_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_base_2eproto::file_level_metadata[48];
+  return ::protobuf_base_2eproto::file_level_metadata[49];
 }
 void GameConfig_RtpEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -19383,6 +19657,9 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::NormalReelstriptConfi
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::StaticSymbols* Arena::Create< ::natashapb::StaticSymbols >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::StaticSymbols >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::StaticCascadingScenarios* Arena::Create< ::natashapb::StaticCascadingScenarios >(Arena* arena) {
+  return Arena::CreateInternal< ::natashapb::StaticCascadingScenarios >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::natashapb::StaticCascadingReels* Arena::Create< ::natashapb::StaticCascadingReels >(Arena* arena) {
   return Arena::CreateInternal< ::natashapb::StaticCascadingReels >(arena);

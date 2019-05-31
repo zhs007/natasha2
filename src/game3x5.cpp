@@ -97,6 +97,44 @@ void loadStaticCascadingReels3X5(FileNameList& lstfn,
   }
 }
 
+// loadStaticCascadingReels3X5FromPB - load from protobuf
+void loadStaticCascadingReels3X5FromPB(
+    StaticCascadingReels3X5& scr, const natashapb::StaticCascadingReels* pSCR) {
+  assert(pSCR != NULL);
+
+  int maxdownnums = 0;
+  scr.clear();
+
+  for (int i = 0; i < pSCR->scenarios_size(); ++i) {
+    auto scenario = pSCR->scenarios(i);
+
+    if (maxdownnums < scenario.scenarios_size()) {
+      maxdownnums = scenario.scenarios_size();
+    }
+
+    for (int r = 0; r < scenario.scenarios_size(); ++r) {
+      auto symbols = scenario.scenarios(r);
+      assert(symbols.symbols_size() == 3 * 5);
+
+      ::natashapb::SymbolBlock3X5 sb;
+
+      for (int y = 0; y < 3; ++y) {
+        for (int x = 0; x < 5; ++x) {
+          setSymbolBlock3X5(&sb, x, y, symbols.symbols(y * 5 + x));
+        }
+      }
+
+      if (i == 0) {
+        scr.newRow();
+      }
+
+      scr.newColumn(r, sb);
+    }
+  }
+
+  scr.setMaxDownNums(maxdownnums);
+}
+
 // loadNormalReels - reelstrips.csv
 void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
   scr.clear();
