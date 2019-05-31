@@ -8,20 +8,18 @@
 namespace natasha {
 
 // getUserGameModInfo - get user game module info
-::natashapb::UserGameModInfo* GameMod::getUserGameModInfo(
-    ::natashapb::UserGameLogicInfo* pLogicUser) {
-  assert(pLogicUser != NULL);
+::natashapb::UserGameModInfo* GameMod::getUserGameModInfo(UserInfo* pUser) {
+  assert(pUser != NULL);
 
-  return m_logic.getUserGameModInfo(pLogicUser, m_gmt);
+  return m_logic.getUserGameModInfo(pUser, m_gmt);
 }
 
 // makeInitScenario - make a initial scenario
 //                  - 产生一个初始局面，不中奖的
 ::natashapb::CODE SlotsGameMod::makeInitScenario(
-    ::natashapb::GameCtrl* pGameCtrl,
-    const ::natashapb::UserGameLogicInfo* pLogicUser,
+    ::natashapb::GameCtrl* pGameCtrl, const UserInfo* pUser,
     ::natashapb::UserGameModInfo* pUGMI) {
-  assert(pLogicUser != NULL);
+  assert(pUser != NULL);
   assert(pUGMI != NULL);
   assert(pGameCtrl != NULL);
 
@@ -30,15 +28,14 @@ namespace natasha {
   for (int i = 0; i < MAX_NUMS_MAKEINITIALSCENARIO; ++i) {
     pUGMI->clear_randomresult();
     auto code = this->randomReels(pUGMI->mutable_randomresult(), pGameCtrl,
-                                  pUGMI, pLogicUser);
+                                  pUGMI, pUser);
     if (code != ::natashapb::OK) {
       return code;
     }
 
     // pUGMI->clear_spinresult();
-    code =
-        this->countSpinResult(pUGMI->mutable_spinresult(), pGameCtrl,
-                              pUGMI->mutable_randomresult(), pUGMI, pLogicUser);
+    code = this->countSpinResult(pUGMI->mutable_spinresult(), pGameCtrl,
+                                 pUGMI->mutable_randomresult(), pUGMI, pUser);
     if (code != ::natashapb::OK) {
       return code;
     }

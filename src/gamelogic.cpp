@@ -5,7 +5,7 @@
 
 namespace natasha {
 
-GameLogic::GameLogic() {}
+GameLogic::GameLogic() : m_pGameConfig(NULL) {}
 
 GameLogic::~GameLogic() {}
 
@@ -17,16 +17,18 @@ GameLogic::~GameLogic() {}
   return ::natashapb::OK;
 }
 
-::natashapb::CODE GameLogic::gameCtrl(
-    ::natashapb::GameCtrl* pGameCtrl,
-    ::natashapb::UserGameLogicInfo* pLogicUser) {
+::natashapb::CODE GameLogic::gameCtrl(::natashapb::GameCtrl* pGameCtrl,
+                                      UserInfo* pUser) {
   assert(pGameCtrl != NULL);
-  assert(pLogicUser != NULL);
+  assert(pUser != NULL);
+  assert(pUser->pLogicUser != NULL);
 
-  auto curmod = this->getMainGameMod(pLogicUser, false);
+  auto pLogicUser = pUser->pLogicUser;
+
+  auto curmod = this->getMainGameMod(pUser, false);
   assert(curmod != NULL);
 
-  auto curugmi = this->getUserGameModInfo(pLogicUser, curmod->getGameModType());
+  auto curugmi = this->getUserGameModInfo(pUser, curmod->getGameModType());
   assert(curugmi != NULL);
 
   auto code = curmod->reviewGameCtrl(pGameCtrl, curugmi);
@@ -34,19 +36,18 @@ GameLogic::~GameLogic() {}
     return code;
   }
 
-  code = curmod->onGameCtrl(pGameCtrl, pLogicUser, curugmi);
+  code = curmod->onGameCtrl(pGameCtrl, pUser, curugmi);
   if (code != ::natashapb::OK) {
     return code;
   }
 
-  auto nextmod = this->getMainGameMod(pLogicUser, false);
+  auto nextmod = this->getMainGameMod(pUser, false);
   assert(nextmod != NULL);
 
   pLogicUser->set_curgamemodtype(curmod->getGameModType());
   pLogicUser->set_nextgamemodtype(nextmod->getGameModType());
 
-  auto nextugmi =
-      this->getUserGameModInfo(pLogicUser, nextmod->getGameModType());
+  auto nextugmi = this->getUserGameModInfo(pUser, nextmod->getGameModType());
   assert(nextugmi != NULL);
 
   pLogicUser->set_iscompleted(nextmod->isCompeleted(nextugmi));
@@ -69,9 +70,8 @@ GameLogic::~GameLogic() {}
 
     for (auto i = 0; i < curugmi->spinresult().lstgri_size(); ++i) {
       auto curgri = curugmi->spinresult().lstgri(i);
-      onRTPAddPayoutGRI(
-          curmod->getGameModType(), spinret, curgri,
-          getUserGameModInfo(pLogicUser, curmod->getGameModType()));
+      onRTPAddPayoutGRI(curmod->getGameModType(), spinret, curgri,
+                        getUserGameModInfo(pUser, curmod->getGameModType()));
     }
 
     onRTPAddPayout(curmod->getGameModType(), spinret.realwin());
@@ -102,7 +102,10 @@ GameLogic::~GameLogic() {}
 //   Only for gamectrl
 ::natashapb::CODE GameLogic::startGameMod(
     ::natashapb::GAMEMODTYPE gmt, const ::natashapb::StartGameMod* pStart,
-    ::natashapb::UserGameLogicInfo* pLogicUser) {
+    UserInfo* pUser) {
+  assert(pUser != NULL);
+  assert(pUser->pLogicUser != NULL);
+
   auto it = m_mapGameMod.find(gmt);
   assert(it != m_mapGameMod.end());
 
@@ -110,13 +113,15 @@ GameLogic::~GameLogic() {}
   m_rtp.addInGameModule(gmt);
 #endif  // NATASHA_COUNTRTP
 
-  return it->second->start(pLogicUser->mutable_freegame(), pStart);
+  auto gm = this->getUserGameModInfo(pUser, gmt);
+  assert(gm != NULL);
+
+  return it->second->start(gm, pStart, pUser);
 }
 
 // getMainGameMod - start game module for user
 //   Only for gamectrl
-GameMod* GameLogic::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                                   bool isComeInGame) {
+GameMod* GameLogic::getMainGameMod(UserInfo* pUser, bool isComeInGame) {
   return NULL;
 }
 
@@ -132,8 +137,11 @@ GameMod* GameLogic::getGameMod(::natashapb::GAMEMODTYPE gmt) {
 
 // getUserGameModInfo - get user game module info
 ::natashapb::UserGameModInfo* GameLogic::getUserGameModInfo(
-    ::natashapb::UserGameLogicInfo* pLogicUser, ::natashapb::GAMEMODTYPE gmt) {
-  assert(pLogicUser != NULL);
+    UserInfo* pUser, ::natashapb::GAMEMODTYPE gmt) {
+  assert(pUser != NULL);
+  assert(pUser->pLogicUser != NULL);
+
+  auto pLogicUser = pUser->pLogicUser;
 
   switch (gmt) {
     case ::natashapb::BASE_GAME:
@@ -157,9 +165,11 @@ GameMod* GameLogic::getGameMod(::natashapb::GAMEMODTYPE gmt) {
 
 // getConstUserGameModInfo - get user game module info
 const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
-    const ::natashapb::UserGameLogicInfo* pLogicUser,
-    ::natashapb::GAMEMODTYPE gmt) const {
-  assert(pLogicUser != NULL);
+    const UserInfo* pUser, ::natashapb::GAMEMODTYPE gmt) const {
+  assert(pUser != NULL);
+  assert(pUser->pLogicUser != NULL);
+
+  auto pLogicUser = pUser->pLogicUser;
 
   switch (gmt) {
     case ::natashapb::BASE_GAME:
@@ -181,21 +191,23 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
   return NULL;
 }
 
-::natashapb::CODE GameLogic::userComeIn(
-    ::natashapb::UserGameLogicInfo* pLogicUser) {
-  assert(pLogicUser != NULL);
+::natashapb::CODE GameLogic::userComeIn(UserInfo* pUser) {
+  assert(pUser != NULL);
+  assert(pUser->pLogicUser != NULL);
+
+  auto pLogicUser = pUser->pLogicUser;
 
   for (ConstMapGameModIter it = m_mapGameMod.begin(); it != m_mapGameMod.end();
        ++it) {
-    auto pUGMI = getUserGameModInfo(pLogicUser, it->first);
+    auto pUGMI = getUserGameModInfo(pUser, it->first);
     assert(pUGMI != NULL);
-    auto code = it->second->onUserComeIn(pLogicUser, pUGMI);
+    auto code = it->second->onUserComeIn(pUser, pUGMI);
     if (code != ::natashapb::OK) {
       return code;
     }
   }
 
-  auto curmod = this->getMainGameMod(pLogicUser, false);
+  auto curmod = this->getMainGameMod(pUser, false);
   assert(curmod != NULL);
 
   if (pLogicUser->curgamemodtype() == ::natashapb::NULL_MOD) {
@@ -210,14 +222,13 @@ const ::natashapb::UserGameModInfo* GameLogic::getConstUserGameModInfo(
 // onGameCtrlEnd - onGameCtrlEnd
 //               - 处理当前游戏模块状态，诸如isCompleted、curmod、nextmod
 ::natashapb::CODE GameLogic::onGameCtrlEnd(
-    const ::natashapb::GameCtrl* pGameCtrl,
-    ::natashapb::UserGameLogicInfo* pLogicUser, GameMod* curmod,
+    const ::natashapb::GameCtrl* pGameCtrl, UserInfo* pUser, GameMod* curmod,
     ::natashapb::UserGameModInfo* curugmi) {
-  assert(pLogicUser != NULL);
+  assert(pUser != NULL);
   assert(curmod != NULL);
   assert(curugmi != NULL);
 
-  return curmod->onGameCtrlEnd(pGameCtrl, pLogicUser, curugmi);
+  return curmod->onGameCtrlEnd(pGameCtrl, pUser, curugmi);
 }
 
 }  // namespace natasha

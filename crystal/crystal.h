@@ -20,8 +20,7 @@ class Crystal : public GameLogic {
   virtual ::natashapb::CODE init(const char* cfgpath);
 
   // getMainGameMod - get current main game module
-  virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                                  bool isComeInGame);
+  virtual GameMod* getMainGameMod(UserInfo* pLogicUser, bool isComeInGame);
 
  protected:
   StaticCascadingReels3X5 m_reels;

@@ -564,3 +564,8 @@ message TLODConfig {
     map<string, ReelstriptConfig> reelstripts = 1;
     map<string, TLODRTPConfig> rtp = 2;
 }
+
+message GameConfig {
+    map<string, ReelstriptConfig> reelstripts = 1;
+    map<string, google.protobuf.Any> rtp = 2;    
+}

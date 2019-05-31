@@ -190,18 +190,17 @@ void Museum::initConfig() {
 }
 
 // getMainGameMod - get current main game module
-GameMod* Museum::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                                bool isComeInGame) {
+GameMod* Museum::getMainGameMod(UserInfo* pUser, bool isComeInGame) {
   auto pBG = getGameMod(::natashapb::BASE_GAME);
   assert(pBG != NULL);
 
   auto pFG = getGameMod(::natashapb::FREE_GAME);
   assert(pFG != NULL);
 
-  auto pUserBG = getConstUserGameModInfo(pLogicUser, ::natashapb::BASE_GAME);
+  auto pUserBG = getConstUserGameModInfo(pUser, ::natashapb::BASE_GAME);
   assert(pUserBG != NULL);
 
-  auto pUserFG = getConstUserGameModInfo(pLogicUser, ::natashapb::FREE_GAME);
+  auto pUserFG = getConstUserGameModInfo(pUser, ::natashapb::FREE_GAME);
   assert(pUserFG != NULL);
 
   if (pFG->isIn(pUserFG)) {
@@ -226,11 +225,13 @@ void countRTP_museum() {
     printf("init fail(%d)!\n", c);
   }
 
+  auto pUser = new UserInfo();
   auto pUGI = new ::natashapb::UserGameLogicInfo();
+  pUser->pLogicUser = pUGI;
 
   pUGI->set_configname("rtp96");
 
-  c = museum.userComeIn(pUGI);
+  c = museum.userComeIn(pUser);
   if (c != natashapb::OK) {
     printf("userComeIn fail(%d)!\n", c);
   }
@@ -258,7 +259,7 @@ void countRTP_museum() {
 
     pGameCtrl->set_ctrlid(ctrlid);
 
-    c = museum.gameCtrl(pGameCtrl, pUGI);
+    c = museum.gameCtrl(pGameCtrl, pUser);
     if (c != natashapb::OK) {
       printf("gameCtrl fail(%d)!\n", c);
     }

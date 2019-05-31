@@ -41,7 +41,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[47];
+  static const ::google::protobuf::internal::ParseTable schema[50];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -141,6 +141,12 @@ void InitDefaultsTLODConfig_RtpEntry_DoNotUseImpl();
 void InitDefaultsTLODConfig_RtpEntry_DoNotUse();
 void InitDefaultsTLODConfigImpl();
 void InitDefaultsTLODConfig();
+void InitDefaultsGameConfig_ReelstriptsEntry_DoNotUseImpl();
+void InitDefaultsGameConfig_ReelstriptsEntry_DoNotUse();
+void InitDefaultsGameConfig_RtpEntry_DoNotUseImpl();
+void InitDefaultsGameConfig_RtpEntry_DoNotUse();
+void InitDefaultsGameConfigImpl();
+void InitDefaultsGameConfig();
 inline void InitDefaults() {
   InitDefaultsSymbolBlock3X5();
   InitDefaultsSymbolBlock();
@@ -189,6 +195,9 @@ inline void InitDefaults() {
   InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUse();
   InitDefaultsTLODConfig_RtpEntry_DoNotUse();
   InitDefaultsTLODConfig();
+  InitDefaultsGameConfig_ReelstriptsEntry_DoNotUse();
+  InitDefaultsGameConfig_RtpEntry_DoNotUse();
+  InitDefaultsGameConfig();
 }
 }  // namespace protobuf_base_2eproto
 namespace natashapb {
@@ -207,6 +216,15 @@ extern BonusRTPListDefaultTypeInternal _BonusRTPList_default_instance_;
 class FGCache;
 class FGCacheDefaultTypeInternal;
 extern FGCacheDefaultTypeInternal _FGCache_default_instance_;
+class GameConfig;
+class GameConfigDefaultTypeInternal;
+extern GameConfigDefaultTypeInternal _GameConfig_default_instance_;
+class GameConfig_ReelstriptsEntry_DoNotUse;
+class GameConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal;
+extern GameConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal _GameConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+class GameConfig_RtpEntry_DoNotUse;
+class GameConfig_RtpEntry_DoNotUseDefaultTypeInternal;
+extern GameConfig_RtpEntry_DoNotUseDefaultTypeInternal _GameConfig_RtpEntry_DoNotUse_default_instance_;
 class GameCtrl;
 class GameCtrlDefaultTypeInternal;
 extern GameCtrlDefaultTypeInternal _GameCtrl_default_instance_;
@@ -341,6 +359,9 @@ template<> ::natashapb::BaseFreeInfo* Arena::Create< ::natashapb::BaseFreeInfo>(
 template<> ::natashapb::BonusRTP* Arena::Create< ::natashapb::BonusRTP>(Arena*);
 template<> ::natashapb::BonusRTPList* Arena::Create< ::natashapb::BonusRTPList>(Arena*);
 template<> ::natashapb::FGCache* Arena::Create< ::natashapb::FGCache>(Arena*);
+template<> ::natashapb::GameConfig* Arena::Create< ::natashapb::GameConfig>(Arena*);
+template<> ::natashapb::GameConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::GameConfig_ReelstriptsEntry_DoNotUse>(Arena*);
+template<> ::natashapb::GameConfig_RtpEntry_DoNotUse* Arena::Create< ::natashapb::GameConfig_RtpEntry_DoNotUse>(Arena*);
 template<> ::natashapb::GameCtrl* Arena::Create< ::natashapb::GameCtrl>(Arena*);
 template<> ::natashapb::GameCtrlAwardSpin* Arena::Create< ::natashapb::GameCtrlAwardSpin>(Arena*);
 template<> ::natashapb::GameCtrlBonus* Arena::Create< ::natashapb::GameCtrlBonus>(Arena*);
@@ -6246,6 +6267,175 @@ class TLODConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsTLODConfigImpl();
 };
+// -------------------------------------------------------------------
+
+class GameConfig_ReelstriptsEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<GameConfig_ReelstriptsEntry_DoNotUse, 
+    ::std::string, ::natashapb::ReelstriptConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<GameConfig_ReelstriptsEntry_DoNotUse, 
+    ::std::string, ::natashapb::ReelstriptConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  GameConfig_ReelstriptsEntry_DoNotUse();
+  GameConfig_ReelstriptsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const GameConfig_ReelstriptsEntry_DoNotUse& other);
+  static const GameConfig_ReelstriptsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GameConfig_ReelstriptsEntry_DoNotUse*>(&_GameConfig_ReelstriptsEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class GameConfig_RtpEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<GameConfig_RtpEntry_DoNotUse, 
+    ::std::string, ::google::protobuf::Any,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<GameConfig_RtpEntry_DoNotUse, 
+    ::std::string, ::google::protobuf::Any,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  GameConfig_RtpEntry_DoNotUse();
+  GameConfig_RtpEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const GameConfig_RtpEntry_DoNotUse& other);
+  static const GameConfig_RtpEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GameConfig_RtpEntry_DoNotUse*>(&_GameConfig_RtpEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class GameConfig : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.GameConfig) */ {
+ public:
+  GameConfig();
+  virtual ~GameConfig();
+
+  GameConfig(const GameConfig& from);
+
+  inline GameConfig& operator=(const GameConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GameConfig(GameConfig&& from) noexcept
+    : GameConfig() {
+    *this = ::std::move(from);
+  }
+
+  inline GameConfig& operator=(GameConfig&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameConfig& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GameConfig* internal_default_instance() {
+    return reinterpret_cast<const GameConfig*>(
+               &_GameConfig_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    49;
+
+  void Swap(GameConfig* other);
+  friend void swap(GameConfig& a, GameConfig& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GameConfig* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameConfig>(NULL);
+  }
+
+  GameConfig* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameConfig>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GameConfig& from);
+  void MergeFrom(const GameConfig& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GameConfig* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  int reelstripts_size() const;
+  void clear_reelstripts();
+  static const int kReelstriptsFieldNumber = 1;
+  const ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >&
+      reelstripts() const;
+  ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >*
+      mutable_reelstripts();
+
+  // map<string, .google.protobuf.Any> rtp = 2;
+  int rtp_size() const;
+  void clear_rtp();
+  static const int kRtpFieldNumber = 2;
+  const ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >&
+      rtp() const;
+  ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >*
+      mutable_rtp();
+
+  // @@protoc_insertion_point(class_scope:natashapb.GameConfig)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::MapField<
+      GameConfig_ReelstriptsEntry_DoNotUse,
+      ::std::string, ::natashapb::ReelstriptConfig,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > reelstripts_;
+  ::google::protobuf::internal::MapField<
+      GameConfig_RtpEntry_DoNotUse,
+      ::std::string, ::google::protobuf::Any,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > rtp_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsGameConfigImpl();
+};
 // ===================================================================
 
 
@@ -10838,9 +11028,56 @@ TLODConfig::mutable_rtp() {
   return rtp_.MutableMap();
 }
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// GameConfig
+
+// map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+inline int GameConfig::reelstripts_size() const {
+  return reelstripts_.size();
+}
+inline void GameConfig::clear_reelstripts() {
+  reelstripts_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >&
+GameConfig::reelstripts() const {
+  // @@protoc_insertion_point(field_map:natashapb.GameConfig.reelstripts)
+  return reelstripts_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >*
+GameConfig::mutable_reelstripts() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.GameConfig.reelstripts)
+  return reelstripts_.MutableMap();
+}
+
+// map<string, .google.protobuf.Any> rtp = 2;
+inline int GameConfig::rtp_size() const {
+  return rtp_.size();
+}
+inline const ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >&
+GameConfig::rtp() const {
+  // @@protoc_insertion_point(field_map:natashapb.GameConfig.rtp)
+  return rtp_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >*
+GameConfig::mutable_rtp() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.GameConfig.rtp)
+  return rtp_.MutableMap();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

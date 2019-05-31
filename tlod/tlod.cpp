@@ -53,18 +53,17 @@ namespace natasha {
 }
 
 // getMainGameMod - get current main game module
-GameMod* TLOD::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                              bool isComeInGame) {
+GameMod* TLOD::getMainGameMod(UserInfo* pUser, bool isComeInGame) {
   auto pBG = getGameMod(::natashapb::BASE_GAME);
   assert(pBG != NULL);
 
   auto pFG = getGameMod(::natashapb::FREE_GAME);
   assert(pFG != NULL);
 
-  auto pUserBG = getConstUserGameModInfo(pLogicUser, ::natashapb::BASE_GAME);
+  auto pUserBG = getConstUserGameModInfo(pUser, ::natashapb::BASE_GAME);
   assert(pUserBG != NULL);
 
-  auto pUserFG = getConstUserGameModInfo(pLogicUser, ::natashapb::FREE_GAME);
+  auto pUserFG = getConstUserGameModInfo(pUser, ::natashapb::FREE_GAME);
   assert(pUserFG != NULL);
 
   if (pFG->isIn(pUserFG)) {
@@ -87,8 +86,11 @@ void countRTP_tlod() {
     printf("init fail(%d)!\n", c);
   }
 
+  auto pUser = new UserInfo();
   auto pUGI = new ::natashapb::UserGameLogicInfo();
-  c = tlod.userComeIn(pUGI);
+  pUser->pLogicUser = pUGI;
+
+  c = tlod.userComeIn(pUser);
   if (c != natashapb::OK) {
     printf("userComeIn fail(%d)!\n", c);
   }
@@ -117,7 +119,7 @@ void countRTP_tlod() {
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
       pGameCtrlBG->set_ctrlid(ctrlid);
 
-      c = tlod.gameCtrl(pGameCtrlBG, pUGI);
+      c = tlod.gameCtrl(pGameCtrlBG, pUser);
       if (c != natashapb::OK) {
         printf("gameCtrl fail(%d)!\n", c);
       }
@@ -129,7 +131,7 @@ void countRTP_tlod() {
 
       pGameCtrlFG->set_ctrlid(ctrlid);
 
-      c = tlod.gameCtrl(pGameCtrlFG, pUGI);
+      c = tlod.gameCtrl(pGameCtrlFG, pUser);
       if (c != natashapb::OK) {
         printf("gameCtrl fail(%d)!\n", c);
       }
