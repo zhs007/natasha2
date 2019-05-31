@@ -124,11 +124,11 @@ void loadStaticCascadingReels3X5FromPB(
         }
       }
 
-      if (i == 0) {
+      if (r == 0) {
         scr.newRow();
       }
 
-      scr.newColumn(r, sb);
+      scr.newColumn(i, sb);
     }
   }
 

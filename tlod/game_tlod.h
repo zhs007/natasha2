@@ -3,6 +3,7 @@
 
 #include <assert.h>
 #include <vector>
+#include "../include/game3x5.h"
 #include "../include/natasha.h"
 
 namespace natasha {
@@ -65,6 +66,11 @@ auto const TLODCountScatter =
 auto const TLODCountAllLine =
     &countAllLine_Left<MoneyType, SymbolType, TLOD_WIDTH, TLOD_HEIGHT,
                        ::natashapb::SymbolBlock3X5, TLODGameCfg>;
+
+struct TLODUserConfig {
+  StaticCascadingReels3X5* pReels;
+  int FGNums;
+};
 
 }  // namespace natasha
 

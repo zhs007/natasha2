@@ -5561,21 +5561,21 @@ class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertio
   ::natashapb::NormalReelstriptConfig* mutable_normal();
   void set_allocated_normal(::natashapb::NormalReelstriptConfig* normal);
 
-  // .natashapb.StaticCascadingReels static = 2;
-  bool has_static_() const;
-  void clear_static_();
-  static const int kStaticFieldNumber = 2;
-  const ::natashapb::StaticCascadingReels& static_() const;
-  ::natashapb::StaticCascadingReels* release_static_();
-  ::natashapb::StaticCascadingReels* mutable_static_();
-  void set_allocated_static_(::natashapb::StaticCascadingReels* static_);
+  // .natashapb.StaticCascadingReels staticCR = 2;
+  bool has_staticcr() const;
+  void clear_staticcr();
+  static const int kStaticCRFieldNumber = 2;
+  const ::natashapb::StaticCascadingReels& staticcr() const;
+  ::natashapb::StaticCascadingReels* release_staticcr();
+  ::natashapb::StaticCascadingReels* mutable_staticcr();
+  void set_allocated_staticcr(::natashapb::StaticCascadingReels* staticcr);
 
   // @@protoc_insertion_point(class_scope:natashapb.ReelstriptConfig)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::NormalReelstriptConfig* normal_;
-  ::natashapb::StaticCascadingReels* static__;
+  ::natashapb::StaticCascadingReels* staticcr_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsReelstriptConfigImpl();
@@ -10563,55 +10563,55 @@ inline void ReelstriptConfig::set_allocated_normal(::natashapb::NormalReelstript
   // @@protoc_insertion_point(field_set_allocated:natashapb.ReelstriptConfig.normal)
 }
 
-// .natashapb.StaticCascadingReels static = 2;
-inline bool ReelstriptConfig::has_static_() const {
-  return this != internal_default_instance() && static__ != NULL;
+// .natashapb.StaticCascadingReels staticCR = 2;
+inline bool ReelstriptConfig::has_staticcr() const {
+  return this != internal_default_instance() && staticcr_ != NULL;
 }
-inline void ReelstriptConfig::clear_static_() {
-  if (GetArenaNoVirtual() == NULL && static__ != NULL) {
-    delete static__;
+inline void ReelstriptConfig::clear_staticcr() {
+  if (GetArenaNoVirtual() == NULL && staticcr_ != NULL) {
+    delete staticcr_;
   }
-  static__ = NULL;
+  staticcr_ = NULL;
 }
-inline const ::natashapb::StaticCascadingReels& ReelstriptConfig::static_() const {
-  const ::natashapb::StaticCascadingReels* p = static__;
-  // @@protoc_insertion_point(field_get:natashapb.ReelstriptConfig.static)
+inline const ::natashapb::StaticCascadingReels& ReelstriptConfig::staticcr() const {
+  const ::natashapb::StaticCascadingReels* p = staticcr_;
+  // @@protoc_insertion_point(field_get:natashapb.ReelstriptConfig.staticCR)
   return p != NULL ? *p : *reinterpret_cast<const ::natashapb::StaticCascadingReels*>(
       &::natashapb::_StaticCascadingReels_default_instance_);
 }
-inline ::natashapb::StaticCascadingReels* ReelstriptConfig::release_static_() {
-  // @@protoc_insertion_point(field_release:natashapb.ReelstriptConfig.static)
+inline ::natashapb::StaticCascadingReels* ReelstriptConfig::release_staticcr() {
+  // @@protoc_insertion_point(field_release:natashapb.ReelstriptConfig.staticCR)
   
-  ::natashapb::StaticCascadingReels* temp = static__;
-  static__ = NULL;
+  ::natashapb::StaticCascadingReels* temp = staticcr_;
+  staticcr_ = NULL;
   return temp;
 }
-inline ::natashapb::StaticCascadingReels* ReelstriptConfig::mutable_static_() {
+inline ::natashapb::StaticCascadingReels* ReelstriptConfig::mutable_staticcr() {
   
-  if (static__ == NULL) {
-    static__ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingReels >(
+  if (staticcr_ == NULL) {
+    staticcr_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingReels >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:natashapb.ReelstriptConfig.static)
-  return static__;
+  // @@protoc_insertion_point(field_mutable:natashapb.ReelstriptConfig.staticCR)
+  return staticcr_;
 }
-inline void ReelstriptConfig::set_allocated_static_(::natashapb::StaticCascadingReels* static_) {
+inline void ReelstriptConfig::set_allocated_staticcr(::natashapb::StaticCascadingReels* staticcr) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete static__;
+    delete staticcr_;
   }
-  if (static_) {
+  if (staticcr) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      static_ = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, static_, submessage_arena);
+      staticcr = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, staticcr, submessage_arena);
     }
     
   } else {
     
   }
-  static__ = static_;
-  // @@protoc_insertion_point(field_set_allocated:natashapb.ReelstriptConfig.static)
+  staticcr_ = staticcr;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.ReelstriptConfig.staticCR)
 }
 
 // -------------------------------------------------------------------

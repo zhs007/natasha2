@@ -32,6 +32,10 @@ class TLOD : public GameLogic {
     addRTPModule(::natashapb::FREE_GAME, TLODMaxPayoutNums, TLODMaxSymbols);
   }
 #endif  // NATASHA_COUNTRTP
+
+#ifdef NATASHA_RUNINCPP
+  void initConfig();
+#endif  // NATASHA_RUNINCPP
  protected:
   StaticCascadingReels3X5 m_reels;
   Paytables3X5 m_paytables;

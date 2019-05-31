@@ -529,7 +529,7 @@ message StaticCascadingReels {
 // ReelstriptConfig - reelstript config
 message ReelstriptConfig {
     NormalReelstriptConfig normal = 1;
-    StaticCascadingReels static = 2;
+    StaticCascadingReels staticCR = 2;
 }
 
 message WeightConfig {

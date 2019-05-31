@@ -1779,7 +1779,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, normal_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, static__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::ReelstriptConfig, staticcr_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::natashapb::WeightConfig, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2142,72 +2142,72 @@ void AddDescriptorsImpl() {
       "s\030\001 \003(\0132\030.natashapb.StaticSymbols\"_\n\024Sta"
       "ticCascadingReels\0226\n\tscenarios\030\001 \003(\0132#.n"
       "atashapb.StaticCascadingScenarios\022\017\n\007wei"
-      "ghts\030\002 \003(\005\"v\n\020ReelstriptConfig\0221\n\006normal"
+      "ghts\030\002 \003(\005\"x\n\020ReelstriptConfig\0221\n\006normal"
       "\030\001 \001(\0132!.natashapb.NormalReelstriptConfi"
-      "g\022/\n\006static\030\002 \001(\0132\037.natashapb.StaticCasc"
-      "adingReels\"4\n\014WeightConfig\022\017\n\007weights\030\001 "
-      "\003(\005\022\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017MuseumRTPCo"
-      "nfig\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBonusPri"
-      "ze\030e \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n\rbgMys"
-      "teryWild\030g \003(\0132\027.natashapb.WeightConfig\022"
-      "\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001(\t\022"
-      "\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultipliers\030"
-      "\256\002 \003(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.natasha"
-      "pb.WeightConfig\"\225\002\n\014MuseumConfig\022=\n\013reel"
-      "stripts\030\001 \003(\0132(.natashapb.MuseumConfig.R"
-      "eelstriptsEntry\022-\n\003rtp\030\002 \003(\0132 .natashapb"
-      ".MuseumConfig.RtpEntry\032O\n\020ReelstriptsEnt"
-      "ry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natasha"
-      "pb.ReelstriptConfig:\0028\001\032F\n\010RtpEntry\022\013\n\003k"
-      "ey\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.natashapb.Muse"
-      "umRTPConfig:\0028\001\"M\n\rTLODRTPConfig\022\024\n\014bgRe"
-      "elstrips\030d \001(\t\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgRee"
-      "lstrips\030\254\002 \001(\t\"\215\002\n\nTLODConfig\022;\n\013reelstr"
-      "ipts\030\001 \003(\0132&.natashapb.TLODConfig.Reelst"
-      "riptsEntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.TLOD"
-      "Config.RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003k"
-      "ey\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reel"
-      "striptConfig:\0028\001\032D\n\010RtpEntry\022\013\n\003key\030\001 \001("
-      "\t\022\'\n\005value\030\002 \001(\0132\030.natashapb.TLODRTPConf"
-      "ig:\0028\001\"\211\002\n\nGameConfig\022;\n\013reelstripts\030\001 \003"
-      "(\0132&.natashapb.GameConfig.ReelstriptsEnt"
-      "ry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.GameConfig.R"
-      "tpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001(\t"
-      "\022*\n\005value\030\002 \001(\0132\033.natashapb.ReelstriptCo"
-      "nfig:\0028\001\032@\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022#\n\005val"
-      "ue\030\002 \001(\0132\024.google.protobuf.Any:\0028\001*\335\004\n\004C"
-      "ODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220N\022"
-      "\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REELS"
-      "_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_STAR"
-      "T\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241\234\001"
-      "\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_STA"
-      "RT_LINES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234\001\022"
-      "\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_PA"
-      "RENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247\234\001"
-      "\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261\352\001"
-      "\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMECTR"
-      "L_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FREES"
-      "TATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020\320\206"
-      "\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033\n\025"
-      "ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTOBU"
-      "F_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT\020\223"
-      "\277\005*\263\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tLIN"
-      "E_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LEFT"
-      "\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEFT\020"
-      "\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r\n\t"
-      "WAY_RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAMEMODTYPE\022"
-      "\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_GAM"
-      "E\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022\027\n"
-      "\023COMMON_JACKPOT_GAME\020\005*L\n\022CASCADINGFREES"
-      "TATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGAME"
-      "\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n\010N"
-      "O_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN\020\002"
-      "\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FREE"
-      "GAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMONJ"
-      "ACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
+      "g\0221\n\010staticCR\030\002 \001(\0132\037.natashapb.StaticCa"
+      "scadingReels\"4\n\014WeightConfig\022\017\n\007weights\030"
+      "\001 \003(\005\022\023\n\013totalWeight\030\002 \001(\005\"\214\002\n\017MuseumRTP"
+      "Config\022\024\n\014bgReelstrips\030d \001(\t\022\024\n\014bgBonusP"
+      "rize\030e \003(\005\022\025\n\rbgMultipliers\030f \003(\005\022.\n\rbgM"
+      "ysteryWild\030g \003(\0132\027.natashapb.WeightConfi"
+      "g\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgReelstrips\030\254\002 \001("
+      "\t\022\025\n\014fgBonusPrize\030\255\002 \003(\005\022\026\n\rfgMultiplier"
+      "s\030\256\002 \003(\005\022/\n\rfgMysteryWild\030\257\002 \003(\0132\027.natas"
+      "hapb.WeightConfig\"\225\002\n\014MuseumConfig\022=\n\013re"
+      "elstripts\030\001 \003(\0132(.natashapb.MuseumConfig"
+      ".ReelstriptsEntry\022-\n\003rtp\030\002 \003(\0132 .natasha"
+      "pb.MuseumConfig.RtpEntry\032O\n\020ReelstriptsE"
+      "ntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natas"
+      "hapb.ReelstriptConfig:\0028\001\032F\n\010RtpEntry\022\013\n"
+      "\003key\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.natashapb.Mu"
+      "seumRTPConfig:\0028\001\"M\n\rTLODRTPConfig\022\024\n\014bg"
+      "Reelstrips\030d \001(\t\022\017\n\006fgNums\030\310\001 \001(\005\022\025\n\014fgR"
+      "eelstrips\030\254\002 \001(\t\"\215\002\n\nTLODConfig\022;\n\013reels"
+      "tripts\030\001 \003(\0132&.natashapb.TLODConfig.Reel"
+      "striptsEntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.TL"
+      "ODConfig.RtpEntry\032O\n\020ReelstriptsEntry\022\013\n"
+      "\003key\030\001 \001(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Re"
+      "elstriptConfig:\0028\001\032D\n\010RtpEntry\022\013\n\003key\030\001 "
+      "\001(\t\022\'\n\005value\030\002 \001(\0132\030.natashapb.TLODRTPCo"
+      "nfig:\0028\001\"\211\002\n\nGameConfig\022;\n\013reelstripts\030\001"
+      " \003(\0132&.natashapb.GameConfig.ReelstriptsE"
+      "ntry\022+\n\003rtp\030\002 \003(\0132\036.natashapb.GameConfig"
+      ".RtpEntry\032O\n\020ReelstriptsEntry\022\013\n\003key\030\001 \001"
+      "(\t\022*\n\005value\030\002 \001(\0132\033.natashapb.Reelstript"
+      "Config:\0028\001\032@\n\010RtpEntry\022\013\n\003key\030\001 \001(\t\022#\n\005v"
+      "alue\030\002 \001(\0132\024.google.protobuf.Any:\0028\001*\335\004\n"
+      "\004CODE\022\006\n\002OK\020\000\022\032\n\025INVALID_PAYTABLES_CFG\020\220"
+      "N\022\026\n\021INVALID_LINES_CFG\020\221N\022\026\n\021INVALID_REE"
+      "LS_CFG\020\222N\022$\n\036INVALID_START_GAMEMOD_TO_ST"
+      "ART\020\240\234\001\022!\n\033INVALID_START_FREEGAME_NUMS\020\241"
+      "\234\001\022\027\n\021INVALID_START_BET\020\242\234\001\022\031\n\023INVALID_S"
+      "TART_LINES\020\243\234\001\022\031\n\023INVALID_START_TIMES\020\244\234"
+      "\001\022\031\n\023ALREADY_IN_FREEGAME\020\245\234\001\022\026\n\020INVALID_"
+      "PARENTID\020\246\234\001\022\034\n\026INVALID_PARENT_GAMEMOD\020\247"
+      "\234\001\022\021\n\013INVALID_BET\020\260\352\001\022\023\n\rINVALID_LINES\020\261"
+      "\352\001\022\023\n\rINVALID_TIMES\020\262\352\001\022\036\n\030INVALID_GAMEC"
+      "TRL_GAMEMOD\020\263\352\001\022!\n\033INVALID_CASCADING_FRE"
+      "ESTATE\020\300\270\002\022\037\n\031ERR_MAKE_INITIAL_SCENARIO\020"
+      "\320\206\003\022!\n\033ERR_NO_OVERLOADED_INTERFACE\020\220\277\005\022\033"
+      "\n\025ERR_INVALID_JS_PARAMS\020\221\277\005\022\030\n\022ERR_PROTO"
+      "BUF_PARSE\020\222\277\005\022\035\n\027ERR_JS_BUILD_RET_OBJECT"
+      "\020\223\277\005*\263\001\n\016GAMERESULTTYPE\022\n\n\006NO_WIN\020\000\022\r\n\tL"
+      "INE_LEFT\020\001\022\016\n\nLINE_RIGHT\020\002\022\020\n\014SCATTER_LE"
+      "FT\020\003\022\021\n\rSCATTER_RIGHT\020\004\022\022\n\016SCATTEREX_LEF"
+      "T\020\005\022\023\n\017SCATTEREX_RIGHT\020\006\022\014\n\010WAY_LEFT\020\007\022\r"
+      "\n\tWAY_RIGHT\020\010\022\013\n\007SPECIAL\020\t*t\n\013GAMEMODTYP"
+      "E\022\014\n\010NULL_MOD\020\000\022\r\n\tBASE_GAME\020\001\022\r\n\tFREE_G"
+      "AME\020\002\022\016\n\nBONUS_GAME\020\003\022\020\n\014JACKPOT_GAME\020\004\022"
+      "\027\n\023COMMON_JACKPOT_GAME\020\005*L\n\022CASCADINGFRE"
+      "ESTATE\022\017\n\013NO_FREEGAME\020\000\022\023\n\017CHG_TO_FREEGA"
+      "ME\020\001\022\020\n\014END_FREEGAME\020\002*\243\001\n\nDEBUGSTATE\022\014\n"
+      "\010NO_DEBUG\020\000\022\r\n\tSMALL_WIN\020\001\022\016\n\nMEDIUM_WIN"
+      "\020\002\022\013\n\007BIG_WIN\020\003\022\013\n\007ANY_WIN\020\004\022\022\n\016DEBUG_FR"
+      "EEGAME\020\005\022\017\n\013DEBUG_BONUS\020\006\022\027\n\023DEBUG_COMMO"
+      "NJACKPOT\020\007\022\020\n\014DEBUG_RANDOM\020\010b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 7594);
+      descriptor, 7596);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "base.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -16382,12 +16382,12 @@ void StaticCascadingReels::InternalSwap(StaticCascadingReels* other) {
 void ReelstriptConfig::InitAsDefaultInstance() {
   ::natashapb::_ReelstriptConfig_default_instance_._instance.get_mutable()->normal_ = const_cast< ::natashapb::NormalReelstriptConfig*>(
       ::natashapb::NormalReelstriptConfig::internal_default_instance());
-  ::natashapb::_ReelstriptConfig_default_instance_._instance.get_mutable()->static__ = const_cast< ::natashapb::StaticCascadingReels*>(
+  ::natashapb::_ReelstriptConfig_default_instance_._instance.get_mutable()->staticcr_ = const_cast< ::natashapb::StaticCascadingReels*>(
       ::natashapb::StaticCascadingReels::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ReelstriptConfig::kNormalFieldNumber;
-const int ReelstriptConfig::kStaticFieldNumber;
+const int ReelstriptConfig::kStaticCRFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ReelstriptConfig::ReelstriptConfig()
@@ -16408,18 +16408,18 @@ ReelstriptConfig::ReelstriptConfig(const ReelstriptConfig& from)
   } else {
     normal_ = NULL;
   }
-  if (from.has_static_()) {
-    static__ = new ::natashapb::StaticCascadingReels(*from.static__);
+  if (from.has_staticcr()) {
+    staticcr_ = new ::natashapb::StaticCascadingReels(*from.staticcr_);
   } else {
-    static__ = NULL;
+    staticcr_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:natashapb.ReelstriptConfig)
 }
 
 void ReelstriptConfig::SharedCtor() {
   ::memset(&normal_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&static__) -
-      reinterpret_cast<char*>(&normal_)) + sizeof(static__));
+      reinterpret_cast<char*>(&staticcr_) -
+      reinterpret_cast<char*>(&normal_)) + sizeof(staticcr_));
   _cached_size_ = 0;
 }
 
@@ -16430,7 +16430,7 @@ ReelstriptConfig::~ReelstriptConfig() {
 
 void ReelstriptConfig::SharedDtor() {
   if (this != internal_default_instance()) delete normal_;
-  if (this != internal_default_instance()) delete static__;
+  if (this != internal_default_instance()) delete staticcr_;
 }
 
 void ReelstriptConfig::SetCachedSize(int size) const {
@@ -16459,10 +16459,10 @@ void ReelstriptConfig::Clear() {
     delete normal_;
   }
   normal_ = NULL;
-  if (GetArenaNoVirtual() == NULL && static__ != NULL) {
-    delete static__;
+  if (GetArenaNoVirtual() == NULL && staticcr_ != NULL) {
+    delete staticcr_;
   }
-  static__ = NULL;
+  staticcr_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -16488,12 +16488,12 @@ bool ReelstriptConfig::MergePartialFromCodedStream(
         break;
       }
 
-      // .natashapb.StaticCascadingReels static = 2;
+      // .natashapb.StaticCascadingReels staticCR = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_static_()));
+               input, mutable_staticcr()));
         } else {
           goto handle_unusual;
         }
@@ -16532,10 +16532,10 @@ void ReelstriptConfig::SerializeWithCachedSizes(
       1, *normal_, output);
   }
 
-  // .natashapb.StaticCascadingReels static = 2;
-  if (this->has_static_()) {
+  // .natashapb.StaticCascadingReels staticCR = 2;
+  if (this->has_staticcr()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *static__, output);
+      2, *staticcr_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -16559,11 +16559,11 @@ void ReelstriptConfig::SerializeWithCachedSizes(
         1, *normal_, deterministic, target);
   }
 
-  // .natashapb.StaticCascadingReels static = 2;
-  if (this->has_static_()) {
+  // .natashapb.StaticCascadingReels staticCR = 2;
+  if (this->has_staticcr()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, *static__, deterministic, target);
+        2, *staticcr_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -16590,11 +16590,11 @@ size_t ReelstriptConfig::ByteSizeLong() const {
         *normal_);
   }
 
-  // .natashapb.StaticCascadingReels static = 2;
-  if (this->has_static_()) {
+  // .natashapb.StaticCascadingReels staticCR = 2;
+  if (this->has_staticcr()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *static__);
+        *staticcr_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -16629,8 +16629,8 @@ void ReelstriptConfig::MergeFrom(const ReelstriptConfig& from) {
   if (from.has_normal()) {
     mutable_normal()->::natashapb::NormalReelstriptConfig::MergeFrom(from.normal());
   }
-  if (from.has_static_()) {
-    mutable_static_()->::natashapb::StaticCascadingReels::MergeFrom(from.static_());
+  if (from.has_staticcr()) {
+    mutable_staticcr()->::natashapb::StaticCascadingReels::MergeFrom(from.staticcr());
   }
 }
 
@@ -16659,7 +16659,7 @@ void ReelstriptConfig::Swap(ReelstriptConfig* other) {
 void ReelstriptConfig::InternalSwap(ReelstriptConfig* other) {
   using std::swap;
   swap(normal_, other->normal_);
-  swap(static__, other->static__);
+  swap(staticcr_, other->staticcr_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

@@ -3,28 +3,21 @@
 
 namespace natasha {
 
-// void outputReels(StaticCascadingReels3X5* pReels) {
-//   for (int y = 0; y < pReels->getLength(); ++y) {
-//     printf("outputReels y - %d\n", y);
-//     for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
-//       printf("outputReels x - %d\n", x);
-//       printSymbolBlock3X5(NULL, pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
-//     }
-//   }
-// }
-
 ::natashapb::CODE TLOD::init(const char* cfgpath) {
-  FileNameList lst;
+#ifdef NATASHA_RUNINCPP
+  initConfig();
+#endif  // NATASHA_RUNINCPP
+  // FileNameList lst;
 
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_0.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_1.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_2.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_3.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_4.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_5.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_6.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_0.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_1.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_2.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_3.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_4.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_5.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_6.csv"));
 
-  loadStaticCascadingReels3X5(lst, m_reels);
+  // loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
     return ::natashapb::INVALID_REELS_CFG;
   }
@@ -147,8 +140,9 @@ void countRTP_tlod() {
       // }
     }
   }
-
+#ifdef NATASHA_COUNTRTP
   tlod.outputRTP();
+#endif  // NATASHA_COUNTRTP
 
   delete pGameCtrlBG;
   delete pGameCtrlFG;
