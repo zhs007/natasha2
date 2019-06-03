@@ -64,8 +64,8 @@ auto const TLODCountScatter =
                        ::natashapb::SymbolBlock3X5, TLODGameCfg>;
 
 auto const TLODCountAllLine =
-    &countAllLine_Left<MoneyType, SymbolType, TLOD_WIDTH, TLOD_HEIGHT,
-                       ::natashapb::SymbolBlock3X5, TLODGameCfg>;
+    &countAllLine3_Left<MoneyType, SymbolType, TLOD_WIDTH, TLOD_HEIGHT,
+                        ::natashapb::SymbolBlock3X5, TLODGameCfg>;
 
 struct TLODUserConfig {
   StaticCascadingReels3X5* pReels;

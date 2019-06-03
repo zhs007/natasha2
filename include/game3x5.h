@@ -9,6 +9,7 @@
 #include "gamelogic.h"
 #include "lines.h"
 #include "logicline2.h"
+#include "logicline3.h"
 #include "logicscatter2.h"
 #include "logicways.h"
 #include "normalreels.h"
