@@ -41,7 +41,7 @@ namespace protobuf_base_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[41];
+  static const ::google::protobuf::internal::ParseTable schema[56];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -117,8 +117,24 @@ void InitDefaultsRTPImpl();
 void InitDefaultsRTP();
 void InitDefaultsNormalReelstriptConfigImpl();
 void InitDefaultsNormalReelstriptConfig();
+void InitDefaultsStaticSymbolsImpl();
+void InitDefaultsStaticSymbols();
+void InitDefaultsStaticCascadingScenariosImpl();
+void InitDefaultsStaticCascadingScenarios();
+void InitDefaultsStaticCascadingReelsImpl();
+void InitDefaultsStaticCascadingReels();
 void InitDefaultsReelstriptConfigImpl();
 void InitDefaultsReelstriptConfig();
+void InitDefaultsLineInfoImpl();
+void InitDefaultsLineInfo();
+void InitDefaultsLinesImpl();
+void InitDefaultsLines();
+void InitDefaultsSymbolPaytablesImpl();
+void InitDefaultsSymbolPaytables();
+void InitDefaultsPaytables_PaytablesEntry_DoNotUseImpl();
+void InitDefaultsPaytables_PaytablesEntry_DoNotUse();
+void InitDefaultsPaytablesImpl();
+void InitDefaultsPaytables();
 void InitDefaultsWeightConfigImpl();
 void InitDefaultsWeightConfig();
 void InitDefaultsMuseumRTPConfigImpl();
@@ -129,6 +145,20 @@ void InitDefaultsMuseumConfig_RtpEntry_DoNotUseImpl();
 void InitDefaultsMuseumConfig_RtpEntry_DoNotUse();
 void InitDefaultsMuseumConfigImpl();
 void InitDefaultsMuseumConfig();
+void InitDefaultsTLODRTPConfigImpl();
+void InitDefaultsTLODRTPConfig();
+void InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUseImpl();
+void InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUse();
+void InitDefaultsTLODConfig_RtpEntry_DoNotUseImpl();
+void InitDefaultsTLODConfig_RtpEntry_DoNotUse();
+void InitDefaultsTLODConfigImpl();
+void InitDefaultsTLODConfig();
+void InitDefaultsGameConfig_ReelstriptsEntry_DoNotUseImpl();
+void InitDefaultsGameConfig_ReelstriptsEntry_DoNotUse();
+void InitDefaultsGameConfig_RtpEntry_DoNotUseImpl();
+void InitDefaultsGameConfig_RtpEntry_DoNotUse();
+void InitDefaultsGameConfigImpl();
+void InitDefaultsGameConfig();
 inline void InitDefaults() {
   InitDefaultsSymbolBlock3X5();
   InitDefaultsSymbolBlock();
@@ -165,12 +195,27 @@ inline void InitDefaults() {
   InitDefaultsRTP_GameModulesEntry_DoNotUse();
   InitDefaultsRTP();
   InitDefaultsNormalReelstriptConfig();
+  InitDefaultsStaticSymbols();
+  InitDefaultsStaticCascadingScenarios();
+  InitDefaultsStaticCascadingReels();
   InitDefaultsReelstriptConfig();
+  InitDefaultsLineInfo();
+  InitDefaultsLines();
+  InitDefaultsSymbolPaytables();
+  InitDefaultsPaytables_PaytablesEntry_DoNotUse();
+  InitDefaultsPaytables();
   InitDefaultsWeightConfig();
   InitDefaultsMuseumRTPConfig();
   InitDefaultsMuseumConfig_ReelstriptsEntry_DoNotUse();
   InitDefaultsMuseumConfig_RtpEntry_DoNotUse();
   InitDefaultsMuseumConfig();
+  InitDefaultsTLODRTPConfig();
+  InitDefaultsTLODConfig_ReelstriptsEntry_DoNotUse();
+  InitDefaultsTLODConfig_RtpEntry_DoNotUse();
+  InitDefaultsTLODConfig();
+  InitDefaultsGameConfig_ReelstriptsEntry_DoNotUse();
+  InitDefaultsGameConfig_RtpEntry_DoNotUse();
+  InitDefaultsGameConfig();
 }
 }  // namespace protobuf_base_2eproto
 namespace natashapb {
@@ -189,6 +234,15 @@ extern BonusRTPListDefaultTypeInternal _BonusRTPList_default_instance_;
 class FGCache;
 class FGCacheDefaultTypeInternal;
 extern FGCacheDefaultTypeInternal _FGCache_default_instance_;
+class GameConfig;
+class GameConfigDefaultTypeInternal;
+extern GameConfigDefaultTypeInternal _GameConfig_default_instance_;
+class GameConfig_ReelstriptsEntry_DoNotUse;
+class GameConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal;
+extern GameConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal _GameConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+class GameConfig_RtpEntry_DoNotUse;
+class GameConfig_RtpEntry_DoNotUseDefaultTypeInternal;
+extern GameConfig_RtpEntry_DoNotUseDefaultTypeInternal _GameConfig_RtpEntry_DoNotUse_default_instance_;
 class GameCtrl;
 class GameCtrlDefaultTypeInternal;
 extern GameCtrlDefaultTypeInternal _GameCtrl_default_instance_;
@@ -225,6 +279,12 @@ extern GameModuleRTP_BonusEntry_DoNotUseDefaultTypeInternal _GameModuleRTP_Bonus
 class GameResultInfo;
 class GameResultInfoDefaultTypeInternal;
 extern GameResultInfoDefaultTypeInternal _GameResultInfo_default_instance_;
+class LineInfo;
+class LineInfoDefaultTypeInternal;
+extern LineInfoDefaultTypeInternal _LineInfo_default_instance_;
+class Lines;
+class LinesDefaultTypeInternal;
+extern LinesDefaultTypeInternal _Lines_default_instance_;
 class MuseumConfig;
 class MuseumConfigDefaultTypeInternal;
 extern MuseumConfigDefaultTypeInternal _MuseumConfig_default_instance_;
@@ -243,6 +303,12 @@ extern NormalReelsRandomResult3X5DefaultTypeInternal _NormalReelsRandomResult3X5
 class NormalReelstriptConfig;
 class NormalReelstriptConfigDefaultTypeInternal;
 extern NormalReelstriptConfigDefaultTypeInternal _NormalReelstriptConfig_default_instance_;
+class Paytables;
+class PaytablesDefaultTypeInternal;
+extern PaytablesDefaultTypeInternal _Paytables_default_instance_;
+class Paytables_PaytablesEntry_DoNotUse;
+class Paytables_PaytablesEntry_DoNotUseDefaultTypeInternal;
+extern Paytables_PaytablesEntry_DoNotUseDefaultTypeInternal _Paytables_PaytablesEntry_DoNotUse_default_instance_;
 class Position2D;
 class Position2DDefaultTypeInternal;
 extern Position2DDefaultTypeInternal _Position2D_default_instance_;
@@ -276,18 +342,42 @@ extern StartGameModDefaultTypeInternal _StartGameMod_default_instance_;
 class StaticCascadingRandomResult3X5;
 class StaticCascadingRandomResult3X5DefaultTypeInternal;
 extern StaticCascadingRandomResult3X5DefaultTypeInternal _StaticCascadingRandomResult3X5_default_instance_;
+class StaticCascadingReels;
+class StaticCascadingReelsDefaultTypeInternal;
+extern StaticCascadingReelsDefaultTypeInternal _StaticCascadingReels_default_instance_;
+class StaticCascadingScenarios;
+class StaticCascadingScenariosDefaultTypeInternal;
+extern StaticCascadingScenariosDefaultTypeInternal _StaticCascadingScenarios_default_instance_;
+class StaticSymbols;
+class StaticSymbolsDefaultTypeInternal;
+extern StaticSymbolsDefaultTypeInternal _StaticSymbols_default_instance_;
 class SymbolBlock;
 class SymbolBlockDefaultTypeInternal;
 extern SymbolBlockDefaultTypeInternal _SymbolBlock_default_instance_;
 class SymbolBlock3X5;
 class SymbolBlock3X5DefaultTypeInternal;
 extern SymbolBlock3X5DefaultTypeInternal _SymbolBlock3X5_default_instance_;
+class SymbolPaytables;
+class SymbolPaytablesDefaultTypeInternal;
+extern SymbolPaytablesDefaultTypeInternal _SymbolPaytables_default_instance_;
 class SymbolRTP;
 class SymbolRTPDefaultTypeInternal;
 extern SymbolRTPDefaultTypeInternal _SymbolRTP_default_instance_;
 class SymbolRTPList;
 class SymbolRTPListDefaultTypeInternal;
 extern SymbolRTPListDefaultTypeInternal _SymbolRTPList_default_instance_;
+class TLODConfig;
+class TLODConfigDefaultTypeInternal;
+extern TLODConfigDefaultTypeInternal _TLODConfig_default_instance_;
+class TLODConfig_ReelstriptsEntry_DoNotUse;
+class TLODConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal;
+extern TLODConfig_ReelstriptsEntry_DoNotUseDefaultTypeInternal _TLODConfig_ReelstriptsEntry_DoNotUse_default_instance_;
+class TLODConfig_RtpEntry_DoNotUse;
+class TLODConfig_RtpEntry_DoNotUseDefaultTypeInternal;
+extern TLODConfig_RtpEntry_DoNotUseDefaultTypeInternal _TLODConfig_RtpEntry_DoNotUse_default_instance_;
+class TLODRTPConfig;
+class TLODRTPConfigDefaultTypeInternal;
+extern TLODRTPConfigDefaultTypeInternal _TLODRTPConfig_default_instance_;
 class UserGameLogicInfo;
 class UserGameLogicInfoDefaultTypeInternal;
 extern UserGameLogicInfoDefaultTypeInternal _UserGameLogicInfo_default_instance_;
@@ -305,6 +395,9 @@ template<> ::natashapb::BaseFreeInfo* Arena::Create< ::natashapb::BaseFreeInfo>(
 template<> ::natashapb::BonusRTP* Arena::Create< ::natashapb::BonusRTP>(Arena*);
 template<> ::natashapb::BonusRTPList* Arena::Create< ::natashapb::BonusRTPList>(Arena*);
 template<> ::natashapb::FGCache* Arena::Create< ::natashapb::FGCache>(Arena*);
+template<> ::natashapb::GameConfig* Arena::Create< ::natashapb::GameConfig>(Arena*);
+template<> ::natashapb::GameConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::GameConfig_ReelstriptsEntry_DoNotUse>(Arena*);
+template<> ::natashapb::GameConfig_RtpEntry_DoNotUse* Arena::Create< ::natashapb::GameConfig_RtpEntry_DoNotUse>(Arena*);
 template<> ::natashapb::GameCtrl* Arena::Create< ::natashapb::GameCtrl>(Arena*);
 template<> ::natashapb::GameCtrlAwardSpin* Arena::Create< ::natashapb::GameCtrlAwardSpin>(Arena*);
 template<> ::natashapb::GameCtrlBonus* Arena::Create< ::natashapb::GameCtrlBonus>(Arena*);
@@ -317,12 +410,16 @@ template<> ::natashapb::GameCtrlSpin* Arena::Create< ::natashapb::GameCtrlSpin>(
 template<> ::natashapb::GameModuleRTP* Arena::Create< ::natashapb::GameModuleRTP>(Arena*);
 template<> ::natashapb::GameModuleRTP_BonusEntry_DoNotUse* Arena::Create< ::natashapb::GameModuleRTP_BonusEntry_DoNotUse>(Arena*);
 template<> ::natashapb::GameResultInfo* Arena::Create< ::natashapb::GameResultInfo>(Arena*);
+template<> ::natashapb::LineInfo* Arena::Create< ::natashapb::LineInfo>(Arena*);
+template<> ::natashapb::Lines* Arena::Create< ::natashapb::Lines>(Arena*);
 template<> ::natashapb::MuseumConfig* Arena::Create< ::natashapb::MuseumConfig>(Arena*);
 template<> ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::MuseumConfig_ReelstriptsEntry_DoNotUse>(Arena*);
 template<> ::natashapb::MuseumConfig_RtpEntry_DoNotUse* Arena::Create< ::natashapb::MuseumConfig_RtpEntry_DoNotUse>(Arena*);
 template<> ::natashapb::MuseumRTPConfig* Arena::Create< ::natashapb::MuseumRTPConfig>(Arena*);
 template<> ::natashapb::NormalReelsRandomResult3X5* Arena::Create< ::natashapb::NormalReelsRandomResult3X5>(Arena*);
 template<> ::natashapb::NormalReelstriptConfig* Arena::Create< ::natashapb::NormalReelstriptConfig>(Arena*);
+template<> ::natashapb::Paytables* Arena::Create< ::natashapb::Paytables>(Arena*);
+template<> ::natashapb::Paytables_PaytablesEntry_DoNotUse* Arena::Create< ::natashapb::Paytables_PaytablesEntry_DoNotUse>(Arena*);
 template<> ::natashapb::Position2D* Arena::Create< ::natashapb::Position2D>(Arena*);
 template<> ::natashapb::RTP* Arena::Create< ::natashapb::RTP>(Arena*);
 template<> ::natashapb::RTP_GameModulesEntry_DoNotUse* Arena::Create< ::natashapb::RTP_GameModulesEntry_DoNotUse>(Arena*);
@@ -334,10 +431,18 @@ template<> ::natashapb::SpinResult* Arena::Create< ::natashapb::SpinResult>(Aren
 template<> ::natashapb::StartFreeGame* Arena::Create< ::natashapb::StartFreeGame>(Arena*);
 template<> ::natashapb::StartGameMod* Arena::Create< ::natashapb::StartGameMod>(Arena*);
 template<> ::natashapb::StaticCascadingRandomResult3X5* Arena::Create< ::natashapb::StaticCascadingRandomResult3X5>(Arena*);
+template<> ::natashapb::StaticCascadingReels* Arena::Create< ::natashapb::StaticCascadingReels>(Arena*);
+template<> ::natashapb::StaticCascadingScenarios* Arena::Create< ::natashapb::StaticCascadingScenarios>(Arena*);
+template<> ::natashapb::StaticSymbols* Arena::Create< ::natashapb::StaticSymbols>(Arena*);
 template<> ::natashapb::SymbolBlock* Arena::Create< ::natashapb::SymbolBlock>(Arena*);
 template<> ::natashapb::SymbolBlock3X5* Arena::Create< ::natashapb::SymbolBlock3X5>(Arena*);
+template<> ::natashapb::SymbolPaytables* Arena::Create< ::natashapb::SymbolPaytables>(Arena*);
 template<> ::natashapb::SymbolRTP* Arena::Create< ::natashapb::SymbolRTP>(Arena*);
 template<> ::natashapb::SymbolRTPList* Arena::Create< ::natashapb::SymbolRTPList>(Arena*);
+template<> ::natashapb::TLODConfig* Arena::Create< ::natashapb::TLODConfig>(Arena*);
+template<> ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse* Arena::Create< ::natashapb::TLODConfig_ReelstriptsEntry_DoNotUse>(Arena*);
+template<> ::natashapb::TLODConfig_RtpEntry_DoNotUse* Arena::Create< ::natashapb::TLODConfig_RtpEntry_DoNotUse>(Arena*);
+template<> ::natashapb::TLODRTPConfig* Arena::Create< ::natashapb::TLODRTPConfig>(Arena*);
 template<> ::natashapb::UserGameLogicInfo* Arena::Create< ::natashapb::UserGameLogicInfo>(Arena*);
 template<> ::natashapb::UserGameModInfo* Arena::Create< ::natashapb::UserGameModInfo>(Arena*);
 template<> ::natashapb::WeightConfig* Arena::Create< ::natashapb::WeightConfig>(Arena*);
@@ -5054,6 +5159,348 @@ class NormalReelstriptConfig : public ::google::protobuf::Message /* @@protoc_in
 };
 // -------------------------------------------------------------------
 
+class StaticSymbols : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticSymbols) */ {
+ public:
+  StaticSymbols();
+  virtual ~StaticSymbols();
+
+  StaticSymbols(const StaticSymbols& from);
+
+  inline StaticSymbols& operator=(const StaticSymbols& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StaticSymbols(StaticSymbols&& from) noexcept
+    : StaticSymbols() {
+    *this = ::std::move(from);
+  }
+
+  inline StaticSymbols& operator=(StaticSymbols&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StaticSymbols& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StaticSymbols* internal_default_instance() {
+    return reinterpret_cast<const StaticSymbols*>(
+               &_StaticSymbols_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    35;
+
+  void Swap(StaticSymbols* other);
+  friend void swap(StaticSymbols& a, StaticSymbols& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StaticSymbols* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticSymbols>(NULL);
+  }
+
+  StaticSymbols* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticSymbols>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const StaticSymbols& from);
+  void MergeFrom(const StaticSymbols& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(StaticSymbols* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 symbols = 1;
+  int symbols_size() const;
+  void clear_symbols();
+  static const int kSymbolsFieldNumber = 1;
+  ::google::protobuf::int32 symbols(int index) const;
+  void set_symbols(int index, ::google::protobuf::int32 value);
+  void add_symbols(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      symbols() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_symbols();
+
+  // @@protoc_insertion_point(class_scope:natashapb.StaticSymbols)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > symbols_;
+  mutable int _symbols_cached_byte_size_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsStaticSymbolsImpl();
+};
+// -------------------------------------------------------------------
+
+class StaticCascadingScenarios : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingScenarios) */ {
+ public:
+  StaticCascadingScenarios();
+  virtual ~StaticCascadingScenarios();
+
+  StaticCascadingScenarios(const StaticCascadingScenarios& from);
+
+  inline StaticCascadingScenarios& operator=(const StaticCascadingScenarios& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StaticCascadingScenarios(StaticCascadingScenarios&& from) noexcept
+    : StaticCascadingScenarios() {
+    *this = ::std::move(from);
+  }
+
+  inline StaticCascadingScenarios& operator=(StaticCascadingScenarios&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StaticCascadingScenarios& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StaticCascadingScenarios* internal_default_instance() {
+    return reinterpret_cast<const StaticCascadingScenarios*>(
+               &_StaticCascadingScenarios_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    36;
+
+  void Swap(StaticCascadingScenarios* other);
+  friend void swap(StaticCascadingScenarios& a, StaticCascadingScenarios& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StaticCascadingScenarios* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingScenarios>(NULL);
+  }
+
+  StaticCascadingScenarios* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingScenarios>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const StaticCascadingScenarios& from);
+  void MergeFrom(const StaticCascadingScenarios& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(StaticCascadingScenarios* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.StaticSymbols scenarios = 1;
+  int scenarios_size() const;
+  void clear_scenarios();
+  static const int kScenariosFieldNumber = 1;
+  ::natashapb::StaticSymbols* mutable_scenarios(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >*
+      mutable_scenarios();
+  const ::natashapb::StaticSymbols& scenarios(int index) const;
+  ::natashapb::StaticSymbols* add_scenarios();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >&
+      scenarios() const;
+
+  // @@protoc_insertion_point(class_scope:natashapb.StaticCascadingScenarios)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols > scenarios_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsStaticCascadingScenariosImpl();
+};
+// -------------------------------------------------------------------
+
+class StaticCascadingReels : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.StaticCascadingReels) */ {
+ public:
+  StaticCascadingReels();
+  virtual ~StaticCascadingReels();
+
+  StaticCascadingReels(const StaticCascadingReels& from);
+
+  inline StaticCascadingReels& operator=(const StaticCascadingReels& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  StaticCascadingReels(StaticCascadingReels&& from) noexcept
+    : StaticCascadingReels() {
+    *this = ::std::move(from);
+  }
+
+  inline StaticCascadingReels& operator=(StaticCascadingReels&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StaticCascadingReels& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StaticCascadingReels* internal_default_instance() {
+    return reinterpret_cast<const StaticCascadingReels*>(
+               &_StaticCascadingReels_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    37;
+
+  void Swap(StaticCascadingReels* other);
+  friend void swap(StaticCascadingReels& a, StaticCascadingReels& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StaticCascadingReels* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingReels>(NULL);
+  }
+
+  StaticCascadingReels* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<StaticCascadingReels>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const StaticCascadingReels& from);
+  void MergeFrom(const StaticCascadingReels& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(StaticCascadingReels* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.StaticCascadingScenarios scenarios = 1;
+  int scenarios_size() const;
+  void clear_scenarios();
+  static const int kScenariosFieldNumber = 1;
+  ::natashapb::StaticCascadingScenarios* mutable_scenarios(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >*
+      mutable_scenarios();
+  const ::natashapb::StaticCascadingScenarios& scenarios(int index) const;
+  ::natashapb::StaticCascadingScenarios* add_scenarios();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >&
+      scenarios() const;
+
+  // repeated int32 weights = 2;
+  int weights_size() const;
+  void clear_weights();
+  static const int kWeightsFieldNumber = 2;
+  ::google::protobuf::int32 weights(int index) const;
+  void set_weights(int index, ::google::protobuf::int32 value);
+  void add_weights(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      weights() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_weights();
+
+  // @@protoc_insertion_point(class_scope:natashapb.StaticCascadingReels)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios > scenarios_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > weights_;
+  mutable int _weights_cached_byte_size_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsStaticCascadingReelsImpl();
+};
+// -------------------------------------------------------------------
+
 class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.ReelstriptConfig) */ {
  public:
   ReelstriptConfig();
@@ -5089,7 +5536,7 @@ class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertio
                &_ReelstriptConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    35;
+    38;
 
   void Swap(ReelstriptConfig* other);
   friend void swap(ReelstriptConfig& a, ReelstriptConfig& b) {
@@ -5149,14 +5596,486 @@ class ReelstriptConfig : public ::google::protobuf::Message /* @@protoc_insertio
   ::natashapb::NormalReelstriptConfig* mutable_normal();
   void set_allocated_normal(::natashapb::NormalReelstriptConfig* normal);
 
+  // .natashapb.StaticCascadingReels staticCR = 2;
+  bool has_staticcr() const;
+  void clear_staticcr();
+  static const int kStaticCRFieldNumber = 2;
+  const ::natashapb::StaticCascadingReels& staticcr() const;
+  ::natashapb::StaticCascadingReels* release_staticcr();
+  ::natashapb::StaticCascadingReels* mutable_staticcr();
+  void set_allocated_staticcr(::natashapb::StaticCascadingReels* staticcr);
+
   // @@protoc_insertion_point(class_scope:natashapb.ReelstriptConfig)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::natashapb::NormalReelstriptConfig* normal_;
+  ::natashapb::StaticCascadingReels* staticcr_;
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsReelstriptConfigImpl();
+};
+// -------------------------------------------------------------------
+
+class LineInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.LineInfo) */ {
+ public:
+  LineInfo();
+  virtual ~LineInfo();
+
+  LineInfo(const LineInfo& from);
+
+  inline LineInfo& operator=(const LineInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LineInfo(LineInfo&& from) noexcept
+    : LineInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline LineInfo& operator=(LineInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LineInfo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LineInfo* internal_default_instance() {
+    return reinterpret_cast<const LineInfo*>(
+               &_LineInfo_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    39;
+
+  void Swap(LineInfo* other);
+  friend void swap(LineInfo& a, LineInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LineInfo* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<LineInfo>(NULL);
+  }
+
+  LineInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<LineInfo>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const LineInfo& from);
+  void MergeFrom(const LineInfo& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(LineInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 yArr = 1;
+  int yarr_size() const;
+  void clear_yarr();
+  static const int kYArrFieldNumber = 1;
+  ::google::protobuf::int32 yarr(int index) const;
+  void set_yarr(int index, ::google::protobuf::int32 value);
+  void add_yarr(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      yarr() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_yarr();
+
+  // @@protoc_insertion_point(class_scope:natashapb.LineInfo)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > yarr_;
+  mutable int _yarr_cached_byte_size_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsLineInfoImpl();
+};
+// -------------------------------------------------------------------
+
+class Lines : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.Lines) */ {
+ public:
+  Lines();
+  virtual ~Lines();
+
+  Lines(const Lines& from);
+
+  inline Lines& operator=(const Lines& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Lines(Lines&& from) noexcept
+    : Lines() {
+    *this = ::std::move(from);
+  }
+
+  inline Lines& operator=(Lines&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Lines& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Lines* internal_default_instance() {
+    return reinterpret_cast<const Lines*>(
+               &_Lines_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    40;
+
+  void Swap(Lines* other);
+  friend void swap(Lines& a, Lines& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Lines* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<Lines>(NULL);
+  }
+
+  Lines* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<Lines>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Lines& from);
+  void MergeFrom(const Lines& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Lines* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .natashapb.LineInfo lines = 1;
+  int lines_size() const;
+  void clear_lines();
+  static const int kLinesFieldNumber = 1;
+  ::natashapb::LineInfo* mutable_lines(int index);
+  ::google::protobuf::RepeatedPtrField< ::natashapb::LineInfo >*
+      mutable_lines();
+  const ::natashapb::LineInfo& lines(int index) const;
+  ::natashapb::LineInfo* add_lines();
+  const ::google::protobuf::RepeatedPtrField< ::natashapb::LineInfo >&
+      lines() const;
+
+  // @@protoc_insertion_point(class_scope:natashapb.Lines)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::natashapb::LineInfo > lines_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsLinesImpl();
+};
+// -------------------------------------------------------------------
+
+class SymbolPaytables : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.SymbolPaytables) */ {
+ public:
+  SymbolPaytables();
+  virtual ~SymbolPaytables();
+
+  SymbolPaytables(const SymbolPaytables& from);
+
+  inline SymbolPaytables& operator=(const SymbolPaytables& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SymbolPaytables(SymbolPaytables&& from) noexcept
+    : SymbolPaytables() {
+    *this = ::std::move(from);
+  }
+
+  inline SymbolPaytables& operator=(SymbolPaytables&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SymbolPaytables& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SymbolPaytables* internal_default_instance() {
+    return reinterpret_cast<const SymbolPaytables*>(
+               &_SymbolPaytables_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    41;
+
+  void Swap(SymbolPaytables* other);
+  friend void swap(SymbolPaytables& a, SymbolPaytables& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SymbolPaytables* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolPaytables>(NULL);
+  }
+
+  SymbolPaytables* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<SymbolPaytables>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SymbolPaytables& from);
+  void MergeFrom(const SymbolPaytables& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SymbolPaytables* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 payout = 1;
+  int payout_size() const;
+  void clear_payout();
+  static const int kPayoutFieldNumber = 1;
+  ::google::protobuf::int32 payout(int index) const;
+  void set_payout(int index, ::google::protobuf::int32 value);
+  void add_payout(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      payout() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_payout();
+
+  // @@protoc_insertion_point(class_scope:natashapb.SymbolPaytables)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > payout_;
+  mutable int _payout_cached_byte_size_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsSymbolPaytablesImpl();
+};
+// -------------------------------------------------------------------
+
+class Paytables_PaytablesEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<Paytables_PaytablesEntry_DoNotUse, 
+    ::google::protobuf::int32, ::natashapb::SymbolPaytables,
+    ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<Paytables_PaytablesEntry_DoNotUse, 
+    ::google::protobuf::int32, ::natashapb::SymbolPaytables,
+    ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  Paytables_PaytablesEntry_DoNotUse();
+  Paytables_PaytablesEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const Paytables_PaytablesEntry_DoNotUse& other);
+  static const Paytables_PaytablesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Paytables_PaytablesEntry_DoNotUse*>(&_Paytables_PaytablesEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class Paytables : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.Paytables) */ {
+ public:
+  Paytables();
+  virtual ~Paytables();
+
+  Paytables(const Paytables& from);
+
+  inline Paytables& operator=(const Paytables& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Paytables(Paytables&& from) noexcept
+    : Paytables() {
+    *this = ::std::move(from);
+  }
+
+  inline Paytables& operator=(Paytables&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Paytables& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Paytables* internal_default_instance() {
+    return reinterpret_cast<const Paytables*>(
+               &_Paytables_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    43;
+
+  void Swap(Paytables* other);
+  friend void swap(Paytables& a, Paytables& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Paytables* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<Paytables>(NULL);
+  }
+
+  Paytables* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<Paytables>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Paytables& from);
+  void MergeFrom(const Paytables& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Paytables* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  // map<int32, .natashapb.SymbolPaytables> paytables = 1;
+  int paytables_size() const;
+  void clear_paytables();
+  static const int kPaytablesFieldNumber = 1;
+  const ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >&
+      paytables() const;
+  ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >*
+      mutable_paytables();
+
+  // @@protoc_insertion_point(class_scope:natashapb.Paytables)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::MapField<
+      Paytables_PaytablesEntry_DoNotUse,
+      ::google::protobuf::int32, ::natashapb::SymbolPaytables,
+      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > paytables_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsPaytablesImpl();
 };
 // -------------------------------------------------------------------
 
@@ -5195,7 +6114,7 @@ class WeightConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_WeightConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    36;
+    44;
 
   void Swap(WeightConfig* other);
   friend void swap(WeightConfig& a, WeightConfig& b) {
@@ -5312,7 +6231,7 @@ class MuseumRTPConfig : public ::google::protobuf::Message /* @@protoc_insertion
                &_MuseumRTPConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    37;
+    45;
 
   void Swap(MuseumRTPConfig* other);
   friend void swap(MuseumRTPConfig& a, MuseumRTPConfig& b) {
@@ -5569,7 +6488,7 @@ class MuseumConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_MuseumConfig_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    40;
+    48;
 
   void Swap(MuseumConfig* other);
   friend void swap(MuseumConfig& a, MuseumConfig& b) {
@@ -5658,6 +6577,497 @@ class MuseumConfig : public ::google::protobuf::Message /* @@protoc_insertion_po
   mutable int _cached_size_;
   friend struct ::protobuf_base_2eproto::TableStruct;
   friend void ::protobuf_base_2eproto::InitDefaultsMuseumConfigImpl();
+};
+// -------------------------------------------------------------------
+
+class TLODRTPConfig : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.TLODRTPConfig) */ {
+ public:
+  TLODRTPConfig();
+  virtual ~TLODRTPConfig();
+
+  TLODRTPConfig(const TLODRTPConfig& from);
+
+  inline TLODRTPConfig& operator=(const TLODRTPConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  TLODRTPConfig(TLODRTPConfig&& from) noexcept
+    : TLODRTPConfig() {
+    *this = ::std::move(from);
+  }
+
+  inline TLODRTPConfig& operator=(TLODRTPConfig&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TLODRTPConfig& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TLODRTPConfig* internal_default_instance() {
+    return reinterpret_cast<const TLODRTPConfig*>(
+               &_TLODRTPConfig_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    49;
+
+  void Swap(TLODRTPConfig* other);
+  friend void swap(TLODRTPConfig& a, TLODRTPConfig& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TLODRTPConfig* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<TLODRTPConfig>(NULL);
+  }
+
+  TLODRTPConfig* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<TLODRTPConfig>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const TLODRTPConfig& from);
+  void MergeFrom(const TLODRTPConfig& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(TLODRTPConfig* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string bgReelstrips = 100;
+  void clear_bgreelstrips();
+  static const int kBgReelstripsFieldNumber = 100;
+  const ::std::string& bgreelstrips() const;
+  void set_bgreelstrips(const ::std::string& value);
+  #if LANG_CXX11
+  void set_bgreelstrips(::std::string&& value);
+  #endif
+  void set_bgreelstrips(const char* value);
+  void set_bgreelstrips(const char* value, size_t size);
+  ::std::string* mutable_bgreelstrips();
+  ::std::string* release_bgreelstrips();
+  void set_allocated_bgreelstrips(::std::string* bgreelstrips);
+
+  // string fgReelstrips = 300;
+  void clear_fgreelstrips();
+  static const int kFgReelstripsFieldNumber = 300;
+  const ::std::string& fgreelstrips() const;
+  void set_fgreelstrips(const ::std::string& value);
+  #if LANG_CXX11
+  void set_fgreelstrips(::std::string&& value);
+  #endif
+  void set_fgreelstrips(const char* value);
+  void set_fgreelstrips(const char* value, size_t size);
+  ::std::string* mutable_fgreelstrips();
+  ::std::string* release_fgreelstrips();
+  void set_allocated_fgreelstrips(::std::string* fgreelstrips);
+
+  // int32 fgNums = 200;
+  void clear_fgnums();
+  static const int kFgNumsFieldNumber = 200;
+  ::google::protobuf::int32 fgnums() const;
+  void set_fgnums(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:natashapb.TLODRTPConfig)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr bgreelstrips_;
+  ::google::protobuf::internal::ArenaStringPtr fgreelstrips_;
+  ::google::protobuf::int32 fgnums_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsTLODRTPConfigImpl();
+};
+// -------------------------------------------------------------------
+
+class TLODConfig_ReelstriptsEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<TLODConfig_ReelstriptsEntry_DoNotUse, 
+    ::std::string, ::natashapb::ReelstriptConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<TLODConfig_ReelstriptsEntry_DoNotUse, 
+    ::std::string, ::natashapb::ReelstriptConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  TLODConfig_ReelstriptsEntry_DoNotUse();
+  TLODConfig_ReelstriptsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const TLODConfig_ReelstriptsEntry_DoNotUse& other);
+  static const TLODConfig_ReelstriptsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const TLODConfig_ReelstriptsEntry_DoNotUse*>(&_TLODConfig_ReelstriptsEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class TLODConfig_RtpEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<TLODConfig_RtpEntry_DoNotUse, 
+    ::std::string, ::natashapb::TLODRTPConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<TLODConfig_RtpEntry_DoNotUse, 
+    ::std::string, ::natashapb::TLODRTPConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  TLODConfig_RtpEntry_DoNotUse();
+  TLODConfig_RtpEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const TLODConfig_RtpEntry_DoNotUse& other);
+  static const TLODConfig_RtpEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const TLODConfig_RtpEntry_DoNotUse*>(&_TLODConfig_RtpEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class TLODConfig : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.TLODConfig) */ {
+ public:
+  TLODConfig();
+  virtual ~TLODConfig();
+
+  TLODConfig(const TLODConfig& from);
+
+  inline TLODConfig& operator=(const TLODConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  TLODConfig(TLODConfig&& from) noexcept
+    : TLODConfig() {
+    *this = ::std::move(from);
+  }
+
+  inline TLODConfig& operator=(TLODConfig&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TLODConfig& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TLODConfig* internal_default_instance() {
+    return reinterpret_cast<const TLODConfig*>(
+               &_TLODConfig_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    52;
+
+  void Swap(TLODConfig* other);
+  friend void swap(TLODConfig& a, TLODConfig& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TLODConfig* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<TLODConfig>(NULL);
+  }
+
+  TLODConfig* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<TLODConfig>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const TLODConfig& from);
+  void MergeFrom(const TLODConfig& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(TLODConfig* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  int reelstripts_size() const;
+  void clear_reelstripts();
+  static const int kReelstriptsFieldNumber = 1;
+  const ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >&
+      reelstripts() const;
+  ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >*
+      mutable_reelstripts();
+
+  // map<string, .natashapb.TLODRTPConfig> rtp = 2;
+  int rtp_size() const;
+  void clear_rtp();
+  static const int kRtpFieldNumber = 2;
+  const ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >&
+      rtp() const;
+  ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >*
+      mutable_rtp();
+
+  // @@protoc_insertion_point(class_scope:natashapb.TLODConfig)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::MapField<
+      TLODConfig_ReelstriptsEntry_DoNotUse,
+      ::std::string, ::natashapb::ReelstriptConfig,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > reelstripts_;
+  ::google::protobuf::internal::MapField<
+      TLODConfig_RtpEntry_DoNotUse,
+      ::std::string, ::natashapb::TLODRTPConfig,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > rtp_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsTLODConfigImpl();
+};
+// -------------------------------------------------------------------
+
+class GameConfig_ReelstriptsEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<GameConfig_ReelstriptsEntry_DoNotUse, 
+    ::std::string, ::natashapb::ReelstriptConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<GameConfig_ReelstriptsEntry_DoNotUse, 
+    ::std::string, ::natashapb::ReelstriptConfig,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  GameConfig_ReelstriptsEntry_DoNotUse();
+  GameConfig_ReelstriptsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const GameConfig_ReelstriptsEntry_DoNotUse& other);
+  static const GameConfig_ReelstriptsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GameConfig_ReelstriptsEntry_DoNotUse*>(&_GameConfig_ReelstriptsEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class GameConfig_RtpEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<GameConfig_RtpEntry_DoNotUse, 
+    ::std::string, ::google::protobuf::Any,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<GameConfig_RtpEntry_DoNotUse, 
+    ::std::string, ::google::protobuf::Any,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  GameConfig_RtpEntry_DoNotUse();
+  GameConfig_RtpEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const GameConfig_RtpEntry_DoNotUse& other);
+  static const GameConfig_RtpEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GameConfig_RtpEntry_DoNotUse*>(&_GameConfig_RtpEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) PROTOBUF_FINAL;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class GameConfig : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:natashapb.GameConfig) */ {
+ public:
+  GameConfig();
+  virtual ~GameConfig();
+
+  GameConfig(const GameConfig& from);
+
+  inline GameConfig& operator=(const GameConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GameConfig(GameConfig&& from) noexcept
+    : GameConfig() {
+    *this = ::std::move(from);
+  }
+
+  inline GameConfig& operator=(GameConfig&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameConfig& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GameConfig* internal_default_instance() {
+    return reinterpret_cast<const GameConfig*>(
+               &_GameConfig_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    55;
+
+  void Swap(GameConfig* other);
+  friend void swap(GameConfig& a, GameConfig& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GameConfig* New() const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameConfig>(NULL);
+  }
+
+  GameConfig* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL {
+    return ::google::protobuf::Arena::Create<GameConfig>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GameConfig& from);
+  void MergeFrom(const GameConfig& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GameConfig* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  // map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+  int reelstripts_size() const;
+  void clear_reelstripts();
+  static const int kReelstriptsFieldNumber = 1;
+  const ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >&
+      reelstripts() const;
+  ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >*
+      mutable_reelstripts();
+
+  // map<string, .google.protobuf.Any> rtp = 2;
+  int rtp_size() const;
+  void clear_rtp();
+  static const int kRtpFieldNumber = 2;
+  const ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >&
+      rtp() const;
+  ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >*
+      mutable_rtp();
+
+  // .natashapb.Lines lines = 3;
+  bool has_lines() const;
+  void clear_lines();
+  static const int kLinesFieldNumber = 3;
+  const ::natashapb::Lines& lines() const;
+  ::natashapb::Lines* release_lines();
+  ::natashapb::Lines* mutable_lines();
+  void set_allocated_lines(::natashapb::Lines* lines);
+
+  // .natashapb.Paytables paytables = 4;
+  bool has_paytables() const;
+  void clear_paytables();
+  static const int kPaytablesFieldNumber = 4;
+  const ::natashapb::Paytables& paytables() const;
+  ::natashapb::Paytables* release_paytables();
+  ::natashapb::Paytables* mutable_paytables();
+  void set_allocated_paytables(::natashapb::Paytables* paytables);
+
+  // @@protoc_insertion_point(class_scope:natashapb.GameConfig)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::MapField<
+      GameConfig_ReelstriptsEntry_DoNotUse,
+      ::std::string, ::natashapb::ReelstriptConfig,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > reelstripts_;
+  ::google::protobuf::internal::MapField<
+      GameConfig_RtpEntry_DoNotUse,
+      ::std::string, ::google::protobuf::Any,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > rtp_;
+  ::natashapb::Lines* lines_;
+  ::natashapb::Paytables* paytables_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_base_2eproto::TableStruct;
+  friend void ::protobuf_base_2eproto::InitDefaultsGameConfigImpl();
 };
 // ===================================================================
 
@@ -9485,6 +10895,138 @@ inline void NormalReelstriptConfig::set_allocated_filename(::std::string* filena
 
 // -------------------------------------------------------------------
 
+// StaticSymbols
+
+// repeated int32 symbols = 1;
+inline int StaticSymbols::symbols_size() const {
+  return symbols_.size();
+}
+inline void StaticSymbols::clear_symbols() {
+  symbols_.Clear();
+}
+inline ::google::protobuf::int32 StaticSymbols::symbols(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticSymbols.symbols)
+  return symbols_.Get(index);
+}
+inline void StaticSymbols::set_symbols(int index, ::google::protobuf::int32 value) {
+  symbols_.Set(index, value);
+  // @@protoc_insertion_point(field_set:natashapb.StaticSymbols.symbols)
+}
+inline void StaticSymbols::add_symbols(::google::protobuf::int32 value) {
+  symbols_.Add(value);
+  // @@protoc_insertion_point(field_add:natashapb.StaticSymbols.symbols)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+StaticSymbols::symbols() const {
+  // @@protoc_insertion_point(field_list:natashapb.StaticSymbols.symbols)
+  return symbols_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+StaticSymbols::mutable_symbols() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.StaticSymbols.symbols)
+  return &symbols_;
+}
+
+// -------------------------------------------------------------------
+
+// StaticCascadingScenarios
+
+// repeated .natashapb.StaticSymbols scenarios = 1;
+inline int StaticCascadingScenarios::scenarios_size() const {
+  return scenarios_.size();
+}
+inline void StaticCascadingScenarios::clear_scenarios() {
+  scenarios_.Clear();
+}
+inline ::natashapb::StaticSymbols* StaticCascadingScenarios::mutable_scenarios(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >*
+StaticCascadingScenarios::mutable_scenarios() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.StaticCascadingScenarios.scenarios)
+  return &scenarios_;
+}
+inline const ::natashapb::StaticSymbols& StaticCascadingScenarios::scenarios(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_.Get(index);
+}
+inline ::natashapb::StaticSymbols* StaticCascadingScenarios::add_scenarios() {
+  // @@protoc_insertion_point(field_add:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticSymbols >&
+StaticCascadingScenarios::scenarios() const {
+  // @@protoc_insertion_point(field_list:natashapb.StaticCascadingScenarios.scenarios)
+  return scenarios_;
+}
+
+// -------------------------------------------------------------------
+
+// StaticCascadingReels
+
+// repeated .natashapb.StaticCascadingScenarios scenarios = 1;
+inline int StaticCascadingReels::scenarios_size() const {
+  return scenarios_.size();
+}
+inline void StaticCascadingReels::clear_scenarios() {
+  scenarios_.Clear();
+}
+inline ::natashapb::StaticCascadingScenarios* StaticCascadingReels::mutable_scenarios(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.StaticCascadingReels.scenarios)
+  return scenarios_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >*
+StaticCascadingReels::mutable_scenarios() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.StaticCascadingReels.scenarios)
+  return &scenarios_;
+}
+inline const ::natashapb::StaticCascadingScenarios& StaticCascadingReels::scenarios(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingReels.scenarios)
+  return scenarios_.Get(index);
+}
+inline ::natashapb::StaticCascadingScenarios* StaticCascadingReels::add_scenarios() {
+  // @@protoc_insertion_point(field_add:natashapb.StaticCascadingReels.scenarios)
+  return scenarios_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::StaticCascadingScenarios >&
+StaticCascadingReels::scenarios() const {
+  // @@protoc_insertion_point(field_list:natashapb.StaticCascadingReels.scenarios)
+  return scenarios_;
+}
+
+// repeated int32 weights = 2;
+inline int StaticCascadingReels::weights_size() const {
+  return weights_.size();
+}
+inline void StaticCascadingReels::clear_weights() {
+  weights_.Clear();
+}
+inline ::google::protobuf::int32 StaticCascadingReels::weights(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.StaticCascadingReels.weights)
+  return weights_.Get(index);
+}
+inline void StaticCascadingReels::set_weights(int index, ::google::protobuf::int32 value) {
+  weights_.Set(index, value);
+  // @@protoc_insertion_point(field_set:natashapb.StaticCascadingReels.weights)
+}
+inline void StaticCascadingReels::add_weights(::google::protobuf::int32 value) {
+  weights_.Add(value);
+  // @@protoc_insertion_point(field_add:natashapb.StaticCascadingReels.weights)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+StaticCascadingReels::weights() const {
+  // @@protoc_insertion_point(field_list:natashapb.StaticCascadingReels.weights)
+  return weights_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+StaticCascadingReels::mutable_weights() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.StaticCascadingReels.weights)
+  return &weights_;
+}
+
+// -------------------------------------------------------------------
+
 // ReelstriptConfig
 
 // .natashapb.NormalReelstriptConfig normal = 1;
@@ -9536,6 +11078,183 @@ inline void ReelstriptConfig::set_allocated_normal(::natashapb::NormalReelstript
   }
   normal_ = normal;
   // @@protoc_insertion_point(field_set_allocated:natashapb.ReelstriptConfig.normal)
+}
+
+// .natashapb.StaticCascadingReels staticCR = 2;
+inline bool ReelstriptConfig::has_staticcr() const {
+  return this != internal_default_instance() && staticcr_ != NULL;
+}
+inline void ReelstriptConfig::clear_staticcr() {
+  if (GetArenaNoVirtual() == NULL && staticcr_ != NULL) {
+    delete staticcr_;
+  }
+  staticcr_ = NULL;
+}
+inline const ::natashapb::StaticCascadingReels& ReelstriptConfig::staticcr() const {
+  const ::natashapb::StaticCascadingReels* p = staticcr_;
+  // @@protoc_insertion_point(field_get:natashapb.ReelstriptConfig.staticCR)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::StaticCascadingReels*>(
+      &::natashapb::_StaticCascadingReels_default_instance_);
+}
+inline ::natashapb::StaticCascadingReels* ReelstriptConfig::release_staticcr() {
+  // @@protoc_insertion_point(field_release:natashapb.ReelstriptConfig.staticCR)
+  
+  ::natashapb::StaticCascadingReels* temp = staticcr_;
+  staticcr_ = NULL;
+  return temp;
+}
+inline ::natashapb::StaticCascadingReels* ReelstriptConfig::mutable_staticcr() {
+  
+  if (staticcr_ == NULL) {
+    staticcr_ = ::google::protobuf::Arena::Create< ::natashapb::StaticCascadingReels >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.ReelstriptConfig.staticCR)
+  return staticcr_;
+}
+inline void ReelstriptConfig::set_allocated_staticcr(::natashapb::StaticCascadingReels* staticcr) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete staticcr_;
+  }
+  if (staticcr) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      staticcr = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, staticcr, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  staticcr_ = staticcr;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.ReelstriptConfig.staticCR)
+}
+
+// -------------------------------------------------------------------
+
+// LineInfo
+
+// repeated int32 yArr = 1;
+inline int LineInfo::yarr_size() const {
+  return yarr_.size();
+}
+inline void LineInfo::clear_yarr() {
+  yarr_.Clear();
+}
+inline ::google::protobuf::int32 LineInfo::yarr(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.LineInfo.yArr)
+  return yarr_.Get(index);
+}
+inline void LineInfo::set_yarr(int index, ::google::protobuf::int32 value) {
+  yarr_.Set(index, value);
+  // @@protoc_insertion_point(field_set:natashapb.LineInfo.yArr)
+}
+inline void LineInfo::add_yarr(::google::protobuf::int32 value) {
+  yarr_.Add(value);
+  // @@protoc_insertion_point(field_add:natashapb.LineInfo.yArr)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+LineInfo::yarr() const {
+  // @@protoc_insertion_point(field_list:natashapb.LineInfo.yArr)
+  return yarr_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+LineInfo::mutable_yarr() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.LineInfo.yArr)
+  return &yarr_;
+}
+
+// -------------------------------------------------------------------
+
+// Lines
+
+// repeated .natashapb.LineInfo lines = 1;
+inline int Lines::lines_size() const {
+  return lines_.size();
+}
+inline void Lines::clear_lines() {
+  lines_.Clear();
+}
+inline ::natashapb::LineInfo* Lines::mutable_lines(int index) {
+  // @@protoc_insertion_point(field_mutable:natashapb.Lines.lines)
+  return lines_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::natashapb::LineInfo >*
+Lines::mutable_lines() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.Lines.lines)
+  return &lines_;
+}
+inline const ::natashapb::LineInfo& Lines::lines(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.Lines.lines)
+  return lines_.Get(index);
+}
+inline ::natashapb::LineInfo* Lines::add_lines() {
+  // @@protoc_insertion_point(field_add:natashapb.Lines.lines)
+  return lines_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::natashapb::LineInfo >&
+Lines::lines() const {
+  // @@protoc_insertion_point(field_list:natashapb.Lines.lines)
+  return lines_;
+}
+
+// -------------------------------------------------------------------
+
+// SymbolPaytables
+
+// repeated int32 payout = 1;
+inline int SymbolPaytables::payout_size() const {
+  return payout_.size();
+}
+inline void SymbolPaytables::clear_payout() {
+  payout_.Clear();
+}
+inline ::google::protobuf::int32 SymbolPaytables::payout(int index) const {
+  // @@protoc_insertion_point(field_get:natashapb.SymbolPaytables.payout)
+  return payout_.Get(index);
+}
+inline void SymbolPaytables::set_payout(int index, ::google::protobuf::int32 value) {
+  payout_.Set(index, value);
+  // @@protoc_insertion_point(field_set:natashapb.SymbolPaytables.payout)
+}
+inline void SymbolPaytables::add_payout(::google::protobuf::int32 value) {
+  payout_.Add(value);
+  // @@protoc_insertion_point(field_add:natashapb.SymbolPaytables.payout)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+SymbolPaytables::payout() const {
+  // @@protoc_insertion_point(field_list:natashapb.SymbolPaytables.payout)
+  return payout_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+SymbolPaytables::mutable_payout() {
+  // @@protoc_insertion_point(field_mutable_list:natashapb.SymbolPaytables.payout)
+  return &payout_;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// Paytables
+
+// map<int32, .natashapb.SymbolPaytables> paytables = 1;
+inline int Paytables::paytables_size() const {
+  return paytables_.size();
+}
+inline void Paytables::clear_paytables() {
+  paytables_.Clear();
+}
+inline const ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >&
+Paytables::paytables() const {
+  // @@protoc_insertion_point(field_map:natashapb.Paytables.paytables)
+  return paytables_.GetMap();
+}
+inline ::google::protobuf::Map< ::google::protobuf::int32, ::natashapb::SymbolPaytables >*
+Paytables::mutable_paytables() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.Paytables.paytables)
+  return paytables_.MutableMap();
 }
 
 // -------------------------------------------------------------------
@@ -9934,9 +11653,350 @@ MuseumConfig::mutable_rtp() {
   return rtp_.MutableMap();
 }
 
+// -------------------------------------------------------------------
+
+// TLODRTPConfig
+
+// string bgReelstrips = 100;
+inline void TLODRTPConfig::clear_bgreelstrips() {
+  bgreelstrips_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& TLODRTPConfig::bgreelstrips() const {
+  // @@protoc_insertion_point(field_get:natashapb.TLODRTPConfig.bgReelstrips)
+  return bgreelstrips_.GetNoArena();
+}
+inline void TLODRTPConfig::set_bgreelstrips(const ::std::string& value) {
+  
+  bgreelstrips_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:natashapb.TLODRTPConfig.bgReelstrips)
+}
+#if LANG_CXX11
+inline void TLODRTPConfig::set_bgreelstrips(::std::string&& value) {
+  
+  bgreelstrips_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:natashapb.TLODRTPConfig.bgReelstrips)
+}
+#endif
+inline void TLODRTPConfig::set_bgreelstrips(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  bgreelstrips_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:natashapb.TLODRTPConfig.bgReelstrips)
+}
+inline void TLODRTPConfig::set_bgreelstrips(const char* value, size_t size) {
+  
+  bgreelstrips_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:natashapb.TLODRTPConfig.bgReelstrips)
+}
+inline ::std::string* TLODRTPConfig::mutable_bgreelstrips() {
+  
+  // @@protoc_insertion_point(field_mutable:natashapb.TLODRTPConfig.bgReelstrips)
+  return bgreelstrips_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* TLODRTPConfig::release_bgreelstrips() {
+  // @@protoc_insertion_point(field_release:natashapb.TLODRTPConfig.bgReelstrips)
+  
+  return bgreelstrips_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void TLODRTPConfig::set_allocated_bgreelstrips(::std::string* bgreelstrips) {
+  if (bgreelstrips != NULL) {
+    
+  } else {
+    
+  }
+  bgreelstrips_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bgreelstrips);
+  // @@protoc_insertion_point(field_set_allocated:natashapb.TLODRTPConfig.bgReelstrips)
+}
+
+// int32 fgNums = 200;
+inline void TLODRTPConfig::clear_fgnums() {
+  fgnums_ = 0;
+}
+inline ::google::protobuf::int32 TLODRTPConfig::fgnums() const {
+  // @@protoc_insertion_point(field_get:natashapb.TLODRTPConfig.fgNums)
+  return fgnums_;
+}
+inline void TLODRTPConfig::set_fgnums(::google::protobuf::int32 value) {
+  
+  fgnums_ = value;
+  // @@protoc_insertion_point(field_set:natashapb.TLODRTPConfig.fgNums)
+}
+
+// string fgReelstrips = 300;
+inline void TLODRTPConfig::clear_fgreelstrips() {
+  fgreelstrips_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& TLODRTPConfig::fgreelstrips() const {
+  // @@protoc_insertion_point(field_get:natashapb.TLODRTPConfig.fgReelstrips)
+  return fgreelstrips_.GetNoArena();
+}
+inline void TLODRTPConfig::set_fgreelstrips(const ::std::string& value) {
+  
+  fgreelstrips_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:natashapb.TLODRTPConfig.fgReelstrips)
+}
+#if LANG_CXX11
+inline void TLODRTPConfig::set_fgreelstrips(::std::string&& value) {
+  
+  fgreelstrips_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:natashapb.TLODRTPConfig.fgReelstrips)
+}
+#endif
+inline void TLODRTPConfig::set_fgreelstrips(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  fgreelstrips_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:natashapb.TLODRTPConfig.fgReelstrips)
+}
+inline void TLODRTPConfig::set_fgreelstrips(const char* value, size_t size) {
+  
+  fgreelstrips_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:natashapb.TLODRTPConfig.fgReelstrips)
+}
+inline ::std::string* TLODRTPConfig::mutable_fgreelstrips() {
+  
+  // @@protoc_insertion_point(field_mutable:natashapb.TLODRTPConfig.fgReelstrips)
+  return fgreelstrips_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* TLODRTPConfig::release_fgreelstrips() {
+  // @@protoc_insertion_point(field_release:natashapb.TLODRTPConfig.fgReelstrips)
+  
+  return fgreelstrips_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void TLODRTPConfig::set_allocated_fgreelstrips(::std::string* fgreelstrips) {
+  if (fgreelstrips != NULL) {
+    
+  } else {
+    
+  }
+  fgreelstrips_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fgreelstrips);
+  // @@protoc_insertion_point(field_set_allocated:natashapb.TLODRTPConfig.fgReelstrips)
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// TLODConfig
+
+// map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+inline int TLODConfig::reelstripts_size() const {
+  return reelstripts_.size();
+}
+inline void TLODConfig::clear_reelstripts() {
+  reelstripts_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >&
+TLODConfig::reelstripts() const {
+  // @@protoc_insertion_point(field_map:natashapb.TLODConfig.reelstripts)
+  return reelstripts_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >*
+TLODConfig::mutable_reelstripts() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.TLODConfig.reelstripts)
+  return reelstripts_.MutableMap();
+}
+
+// map<string, .natashapb.TLODRTPConfig> rtp = 2;
+inline int TLODConfig::rtp_size() const {
+  return rtp_.size();
+}
+inline void TLODConfig::clear_rtp() {
+  rtp_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >&
+TLODConfig::rtp() const {
+  // @@protoc_insertion_point(field_map:natashapb.TLODConfig.rtp)
+  return rtp_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::natashapb::TLODRTPConfig >*
+TLODConfig::mutable_rtp() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.TLODConfig.rtp)
+  return rtp_.MutableMap();
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// GameConfig
+
+// map<string, .natashapb.ReelstriptConfig> reelstripts = 1;
+inline int GameConfig::reelstripts_size() const {
+  return reelstripts_.size();
+}
+inline void GameConfig::clear_reelstripts() {
+  reelstripts_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >&
+GameConfig::reelstripts() const {
+  // @@protoc_insertion_point(field_map:natashapb.GameConfig.reelstripts)
+  return reelstripts_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::natashapb::ReelstriptConfig >*
+GameConfig::mutable_reelstripts() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.GameConfig.reelstripts)
+  return reelstripts_.MutableMap();
+}
+
+// map<string, .google.protobuf.Any> rtp = 2;
+inline int GameConfig::rtp_size() const {
+  return rtp_.size();
+}
+inline const ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >&
+GameConfig::rtp() const {
+  // @@protoc_insertion_point(field_map:natashapb.GameConfig.rtp)
+  return rtp_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::google::protobuf::Any >*
+GameConfig::mutable_rtp() {
+  // @@protoc_insertion_point(field_mutable_map:natashapb.GameConfig.rtp)
+  return rtp_.MutableMap();
+}
+
+// .natashapb.Lines lines = 3;
+inline bool GameConfig::has_lines() const {
+  return this != internal_default_instance() && lines_ != NULL;
+}
+inline void GameConfig::clear_lines() {
+  if (GetArenaNoVirtual() == NULL && lines_ != NULL) {
+    delete lines_;
+  }
+  lines_ = NULL;
+}
+inline const ::natashapb::Lines& GameConfig::lines() const {
+  const ::natashapb::Lines* p = lines_;
+  // @@protoc_insertion_point(field_get:natashapb.GameConfig.lines)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::Lines*>(
+      &::natashapb::_Lines_default_instance_);
+}
+inline ::natashapb::Lines* GameConfig::release_lines() {
+  // @@protoc_insertion_point(field_release:natashapb.GameConfig.lines)
+  
+  ::natashapb::Lines* temp = lines_;
+  lines_ = NULL;
+  return temp;
+}
+inline ::natashapb::Lines* GameConfig::mutable_lines() {
+  
+  if (lines_ == NULL) {
+    lines_ = ::google::protobuf::Arena::Create< ::natashapb::Lines >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.GameConfig.lines)
+  return lines_;
+}
+inline void GameConfig::set_allocated_lines(::natashapb::Lines* lines) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete lines_;
+  }
+  if (lines) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      lines = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, lines, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  lines_ = lines;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameConfig.lines)
+}
+
+// .natashapb.Paytables paytables = 4;
+inline bool GameConfig::has_paytables() const {
+  return this != internal_default_instance() && paytables_ != NULL;
+}
+inline void GameConfig::clear_paytables() {
+  if (GetArenaNoVirtual() == NULL && paytables_ != NULL) {
+    delete paytables_;
+  }
+  paytables_ = NULL;
+}
+inline const ::natashapb::Paytables& GameConfig::paytables() const {
+  const ::natashapb::Paytables* p = paytables_;
+  // @@protoc_insertion_point(field_get:natashapb.GameConfig.paytables)
+  return p != NULL ? *p : *reinterpret_cast<const ::natashapb::Paytables*>(
+      &::natashapb::_Paytables_default_instance_);
+}
+inline ::natashapb::Paytables* GameConfig::release_paytables() {
+  // @@protoc_insertion_point(field_release:natashapb.GameConfig.paytables)
+  
+  ::natashapb::Paytables* temp = paytables_;
+  paytables_ = NULL;
+  return temp;
+}
+inline ::natashapb::Paytables* GameConfig::mutable_paytables() {
+  
+  if (paytables_ == NULL) {
+    paytables_ = ::google::protobuf::Arena::Create< ::natashapb::Paytables >(
+        GetArenaNoVirtual());
+  }
+  // @@protoc_insertion_point(field_mutable:natashapb.GameConfig.paytables)
+  return paytables_;
+}
+inline void GameConfig::set_allocated_paytables(::natashapb::Paytables* paytables) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete paytables_;
+  }
+  if (paytables) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      paytables = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, paytables, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  paytables_ = paytables;
+  // @@protoc_insertion_point(field_set_allocated:natashapb.GameConfig.paytables)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

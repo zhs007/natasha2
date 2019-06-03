@@ -513,9 +513,39 @@ message NormalReelstriptConfig {
     string filename = 1;
 }
 
+message StaticSymbols {
+    repeated int32 symbols = 1;
+}
+
+message StaticCascadingScenarios {
+    repeated StaticSymbols scenarios = 1;
+}
+
+message StaticCascadingReels {
+    repeated StaticCascadingScenarios scenarios = 1;
+    repeated int32 weights = 2;
+}
+
 // ReelstriptConfig - reelstript config
 message ReelstriptConfig {
     NormalReelstriptConfig normal = 1;
+    StaticCascadingReels staticCR = 2;
+}
+
+message LineInfo {
+    repeated int32 yArr = 1;
+}
+
+message Lines {
+    repeated LineInfo lines = 1;
+}
+
+message SymbolPaytables {
+    repeated int32 payout = 1;
+}
+
+message Paytables {
+    map<int32, SymbolPaytables> paytables = 1;
 }
 
 message WeightConfig {
@@ -540,4 +570,24 @@ message MuseumRTPConfig {
 message MuseumConfig {
     map<string, ReelstriptConfig> reelstripts = 1;
     map<string, MuseumRTPConfig> rtp = 2;
+}
+
+message TLODRTPConfig {
+    string bgReelstrips = 100;
+
+    int32 fgNums = 200;
+
+    string fgReelstrips = 300;
+}
+
+message TLODConfig {
+    map<string, ReelstriptConfig> reelstripts = 1;
+    map<string, TLODRTPConfig> rtp = 2;
+}
+
+message GameConfig {
+    map<string, ReelstriptConfig> reelstripts = 1;
+    map<string, google.protobuf.Any> rtp = 2;    
+    Lines lines = 3;
+    Paytables paytables = 4;
 }

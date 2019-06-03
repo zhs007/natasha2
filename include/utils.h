@@ -69,6 +69,10 @@ void printSymbolBlock3X5(const char* str,
                          const ::natashapb::SymbolBlock3X5* pSB,
                          const char* strMapping);
 
+// printSymbolBlock
+void printSymbolBlock(const char* str, const ::natashapb::SymbolBlock* pSB,
+                      const char* strMapping);
+
 // printRandomResult
 void printRandomResult(const char* str,
                        const ::natashapb::RandomResult* pRandomResult,
@@ -82,6 +86,16 @@ void printSpinResult(const char* str,
 // printGameResultInfo
 void printGameResultInfo(const ::natashapb::GameResultInfo* pGameResultInfo,
                          const char* strMapping);
+
+// printBaseCascadingInfo
+void printBaseCascadingInfo(const char* str,
+                            const ::natashapb::BaseCascadingInfo* pBCI,
+                            const char* strMapping);
+
+// printUserGameModInfo
+void printUserGameModInfo(const char* str,
+                          const ::natashapb::UserGameModInfo* pUser,
+                          const char* strMapping);
 
 // clearUGMI_GameCtrlID
 void clearUGMI_GameCtrlID(::natashapb::GameCtrlID& gcid);

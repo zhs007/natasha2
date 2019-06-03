@@ -3,41 +3,34 @@
 
 namespace natasha {
 
-// void outputReels(StaticCascadingReels3X5* pReels) {
-//   for (int y = 0; y < pReels->getLength(); ++y) {
-//     printf("outputReels y - %d\n", y);
-//     for (int x = 0; x < pReels->getMaxDownNums(); ++x) {
-//       printf("outputReels x - %d\n", x);
-//       printSymbolBlock3X5(NULL, pReels->getNode(x, y), TLOD_SYMBOL_MAPPING);
-//     }
-//   }
-// }
-
 ::natashapb::CODE TLOD::init(const char* cfgpath) {
-  FileNameList lst;
+#ifdef NATASHA_RUNINCPP
+  initConfig();
+#endif  // NATASHA_RUNINCPP
+  // FileNameList lst;
 
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_0.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_1.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_2.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_3.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_4.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_5.csv"));
-  lst.push_back(pathAppend(cfgpath, "game116_payout95_6.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_0.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_1.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_2.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_3.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_4.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_5.csv"));
+  // lst.push_back(pathAppend(cfgpath, "game116_payout95_6.csv"));
 
-  loadStaticCascadingReels3X5(lst, m_reels);
+  // loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
     return ::natashapb::INVALID_REELS_CFG;
   }
 
   // outputReels(&m_reels);
 
-  loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
+  // loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
   if (m_lines.isEmpty()) {
     return ::natashapb::INVALID_LINES_CFG;
   }
 
-  loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(),
-                   m_paytables);
+  // loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(),
+  //                  m_paytables);
   if (m_paytables.isEmpty()) {
     return ::natashapb::INVALID_PAYTABLES_CFG;
   }
@@ -53,18 +46,17 @@ namespace natasha {
 }
 
 // getMainGameMod - get current main game module
-GameMod* TLOD::getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                              bool isComeInGame) {
+GameMod* TLOD::getMainGameMod(UserInfo* pUser, bool isComeInGame) {
   auto pBG = getGameMod(::natashapb::BASE_GAME);
   assert(pBG != NULL);
 
   auto pFG = getGameMod(::natashapb::FREE_GAME);
   assert(pFG != NULL);
 
-  auto pUserBG = getConstUserGameModInfo(pLogicUser, ::natashapb::BASE_GAME);
+  auto pUserBG = getConstUserGameModInfo(pUser, ::natashapb::BASE_GAME);
   assert(pUserBG != NULL);
 
-  auto pUserFG = getConstUserGameModInfo(pLogicUser, ::natashapb::FREE_GAME);
+  auto pUserFG = getConstUserGameModInfo(pUser, ::natashapb::FREE_GAME);
   assert(pUserFG != NULL);
 
   if (pFG->isIn(pUserFG)) {
@@ -87,8 +79,11 @@ void countRTP_tlod() {
     printf("init fail(%d)!\n", c);
   }
 
+  auto pUser = new UserInfo();
   auto pUGI = new ::natashapb::UserGameLogicInfo();
-  c = tlod.userComeIn(pUGI);
+  pUser->pLogicUser = pUGI;
+
+  c = tlod.userComeIn(pUser);
   if (c != natashapb::OK) {
     printf("userComeIn fail(%d)!\n", c);
   }
@@ -111,13 +106,13 @@ void countRTP_tlod() {
   int64_t ctrlid = 1;
   bool fg = false;
 
-  for (int i = 0; i <= 1000; ++ctrlid) {
+  for (int i = 0; i <= 1000000; ++ctrlid) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
       pGameCtrlBG->set_ctrlid(ctrlid);
 
-      c = tlod.gameCtrl(pGameCtrlBG, pUGI);
+      c = tlod.gameCtrl(pGameCtrlBG, pUser);
       if (c != natashapb::OK) {
         printf("gameCtrl fail(%d)!\n", c);
       }
@@ -125,28 +120,29 @@ void countRTP_tlod() {
     } else if (pUGI->nextgamemodtype() == natashapb::FREE_GAME) {
       fg = true;
 
-      printf("FG\n");
+      // printf("FG\n");
 
       pGameCtrlFG->set_ctrlid(ctrlid);
 
-      c = tlod.gameCtrl(pGameCtrlFG, pUGI);
+      c = tlod.gameCtrl(pGameCtrlFG, pUser);
       if (c != natashapb::OK) {
         printf("gameCtrl fail(%d)!\n", c);
       }
     }
 
     if (pUGI->iscompleted()) {
-      printf("totalbet is %d %lld\n", i * 30, tlod.getRTP().rtp.totalbet());
+      // printf("totalbet is %d %lld\n", i * 30, tlod.getRTP().rtp.totalbet());
 
       ++i;
 
-      if (fg) {
-        break;
-      }
+      // if (fg) {
+      //   break;
+      // }
     }
   }
-
+#ifdef NATASHA_COUNTRTP
   tlod.outputRTP();
+#endif  // NATASHA_COUNTRTP
 
   delete pGameCtrlBG;
   delete pGameCtrlFG;

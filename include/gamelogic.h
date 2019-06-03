@@ -8,8 +8,8 @@
 #include "../protoc/base.pb.h"
 #include "array.h"
 #include "gamemod.h"
-// #include "symbolblock.h"
 #include "rtp.h"
+#include "userinfo.h"
 #include "utils.h"
 
 namespace natasha {
@@ -29,22 +29,18 @@ class GameLogic {
  public:
   virtual ::natashapb::CODE init(const char* cfgpath);
 
-  virtual ::natashapb::CODE userComeIn(
-      ::natashapb::UserGameLogicInfo* pLogicUser);
+  virtual ::natashapb::CODE userComeIn(UserInfo* pUser);
 
-  virtual ::natashapb::CODE gameCtrl(
-      ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser);
+  virtual ::natashapb::CODE gameCtrl(::natashapb::GameCtrl* pGameCtrl,
+                                     UserInfo* pUser);
 
   // getMainGameMod - get current main game module
-  virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                                  bool isComeInGame);
+  virtual GameMod* getMainGameMod(UserInfo* pUser, bool isComeInGame);
 
   // onGameCtrlEnd - onGameCtrlEnd
   //               - 留作后期处理结算以后事务用，目前不用
   virtual ::natashapb::CODE onGameCtrlEnd(
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser, GameMod* curmod,
+      const ::natashapb::GameCtrl* pGameCtrl, UserInfo* pUser, GameMod* curmod,
       ::natashapb::UserGameModInfo* curugmi);
 
  public:
@@ -57,23 +53,32 @@ class GameLogic {
 
   // getUserGameModInfo - get user game module info
   ::natashapb::UserGameModInfo* getUserGameModInfo(
-      ::natashapb::UserGameLogicInfo* pLogicUser, ::natashapb::GAMEMODTYPE gmt);
+      UserInfo* pUser, ::natashapb::GAMEMODTYPE gmt);
 
   // getConstUserGameModInfo - get user game module info
   const ::natashapb::UserGameModInfo* getConstUserGameModInfo(
-      const ::natashapb::UserGameLogicInfo* pLogicUser,
-      ::natashapb::GAMEMODTYPE gmt) const;
+      const UserInfo* pUser, ::natashapb::GAMEMODTYPE gmt) const;
 
   // startGameMod - start game module for user
   //   Only for gamectrl
   ::natashapb::CODE startGameMod(::natashapb::GAMEMODTYPE gmt,
                                  const ::natashapb::StartGameMod* pStart,
-                                 ::natashapb::UserGameLogicInfo* pLogicUser);
+                                 UserInfo* pUser);
+
+  // // onEndGameMod - end game module for user
+  // //   Only for gamectrl
+  // ::natashapb::CODE onEndGameMod(::natashapb::GAMEMODTYPE gmt,
+  //                                ::natashapb::UserGameLogicInfo* pLogicUser);
 
   // setFuncProcGameCtrlResult - set FuncProcGameCtrlResult
   void setFuncProcGameCtrlResult(FuncProcGameCtrlResult func) {
     m_funcProcGameCtrlResult = func;
   }
+
+  // setGameConfig - set game config
+  void setGameConfig(::natashapb::GameConfig* pCfg) { m_pGameConfig = pCfg; }
+
+  void* getUserConfig(const UserInfo* pUser) { return pUser->pCurConfig; }
 
 #ifdef NATASHA_COUNTRTP
  public:
@@ -117,6 +122,7 @@ class GameLogic {
  protected:
   MapGameMod m_mapGameMod;
   FuncProcGameCtrlResult m_funcProcGameCtrlResult;
+  ::natashapb::GameConfig* m_pGameConfig;
 
 #ifdef NATASHA_COUNTRTP
   RTP m_rtp;

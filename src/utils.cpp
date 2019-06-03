@@ -196,4 +196,53 @@ const char* getGameModuleName(::natashapb::GAMEMODTYPE module) {
   return name[(int)module];
 }
 
+// printSymbolBlock
+void printSymbolBlock(const char* str, const ::natashapb::SymbolBlock* pSB,
+                      const char* strMapping) {
+  if (pSB->has_sb3x5()) {
+    auto sb3x5 = pSB->sb3x5();
+
+    printSymbolBlock3X5(str, &sb3x5, strMapping);
+  }
+}
+
+// printBaseCascadingInfo
+void printBaseCascadingInfo(const char* str,
+                            const ::natashapb::BaseCascadingInfo* pBCI,
+                            const char* strMapping) {
+  if (str != NULL) {
+    printf("%s\n", str);
+  }
+
+  printf("bet = %lld, line = %d, times = %d, turnnums = %d, turnwin = %lld\n",
+         pBCI->curbet(), pBCI->curlines(), pBCI->curtimes(), pBCI->turnnums(),
+         pBCI->turnwin());
+
+  printf("freestate = %d, isend = %d\n", pBCI->freestate(),
+         pBCI->isend() ? 1 : 0);
+
+  if (pBCI->has_symbolblock()) {
+    printSymbolBlock(NULL, &(pBCI->symbolblock()), strMapping);
+  }
+}
+
+// printUserGameModInfo
+void printUserGameModInfo(const char* str,
+                          const ::natashapb::UserGameModInfo* pUser,
+                          const char* strMapping) {
+  if (str != NULL) {
+    printf("%s\n", str);
+  }
+
+  printf("ver %d\n", pUser->ver());
+
+  if (pUser->has_cascadinginfo()) {
+    printBaseCascadingInfo(NULL, &(pUser->cascadinginfo()), strMapping);
+  }
+
+  if (pUser->has_spinresult()) {
+    printSpinResult(NULL, &(pUser->spinresult()), strMapping);
+  }
+}
+
 }  // namespace natasha

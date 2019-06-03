@@ -97,6 +97,89 @@ void loadStaticCascadingReels3X5(FileNameList& lstfn,
   }
 }
 
+// loadStaticCascadingReels3X5FromPB - load from protobuf
+void loadStaticCascadingReels3X5FromPB(
+    StaticCascadingReels3X5& scr, const natashapb::StaticCascadingReels* pSCR) {
+  assert(pSCR != NULL);
+
+  int maxdownnums = 0;
+  scr.clear();
+
+  for (int i = 0; i < pSCR->scenarios_size(); ++i) {
+    auto scenario = pSCR->scenarios(i);
+
+    if (maxdownnums < scenario.scenarios_size()) {
+      maxdownnums = scenario.scenarios_size();
+    }
+
+    for (int r = 0; r < scenario.scenarios_size(); ++r) {
+      auto symbols = scenario.scenarios(r);
+      assert(symbols.symbols_size() == 3 * 5);
+
+      ::natashapb::SymbolBlock3X5 sb;
+
+      for (int y = 0; y < 3; ++y) {
+        for (int x = 0; x < 5; ++x) {
+          setSymbolBlock3X5(&sb, x, y, symbols.symbols(y * 5 + x));
+        }
+      }
+
+      if (r == 0) {
+        scr.newRow();
+      }
+
+      scr.newColumn(i, sb);
+    }
+  }
+
+  scr.setMaxDownNums(maxdownnums);
+}
+
+// loadPaytables3X5FromPB - load from protobuf
+void loadPaytables3X5FromPB(Paytables3X5& paytables,
+                            const natashapb::Paytables* pPaytables) {
+  assert(pPaytables != NULL);
+
+  paytables.clear();
+
+  for (auto it = pPaytables->paytables().begin();
+       it != pPaytables->paytables().end(); ++it) {
+    int symbol = it->first;
+    auto cp = it->second;
+
+    assert(cp.payout_size() == 5);
+
+    paytables.setSymbolPayout(symbol, 0, cp.payout(0));
+    paytables.setSymbolPayout(symbol, 1, cp.payout(1));
+    paytables.setSymbolPayout(symbol, 2, cp.payout(2));
+    paytables.setSymbolPayout(symbol, 3, cp.payout(3));
+    paytables.setSymbolPayout(symbol, 4, cp.payout(4));
+  }
+}
+
+// loadLines3X5FromPB - load from protobuf
+void loadLines3X5FromPB(Lines3X5& lines, const natashapb::Lines* pLines) {
+  assert(pLines != NULL);
+
+  lines.clear();
+
+  for (int i = 0; i < pLines->lines_size(); ++i) {
+    auto cl = pLines->lines(i);
+
+    assert(cl.yarr_size() == 5);
+
+    LineInfo3X5 li;
+
+    li.set(0, cl.yarr(0));
+    li.set(1, cl.yarr(1));
+    li.set(2, cl.yarr(2));
+    li.set(3, cl.yarr(3));
+    li.set(4, cl.yarr(4));
+
+    lines.addLine(li);
+  }
+}
+
 // loadNormalReels - reelstrips.csv
 void loadNormalReels3X5(const char* fn, NormalReels3X5& scr) {
   scr.clear();

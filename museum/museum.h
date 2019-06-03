@@ -24,8 +24,7 @@ class Museum : public GameLogic {
   virtual ::natashapb::CODE init(const char* cfgpath);
 
   // getMainGameMod - get current main game module
-  virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                                  bool isComeInGame);
+  virtual GameMod* getMainGameMod(UserInfo* pUser, bool isComeInGame);
 #ifdef NATASHA_COUNTRTP
  public:
   virtual void onInitRTP() {

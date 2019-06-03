@@ -28,8 +28,9 @@ class MuseumFreeGame : public SlotsGameMod {
 
   // start - start cur game module for user
   //    basegame does not need to handle this
-  virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUser,
-                                  const ::natashapb::StartGameMod* pStart) {
+  virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUGMI,
+                                  const ::natashapb::StartGameMod* pStart,
+                                  const UserInfo* pUser) {
     assert(pStart->has_freegame());
     assert(pStart->has_parentctrlid());
 
@@ -59,13 +60,13 @@ class MuseumFreeGame : public SlotsGameMod {
       return ::natashapb::INVALID_PARENT_GAMEMOD;
     }
 
-    if (this->isIn(pUser)) {
+    if (this->isIn(pUGMI)) {
       return ::natashapb::ALREADY_IN_FREEGAME;
     }
 
-    this->clearUGMI(pUser);
+    this->clearUGMI(pUGMI);
 
-    auto freeinfo = pUser->mutable_freeinfo();
+    auto freeinfo = pUGMI->mutable_freeinfo();
     freeinfo->set_curbet(pStart->freegame().bet());
     freeinfo->set_curlines(pStart->freegame().lines());
     freeinfo->set_curtimes(pStart->freegame().times());
@@ -73,34 +74,34 @@ class MuseumFreeGame : public SlotsGameMod {
     freeinfo->set_lastnums(pStart->freegame().freenums());
     freeinfo->set_totalwin(0);
 
-    pUser->mutable_cascadinginfo()->set_isend(true);
+    pUGMI->mutable_cascadinginfo()->set_isend(true);
 
     // printGameCtrlID("tlod start freegame", pStart->parentctrlid());
 
-    setGameCtrlID(*pUser->mutable_gamectrlid(), pStart->parentctrlid(), 0,
+    setGameCtrlID(*pUGMI->mutable_gamectrlid(), pStart->parentctrlid(), 0,
                   ::natashapb::FREE_GAME);
 
     return ::natashapb::OK;
   }
 
   // onUserComeIn -
-  virtual ::natashapb::CODE onUserComeIn(
-      const ::natashapb::UserGameLogicInfo* pLogicUser,
-      ::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE onUserComeIn(const UserInfo* pUser,
+                                         ::natashapb::UserGameModInfo* pUGMI) {
     assert(pUser != NULL);
+    assert(pUGMI != NULL);
 
     // 版本号用来区分数据版本
     // 版本号也可以用于判断数据是否已经初始化
-    if (pUser->ver() != MUSEUM_FG_UGMI_VER) {
-      auto code = this->clearUGMI(pUser);
+    if (pUGMI->ver() != MUSEUM_FG_UGMI_VER) {
+      auto code = this->clearUGMI(pUGMI);
       if (code != ::natashapb::OK) {
         return code;
       }
 
-      pUser->mutable_cascadinginfo()->set_isend(true);
+      pUGMI->mutable_cascadinginfo()->set_isend(true);
 
-      auto pGameCtrl = new ::natashapb::GameCtrl();
-      code = this->makeInitScenario(pGameCtrl, pLogicUser, pUser);
+      ::natashapb::GameCtrl gamectrl;
+      code = this->makeInitScenario(&gamectrl, pUser, pUGMI);
       if (code != ::natashapb::OK) {
         return code;
       }
@@ -153,10 +154,9 @@ class MuseumFreeGame : public SlotsGameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
-    auto turnnums = pUser->cascadinginfo().turnnums();
-    auto pCfg = getUserConfig(pLogicUser);
+      const ::natashapb::UserGameModInfo* pUGMI, const UserInfo* pUser) {
+    auto turnnums = pUGMI->cascadinginfo().turnnums();
+    auto pCfg = (const ::natashapb::MuseumRTPConfig*)getUserConfig(pUser);
     if (turnnums >= pCfg->fgmysterywild_size()) {
       turnnums = pCfg->fgmysterywild_size() - 1;
     }
@@ -167,7 +167,7 @@ class MuseumFreeGame : public SlotsGameMod {
         std::bind(museum_onfill, std::placeholders::_1, std::placeholders::_2,
                   std::placeholders::_3, mwweight);
 
-    randomReels3x5(m_reels, pRandomResult, pUser, f);
+    randomReels3x5(m_reels, pRandomResult, pUGMI, f);
 
     return ::natashapb::OK;
   }
@@ -177,14 +177,14 @@ class MuseumFreeGame : public SlotsGameMod {
       ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
+      const ::natashapb::UserGameModInfo* pUGMI, const UserInfo* pUser) {
     assert(pSpinResult != NULL);
     assert(pGameCtrl != NULL);
     assert(pRandomResult != NULL);
     assert(pUser != NULL);
+    assert(pUGMI != NULL);
 
-    auto pCfg = getUserConfig(pLogicUser);
+    auto pCfg = (const ::natashapb::MuseumRTPConfig*)getUserConfig(pUser);
 
 #ifdef NATASHA_DEBUG
     printRandomResult("countSpinResult", pRandomResult, MUSEUM_SYMBOL_MAPPING);
@@ -192,8 +192,8 @@ class MuseumFreeGame : public SlotsGameMod {
 
     pSpinResult->Clear();
 
-    this->buildSpinResultSymbolBlock(pSpinResult, pUser, pGameCtrl,
-                                     pRandomResult, pLogicUser, pCfg);
+    this->buildSpinResultSymbolBlock(pSpinResult, pUGMI, pGameCtrl,
+                                     pRandomResult, pUser, pCfg);
 
     // First check free
     ::natashapb::GameResultInfo gri;
@@ -212,9 +212,9 @@ class MuseumFreeGame : public SlotsGameMod {
                     m_paytables, pGameCtrl->freespin().bet());
 
     auto bonuswin = museum_procWildBomb<::natashapb::FREE_GAME>(
-        pGameCtrl->freespin().bet(), *pCfg, pUser, pSpinResult);
+        pGameCtrl->freespin().bet(), *pCfg, pUGMI, pSpinResult);
 
-    auto turnnums = pUser->cascadinginfo().turnnums();
+    auto turnnums = pUGMI->cascadinginfo().turnnums();
     if (turnnums >= pCfg->fgmultipliers_size()) {
       turnnums = pCfg->fgmultipliers_size() - 1;
     }
@@ -232,73 +232,71 @@ class MuseumFreeGame : public SlotsGameMod {
 
   // procSpinResult - proc spin result
   virtual ::natashapb::CODE procSpinResult(
-      ::natashapb::UserGameModInfo* pUser,
+      ::natashapb::UserGameModInfo* pUGMI,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::RandomResult* pRandomResult,
-      ::natashapb::UserGameLogicInfo* pLogicUser) {
+      const ::natashapb::RandomResult* pRandomResult, UserInfo* pUser) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);
     assert(pRandomResult != NULL);
-    assert(pLogicUser != NULL);
+    assert(pUGMI != NULL);
 
     // if need start free game
     if (pSpinResult->fgnums() > 0) {
-      auto fi = pUser->mutable_freeinfo();
+      auto fi = pUGMI->mutable_freeinfo();
       fi->set_lastnums(fi->lastnums() + pSpinResult->fgnums());
     }
 
     // if respin
     if (pSpinResult->lstgri_size() > 0) {
-      this->setCurGameCtrlID(pUser, pGameCtrl->ctrlid());
+      this->setCurGameCtrlID(pUGMI, pGameCtrl->ctrlid());
 
-      pUser->mutable_cascadinginfo()->set_turnwin(
-          pUser->cascadinginfo().turnwin() + pSpinResult->realwin());
+      pUGMI->mutable_cascadinginfo()->set_turnwin(
+          pUGMI->cascadinginfo().turnwin() + pSpinResult->realwin());
 
-      pUser->mutable_cascadinginfo()->set_curbet(pGameCtrl->freespin().bet());
-      pUser->mutable_cascadinginfo()->set_turnnums(
-          pUser->cascadinginfo().turnnums() + 1);
-      pUser->mutable_cascadinginfo()->set_isend(false);
+      pUGMI->mutable_cascadinginfo()->set_curbet(pGameCtrl->freespin().bet());
+      pUGMI->mutable_cascadinginfo()->set_turnnums(
+          pUGMI->cascadinginfo().turnnums() + 1);
+      pUGMI->mutable_cascadinginfo()->set_isend(false);
       // printGameCtrlID("tlod basegame", pUser->gamectrlid());
     } else {
-      pUser->mutable_cascadinginfo()->set_isend(true);
+      pUGMI->mutable_cascadinginfo()->set_isend(true);
     }
 
-    this->addRespinHistory(pUser, pSpinResult->realwin(), pSpinResult->win(),
+    this->addRespinHistory(pUGMI, pSpinResult->realwin(), pSpinResult->win(),
                            pSpinResult->awardmul(), false);
 
     return ::natashapb::OK;
   }
 
   // onSpinStart - on spin start
-  virtual ::natashapb::CODE onSpinStart(
-      ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser) {
-    assert(pUser != NULL);
+  virtual ::natashapb::CODE onSpinStart(::natashapb::UserGameModInfo* pUGMI,
+                                        const ::natashapb::GameCtrl* pGameCtrl,
+                                        UserInfo* pUser) {
+    assert(pUGMI != NULL);
     assert(pGameCtrl != NULL);
-    assert(pLogicUser != NULL);
-    assert(pUser->has_freeinfo());
+    assert(pUser != NULL);
+    assert(pUGMI->has_freeinfo());
     // assert(pUser->freeinfo().lastnums() > 0);
-    assert(pUser->has_cascadinginfo());
+    assert(pUGMI->has_cascadinginfo());
 
-    if (pUser->freeinfo().lastnums() == 0) {
-      assert(!pUser->cascadinginfo().isend());
+    if (pUGMI->freeinfo().lastnums() == 0) {
+      assert(!pUGMI->cascadinginfo().isend());
     }
 
     bool isrespin = true;
-    if (pUser->cascadinginfo().isend()) {
-      pUser->mutable_cascadinginfo()->set_turnnums(0);
-      pUser->mutable_cascadinginfo()->set_turnwin(0);
+    if (pUGMI->cascadinginfo().isend()) {
+      pUGMI->mutable_cascadinginfo()->set_turnnums(0);
+      pUGMI->mutable_cascadinginfo()->set_turnwin(0);
 
-      this->clearRespinHistory(pUser);
+      this->clearRespinHistory(pUGMI);
 
       isrespin = false;
     }
 
     if (!isrespin) {
-      auto fi = pUser->mutable_freeinfo();
+      auto fi = pUGMI->mutable_freeinfo();
       fi->set_lastnums(fi->lastnums() - 1);
       fi->set_curnums(fi->curnums() + 1);
 
@@ -311,24 +309,23 @@ class MuseumFreeGame : public SlotsGameMod {
   }
 
   // onSpinEnd - on spin end
-  virtual ::natashapb::CODE onSpinEnd(
-      ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::SpinResult* pSpinResult,
-      ::natashapb::RandomResult* pRandomResult,
-      ::natashapb::UserGameLogicInfo* pLogicUser) {
+  virtual ::natashapb::CODE onSpinEnd(::natashapb::UserGameModInfo* pUGMI,
+                                      const ::natashapb::GameCtrl* pGameCtrl,
+                                      ::natashapb::SpinResult* pSpinResult,
+                                      ::natashapb::RandomResult* pRandomResult,
+                                      UserInfo* pUser) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);
     assert(pRandomResult != NULL);
-    assert(pLogicUser != NULL);
+    assert(pUGMI != NULL);
 
 #ifdef NATASHA_SERVER
     pSpinResult->mutable_freespin()->CopyFrom(pGameCtrl->freespin());
 #endif  // NATASHA_SERVER
 
     if (pSpinResult->lstgri_size() > 0) {
-      auto sb = pUser->mutable_symbolblock();
+      auto sb = pUGMI->mutable_symbolblock();
       auto sb3x5 = sb->mutable_sb3x5();
 
       sb3x5->CopyFrom(pSpinResult->symbolblock().sb3x5());
@@ -349,22 +346,22 @@ class MuseumFreeGame : public SlotsGameMod {
   // buildSpinResultSymbolBlock - build spin result's symbol block
   virtual ::natashapb::CODE buildSpinResultSymbolBlock(
       ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameModInfo* pUGMI,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameLogicInfo* pLogicUser, const void* pCfg) {
+      const ::natashapb::RandomResult* pRandomResult, const UserInfo* pUser,
+      const void* pCfg) {
     assert(pUser != NULL);
     assert(pGameCtrl != NULL);
     assert(pSpinResult != NULL);
     assert(pRandomResult != NULL);
-    assert(pLogicUser != NULL);
+    assert(pUGMI != NULL);
 
     auto sb = pSpinResult->mutable_symbolblock();
     auto sb3x5 = sb->mutable_sb3x5();
 
     auto cfg = (const ::natashapb::MuseumRTPConfig*)pCfg;
     if (cfg != NULL) {
-      auto turnnums = pUser->cascadinginfo().turnnums();
+      auto turnnums = pUGMI->cascadinginfo().turnnums();
 #ifdef NATASHA_DEBUG
       printf("buildSpinResultSymbolBlock %d\n", turnnums);
       printSymbolBlock3X5("buildSpinResultSymbolBlock first",
@@ -415,15 +412,15 @@ class MuseumFreeGame : public SlotsGameMod {
   }
 
  public:
-  const ::natashapb::MuseumRTPConfig* getUserConfig(
-      const ::natashapb::UserGameLogicInfo* pLogicUser) {
-    auto rtpcfg = m_cfg.rtp().find(pLogicUser->configname());
-    if (rtpcfg != m_cfg.rtp().end()) {
-      return &rtpcfg->second;
-    }
+  // const ::natashapb::MuseumRTPConfig* getUserConfig(
+  //     const ::natashapb::UserGameLogicInfo* pLogicUser) {
+  //   auto rtpcfg = m_cfg.rtp().find(pLogicUser->configname());
+  //   if (rtpcfg != m_cfg.rtp().end()) {
+  //     return &rtpcfg->second;
+  //   }
 
-    return NULL;
-  }
+  //   return NULL;
+  // }
 
   // void bomb(::natashapb::SymbolBlock3X5& tmp,
   //           const ::natashapb::SymbolBlock3X5& sb3x5, int x, int y,

@@ -6,7 +6,7 @@
 #include <vector>
 #include "../protoc/base.pb.h"
 #include "array.h"
-// #include "symbolblock.h"
+#include "userinfo.h"
 #include "utils.h"
 
 namespace natasha {
@@ -23,8 +23,9 @@ class GameMod {
   virtual ::natashapb::CODE init() = 0;
 
   // start - start cur game module for user
-  virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUser,
-                                  const ::natashapb::StartGameMod* pStart) = 0;
+  virtual ::natashapb::CODE start(::natashapb::UserGameModInfo* pUGMI,
+                                  const ::natashapb::StartGameMod* pStart,
+                                  const UserInfo* pUser) = 0;
 
   // isIn - is in current game module
   virtual bool isIn(const ::natashapb::UserGameModInfo* pUser) = 0;
@@ -35,24 +36,21 @@ class GameMod {
       const ::natashapb::UserGameModInfo* pUser) = 0;
 
   // onUserComeIn -
-  virtual ::natashapb::CODE onUserComeIn(
-      const ::natashapb::UserGameLogicInfo* pLogicUser,
-      ::natashapb::UserGameModInfo* pUser) {
+  virtual ::natashapb::CODE onUserComeIn(const UserInfo* pUser,
+                                         ::natashapb::UserGameModInfo* pUGMI) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
   // onGameCtrl
   virtual ::natashapb::CODE onGameCtrl(
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser,
+      const ::natashapb::GameCtrl* pGameCtrl, UserInfo* pUser,
       ::natashapb::UserGameModInfo* pMainUGMI) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
 
   // onGameCtrlEnd
   virtual ::natashapb::CODE onGameCtrlEnd(
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser,
+      const ::natashapb::GameCtrl* pGameCtrl, UserInfo* pUser,
       ::natashapb::UserGameModInfo* pMainUGMI) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
@@ -86,8 +84,7 @@ class GameMod {
   // makeInitScenario - make a initial scenario
   //                  - 产生一个初始局面，不中奖的
   virtual ::natashapb::CODE makeInitScenario(
-      ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::GameCtrl* pGameCtrl, const UserInfo* pUser,
       ::natashapb::UserGameModInfo* pUGMI) {
     return ::natashapb::ERR_NO_OVERLOADED_INTERFACE;
   }
@@ -97,8 +94,9 @@ class GameMod {
   ::natashapb::GAMEMODTYPE getGameModType() { return m_gmt; }
 
   // getUserGameModInfo - get user game module info
-  ::natashapb::UserGameModInfo* getUserGameModInfo(
-      ::natashapb::UserGameLogicInfo* pLogicUser);
+  ::natashapb::UserGameModInfo* getUserGameModInfo(UserInfo* pUser);
+
+  void* getUserConfig(const UserInfo* pUser) { return pUser->pCurConfig; }
 
  protected:
   GameLogic& m_logic;
@@ -114,40 +112,43 @@ class SlotsGameMod : public GameMod {
  public:
   // onGameCtrl
   virtual ::natashapb::CODE onGameCtrl(
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser,
+      const ::natashapb::GameCtrl* pGameCtrl, UserInfo* pUser,
       ::natashapb::UserGameModInfo* pMainUGMI) {
+    assert(pUser != NULL);
+    assert(pUser->pLogicUser != NULL);
     // assert(pMainUGMI->has_randomresult());
     // assert(pMainUGMI->has_spinresult());
 
-    auto code = this->onSpinStart(pMainUGMI, pGameCtrl, pLogicUser);
+    // auto pLogicUser = pUser->pLogicUser;
+
+    auto code = this->onSpinStart(pMainUGMI, pGameCtrl, pUser);
     if (code != ::natashapb::OK) {
       return code;
     }
 
     code = this->randomReels(pMainUGMI->mutable_randomresult(), pGameCtrl,
-                             pMainUGMI, pLogicUser);
+                             pMainUGMI, pUser);
     if (code != ::natashapb::OK) {
       return code;
     }
 
     code = this->countSpinResult(pMainUGMI->mutable_spinresult(), pGameCtrl,
                                  pMainUGMI->mutable_randomresult(), pMainUGMI,
-                                 pLogicUser);
+                                 pUser);
     if (code != ::natashapb::OK) {
       return code;
     }
 
     code = this->procSpinResult(pMainUGMI, pGameCtrl,
                                 pMainUGMI->mutable_spinresult(),
-                                pMainUGMI->mutable_randomresult(), pLogicUser);
+                                pMainUGMI->mutable_randomresult(), pUser);
     if (code != ::natashapb::OK) {
       return code;
     }
 
     code =
         this->onSpinEnd(pMainUGMI, pGameCtrl, pMainUGMI->mutable_spinresult(),
-                        pMainUGMI->mutable_randomresult(), pLogicUser);
+                        pMainUGMI->mutable_randomresult(), pUser);
     if (code != ::natashapb::OK) {
       return code;
     }
@@ -176,8 +177,7 @@ class SlotsGameMod : public GameMod {
   // makeInitScenario - make a initial scenario
   //                  - 产生一个初始局面，不中奖的
   virtual ::natashapb::CODE makeInitScenario(
-      ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameLogicInfo* pLogicUser,
+      ::natashapb::GameCtrl* pGameCtrl, const UserInfo* pUser,
       ::natashapb::UserGameModInfo* pUGMI);
 
  public:
@@ -185,46 +185,41 @@ class SlotsGameMod : public GameMod {
   virtual ::natashapb::CODE randomReels(
       ::natashapb::RandomResult* pRandomResult,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+      const ::natashapb::UserGameModInfo* pUGMI, const UserInfo* pUser) = 0;
 
   // countSpinResult - count spin result
   virtual ::natashapb::CODE countSpinResult(
       ::natashapb::SpinResult* pSpinResult,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+      const ::natashapb::UserGameModInfo* pUGMI, const UserInfo* pUser) = 0;
 
   // procSpinResult - proc spin result
   virtual ::natashapb::CODE procSpinResult(
-      ::natashapb::UserGameModInfo* pUser,
+      ::natashapb::UserGameModInfo* pUGMI,
       const ::natashapb::GameCtrl* pGameCtrl,
       const ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::RandomResult* pRandomResult,
-      ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+      const ::natashapb::RandomResult* pRandomResult, UserInfo* pUser) = 0;
 
   // onSpinStart - on spin start
-  virtual ::natashapb::CODE onSpinStart(
-      ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+  virtual ::natashapb::CODE onSpinStart(::natashapb::UserGameModInfo* pUGMI,
+                                        const ::natashapb::GameCtrl* pGameCtrl,
+                                        UserInfo* pUser) = 0;
 
   // onSpinEnd - on spin end
-  virtual ::natashapb::CODE onSpinEnd(
-      ::natashapb::UserGameModInfo* pUser,
-      const ::natashapb::GameCtrl* pGameCtrl,
-      ::natashapb::SpinResult* pSpinResult,
-      ::natashapb::RandomResult* pRandomResult,
-      ::natashapb::UserGameLogicInfo* pLogicUser) = 0;
+  virtual ::natashapb::CODE onSpinEnd(::natashapb::UserGameModInfo* pUGMI,
+                                      const ::natashapb::GameCtrl* pGameCtrl,
+                                      ::natashapb::SpinResult* pSpinResult,
+                                      ::natashapb::RandomResult* pRandomResult,
+                                      UserInfo* pUser) = 0;
 
   // buildSpinResultSymbolBlock - build spin result's symbol block
   virtual ::natashapb::CODE buildSpinResultSymbolBlock(
       ::natashapb::SpinResult* pSpinResult,
-      const ::natashapb::UserGameModInfo* pUser,
+      const ::natashapb::UserGameModInfo* pUGMI,
       const ::natashapb::GameCtrl* pGameCtrl,
-      const ::natashapb::RandomResult* pRandomResult,
-      const ::natashapb::UserGameLogicInfo* pLogicUser, const void* pCfg) = 0;
+      const ::natashapb::RandomResult* pRandomResult, const UserInfo* pUser,
+      const void* pCfg) = 0;
 
  public:
   // clearRespinHistory

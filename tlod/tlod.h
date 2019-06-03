@@ -24,14 +24,18 @@ class TLOD : public GameLogic {
   virtual ::natashapb::CODE init(const char* cfgpath);
 
   // getMainGameMod - get current main game module
-  virtual GameMod* getMainGameMod(::natashapb::UserGameLogicInfo* pLogicUser,
-                                  bool isComeInGame);
+  virtual GameMod* getMainGameMod(UserInfo* pUser, bool isComeInGame);
 #ifdef NATASHA_COUNTRTP
  public:
   virtual void onInitRTP() {
-    addRTPModule(::natashapb::BASE_GAME, TLODMaxSymbols, TLODMaxPayoutNums);
+    addRTPModule(::natashapb::BASE_GAME, TLODMaxPayoutNums, TLODMaxSymbols);
+    addRTPModule(::natashapb::FREE_GAME, TLODMaxPayoutNums, TLODMaxSymbols);
   }
 #endif  // NATASHA_COUNTRTP
+
+#ifdef NATASHA_RUNINCPP
+  void initConfig();
+#endif  // NATASHA_RUNINCPP
  protected:
   StaticCascadingReels3X5 m_reels;
   Paytables3X5 m_paytables;
