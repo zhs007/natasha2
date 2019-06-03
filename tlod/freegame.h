@@ -44,12 +44,13 @@ class TLODFreeGame : public SlotsGameMod {
     if (pStart->freegame().times() != TLOD_DEFAULT_TIMES) {
       return ::natashapb::INVALID_START_TIMES;
     }
-
+#ifdef NATASHA_SERVER
     auto it =
         std::find(m_lstBet.begin(), m_lstBet.end(), pStart->freegame().bet());
     if (it == m_lstBet.end()) {
       return ::natashapb::INVALID_START_BET;
     }
+#endif  // NATASHA_SERVER
 
     if (pStart->parentctrlid().ctrlid() <= 0) {
       return ::natashapb::INVALID_PARENTID;
@@ -133,18 +134,21 @@ class TLODFreeGame : public SlotsGameMod {
     if (!pGameCtrl->has_freespin()) {
       return ::natashapb::INVALID_GAMECTRL_GAMEMOD;
     }
-
+#ifdef NATASHA_SERVER
     auto spinctrl = pGameCtrl->mutable_freespin();
     spinctrl->set_bet(pUser->freeinfo().curbet());
     spinctrl->set_lines(TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_times(TLOD_DEFAULT_TIMES);
     spinctrl->set_totalbet(pUser->freeinfo().curbet() * TLOD_DEFAULT_PAY_LINES);
     spinctrl->set_realbet(0);
+#endif  // NATASHA_SERVER
 
+#ifdef NATASHA_SERVER
     auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
     if (it == m_lstBet.end()) {
       return ::natashapb::INVALID_BET;
     }
+#endif  // NATASHA_SERVER
 
     return ::natashapb::OK;
   }
@@ -172,19 +176,21 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pUGMI != NULL);
 
     pSpinResult->Clear();
-
+#ifdef NATASHA_SERVER
     this->buildSpinResultSymbolBlock(pSpinResult, pUGMI, pGameCtrl,
                                      pRandomResult, pUser, NULL);
+#endif  // NATASHA_SERVER
+
+    auto sb3x5 = pRandomResult->scrr3x5().symbolblock().sb3x5();
 
     // First check free
     ::natashapb::GameResultInfo gri;
-    TLODCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
-                     TLOD_SYMBOL_S,
+    TLODCountScatter(gri, sb3x5, m_paytables, TLOD_SYMBOL_S,
                      pGameCtrl->freespin().bet() * TLOD_DEFAULT_PAY_LINES);
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
-      gri.set_win(0);
-      gri.set_realwin(0);
+      // gri.set_win(0);
+      // gri.set_realwin(0);
 
       pCurGRI->CopyFrom(gri);
 
@@ -193,8 +199,8 @@ class TLODFreeGame : public SlotsGameMod {
     }
 
     // check all line payout
-    TLODCountAllLine(*pSpinResult, pSpinResult->symbolblock().sb3x5(), m_lines,
-                     m_paytables, pGameCtrl->freespin().bet());
+    TLODCountAllLine(*pSpinResult, sb3x5, m_lines, m_paytables,
+                     pGameCtrl->freespin().bet());
 
     pSpinResult->set_awardmul(pUGMI->cascadinginfo().turnnums() + 3);
     pSpinResult->set_realwin(pSpinResult->win() * pSpinResult->awardmul());
@@ -240,8 +246,10 @@ class TLODFreeGame : public SlotsGameMod {
       pUGMI->mutable_cascadinginfo()->set_isend(true);
     }
 
+#ifdef NATASHA_SERVER
     this->addRespinHistory(pUGMI, pSpinResult->realwin(), pSpinResult->win(),
                            pSpinResult->awardmul(), false);
+#endif  // NATASHA_SERVER
 
     return ::natashapb::OK;
   }
@@ -300,7 +308,7 @@ class TLODFreeGame : public SlotsGameMod {
       auto sb = pUGMI->mutable_symbolblock();
       auto sb3x5 = sb->mutable_sb3x5();
 
-      sb3x5->CopyFrom(pSpinResult->symbolblock().sb3x5());
+      sb3x5->CopyFrom(pRandomResult->scrr3x5().symbolblock().sb3x5());
       removeBlock3X5WithGameResult(sb3x5, pSpinResult);
       cascadeBlock3X5(sb3x5);
 
@@ -325,11 +333,11 @@ class TLODFreeGame : public SlotsGameMod {
     assert(pSpinResult != NULL);
     assert(pRandomResult != NULL);
     assert(pUGMI != NULL);
-
+#ifdef NATASHA_SERVER
     auto sb = pSpinResult->mutable_symbolblock();
     auto sb3x5 = sb->mutable_sb3x5();
     sb3x5->CopyFrom(pRandomResult->scrr3x5().symbolblock().sb3x5());
-
+#endif  // NATASHA_SERVER
     return ::natashapb::OK;
   }
 

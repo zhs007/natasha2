@@ -81,12 +81,15 @@ void countRTP_tlod() {
   spin->set_bet(1);
   spin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
   spin->set_times(natasha::TLOD_DEFAULT_TIMES);
+  spin->set_totalbet(TLOD_DEFAULT_PAY_LINES);
 
   auto pGameCtrlFG = new ::natashapb::GameCtrl();
   auto freespin = pGameCtrlFG->mutable_freespin();
   freespin->set_bet(1);
   freespin->set_lines(natasha::TLOD_DEFAULT_PAY_LINES);
   freespin->set_times(natasha::TLOD_DEFAULT_TIMES);
+  freespin->set_totalbet(TLOD_DEFAULT_PAY_LINES);
+  freespin->set_realbet(0);
 
   int64_t ctrlid = 1;
   bool fg = false;
