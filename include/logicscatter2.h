@@ -19,12 +19,10 @@ bool countScatter_Left(
     ::natashapb::GameResultInfo& gri, const SymbolBlockT& arr,
     const Paytables<Width, SymbolType, int, MoneyType>& paytables, SymbolType s,
     MoneyType totalbet) {
-  // typedef SymbolBlock<SymbolType, Width, Height> SymbolBlockT;
   typedef Paytables<Width, SymbolType, int, MoneyType> PaytablesT;
 
-  clearGameResultInfo(gri);
-  // gri.Clear();
-  // gri.set_typegameresult(::natashapb::NULL_);
+  // clearGameResultInfo(gri);
+
   gri.set_symbol(s);
 
   for (int y = 0; y < Height; ++y) {
@@ -49,7 +47,7 @@ bool countScatter_Left(
   if (snums < 1) {
     return false;
   }
-  
+
   MoneyType p = paytables.getSymbolPayout(s, snums - 1);
   if (p > 0) {
     gri.set_typegameresult(::natashapb::SCATTER_LEFT);

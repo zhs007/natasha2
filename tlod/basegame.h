@@ -92,11 +92,13 @@ class TLODBaseGame : public SlotsGameMod {
       spinctrl->set_realbet(spinctrl->bet() * TLOD_DEFAULT_PAY_LINES);
     }
 
+#ifdef NATASHA_SERVER
     // check bet
     auto it = std::find(m_lstBet.begin(), m_lstBet.end(), spinctrl->bet());
     if (it == m_lstBet.end()) {
       return ::natashapb::INVALID_BET;
     }
+#endif  // NATASHA_SERVER
 
     return ::natashapb::OK;
   }
@@ -131,9 +133,7 @@ class TLODBaseGame : public SlotsGameMod {
 #ifdef NATASHA_DEBUG
     printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 #endif  // NATASHA_DEBUG
-    // printRandomResult("countSpinResult", pRandomResult, TLOD_SYMBOL_MAPPING);
 
-    // printf("start TLODCountScatter");
     // First check free
     ::natashapb::GameResultInfo gri;
     TLODCountScatter(gri, pSpinResult->symbolblock().sb3x5(), m_paytables,
@@ -141,12 +141,8 @@ class TLODBaseGame : public SlotsGameMod {
                      pGameCtrl->spin().bet() * TLOD_DEFAULT_PAY_LINES);
     if (gri.typegameresult() == ::natashapb::SCATTER_LEFT) {
       auto pCurGRI = pSpinResult->add_lstgri();
-      gri.set_win(0);
-      gri.set_realwin(0);
 
       pCurGRI->CopyFrom(gri);
-
-      // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
       if (pUGMI->cascadinginfo().freestate() == ::natashapb::NO_FREEGAME) {
         pCurGRI->set_typegameresult(::natashapb::SCATTEREX_LEFT);
@@ -157,7 +153,9 @@ class TLODBaseGame : public SlotsGameMod {
         pSpinResult->set_fgnums(TLOD_DEFAULT_FREENUMS);
         pSpinResult->set_realfgnums(TLOD_DEFAULT_FREENUMS);
 
-        // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+#ifdef NATASHA_DEBUG
+        printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
+#endif  // NATASHA_DEBUG
 
         return ::natashapb::OK;
 
@@ -184,7 +182,6 @@ class TLODBaseGame : public SlotsGameMod {
 #ifdef NATASHA_DEBUG
     printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 #endif  // NATASHA_DEBUG
-    // printSpinResult("countSpinResult", pSpinResult, TLOD_SYMBOL_MAPPING);
 
     return ::natashapb::OK;
   }

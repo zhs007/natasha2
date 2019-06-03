@@ -36,14 +36,16 @@ void StaticCascadingReels3X5::fill(
 
   ::natashapb::SymbolBlock* pSB = pSCRR->mutable_symbolblock();
   ::natashapb::SymbolBlock3X5* pSB35 = pSB->mutable_sb3x5();
-  pSB35->CopyFrom(*pLastSB);
+  // pSB35->CopyFrom(*pLastSB);
 
   const ::natashapb::SymbolBlock3X5* pNewSB = pSBD->at(dn + 1);
 
   for (int y = 0; y < 3; ++y) {
     for (int x = 0; x < 5; ++x) {
-      if (getSymbolBlock3X5(pSB35, x, y) == -1) {
+      if (getSymbolBlock3X5(pLastSB, x, y) == -1) {
         setSymbolBlock3X5(pSB35, x, y, getSymbolBlock3X5(pNewSB, x, y));
+      } else {
+        setSymbolBlock3X5(pSB35, x, y, getSymbolBlock3X5(pLastSB, x, y));
       }
     }
   }
@@ -53,6 +55,8 @@ void StaticCascadingReels3X5::random(
     ::natashapb::RandomResult* pRandomResult,
     const ::natashapb::UserGameModInfo* pUGMI) {
   assert(pRandomResult != NULL);
+
+  // 有些时候，这个还没初始化
   // assert(pUGMI->symbolblock().has_sb3x5());
 
   // 如果FG是中间进入的，这里需要跳过一回合
@@ -83,6 +87,8 @@ void StaticCascadingReels3X5::random(
 
       randomNew(pSCRR);
     } else {
+      assert(pUGMI->symbolblock().has_sb3x5());
+
       ::natashapb::StaticCascadingRandomResult3X5* pSCRR =
           pRandomResult->mutable_scrr3x5();
 

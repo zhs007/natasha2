@@ -7,30 +7,15 @@ namespace natasha {
 #ifdef NATASHA_RUNINCPP
   initConfig();
 #endif  // NATASHA_RUNINCPP
-  // FileNameList lst;
 
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_0.csv"));
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_1.csv"));
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_2.csv"));
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_3.csv"));
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_4.csv"));
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_5.csv"));
-  // lst.push_back(pathAppend(cfgpath, "game116_payout95_6.csv"));
-
-  // loadStaticCascadingReels3X5(lst, m_reels);
   if (m_reels.isEmpty()) {
     return ::natashapb::INVALID_REELS_CFG;
   }
 
-  // outputReels(&m_reels);
-
-  // loadLines3X5(pathAppend(cfgpath, "game116_line.csv").c_str(), m_lines);
   if (m_lines.isEmpty()) {
     return ::natashapb::INVALID_LINES_CFG;
   }
 
-  // loadPaytables3X5(pathAppend(cfgpath, "game116_paytables.csv").c_str(),
-  //                  m_paytables);
   if (m_paytables.isEmpty()) {
     return ::natashapb::INVALID_PAYTABLES_CFG;
   }
@@ -71,8 +56,8 @@ GameMod* TLOD::getMainGameMod(UserInfo* pUser, bool isComeInGame) {
 // countRTP_tlod - count rtp
 void countRTP_tlod() {
   TLOD tlod;
-
-  printf("%ld\n", time(NULL));
+  auto bt = time(NULL);
+  printf("%ld\n", bt);
 
   auto c = tlod.init("./csv");
   if (c != natashapb::OK) {
@@ -147,7 +132,8 @@ void countRTP_tlod() {
   delete pGameCtrlBG;
   delete pGameCtrlFG;
 
-  printf("%ld\n", time(NULL));
+  auto et = time(NULL);
+  printf("%ld(%ld)\n", et, et - bt);
 
   printf("end!\n");
 }
