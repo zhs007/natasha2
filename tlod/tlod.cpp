@@ -53,6 +53,7 @@ GameMod* TLOD::getMainGameMod(UserInfo* pUser, bool isComeInGame) {
   return pBG;
 }
 
+#ifdef NATASHA_COUNTRTP
 // countRTP_tlod - count rtp
 void countRTP_tlod() {
   TLOD tlod;
@@ -94,7 +95,7 @@ void countRTP_tlod() {
   int64_t ctrlid = 1;
   bool fg = false;
 
-  for (int i = 0; i <= 1000000; ++ctrlid) {
+  for (int i = 0; tlod.getRTP().rtp.totalbet() < 1000000 * 30; ++ctrlid) {
     // continue ;
 
     if (pUGI->nextgamemodtype() == natashapb::BASE_GAME) {
@@ -118,19 +119,19 @@ void countRTP_tlod() {
       }
     }
 
-    if (pUGI->iscompleted()) {
-      // printf("totalbet is %d %lld\n", i * 30, tlod.getRTP().rtp.totalbet());
+    // if (pUGI->iscompleted()) {
+    //   // printf("totalbet is %d %lld\n", i * 30,
+    //   tlod.getRTP().rtp.totalbet());
 
-      ++i;
+    //   ++i;
 
-      // if (fg) {
-      //   break;
-      // }
-    }
+    //   // if (fg) {
+    //   //   break;
+    //   // }
+    // }
   }
-#ifdef NATASHA_COUNTRTP
+
   tlod.outputRTP();
-#endif  // NATASHA_COUNTRTP
 
   delete pGameCtrlBG;
   delete pGameCtrlFG;
@@ -140,5 +141,6 @@ void countRTP_tlod() {
 
   printf("end!\n");
 }
+#endif  // NATASHA_COUNTRTP
 
 }  // namespace natasha
